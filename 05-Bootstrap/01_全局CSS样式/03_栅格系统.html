@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-v3/css/bootstrap.css">
+</head>
+
+<body>
+    <!-- 
+        栅格网格系统实现原理: 通过定义容器的大小, 平分12份(有的平分成24 32 36, 但是12份是最常见的),调整内外边距,
+            结合 媒体查询,就形成了响应式的栅格网格系统. bootstrap框架中是将容器平分成12份
+            CSS: container row
+            xs(xsamll phones), sm(small tablets), md(middle desktops), lg(larger desktops)
+            超小屏(自动)        小屏(750px)         中屏(970px)          大屏(1170px)
+
+        注意:
+            -- 1. 数据行(.row) 必须包含在容器(.container)中, 方便为每一行赋予最合适的对齐方式和内边距(padding)
+            -- 2. 只有列(column)才能作为行容器(.row)的直接子元素
+            -- 3. 列数之和不能超过平分的总列表 12,如果大于12,则自动换到下一行
+            -- 4. 具体的内容放在列表容器内(column)
+     -->
+    <div class="container" style="background-color: darkgreen;">
+        <!-- <h1 class="page-header">bootsrap框架</h1> -->
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-3" style="background-color:blueviolet">
+                3
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3" style="background-color: cadetblue;">
+                4
+            </div>
+        </div>
+
+        <!-- 
+            列偏移:
+                不让两个相邻的列相邻,不使用margin或者其他技术手段实现两个列之间的间隔,可以用列偏移(offset)
+                col-md-offset-*(*代表的是要偏移的列组合数),加上这个类以后,具有这个类名的列就会[向右]偏移
+                注意: 要保证列 与 偏移的列的总数不能超过12 ,不然会换行显示
+         -->
+        <div class="row">
+            <div class="col-md-1" style="background-color: hotpink;">第1列</div>
+            <div class="col-md-1 col-md-offset-8" style="background-color: chartreuse;">第2列</div>
+            <div class="col-md-1" style="background-color: yellow;">第3列</div>
+            <div class="col-md-1" style="background-color: darkmagenta;">第4列</div>
+        </div>
+
+        <!-- 
+            列嵌套:
+                bootstrap框架支持列的嵌套.即在一个列中添加一个或者多个行容器(.row), 然后在这个行容器继续添加列
+         -->
+        <div class="row">
+            <div class="col-md-2" style="background-color: goldenrod;">
+
+                <div class="row">
+                    <div class="col-md-5" style="background-color: green;">列1</div>
+                    <div class="col-md-7" style="background-color: indianred;">列2</div>
+                </div>
+            </div>
+            <div class="col-md-10" style="background-color: lawngreen;">
+                准备嵌套2
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

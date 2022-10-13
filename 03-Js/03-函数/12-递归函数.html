@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*1.递归函数：在数学中  一种计算过程  如果其中的每一步都需要前面一步或者前几步的结果  称为递归
+		用递归过程定义的函数，称为递归函数（简单来说就是函数自己调自己）
+
+		2.递归函数注意的问题：递归函数是需要有结束条件的，如果没有结束条件，那么函数将会进入到无限调用自己 （即死循环）
+		*/
+		// 死循环案例：
+		/*	function test(){
+			console.log("测试死循环");
+			test();
+		}
+		test();*/
+		/*3.使用递归函数为了防止出现死循环 需要满足两个条件：
+			3.1需要设置一个结束条件   当条件满足时就会结束函数
+			3.2递归函数每次做完一次循环  就离我们想要的结果跟进一步
+		 */
+		
+		// 阶乘求5！   5! = 5*4*3*2*1;
+		// 普通用法
+		var total = 1;
+		var a = 5;
+		while(a >= 1){
+			total = total * a;
+			a--;
+		}
+		console.log(total);
+		// 用函数实现：
+		function fun(a){
+			var total = 1;
+			while(a >= 1){
+				total = total * a;
+				a--;
+			}
+			return total;
+		}
+		console.log(fun(5));
+		// 4.用递归函数实现步骤
+		function fun1(a){
+			// 4.1第一步：先写满足结束条件
+			if(a == 1){
+				return 1;
+				// 4.2第二步：不满足结束条件时  我们的递归处理
+			}else{
+				return a * fun1(a-1)
+			}
+		}
+		console.log(fun1(5));
+	</script>
+</body>
+</html>

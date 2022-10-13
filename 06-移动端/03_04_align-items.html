@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>align-items</title>
+    <style>
+        .flex-container {
+            display: flex;
+            /* 主轴居中 */
+            justify-content: center;
+            flex-wrap: wrap;
+            /* 
+                align-items: 定义flex子项在flex容器中侧轴方向上的对齐方式(仅限于单行子元素)
+                    -- center 使项目位于容器的中心,挤在一起垂直居中
+                    -- stretch 拉伸 默认值,项目被拉伸以适应容器(适用于盒子没有高度的情况)
+                    -- flex-start 使项目位于容器的开头, 从开始到结尾
+                    -- flex-end 使项目位于容器的结尾, 从结尾到开始
+            */
+            /* 侧轴居中 */
+            align-items: center;
+            width: 1200px;
+            height: 640px;
+            background-color: skyblue;
+        }
+
+        .flex-item {
+            width: 280px;
+            height: 120px;
+            margin: 10px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <span class="flex-item">1</span>
+        <span class="flex-item">2</span>
+        <span class="flex-item">3</span>
+        <span class="flex-item">4</span>
+        <span class="flex-item">5</span>
+        <span class="flex-item">6</span>
+        <span class="flex-item">7</span>
+        <span class="flex-item">8</span>
+    </div>
+</body>
+
+</html>

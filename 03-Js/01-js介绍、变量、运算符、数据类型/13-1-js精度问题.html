@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js精度问题</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * 两个简单的浮点数相加
+         * 计算机的二进制实现和位数限制是有些数无法有限表示的.如无理数就不能有限表示 3.14.15926, 1.333...333
+         * */
+        let num1 = 100 - 99.9 // 0.09999999999999432
+        let num2 = 0.3 - 0.2 // 0.0999999999999998
+        let num3 = 0.2 - 0.1 // 0.1
+        let num4 = 0.2 + 0.1 // 0.30000000000004
+        /***
+         * 大整数运算
+         */
+        console.log(9999999999999999 === 10000000000000001) // true
+        //解决方案
+        /**
+         * 对于整数,出现问题的概率较小,多出现在后端,运算结果只要不超过 Math.pow(2, 53) 就不会丢失精度
+         * 对于小数,出现问题的概率较高一些,把小数放到位整数(乘以倍数),求出结果在缩小回原来的倍数(除以倍数)
+         */
+    </script>
+</body>
+
+</html>

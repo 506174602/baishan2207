@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*1.形参：在创建一个函数时  为了函数的使函数的功能更加灵活  
+				  我们可以给函数引入参数  且参数没有实际的值 那么我们引入的参数称为“形参”;
+				  ps:一般我们需要几个参数 我们就引入几个参数  另外参数的名字尽量要有实际的意思
+		  2.实参：如果我们创建函数时  设置了形参 ,那么我们在函数调用时  就需要传入我们对应参数 
+		  			那么我们调用函数时传入的实际参数  就是实参  实参可以是实际值/变量/函数等。。。
+		*/
+	// 案例：求两个数的和
+		// 参数要用逗号隔开
+		function fn(n,m){
+			var sum = n + m;
+			console.log(sum);
+		}
+		fn(2,5);
+		var a = prompt("第1个数");
+		var b = prompt("第2个数");
+		fn(a,b);
+	</script>
+</body>
+</html>

@@ -1,0 +1,294 @@
+/*-----banner---*/
+.banner{
+	height: 460px;
+	background-image: url(../image/index/banner.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+/*banner内的版心*/
+.banner .intr{
+	width: 460px;
+	height: 200px;
+	padding: 158px 0 0 540px;
+	border: 1px solid red;
+	margin: 0 auto;
+	/*子绝父相*/
+	position: relative;
+}
+.banner .intr .online{
+	position: absolute;
+	right: 0;
+	top: 82px;
+	width: 115px;
+	border: 1px solid green;
+	cursor: pointer;
+}
+/*在线游戏span*/
+.banner .intr .online span{
+	font-size: 14px;
+	display: inline-block;
+	width: 100%;
+	height: 37px;
+	line-height: 37px;
+	background-image: url(../image/index/online.png);
+	background-repeat: no-repeat;
+	padding-left: 17px;
+	border: 1px solid red;
+	/*把盒子转成IE盒子  保持span的总宽度不变*/
+	box-sizing: border-box;
+}
+/*三个图标div*/
+.banner .intr .online>div{
+	background: #fff;
+	width: 100%;
+	height: 37px;
+	text-align: center;
+	border-radius: 0 0 15px 15px;
+	display: none;
+}
+.intr .online>div a{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	border: 1px solid red;
+	background-repeat: no-repeat;
+}
+/*给三个图标设置背景图定位*/
+.pic1{
+	background-image: url(../image/index/online.png);
+	background-position: 0 -48px;
+}
+.pic2{
+	background-image: url(../image/index/online.png);
+	background-position: -50px -48px;
+}
+.pic3{
+	background-image: url(../image/index/online.png);
+	background-position: -100px -48px;
+}
+/**/
+.banner .intr span:hover{
+	background-position: -120px 0;
+}
+.banner .intr span:hover+div{
+	display: block;
+}
+.banner .intr p{
+	font-size: 14px;
+	padding-right: 20px;
+	color: #191d3a;
+    line-height: 30px;
+    margin-bottom: 30px;
+}
+/*下载链接down*/
+.down{
+	border: 1px solid red;
+}
+.down h3{
+	padding-left: 30px;
+	background-image: url(../image/index/download.png);
+	background-repeat: no-repeat;
+	background-position: 0 5px;
+	margin-bottom: 8px;
+}
+/*三个下载链接的样式*/
+.intr .down a{
+	float: left;
+	width: 83px;
+	height: 35px;
+	padding-top: 71px;
+	font-size: 1.166em;
+    color: #444866;
+    text-align: center;
+	background-color: rgba(255,255,255,.7);
+	margin-right: 1px;
+	background-repeat: no-repeat;
+}
+.intr .down a.pad{
+	background-image: url(../image/index/pad.png);
+	background-position: 27px -177px;
+}
+.intr .down a.phone{
+	background-image: url(../image/index/pad.png);
+	background-position: 27px 27px;
+}
+.intr .down a.andr{
+	background-image: url(../image/index/pad.png);
+	background-position: 27px -75px;
+}
+.intr .down a:hover{
+	background-color: rgba(255,255,255,.3);
+}
+/*单独的二维码*/
+.intr .down span{
+	display: inline-block;
+	width: 111px;
+	/*第二种居中  配合 vertical-align:middle使用 必须设置行高*/
+	height: 106px;
+	line-height: 106px;
+	text-align: center;
+	background-color: rgba(255,255,255,.7);
+}
+.intr .down span img{
+	/*第一种居中*/
+	/*position: relative;
+	top: 50%;
+	left: 50%;
+	margin-top: -40px;
+	margin-left: -40px;*/
+	vertical-align: middle;
+}
+/*---图文列表--*/
+.tuwen{
+	margin-bottom: 20px;
+}
+.tuwen .pic_text{
+	width: 1050px;
+	height: 200px;
+	margin: 50px auto;
+	border: 1px solid red;
+	text-align: center;
+}
+.tuwen .pic_text li{
+	float: left;
+	margin-right: 42px;
+	cursor: pointer;
+}
+.tuwen .pic_text li h5{
+	padding:5px 0  10px ;
+	font-size: 14px;
+}
+.tuwen .pic_text li span{
+	/*border: 1px solid red;*/
+	padding-right: 10px;
+	color: #38b774;
+	font-size: 12px;
+	background: url(../image/index/arrow.png) no-repeat;
+	background-position: 100%;
+}
+.tuwen .pic_text li:hover{
+	background-color: #38b774;
+}
+.tuwen .pic_text li:hover span{
+	color: #fff;
+	background-image: url(../image/index/arrow_hover.png) ;
+}
+/*小按钮*/
+.tuwen .hd{
+	width: 1050px;
+	margin: 0 auto;
+	/*border-top: 1px solid #dbe1e7;*/
+	/*border-top: 1px solid blue;*/
+}
+.tuwen .hd ul{
+	width: 75px;
+	background-color: #fff;
+	margin: -5px auto;
+	padding-left:14px;
+}
+.tuwen .hd ul li{
+	background-color: #b5c0cb;
+	float: left;
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	margin-right: 14px;
+}
+.tuwen .hd ul li.active{
+	background-color: #2fbc71;
+}
+/*------新闻招聘---------*/
+.news_job{
+	width: 100%;
+	background-image: url(../image/index/indexmainbg.jpg);
+	background-repeat: no-repeat;
+	padding-bottom: 57px;
+}
+.news_job .center{
+	width: 1000px;
+	/*border: 1px solid red;*/
+	margin: 0 auto;
+} 
+/*新闻*/
+.news_job .news{
+	float: left;
+	width: 500px;
+	height: 310px;
+	background-image: url(../image/index/bynewsbg.jpg);
+	background-repeat: no-repeat;
+	background-position: 0 -10px;
+}
+/*招聘和新闻title统一的样式*/
+.news_job .title{
+	padding: 40px 216px 0 0;
+	height: 70px;
+}
+.news_job .news .title a.more{
+	float: right;
+	width: 66px;
+	height: 28px;
+	text-align: center;
+	font-size: 12px;
+	color: #30bd72;
+	border: 1px solid #30bd72;
+	border-radius: 5px;
+}
+.news_cont{
+	padding: 0 20px;
+}
+.news_cont li{
+	padding: 10px 0;
+	line-height: 29px;
+	font-size: 14px;
+	border:1px solid pink;
+	overflow: hidden;
+}
+.news_cont li a{
+	color: #444866;
+	float: left;
+}
+.news_cont li span{
+	color: #444866;
+	float: right;
+}
+/*招聘*/
+.news_job .job{
+	float: right;
+	width: 500px;
+	height: 310px;
+	background-image: url(../image/index/byhrbg3.jpg);
+	background-repeat: no-repeat;
+}
+/*社会招聘*/
+.boya_jobs{
+	float: left;
+	padding-left: 80px;
+	color: #fff;
+}
+.job .more{
+	float: right;
+	font-size: 12px;
+	width: 66px;
+	height: 28px;
+	text-align: center;
+	color: #fff;
+	border-radius:5px;
+	border:1px solid #fff;
+}
+
+
+.job .job_cont{
+	padding: 0 175px 0 20px;
+}
+.job .job_cont h3{
+	font-size: 14px;
+	color: #fff;
+}
+.job .job_cont li{
+	padding: 4px 0;
+	border-bottom: 1px solid #6fdea3;
+	font-size: 14px;
+	line-height: 29px;
+	color: #fff;
+}

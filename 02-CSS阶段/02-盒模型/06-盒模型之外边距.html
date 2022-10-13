@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*外边距 定义：元素周围的空间 即上 右 下 左的外边距
+			margin-top  margin-right  margin-bottom  margin-left*/
+		.box1{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			/*1.外边距的复合写法：margin:上外边距  右外边距  下外边距  左外边距*/
+			/*margin: 20px 30px 40px 50px;*/
+			/*2.取两个值：margin：上下外边距  左右内边距*/
+			/*margin: 20px 30px;*/
+			/*3.取三个值（了解）：margin:上外  左右外  下外*/
+			/*margin: 20px 40px  50px;*/
+			/*4.取一个值：margin:上下左右外边距*/
+			/*margin: 30px;*/
+			/*5.margin可以设置单个方向的外边距*/
+			/*上外边距*/
+			margin-top: 100px;
+			/*margin-bottom: 100px;*/
+			margin-left: 50px;
+			margin-right: 50px;
+			display: inline-block;
+		}
+		.box2{
+			width: 200px;
+			height: 200px;
+			background-color: green;
+			/*如果上下分布的两个盒子同时设置了外边距  那么两者实际距离时较大着的外边距   
+			左右分布的两个盒子同时设置外边距  那么两者的实际距离为两者边距之和*/
+			/*margin-top: 50px;*/
+			display: inline-block;
+			margin-left:100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+</body>
+</html>

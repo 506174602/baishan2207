@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	/*1.作用域：一个变量作用的范围  变量作用域分为两类：全局作用域  和  局部作用域（函数作用域）
+			全局作用域:
+				1.在函数外用var 声明的变量称为：全局变量  类似案例中a
+				2.不使用var 声明的变量（无论在函数外还是函数内）也是全局变量  尽量少用
+			局部作用域：
+				1.在函数内用var声明的变量称为  局部变量，函数内部自己使用  类似案例中b
+			  ps:在局部作用域中可以访问到全局变量，在全局作用域中无法访问局部变量
+	 */
+	// 案例
+		var a  = 1;//全局变量a
+		function test1(){
+			var b = 2;//局部变量(函数变量)b
+			console.log(b,a);//局部作用域内可以访问全局变量a和局部变量b
+		}
+		test1();
+		//console.log(b);//报错  b is  not defined 原因：b是局部变量  无法在全局作用域中被访问
+
+		// 2.作用域链:当我们在局部作用域中使用变量时  他会先从这个函数本身的作用域中寻找  ，如果没有  则往上找  直到在全局作用域  这种查找方式叫做：作用域链   
+		 var c = 2;
+		 function test2(){ //外部函数
+		 	var c = 3; 
+		 	function test2Child(){  //内部函数
+		 		 var c = 4;
+		 		 console.log(c);
+		 	}
+		 	test2Child(); 
+		 } 
+		 test2();
+	</script>
+</body>
+</html>

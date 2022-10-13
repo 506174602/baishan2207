@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>draggable</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        使用html5拖放事件时,使元素可进行拖放,必须要设置 draggable="true"
+        默认情况下: 图像,链接以及文本是可以拖放的
+     -->
+    <a href="www.baidu.com">百度一下</a>
+    <p>百度两下</p>
+
+    <img src="../03_音视频/resource/01.jpg" draggable="false" alt="">
+    <img src="../03_音视频/resource/play.jpg" alt="">
+
+    <div draggable="true">1111</div>
+    <hr>
+    <div draggable="false">2222</div>
+</body>
+
+</html>

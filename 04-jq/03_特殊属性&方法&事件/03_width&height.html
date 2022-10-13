@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>width height</title>
+	<style>
+		div {
+			width: 300px;
+			height: 300px;
+			background-color: orange;
+			padding: 50px;
+			border: 5px solid #000;
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<img src="../images/01.jpg" alt="">
+
+	<script src="../jquery.js"></script>
+	<script>
+		$(function() {
+			// $('div').css('width', 444)
+			// console.log($('div').css('width'))
+			// console.log($('div').width())	// 300
+			// console.log($('div').innerWidth()) // 400 width + padding-left + padding-right
+			// console.log($('div').outerWidth())	// 410 width + padding-left + padding-right + border-left + border-right
+			// console.log($('div').outerWidth(true))	// 410 width + padding-left + padding-right + border-left + border-right + margin
+
+			// console.log('可视宽度', $(window).width() + 'px')
+			// $('img').css('width',$(window).width() + 'px')
+			// 
+			// console.log($('div').css('height'))
+			console.log($('div').innerHeight())
+		})
+	</script>
+</body>
+</html>

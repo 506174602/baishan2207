@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>万年历</title>
+	<style>
+		span {
+			width: 200px;
+			height: 100px;
+			text-align: center;
+			line-height: 100px;
+			background-color: orange;
+			color: #fff;
+			font-size: 24px;
+			margin: 0 10px;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<span>具体日期</span>
+		<span>农历</span>
+		<span>周几</span>
+		<span>假日</span>
+	</div>
+
+	<script type="text/javascript">
+		var obj = {
+			"error_code": 0,
+		  	"message": "success",
+		  	"result": {
+			  	"data": {
+			          "holiday": "元旦",//假日
+			          "ji": "123123破土.安葬.行丧.开生坟.",//忌
+			          "shuXiang": "马",//属相
+			          "desc": "1月1日至3日放假调休，共3天。1月4日（星期日）上班。",//假日描述
+			          "weekday": "星期四",//周几
+			          "yi": "123213213订盟.纳采.造车器.祭祀.祈福.出行.安香.修造.动土.上梁.开市.交易.立券.移徙.入宅.会亲友.安机械.栽种.纳畜.造屋.起基.安床.造畜椆栖.",//宜
+			          "lunarYear": "甲午年",//纪年
+			          "yinLi": "十一月十一",//农历
+			          "yearMonth": "2015-1",//年份和月份
+			          "date": "2015-1-1"//具体日期
+			      }
+		  	}
+		}
+
+		var spanArr = document.querySelectorAll('span');
+		var data = obj.result.data
+		// for (var i = 0; i < spanArr.length; i++) {
+		// 	spanArr[i].innerText = obj.result.data.date
+		// 	spanArr[i].innerText = obj.result.data.yinLi
+		// }
+		spanArr[0].innerText = data.date
+		spanArr[1].innerText = data.yinLi
+		spanArr[2].innerText = data.weekday
+		spanArr[3].innerText = data.holiday
+
+	</script>
+</body>
+</html>

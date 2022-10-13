@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		.active{
+			background: pink;
+			font-size: 30px;
+			color: blue
+		}
+		.bigger{
+			font-size: 40px
+		}
+	</style>
+</head>
+<body>
+	<button>添加active</button>
+	<button>添加bigger</button>
+	<button>移除bigger</button>
+	<button>切换类</button>
+	<button>判断类</button>
+	<ul>
+		<li>王付玉</li>
+		<li>想</li>
+		<li>去</li>
+		<li>38期</li>
+		<li>学习</li>
+	</ul>
+</body>
+</html>
+<script src="../jquery.js"></script>
+<script type="text/javascript">
+	// js中添加类名的方法:className  setAttrbute()会覆盖原先的类名
+
+	// jq中的addClass方法不会覆盖原先的类名
+	$(function () {
+		$("button").eq(0).click(function(){
+			// 添加类名
+			// 语法:addClass("要添加的类名")
+			$("li").eq(0).addClass("li active")
+			$("li").eq(0).addClass("box")
+		})
+
+		$("button").eq(1).click(function(){
+			$("li").eq(1).addClass("bigger")
+		})
+
+		
+		$("button").eq(2).click(function(){
+			// 移除类名  
+			// 语法:removeClass("想要移除的类名")
+			// 移除所有的li中带有bigger的类名
+			$("li").removeClass("bigger")
+		})
+
+		$("button").eq(3).click(function(){
+			// 判断切换类,toggleClass
+			// 判断这个dom元素有没有这个类名,如果有的话就移除,如果没有就添加
+			$("li").eq(4).toggleClass("active bigger")
+		})
+
+		$("button").eq(4).click(function(){
+			// hasClass判断切换类
+			// 语法:hasClass("类名")
+			// 判断有没有这个类名,如果有就就返回true,如果没有就返回false
+			console.log($("li").eq(4).hasClass("active bigger"))
+			
+			var oli=$("li").eq(4).hasClass("active bigger")
+			if(oli==true){
+				alert("有这个类名")
+			}else{
+				alert("没有这个类名")
+			}
+		})
+	})
+</script>

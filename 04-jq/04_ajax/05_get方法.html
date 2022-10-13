@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>get方法</title>
+</head>
+
+<body>
+    <input type="text">
+    <input type="button" value="查询">
+
+    <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+            $('input').eq(1).click(() => {
+                $.get('http://121.196.8.145:10000/test/getfundAll?pageNum=' + $('input').eq(0).val(), (
+                    data) => {
+                    console.log('请求结果', data)
+                })
+                // get(url, data, function(data, status))
+            })
+        })
+    </script>
+</body>
+
+</html>

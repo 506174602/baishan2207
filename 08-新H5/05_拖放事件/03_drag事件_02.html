@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>drag_02</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+        }
+
+        .content {
+            width: 500px;
+            height: 300px;
+            border: 1px solid red
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 拖动的元素 -->
+    <img src="../../04-jq/images/01.jpg" alt="">
+    <img src="../../04-jq/images/02.jpg" alt="">
+    <img src="../../04-jq/images/03.jpg" alt="">
+
+    <!-- 放置目标 -->
+    <div class="content"></div>
+
+    <script>
+        // 原生js的拖放事件
+        // 二. 应用于放置目标的事件
+        // 1. dragenter: 只要有元素拖动到放置目标上,就会触发该事件
+        // 2. dragover: 触发dragenter事件后,随即就会触发dragover事件,
+        //              只要在放置目标的范围内活动就会持续触发该事件
+        // 3. dragleave: 拖动的元素拖出放置目标,dragover事件就不会再触发, 但会触发dragleave事件
+        // 4. drop: 元素被放置在目标元素中,就会触发该事件
+        var imgs = document.querySelectorAll('img')
+        var content = document.querySelector('.content')
+        var aim;
+        for (var i = 0; i < imgs.length; i++) {
+            imgs[i].ondragstart = function (ev) {
+                console.log(ev.target)
+                aim = ev.target
+            }
+        }
+        // 默认情况下, 数据/元素不能在其他元素中拖放,对于drop, 必须阻止元素的默认处理
+        content.ondragover = function (ev) {
+            ev.preventDefault()
+        }
+        content.ondrop = function () {
+            content.appendChild(aim)
+        }
+    </script>
+</body>
+
+</html>

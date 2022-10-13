@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	/*变量 和字面量区别：
+			变量：可以变化的量，从我们编程角度来说  变量是用来存储信息的"容器";
+			字面量：展示这个值（字符串 数字等）  一般等号右边的值就是字面量  而等号左边的的是变量
+			举例：var a = 1;
+			a 就是变量  1就是字面量
+	 */
+		// 1.变量：变量是用来存储信息的"容器";
+		// 2.声明变量：（***）
+		var a;
+		// 3.声明变量不赋值  不会报错 会给我们返回一undefined类型
+		var x;
+		console.log(x);
+		// 4.赋值（***）
+		x = 7;
+		console.log(x);
+		// 5.变量初始化(最常用******)   一般我们在声明变量时同时给变量赋值  这个过程我们称之为变量初始化
+		var a = 3;
+		// 6.一条语句声明多个变量
+		var i = 3;j = 2; k = 4;
+		// 7.如果没有声明变量就直接调用  程序报错
+		// console.log(y);
+		// 8.变量的重新的赋值（****）
+		var z = 1;
+		console.log(z);
+		z = 2;
+		console.log(z);
+		// 9.变量声明提升（*****）：简称变量提升：js语言有变量声明提升这个特点：
+		// ps:js只能提升变量的声明  不能提升变量赋值
+		/*console.log(p);
+		var p = 1;
+		console.log(p);*/
+		// 想当于以下js过程
+		var p;
+		console.log(p);//返回undefined  只提升变量声明  不提升变量赋值
+		p = 1;
+		console.log(p);
+	</script>
+</body>
+</html>

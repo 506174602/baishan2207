@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组的结构性赋值</title>
+</head>
+
+<body>
+    <script>
+        // 解构
+        // const arr = [1, 2, 3] // 
+        let arr = [1, 2, 3]
+        // let a = arr[0]
+        // let b = arr[1]
+        // let c = arr[2]
+        // console.log('abc----', a, b, c)
+
+        let [a, b, c] = [4, 5, 6]
+        console.log('[a, b, c]----', a, b, c)
+
+        let [a1, b1, [c1, d1]] = [1, 2, []]
+        console.log('abcd1----', a1, b1, c1, d1)
+
+        let [a2, b2, c2] = [1, 2, [3, 4]]
+        console.log('abc2----', c2)
+
+        let [a3, b3, c3, d3 = 5] = [1, 2, [3, 4], 6]
+        console.log('abcd3----', d3)
+
+        let [a4, b4] = [1, 2, 3, 4]
+        console.log('ab4----', a4, b4)
+
+        // 如果想忽略数组的某个元素对变量的赋值,可以使用逗号来实现
+        let [a5, , b5] = [1, 2, 3, 4]
+        console.log('ab5----', a5, b5)
+
+        // rest 参数
+        // 使用rest参数来接收赋值数组的剩余元素,但要确保这个rest参数是放在被赋值变量的最后一个位置上
+        // let [name1, name2, name3, name4, name5] = ['张三', '李四', '王五', '田六', '赵琦']
+        let [name1, name2, ...rest] = ['张三', '李四', '王五', '田六', '赵琦']
+        console.log('rest----', Array.isArray(rest))
+        console.log(rest[0])
+        console.log(rest[1])
+        console.log(rest[2])
+        console.log(rest.length)
+    </script>
+</body>
+
+</html>

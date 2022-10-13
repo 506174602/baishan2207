@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导航栏</title>
+    <link rel="stylesheet" href="../bootstrap-v3/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="page-header">导航栏</h1>
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapsed"
+                    data-target="#bs-example-navbar-collapse-1">
+                    <!-- sr-only 隐藏内联表单的标签 -->
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">海南残联</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <!-- 
+                    navbar-right: 导航菜单靠右显示
+                    navbar-left: 导航菜单靠左显示(默认属性)
+                 -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">首页</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">
+                            招募活动
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another Action</a></li>
+                            <li><a href="#">Something</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">志愿者团队</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <script src="../jquery.js"></script>
+    <script src="../bootstrap-v3/js/bootstrap.js"></script>
+</body>
+
+</html>

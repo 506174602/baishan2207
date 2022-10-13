@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	// 假设b 复制了 a, a发生了变化, 若b也跟着发生变化则为浅拷贝; 若b没有发生变化则为深拷贝
+	// 基本的数据类型 变量名和值都是在栈内存
+	// 
+	// js引擎对变量的存储主要有两种位置: 栈内存和堆内存
+	// 栈内存主要存储各种基本数据类型的变量 即String Number Bool Null undefined 等
+	// 堆内存主要存储相 Object这种变量类型的数据
+		var a = new String('1234')	// 在堆内存中
+		var b = new String('1234')	// 在堆内存中
+		// ↑ 指针指向的内存地址不一样
+		console.log(a == b) // false
+
+		// 栈内存为b1开辟了一块单独的内存空间, a1和b1是相互独立的
+		var a1 = 1;
+		var b1 = a1;
+		a1 = 2;
+		console.log(b1) // 1
+
+		var a2 = {name: '张三', age: 18}
+		var b2 = a2
+		a2.age = 28
+		console.log(b2.age) // 28
+
+		/**
+		 * 浅拷贝: 1.直接赋值; 2.for in 只复制一层; 3. Object.assign({a:1, b:2, c:3"})
+		 *
+		 * 深拷贝: 1.递归拷贝(typeof判断数据类型)
+		 * 		   2.JSON.stringify(obj) => JSON.parse() =>{....}() // 如果属性名对应的是一个函数 则为undefined
+		 * 		   3.slice(0) 从0开始截取到最后 返回的是一个新数组 concat() // 如果数组中有对象时 是浅拷贝
+		 * 		   4. a = {name: '张三', age: 18}  b.name = a.name b.age = a.age
+		 * 		   5. Object.assign({}, {a:1, b:2, c:3"}) 使用assign注意:(1)必须赋值给一个空对象,(2)对象的值必须是基本数据类型
+		 * 		   6. 扩展运算符 ... 
+		 * 		   		var obj = {a:1, b:2, c:3"}
+		 * 		   		var obj1 = { ...obj, d: 4 }
+		 * 		   		当value是基本数据类型时,如String  Number bool 是可以使用扩展运算符实现深拷贝
+		 * 		   		当value是引用类型的值 如 Object Array 使用深拷贝模式其实也只是拷贝了引用地址,所以还是属于浅拷贝
+		 * 		   
+		 */
+	</script>
+</body>
+</html>

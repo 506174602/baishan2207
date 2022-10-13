@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>添加和插入</title>
+	<style>
+		.demo {
+			width: 200px;
+			height: 200px;
+			border: 1px solid red
+		}
+	</style>
+</head>
+<body>
+	<div class="demo">div中的内容</div>
+
+	<p> div外, p 中的内容</p>
+
+	<script src="../jquery.js"></script>
+	<script type="text/javascript">
+		var a = $('<a href="http://www.baidu.com">百度一下 222</a>')
+		// a.appendTo('.demo')	// 添加到参数对象中
+		// a.appendTo('div')
+		// a.appendTo($('div'))
+
+		// $('div').append(a)	// 向目标元素中添加
+
+		// js appendChild() insertBefore()
+		// jq prepend() before()
+		
+		// $('div').prepend(a) // 添加到目标元素中的前面
+		// a.prependTo($('div'))
+
+		// $('p').before(a) // 在目标元素前
+		// $('p').after(a)	// 在目标元素后
+		$('div').after(a)
+	</script>
+</body>
+</html>

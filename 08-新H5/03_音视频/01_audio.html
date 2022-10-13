@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>audio</title>
+</head>
+
+<body>
+    <!-- 
+        音频: <audio></audio> >ie8
+        src: 设置或者返回音频元素的来源
+        autoplay: 设置或者返回是否在加载完成后,立即播放音频
+        controls: 设置或者返回音频是否显示控件(播放/暂停)
+        loop: 设置或者返回音频是否在结束后重新播放
+        volume: 设置或者返回音频的音量
+     -->
+    <audio src="resource/A0.MP3" autoplay controls="controls"></audio>
+
+    <button>播放</button>
+    <button>暂停</button>
+    <button>重新加载</button>
+    <script>
+        var play = document.querySelectorAll()[0]
+        var pause = document.querySelectorAll()[1]
+        var load = document.querySelectorAll()[2]
+        var audio = document.querySelector('audio')
+
+        play.onclick = function () {
+            audio.play() // 开始播放音频
+        }
+        pause.onclick = function () {
+            audio.pause() // 暂停当前播放的音频
+        }
+        load.onclick = function () {
+            audio.load() // 重新加载音频元素
+        }
+    </script>
+</body>
+
+</html>

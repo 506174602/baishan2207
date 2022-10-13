@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="box1">
+		<li id="first">byesame_36</li>
+		<li>byesame_36</li>
+		<li>byesame_36</li>
+		<li>byesame_36</li>
+		<li>byesame_36</li>
+	</ul>
+	<ul id="box2">
+		<li>box2的子元素</li>
+		<li>box2的子元素</li>
+	</ul>
+	<script>
+		/*dom查询获取元素节点对象的方式：
+			1.document.getElementById("id值")        
+						通过元素的id获取元素节点                返回一个元素节点对象
+			2.document.getElementsByTagName("标签")  
+						通过元素的标签类型获取元素节点    返回是一个数组对象（相同类型的元素节点组成的数组）
+			3.document.getElementsByClassName("class值")
+						通过元素的类名获取元素            返回的也是一个数组对象（相同类名的元素节点组成的数组）
+			4.documetn.getElementsByName("name值")    
+						通过元素的name属性获取元素        返回的也是一个数组对象（相同name的元素节点组成的数组）
+		 */
+		// 1.getElementById()
+		var first = document.getElementById("first");  
+		console.log(first);
+		// 2.getElementsByTagName()  ps:获取的是一个数组  所以如果想要对数组内每一个元素节点对象进行操作 需要通过索引来获得对应的节点对象
+		var liAll = document.getElementsByTagName("li");
+		console.log(liAll);
+		// liAll.innerHTML = "我是li新的文本呢";
+		for(var i = 0;i < liAll.length;i++ ){
+			liAll[i].innerHTML = "我是新的li文本";
+		}
+
+
+
+		// 获取box2下的所有li:先获取对应的元素节点box2 然后再通过box2找到对应的子元素节点li
+		var box2 = document.getElementById("box2");
+		console.log(box2.getElementsByTagName("li"));
+	</script>
+</body>
+</html>

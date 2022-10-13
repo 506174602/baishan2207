@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>小米购物车功能</title>
+	<style>
+		.header{
+			background: #333;
+			height: 40px;
+			font-size: 12px;
+		}
+		.header .shopping{
+			border: 1px solid red;
+			float: right;
+			/*子绝父相*/
+			position:relative;
+			text-align: center;
+		}
+		.shopping a{
+			display: inline-block;
+			width: 100px;
+			height: 40px;
+			line-height: 40px;
+			color: #b0b0b0;
+			text-decoration: none;
+			border: 1px solid blue;
+		}
+		.shopping .bottom{
+			border: 1px solid #ccc;
+			background: #fff;
+			width: 300px;
+			height: 80px;
+			line-height: 80px;
+			position: absolute;
+			top: 40px;
+			right: 0;
+			display: none;
+		}
+		.shopping a:hover+.bottom{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="shopping">
+			<a href="">购物车</a>
+			<div class="bottom">
+				购物车里还么有商品，选购吧
+			</div>
+		</div>
+		<!-- <a href="">
+			<span>购物车</span>
+			<div class="bottom">
+				
+			</div>
+		</a> -->
+	</div>
+</body>
+</html>

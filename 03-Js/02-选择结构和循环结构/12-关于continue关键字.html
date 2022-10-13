@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<!-- 
+	continue：跳过当次循环  继续执行下一次的循环
+	1.一般我们也会给continue之前配合一个条件判断
+	2.continue 只能跳过它自己所在的那个循环语句
+ -->
+	<script>
+	// 1.输出除了3之外的1-5之间数字
+		for(var i = 1;i <= 5;i++){
+			if(i == 3){
+				continue;//当i==3时  执行完continue这个语句  直接跳过本次循环  进行下一次的循环
+			}
+			console.log(i);
+		}
+	// 2.求  1-20之间的整数（除了能被3整除的整数） 之和
+		var sum = 0;
+		for(var i = 1;i <= 20;i++){
+			if(i%3==0){
+				continue;//当某一个整数被3整除时 直接跳过当次循环  sum+=i这个语句也不执行  进行下一次的循环
+			}
+			sum+=i;
+		}
+		console.log(sum);
+	// 案例3
+		 for(var i = 1; i <= 3;i++){
+		 	for(var j = 1; j <= 3;j++){
+		 		if(j == 2){
+		 			continue;
+		 		}
+		 		console.log("内循环_"+j);
+		 	}
+		 	console.log("外循环____"+i);
+		 }
+	</script>
+</body>
+</html>

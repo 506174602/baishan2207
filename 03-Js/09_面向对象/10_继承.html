@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>继承</title>
+</head>
+<body>
+	<script>
+		// JavaScript
+		// ES 全称 ECMAScript , 是由ECMA国际标准化组织制定的一项脚本语言的标准化规范.
+		// 继承 是面向对象的核心概念, es只支持继承, 且依靠原型链完成继承. obj.prototype.属性/方法(共享的)
+		// 被继承 称为 父类; 继承下来的 称为 子类
+		
+		// call() + 遍历
+		// 
+		function parent() { // 父类  被继承的
+			console.log('父亲中的this', this)
+			this.money = 1000000000000000000
+
+		}
+
+		parent.prototype.house = function() {
+			console.log('存款', this)
+		}
+
+		var a = {
+			name: 'aaaa'
+		}
+
+		function child() {
+			// this --> new child()
+			parent.call(this)	// 有参数的话可以传递参数 parent.call(this, house, money)
+		}
+
+		// 继承父类原型属性对象中的方法
+		for(var key in parent.prototype) {
+			child.prototype[key] = parent.prototype[key]
+		}
+
+		// 添加自己的方法
+		child.prototype.car = function() {
+			console.log('玛莎拉蒂')
+		}
+
+		var pObj = new parent();
+		pObj.house();
+
+		console.log('====== 分家了 ==========')
+		var cObj = new child();
+		cObj.house();
+		console.log('钱呢---', cObj)
+
+		cObj.car()
+	</script>
+</body>
+</html>

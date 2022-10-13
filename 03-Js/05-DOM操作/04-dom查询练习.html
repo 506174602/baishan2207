@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>第N个li元素节点</li>
+		<li>第N个li元素节点</li>
+		<li>第N个li元素节点</li>
+		<li>第N个li元素节点</li>
+		<li>第N个li元素节点</li>
+		<li>第N个li元素节点</li>
+	</ul>
+	<!-- 关于操作css样式的几种方法 -->
+	<div id="demo">
+		我是一个css操作案例
+	</div>
+	<script>
+		var liArry = document.getElementsByTagName("li");
+		for(var i = 0;i < liArry.length;i++){
+			if(i % 2 == 0){
+				liArry[i].style.color = "blue";
+			}else{
+				liArry[i].style.color = "red";
+			}
+		}
+		// 修改css样式
+		var demo = document.getElementById('demo');
+		// 1.元素节点.style.样式 = "样式值"  注意使用此方法，类似font-size  background-color等这种样式  需要将样式名改为  小驼峰命名方式
+		demo.style.fontSize = "32px";
+		demo.style.backgroundColor = "red";
+		// 2.元素节点.style.cssText = "样式1:值l;样式2:值2.....";
+		demo.style.cssText = "color:blue;background-color:pink;font-size:16px;";
+		// 3  元素节点.setAttribute();
+		demo.setAttribute("style","color:red;background-color:yellow;border:1px solid green");
+	</script>
+</body>
+</html>

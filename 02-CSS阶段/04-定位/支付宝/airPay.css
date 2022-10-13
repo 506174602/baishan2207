@@ -1,0 +1,219 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+a{
+	text-decoration: none;
+	font-size: 12px;
+}
+ul,li{
+	list-style: none;
+}
+body,html{
+	width: 100%;
+	height: 100%;
+	/*防止滚动条*/
+	overflow: hidden;
+}
+/*清浮*/
+.clearfloat:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+/*背景图*/
+.bg{
+	width: 100%;
+	height: 90%;
+	background-image: url(images/banner.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+/*头部导航*/
+.header{
+	width: 100%;
+	position: absolute;
+	top: 20px;
+	height: 30px;
+	line-height: 30px;
+	/*border: 1px solid red;*/
+}
+.header .hc{
+	width: 80%;
+	margin: 0 auto;
+	/*border: 1px solid pink;*/
+}
+.hc .hc-left{
+	float: left;
+}
+.hc-left img:first-child{
+	width: 70px;
+	height: 25px;
+}
+.hc-left img:last-child{
+	width: 31px;
+	height: 23px;
+	margin-left: 20px;
+}
+.hc .hc-right{
+	float: right;
+}
+.hc .hc-right span{
+	color: #bfbfbf;
+	font-size: 12px;
+}
+.hc .hc-right  a{
+	color: #fff;
+}
+/*--content--*/
+.content{
+	width: 100%;
+	position: absolute;
+	top: 20%;
+	left: 0;
+	/*border: 1px solid red;*/
+}
+.content .center{
+	width: 600px;
+	height: 200px;
+	margin: 0 auto;
+}
+.content .center img{
+	width: 100%;
+}
+/*四个a元素*/
+.btn{
+	width: 780px;
+	height: 50px;
+	margin:  0 auto;
+	background: green;
+}
+/*四个a*/
+.btn a{
+	/*display: inline-block;*/
+	width: 170px;
+	height: 50px;
+	line-height: 50px;
+	background: #0998DA;
+	text-align: center;
+	margin-left: 18px;
+	border-radius: 9px;
+	color: #fff;
+	float: left;
+}
+/*icon标签的样式*/
+.btn a .icon{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background-image: url(images/01.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	position: relative;
+	top: 8px;
+	left: -10px;
+}
+/**/
+.none{
+	display: none;
+}
+.slipper:hover{
+	height: 100px;
+	margin-top: -25px;
+}
+/*hover效果来约束父子元素之间*/
+.slipper:hover .icon,.slipper:hover span{
+	display: none;
+}
+.slipper:hover .none{
+	display: block;
+}
+hr{
+	width: 130px;
+	margin: 0 auto;
+	border:0.5px solid rgb(255,255,255,.2);
+}
+
+/*--底部--*/
+.foot{
+	/*border:1px solid red;*/
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	font-size: 12px;
+}
+/*第一个ul*/
+.foot ul:first-child{
+	width: 940px;
+	margin:0 auto;
+	/*background-color: pink;*/
+}
+.foot ul:nth-child(2){
+	width: 400px;
+	margin:0 auto;
+	/*background-color: red;*/
+}
+.foot ul li{
+	float: left;
+	margin-left: 10px;
+}
+.foot ul li a{
+	color: #666;
+}
+/*精灵图*/
+.jl{
+	width: 200px;
+	margin:0 auto;
+}
+/*每一个精灵图所在a统一样式*/
+.jl a{
+	display: inline-block;
+	height: 28px;
+	margin-right: 5px;
+	/*border:1px solid red;*/
+	background-image: url(images/bottom.png);
+	background-repeat: no-repeat;
+}
+/*精灵图默认的定位*/
+.pic1{
+	width: 18px;
+	background-position: -1px -5px;
+}
+.pic2{
+	width: 40px;
+	background-position: -32px -5px;
+}
+.pic3{
+	width: 33px;
+	background-position: -75px -5px;
+}
+.pic4{
+	width: 18px;
+	background-position: -115px -5px;
+}
+.pic5{
+	width: 20px;
+	background-position: -200px -5px;
+}
+/*精灵图hover重新定位*/
+.pic1:hover{
+	background-position: -1px -28px;
+}
+
+.pic2:hover{
+	width: 40px;
+	background-position: -32px -28px;
+}
+.pic3:hover{
+	width: 33px;
+	background-position: -75px -28px;
+}
+.pic4:hover{
+	width: 18px;
+	background-position: -115px -28px;
+}
+.pic5:hover{
+	width: 20px;
+	background-position: -200px -28px;
+}

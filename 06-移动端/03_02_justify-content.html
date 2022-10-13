@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex-direction</title>
+    <style>
+        .flex-container {
+            display: flex;
+            /* justify-content: space-between; */
+            justify-content: space-around;
+            /* 
+                justify-content: 用于设置或者蒋所弹性盒子元素在主轴方向上的对齐方式
+                    -- flex-start 默认值, 项目位于容器的开头
+                    -- flex-end 项目位于容器的结尾
+                    -- center 项目位于容器的中心
+                    -- space-between 项目位于各行之间留有空白的容器内
+                    -- space-around 使项目位于各行之间 之前 之后都留有空白的容器内 
+            */
+            width: 1200px;
+            height: 640px;
+            background-color: skyblue;
+        }
+
+        .flex-item {
+            width: 280px;
+            height: 120px;
+            margin: 10px 0;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <span class="flex-item">1</span>
+        <span class="flex-item">2</span>
+        <span class="flex-item">3</span>
+        <!-- <div class="flex-item">4</div> -->
+    </div>
+</body>
+
+</html>

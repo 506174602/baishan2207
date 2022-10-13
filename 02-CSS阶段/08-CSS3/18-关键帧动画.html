@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*关键帧动画和过渡动画区别：
+			1.过渡需要触发事件（hover/onclick）  而关键帧动画是不需要的
+			2.过渡动画只能让某个元素针对一个或者多个属性变化  只有两帧
+				而关键帧动画可以让某个元素针对一个或者多个属性有多帧变化
+		*/
+	/*1.定义动画的语法:
+	@keyframes name{
+		from/0%{
+			css样式
+		}
+		percent(N%){
+			css样式1
+		}
+		to/100%{
+			css样式2
+		}
+	}*/
+	@keyframes move{
+		0%{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+		}
+		50%{
+			width: 500px;
+			background-color: yellow;
+		}
+		80%{
+			width: 700px;
+			background-color: pink;
+		}
+		100%{
+			width: 800px;
+			background-color: blue;
+		}
+	}
+	.box{
+		width: 200px;
+		height: 200px;
+		background-color: red;
+		/*2.调用动画 */
+		/*动画名：单独使用无效  需要同时设置animation-duration(持续时间)*/
+		animation-name: move;
+		animation-duration: 3s;
+		/*动画速度：ease ease-in  ease-in-out ease-out linear*/
+		animation-timing-function: linear;
+		/*延迟时间*/
+		animation-delay: 1s;
+		/*动画的播放次数：infinite（无数次）默认1次*/
+		animation-iteration-count: 2;
+		/*动画的播放方向（alternate反复播放（从头到尾   从尾到头））*/
+		animation-direction: alternate;
+		/*（重点）复合用法*/
+		animation:move 3s  0.5s infinite alternate;
+	}
+	/*关键帧动画复合用法：
+	animation:    name     duration    timing-function    delay     iteration-count    direction;
+	属性值解释：  动画名   持续时间        动画速度     动画延迟时间    动画播放次数   动画的播放方向
+	是否必选：    必选     必选            可选          可选            可选            可选
+	取值：        任意定义   s	         	 ease          s         数字/infinite       alternate
+											ease-in
+											 ease-in-out
+											 ease-out
+											 linear								 
+	*/
+
+	.box:hover{
+		/*动画的播放状态 配合hover使用*/
+		animation-play-state: paused;
+	}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

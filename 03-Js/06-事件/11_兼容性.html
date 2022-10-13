@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>段落文本</p>
+	<script>
+		// 做兼容：
+		// 1、查看当前浏览器版本 类型 
+		// 2、确认支持的方法和识别的方法
+		// 
+		function fnClick() {
+			console.log('打印');
+		}
+
+		function addEvent(type, element, fn) {
+			if (element.addEventListener) {
+				element.addEventListener(type, fn, false)
+			} else if (element.attachEvent) {
+				element.attachEvent('on' + type, fn);
+			} else {
+				element['on' + type] = fn
+			}
+		}
+
+		function fnClick() {
+			console.log('点击');
+		}
+
+		function fnEnter() {
+			console.log('移入');
+		}
+
+		var pElement = document.querySelector('p');
+
+		
+		addEvent('click', pElement, fnClick);
+		addEvent('mouseover', pElement, fnEnter);
+	</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let name = 'byeSame'
+        let age = 10
+        let obj = {
+            name: name,
+            age: age,
+            study: function () {
+                console.log(this.name + '--青岛')
+            }
+        }
+        obj.study()
+
+        // es6
+        let name1 = '精神点'
+        let age1 = 11
+        // let obj1 = {
+        //     name1 : name1,
+        //     age1: age1
+        // }
+        // let {name1: name1, age1: age1} = obj1
+        let obj1 = {
+            name1,
+            age1,
+            study: function () {
+                console.log(this.name1 + '---简洁')
+            }
+        }
+        obj1.study()
+        console.log(obj1.name1)
+    </script>
+</body>
+
+</html>

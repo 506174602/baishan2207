@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*块级元素:（div p h系列（h1-h6） ul-li）：
+			特点：1.独立成行  2.可以设置宽高 3.默认的宽度是浏览器的宽度
+		  行内元素：(span a)
+		  	特点：1.不独立成行 2.不能设置宽高 3.默认的宽度是内容撑起来的
+		  行内块元素：(img  input  textarea)
+		  	特点：既不独立成行还能设置宽高
+		*/
+		.box{
+			background-color: red;
+			width: 200px;
+			height: 200px;
+			/*display:用来设置元素类型  inline(行内) block(块级)
+					  行内元素默认的display属性值为inline
+					  块级元素默认的display属性值为block
+			*/
+			display: inline-block;
+		}
+		.sp{
+			background-color: pink;
+			width: 200px;
+			height: 200px;
+			/*常用  重点*/
+			display: inline-block;
+		}
+		/*----------------display:none----------------------*/
+		.box1{
+			background-color: green;
+			height: 200px;
+			/*将元素进行隐藏   原位置丢失*/
+			/*display: none;*/
+			/*将元素进行隐藏  原位置保留*/
+			/*visibility: hidden;*/
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		我是一个块级元素
+	</div>
+	<span class="sp">
+		我是一个行内元素
+	</span>
+	<div class="box1" >
+		嗯哼！
+	</div>
+	<div>
+		哈哈
+	</div>
+</body>
+</html>

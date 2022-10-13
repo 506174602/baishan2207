@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封装动画</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0
+		}
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+			position: absolute;
+		}
+		
+	</style>
+</head>
+<body>
+	<button class="btn1">水平平移400</button>
+	<button class="btn2">水平平移800</button>
+	<!-- <button class="btn2">垂直平移800</button> -->
+	<div class="box"></div>
+
+	<div class="box2">我也能移动</div>
+
+	<script>
+		var btn1 = document.querySelector('.btn1');
+		var btn2 = document.querySelector('.btn2');
+		var box = document.querySelector('.box');
+		var box2 = document.querySelector('.box2');
+
+
+		console.log(box.offsetLeft)
+		btn1.onclick = function() {
+			animate(box, 400);
+		}
+
+		btn2.onclick = function() {
+			animate(box, 800);
+		}
+
+		function animate(elementObj, position) {
+			clearInterval(elementObj.timer)
+			elementObj.timer = setInterval(function() {
+				// 获取当前位置的偏移量
+				var current = elementObj.offsetLeft;
+				// 自定义一个位移步长
+				var step = current > position ? -20 : 20;
+				// if (current < position) {
+				if (Math.abs(current - position) > step) { // 1  20
+					// box.offsetLeft = current + step  XXXXXXXX 不可赋值
+					elementObj.style.left = current + step + 'px' // 当前位移量加上位移步长就是新的位置(新的偏移量)
+				} else {
+					// 一步到位到终点
+					elementObj.style.left = position + 'px'
+					// 到达指定偏移量位置后清除定时器
+					clearInterval(timer)
+				}
+			}, 20)
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	/*链接未被点击过的样式
+		ps:href 是否拥有实际的链接会影响a这个效果;
+			href必须要有实际的链接  才会生效
+	*/
+		a:link{
+			color: orange;
+		}
+		/*已访问过的链接样式*/
+		a:visited{
+			color: green;
+		}
+		/*鼠标悬停*/
+		a:hover{
+			color: yellow;
+		}
+		/*鼠标点击不放手*/
+		a:active{
+			font-size: 28px;
+			color: red;
+		}
+		/*顺序 l  v h a*/
+	</style>
+</head>
+<body>
+	<a href="http://www.baidu.com">我是一个链接</a>
+</body>
+</html>

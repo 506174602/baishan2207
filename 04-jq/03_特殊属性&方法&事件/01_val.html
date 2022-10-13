@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>val</title>
+</head>
+<body>
+	<input type="text">
+	<button>获取</button>
+
+	<script src="../jquery.js"></script>
+
+	<script>
+		$(function() {
+			$('button').click(function() {
+				console.log($('input').val())
+				$('input').val('变化文本')
+			})
+		})
+	</script>
+</body>
+</html>

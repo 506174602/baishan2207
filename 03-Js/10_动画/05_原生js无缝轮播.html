@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		.all{
+			width: 900px;
+			height: 500px;
+			padding: 7px;
+			border: 1px solid #ccc;
+			margin: 50px auto 0;
+		}
+		.screen{
+			width: 900px;
+			height: 500px;
+			overflow: hidden;
+			position: relative;
+		}
+		.screen img{
+			width: 900px;
+			height: 500px;
+			float: left;
+		}
+		.screen .ul{
+			width: 5400px;
+			position: absolute;
+			left: 0;
+		}
+		.all ol{
+			position: absolute;
+			right: 10px;
+			bottom: 10px;
+			line-height: 20px;
+			text-align: center;
+		}
+		.all ol li{
+			float: left;
+			width: 20px;
+			height: 20px;
+			border: 1px solid #ccc;
+			background-color: #fff;
+			margin-left: 10px;
+			cursor: pointer;
+		}
+		.all ol li.active{
+			background-color: orange;
+			color: #fff;
+		}
+		.arr span{
+			width: 40px;
+			height: 40px;
+			background-color:rgba(0,0,0,.3);
+			position: absolute;
+			top: 50%;
+			margin-top: -20px;
+			cursor: pointer;
+			line-height: 40px;
+			text-align: center;
+			font-weight: bold;
+			font-family: "黑体";
+			font-size: 30px;
+			color: #fff;
+			border: 1px solid #fff;
+			left: 5px;
+			transition: all .3s;
+			opacity: .5;
+		}
+		.arr .right{
+			right: 5px;
+			left: auto;
+		}
+		.arr span:hover{
+			background-color: rgba(0,0,0,.5);
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<div class="all">
+		<div class="screen">
+			<div class="ul">
+				<img src="images/1.jpg" alt="">
+				<img src="images/2.jpg" alt="">
+				<img src="images/3.jpg" alt="">
+				<img src="images/4.jpg" alt="">
+				<img src="images/5.jpg" alt="">
+			</div>
+			<ol>
+			</ol>
+			<div class="arr">
+				<span class="left"><</span>
+				<span class="right">></span>
+			</div>
+		</div>
+	</div>
+	<!-- box.children[0].children[2].children; -->
+	<script src="aminate.js"></script>
+	<script type="text/javascript">
+		// 需求 无缝轮播
+		// 步骤
+		// 1.获取相关元素
+		// 2.补全相关内容
+			//.1复制列表中第一项 添加到数组结尾
+			//.2生成ol相关li
+			//.3点亮第一个ol里面的li
+		//3.鼠标放在提示按钮 轮播图片
+		//4.添加定时器
+		//5.实现左右切换按钮
+		//========================================
+		//
+		// 1.获取相关元素
+		// 先获取ul img的父级
+		var box = document.querySelector('.all')
+		var ul = document.querySelector('.all .screen .ul')
+		// 再获取ol
+		var ol = document.querySelector('.all .screen ol')
+		// ul下的所有图片
+		var ulLiArr = ul.children
+		
+		//========================================
+		// 2 补全相关内容
+		// 2.1 复制列表中第一项 添加到数组结尾
+		var newLi = ulLiArr[0].cloneNode(true) // 复制的新图片
+		ul.appendChild(newLi)
+		// 2.1 生成ol相关li
+		for (var i = 0; i < ulLiArr.length - 1; i++) {
+			// 创建ol下的li
+			var newOlLi = document.createElement('li')
+			newOlLi.innerText = i + 1
+
+			ol.appendChild(newOlLi)
+		}
+		// 2.3点亮第一个ol里面的li
+		ol.children[0].className = 'active'
+
+		var  key = 0;
+		var olLiArr = ol.children
+		for (var i = 0; i < olLiArr.length; i++) {
+			// 给每个ol下li添加事件
+			olLiArr[i].index = i
+			olLiArr[i].onmouseenter = function() {
+				// this 指向 olLiArr[i]
+				for (var i = 0; i < olLiArr.length; i++) {
+					olLiArr[i].className = ''
+				}
+				// 当前鼠标移入的元素 高亮
+				this.className = 'active'
+
+				// 处理图片偏移
+				// animate(ul, 0)
+				// animate(ul, 900)
+				// console.log(this.index * ul.children[0].offsetLeft)
+				// animate(ul, -this.index * 900)
+				animate(ul, -this.index * ul.children[0].offsetWidth)
+				// animate(ul, -ul.children[this.index].offsetLeft)
+			}
+		}
+		// 3.鼠标放在提示按钮 轮播图片
+		for (var i = 0; i < olLiArr.length; i++) {
+			olLiArr[i].index = i
+			olLiArr[i].onmouseenter = function() {
+				var act = document.querySelector('.active')
+				act.className = ''
+				olLiArr[this.index].className = 'active'
+				animate(ul, -this.index * ul.children[0].offsetWidth)
+				key = square = this.index
+			}
+		}
+		
+		// ========================================
+		// 4.添加定时器
+		var timer = null;
+		
+		var square = 0;
+		timer = setInterval(autoPlay, 2000);
+		function autoPlay() {
+			key++
+			square++
+			if (key > ulLiArr.length - 1) { // 最后一张的时候 开始显示手动加入的第六张
+				key = 1; // 动画形式看第二张
+				ul.style.left = 0
+			}
+			animate(ul, -key * ul.children[0].offsetWidth)
+			// 点亮ol里面的li,使li和轮播的图片关联
+			square = square > ulLiArr.length - 2 ? 0 : square
+			document.querySelector(".active").className = "";
+			olLiArr[square].className = "active";
+		}
+
+
+		// 鼠标触碰离开 打开或关闭定时器
+		box.onmouseenter = function () {
+			clearInterval(timer);
+		}
+		box.onmouseleave = function () {
+			timer = setInterval(autoPlay, 2000);
+		}
+
+		// 5.实现左右切换按钮
+		var btnArr = box.children[0].children[2].children;
+		btnArr[0].onclick = function () {
+			key--;
+			square--;
+			if (key < 0) {
+				ul.style.left = -(ulLiArr.length - 1) * ul.children[0].offsetWidth + "px";
+				key = ulLiArr.length - 2;
+			}
+			animate(ul, -key * ul.children[0].offsetWidth);
+			square = square < 0 ? ulLiArr.length - 2 : square
+			document.querySelector(".active").className = "";
+			olLiArr[square].className = "active";
+		}
+		btnArr[1].onclick = function () {
+			autoPlay();
+		}
+		function animate(element,position) {
+			// 每次进来清除定时器
+			clearInterval(element.timer);
+			element.timer = setInterval(function () {
+				// 获取当前元素的起始位置
+				var current = element.offsetLeft;
+				// 位置 速度 方向
+				var step = (position - current) / 10;
+				step = step > 0 ? Math.ceil(step) : Math.floor(step);
+				// 现在的位置和目标位置差值小于每次移动的距离 直接到达目的地
+				if ( Math.abs(current - position) > step) {
+					element.style.left = current + step + "px";
+				} else {
+					// 走到最后一步 就让元素直接到达目的地
+					element.style.left = position + "px";
+					clearInterval(element.timer)
+				}
+			} ,20)
+		}
+	</script>
+</body>
+</html>

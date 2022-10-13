@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*二维数组：如果数组的元素是一维数组  那么这个数组就是二维数组*/
+		var arr = [['a','b','c'],[1,2,3,4]];
+		// 1.获取二维数组中一维数组的单个元素
+		console.log(arr[0][1]);
+		console.log(arr[1][3]);
+		// 2.获取二维数组中的一维数组
+		console.log(arr[0]);
+
+		// 3.二维数组的遍历
+		// 3.1先遍历二维数组  获取该数组内所有的一维数组
+		for (var i = 0; i < arr.length; i++) {
+			// 3.2再将遍历出来的一维数组进行遍历
+			 for (var j = 0; j < arr[i].length;j++) {
+			 	//3.3取出每一个获取到的一维数组内的元素
+			 	console.log(arr[i][j]);
+			 }
+		}
+	</script>
+</body>
+</html>

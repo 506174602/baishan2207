@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.header{
+			width: 300px;
+			height: 300px;
+			background: red;
+		}
+		.header .nav{
+			width: 100px;
+			height: 100px;
+			background: blue;
+		}
+		.content{
+			width: 100px;
+			height: 100px;
+			background: yellow;
+		}
+		/*hover用来约束父子元素*/
+		.header:hover .nav{
+			background: yellow;
+		}
+		/*hover用来约束兄弟之间  尽量少用*/
+		.header:hover+.content{
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="nav">郭德纲为您导航（header的子元素）</div>
+	</div>
+	<div class="content">
+		header的兄弟元素
+	</div>
+</body>
+</html>

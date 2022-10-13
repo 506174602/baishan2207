@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>渐变</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="500" height="500">你的浏览器不支持canvas</canvas>
+
+    <script>
+        var canvas = document.getElementById('myCanvas')
+        // 标识画布 获取上下文
+        var ctx = canvas.getContext('2d')
+
+        var gradient = ctx.createLinearGradient(0, 0, 100, 0); // 垂直 0,0,0,100
+        gradient.addColorStop(0, 'orange')
+        gradient.addColorStop(0.5, 'blue')
+        gradient.addColorStop(0.8, 'pink')
+        gradient.addColorStop(1, 'red')
+
+        ctx.fillStyle = gradient
+        ctx.fillRect(10, 10, 150, 80) // 绘制填充矩形
+    </script>
+</body>
+
+</html>

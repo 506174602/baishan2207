@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格操作</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+            color: lightseagreen;
+        }
+        .wrap {
+            width: 410px;
+            margin: 100px auto 0;
+        }
+        /* 按钮 */
+        .wrap input {
+            width: 60px;
+            height: 30px;
+            line-height: 30px;
+            color: #666;
+            outline: none;
+            cursor: pointer;
+            border-radius: 6px;
+            border: 1px solid lightskyblue;
+            background-color: powderblue;
+        }
+        table {
+            margin: 10px 0;
+            border-collapse: collapse;
+            border-spacing: 0;
+            /* border: 1px solid #c0c0c0; */
+        }
+        th,td {
+            border-radius: 8px;
+            /* border: 1px solid #c0c0c0; */
+            color: #404060;
+            padding: 10px;
+        }
+        th {
+            font: 16px "宋体";
+            background: lightpink;
+            color: #333;
+            /* background: #09c;
+            color: #fff; */
+        }
+        /* 固定宽度 */
+        th:nth-child(1),
+        th:nth-child(2) {
+            width: 142px;
+        }
+        th:nth-child(3) {
+            width: 60px;
+        }
+
+        td {
+            font: 14px "宋体";
+            text-align: center;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        tbody tr {
+            background: antiquewhite;
+        }
+        tbody tr:hover {
+            background: lightgoldenrodyellow;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <input type="button" value="添加" class="btnAdd ">
+        <input type="button" value="清空" class="btnClear ">
+        <table>
+            <thead>
+                <tr>
+                    <th>课程</th>
+                    <th>期数</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>HTML</td>
+                    <td>30期前端开发</td>
+                    <td><a href="javascript:;" class="del">删除</a></td>
+                </tr>
+                <tr>
+                    <td>css</td>
+                    <td>30期前端开发</td>
+                    <td><a href="javascript:;" class="del">删除</a></td>
+                </tr>
+                <tr>
+                    <td>javaScript</td>
+                    <td>30期前端开发</td>
+                    <td><a href="javascript:;" class="del">删除</a></td>
+                </tr>
+                <tr>
+                    <td>jQuery</td>
+                    <td>30期前端开发</td>
+                    <td><a href="javascript:;" class="del">删除</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="../jquery.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('.btnClear').on('click', function() {
+                $('tbody').empty();
+            })
+            $('tbody').on('click', '.del', function() {
+                $(this).parent().parent().remove()
+            })
+
+            $('.btnAdd').on('click', function() {
+                $('<tr><td>nodejs</td><td>36期後端開發</td><td><a href="javascript:;" class="del">删除</a></td></tr>').appendTo('tbody')
+            })
+        })
+    </script>
+</body>
+</html> 

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排版</title>
+    <link rel="stylesheet" href="bootstrap-v3/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- 
+            标题:
+            h1-h6标签, .h1-.h6六个类名(让非标题元素和标题使用相同的样式)
+        -->
+        <h1> h1 bootstrap heading</h1>
+        <h2> h2 bootstrap heading <small>副标题</small></h2>
+        <h3> h3 bootstrap heading</h3>
+        <h4> h4 bootstrap heading</h4>
+        <h5> h5 bootstrap heading</h5>
+        <h6> h6 bootstrap heading</h6>
+        <div class="h1">一级标题</div>
+        <span class="h1">一级标题</span>
+        <small>副标题</small>
+        <span class="small">副标题</span>
+        <br>
+        <br>
+        <hr>
+
+        <!--
+            对齐效果 :
+                text-left: 文本左对齐
+                text-center: 文本居中对齐
+                text-right: 文本右对齐
+                text-justify: 文本对齐,段落中超出屏幕部分的文字自动换行
+                text-nowrap: 文本对齐,段落中超出屏幕部分不换行
+                lead:使文本突出显示
+        -->
+        <p class="text-left">11月29日晚</p>
+        <p class="text-center">11月29日晚</p>
+        <p class="text-right">11月29日晚</p>
+        <p class="text-justify">
+            11月29日晚，北京人民大会堂东大厅内，中国和53个非洲国家国旗以及非洲联盟旗帜组成的旗阵恢弘大气、热烈奔放。习近平主席在这里以视频方式出席中非合作论坛第八届部长级会议开幕式并发表主旨演讲。
+        </p>
+        <!-- <p class="text-nowrap">
+            11月29日晚，北京人民大会堂东大厅内，中国和53个非洲国家国旗以及非洲联盟旗帜组成的旗阵恢弘大气、热烈奔放。习近平主席在这里以视频方式出席中非合作论坛第八届部长级会议开幕式并发表主旨演讲。中国和53个非洲国家国旗以及非洲联盟旗帜组成的旗阵恢弘大气、热烈奔放。习近平主席在这里以视频方式出席中非合作论坛第八届部长级会议开幕式并发表主旨演讲。
+        </p> -->
+        <p class="lead text-left">11月29日晚</p>
+        <br>
+        <br>
+        <hr>
+        <!--
+            大小写:
+                text-lowercase: 全部小写
+                text-uppercase: 全部大写
+                text-capitalize: 每个单词的首字母转换成大写字母
+        -->
+        <p class="text-lowercase">HelLO world</p>
+        <p class="text-uppercase">HelLO world</p>
+        <p class="text-capitalize">Hello world hello html</p>
+        <br>
+        <br>
+        <hr>
+        <!--
+            强调效果:
+                text-primary: 主要 蓝色
+                text-muted: 提示 浅灰色
+                text-succes: 浅绿色
+                text-danger: 危险 褐色
+                text-warning: 警告 黄色
+        -->
+        <p class="text-primary">Hello world</p>
+        <p class="text-muted">Hello world</p>
+        <p class="text-success">Hello world</p>
+        <p class="text-danger">Hello world</p>
+        <p class="text-warning">Hello world</p>
+        <br>
+        <br>
+        <hr>
+        <!-- 
+            列表: 无序ul-li  有序ol-li  定义列表dl-dt-dd
+                -- list-unstyled:去点列表
+                -- list-inline 把垂直列表转换为水平列表,且去掉了项目的符号/编号,水平显示.
+                                (实际上内联列表就是为了水平导航而产生的)
+                -- dl-horizontal    制作水平定义列表, 当标题的宽度超过160px时, 将会显示3个省略号 ...
+         -->
+        <ul class="list-unstyled">
+            <li>首页</li>
+            <li>招募活动</li>
+            <li>志愿者团队</li>
+            <li>联系我们</li>
+        </ul>
+
+        <ul class="list-inline">
+            <li>首页</li>
+            <li>招募活动</li>
+            <li>志愿者团队</li>
+            <li>联系我们</li>
+        </ul>
+
+        <dl>
+            <dt>HTML</dt>
+            <dd>超文本标记语言</dd>
+            <dt>CSS</dt>
+            <dd>层叠样式表</dd>
+        </dl>
+        <dl class="dl-horizontal">
+            <dt>HTML</dt>
+            <dd>超文本标记语言</dd>
+            <dt>CSS</dt>
+            <dd>层叠样式表</dd>
+        </dl>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		a{
+			text-decoration: none;
+		}
+		
+		/*设置版心样式*/
+		.container{
+			width: 1000px;
+			/*border: 1px solid #666;*/
+			margin: 0 auto;
+		}
+		/*导航条*/
+		.nav{
+			height: 47px;
+			line-height: 47px;
+		}
+		/*让logo图所在的div左浮动*/
+		.nav .logo{
+			float: left;
+		}
+		/*让nav_right 右浮动*/
+		.nav .nav_right{
+			float:right;
+			width: 600px;
+			background-color: #48AE15;
+			font-size: 18px;
+			text-align: center;
+			/*设置圆角*/
+			border-radius: 50px;
+		}
+		.nav .nav_right a{
+			display: inline-block;
+			padding: 0 20px;
+			color: #fff;
+			/*background-color: pink;*/
+		}
+		.nav .nav_right a.active{
+			background-color: #f3ff41;
+			color: #222;
+		}
+		.nav .nav_right a:hover{
+			background-color: #fff;
+			color: #222;
+		}
+
+	</style>
+</head>
+<body>
+<!-- 版心 -->
+	<div class="container">
+		<!-- 导航条 -->
+		<div class="nav">
+			<div class="logo">
+				<img src="image/logo.png" alt="wrong">
+			</div>
+			<div class="nav_right">
+				<a href="" class="active">首页</a>
+				<a href="">关于我</a>
+				<a href="">文章</a>
+				<a href="">心情</a>
+				<a href="">相册</a>
+				<a href="">留言</a>
+			</div>
+		</div>
+		<!-- 其他内容 -->
+	</div>
+</body>
+</html>

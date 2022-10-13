@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>标准盒模型</title>
+	<style>
+	/*1.标准盒模型组成结构：
+		content     +     padding     +         border    +        margin
+		内容              内边距                边框                外边距
+		手机              填充泡沫              快递盒              快递盒之间的距离
+	  2.盒子的实际宽度：
+	  	实际宽度 = width+    (padding-left + padding-right)+(border-left +border-right)+(margin-left+margin-right)
+	  			内容的宽度            左右内边距                    左右边框                    左右外边距
+		实际高度 = height+   (padding-top + padding-bottom)+(border-top +border-bottom)+(margin-top+margin-bottom)
+				内容的高度            上下内边距                    上下边框                   上下外边距
+
+		所有的标签都可以看作是一个盒子  通过盒模型的属性来设置对应的样式
+	*/
+		.box{
+			background-color: red;
+			/*这里设置的宽高实际是盒子的content部分的宽高*/
+			width: 200px;
+			height: 500px;
+			/*内边距*/
+			padding: 50px;
+			/*边框*/
+			border: 5px solid green;
+			/*外边距*/
+			margin: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		我是内容部分
+	</div>
+</body>
+</html>

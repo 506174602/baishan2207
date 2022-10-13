@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 331px;
+			height: 195px;
+			margin: 100px auto;
+			border: 1px solid red;
+			background-image: url(imgs/1.jpg);
+			animation:move 10s linear infinite;
+		}
+		@keyframes move{
+			0%{
+				background-image: url(imgs/1.jpg);
+			}
+			25%{
+				background-image: url(imgs/2.jpg);
+			}
+			50%{
+				background-image: url(imgs/3.jpg);
+			}
+			75%{
+				background-image: url(imgs/4.jpg);
+			}
+			100%{
+				background-image: url(imgs/5.jfif);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉菜单</title>
+    <link rel="stylesheet" href="../bootstrap-v3/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="page-header">下拉菜单</h1>
+        <!-- 
+            .dropdown 指定下拉菜单 ,下拉菜单都包裹在该类中 
+            下拉菜单的 JavaScript 插件让它具有了交互性。需要引入js文件
+        -->
+        <div class="dropdown">
+            <!-- 
+                dropdown-toggle 下拉切换
+                设置button的id与菜单ul的aria-labelledby一致
+                aria-haspopup="true" true 表示点击时会出现菜单或者浮动的元素,false就是没有pop-up效果
+                aria-expanded="true"  展开状态,默认值undefined为当前展开状态未知,true展开,false不展开
+             -->
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDemo" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="true">
+                点我下拉
+                <span class="caret"></span>
+            </button>
+            <!-- dropdown-menu 创建下拉菜单 -->
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuDemo">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another Action</a></li>
+                <!-- disabled 菜单选项禁用 -->
+                <li class="disabled"><a href="#">Something</a></li>
+                <!-- disabled 下拉菜单中的分割线 -->
+                <li role="separator" class="divider"></li>
+                <li><a href="#">link</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="../jquery.js"></script>
+    <script src="../bootstrap-v3/js/bootstrap.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>清空节点 删除节点</title>
+</head>
+<body>
+	<div style="">
+		<p>001</p>
+		<p>002</p>
+	</div>
+	<p class="clone"> div外的p</p>
+
+	<script src="../jquery.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			// $('div').html('')
+			// $('div').empty()
+			// $('div').remove()
+
+			// cloneNode(true / false)
+			// clone(bool) 深度克隆 true 能够包含事件; 浅度克隆 false, 不包含子元素的事件
+			$('.clone').click(function() {
+				alert($(this).index())
+			})
+			$('.clone').clone(true).appendTo('div')
+		})
+
+	</script>
+</body>
+</html>

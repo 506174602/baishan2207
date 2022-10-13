@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg%2Ftp05%2F19100220060CY5-0-lp.jpg&refer=http%3A%2F%2Fimg.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1640141074&t=067d4d76e0e6ed834aae18b6359f0be6">
+</body>
+</html>
+<script src="../jquery.js"></script>
+<script type="text/javascript">
+	// 页面加载完成之后在执行
+	window.onload=function () {
+		console.log("我是js的入口函数")
+	}
+	// 第一种写法
+	$(document).ready(function(){
+		console.log("我是jq入口函数")
+	})
+	// 第二种入口函数的写法，简写
+	$(function(){
+		console.log("我是jq的入口函数")
+
+		// 隐形迭代 偷偷的遍历 jq会自动遍历循环
+		console.log($("div"))
+
+		$("div").click(function(){
+			// this属于调用者，没有调用者属于window
+			console.log(this)
+		})
+
+		// 等价于下面
+		// var divs=document.querySelectorAll("div")
+		// for(var i=0;i<divs.length;i++){
+		// 	divs[i].onclick=function(){
+		// 		console.log(this)
+		// 	}
+		// }
+	})
+
+	// js的入口函数执行要不jq入口函数晚一些
+	// jq的入口函数要等待网页加载完成之后才开始执行，但是不会等待图片加载完成
+	// js的入口函数等待页面加载完成之后 并且等待图片加载完成之后才开始执行
+
+</script>

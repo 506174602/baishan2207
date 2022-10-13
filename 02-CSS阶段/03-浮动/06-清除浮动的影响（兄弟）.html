@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.first{
+			background-color: yellow;
+			width: 100px;
+			height: 100px;
+			float: left;
+		}
+		.second{
+			background-color: blue;
+			width: 150px;
+			height: 150px;
+			/*clear:left清除左侧兄弟浮动对该元素位置影响
+					right:清除右侧兄弟浮动对该元素的位置影响
+					both:清除左右两侧兄弟元素浮动对该元素位置的影响*/
+			clear: both;
+		}
+		.third{
+			background-color: green;
+			width: 100px;
+			height: 100px;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div class="first"></div>
+	<div class="second"></div>
+	<div class="third"></div>
+</body>
+</html>

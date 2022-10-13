@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>回到顶部</title>
+	<style>
+		.wrap {
+			width: 50px;
+			height: 1500px;
+			margin: 0px auto;
+			background-color: skyblue;
+		}
+		input {
+			width: 100px;
+			height: 100px;
+			line-height: 100px;
+			float: right;
+		}
+	</style>
+</head>
+<body>
+	<div id="top" class="wrap"></div>
+	<input type="button" value="返回顶部">
+
+	<script src="../jquery.js"></script>
+	<script>
+		/**
+		 * animate({style}, speed, easing, callback)
+		 * {style} 使用animate时,属性名称必须是驼峰写法, marginLeft paddingLeft minWidth
+		 * speed 可选参数, 规定了动画的速度,默认值是 normal; 毫秒(2000), 'slow', 'fast'
+		 * easing 可选 规定在不同的动画点中设置动画速度的easing函数 ,'linear' , 'swing'(选择使用哪种缓动函数 jq swing linear, 默认swing)
+		 * callback 回调函数
+		 */
+
+		$(function() {
+			$("input").click(function() {
+				$("html,.wrap").animate({scrollTop: 0}, 'fast')
+			})			
+		})
+	</script>
+
+</body>
+</html>

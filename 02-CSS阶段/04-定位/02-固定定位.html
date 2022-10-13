@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			height: 3000px;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			background: orange;
+			/*固定定位：fixed
+					1.参考点：浏览器窗口
+					2.通过top  right bottom  left属性值进行设置准确的位置 (如果四个值同时存在  那么top和left优先级高于bottom和right);
+					3.固定定位的元素会脱标  原位置不再保留	
+					4.固定定位的元素变成行内块元素	
+
+					应用：导航栏固定  侧边栏固定 底部固定
+			*/
+			position: fixed;
+			/*当前固定定位的元素的顶部距离浏览器窗口的距离*/
+			top: 100px;
+			/*当前固定定位的元素的左侧距离浏览器窗口的距离*/
+			left: 50px;
+			/*当前固定定位的元素的底部距离浏览器窗口的距离*/
+			/*bottom: 100px;*/
+			/*当前固定定位的元素的右侧距离浏览器窗口的距离*/
+			/*right: 50px;*/
+		}
+		span{
+			background: pink;
+			position: fixed;
+			top: 200px;
+			width: 500px;
+			height: 500px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<span>今天天气不错  秋高气爽  是个外出游玩的日子---------我的白日梦</span>
+</body>
+</html>

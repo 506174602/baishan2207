@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+		打断点方式：
+			1.用chrome浏览器打开页面  →按f12进开发者工具 →打开来源（sources）→打开要调试的js文件 在对应的行号上单击一下  恭喜你  你的第一个断点成功
+			2.如果想要看每一步的执行情况   直接f11 （或者右侧的↓.  查看程序执行顺序）
+
+
+		 */
+		function fun(a,b){
+			var sum = 0;
+			// debugger;
+			for(var i = a; i <= b;i++){
+				sum += i;
+			}
+			return sum;
+		}
+		console.log(fun(4,5));
+	</script>
+</body>
+</html>

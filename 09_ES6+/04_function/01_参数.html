@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>参数</title>
+</head>
+
+<body>
+    <script>
+        // ======= 默认参数 =======
+        // es5
+        function foo1(x, y) {
+            y = y || 1
+            return x + y
+        }
+        console.log('foo1----', foo1(9, 11))
+
+        // es6
+        function foo2(x, y = 'world') {
+            return x + y
+        }
+        console.log('foo2----', foo2('Hello ', 'Ajax'))
+
+        // es5 判断参数个数
+        function foo3(a, b) {
+            console.log('es5参数个数----', arguments.length)
+        }
+        foo3('a', 'b', 'c')
+        // es6 function.length 只统计有默认值参数前面的参数
+        function foo4(a, b, c = 5, d) {
+            console.log('es6参数个数----arguments', arguments.length)
+            console.log('es6参数个数----length', foo4.length)
+        }
+        foo4(1, 2, 3, 4)
+
+        // ==========================================================
+        /**
+         * 函数的声明提升：js解析器会首先把当前作用域的函数声明 提升到整个作用域的最前面
+         */
+        var a = 1 // 定义一个全局变量 a
+        function foo5() {
+            console.log('foo5---刚进入函数---a', a)
+            // var a = 10;
+            a = 10;
+            return a;
+
+            function a() {
+                console.log('123456')
+            }
+        }
+        console.log('foo5----', foo5())
+        // ============== ↑ 解释 ↓======================
+        var a1 = 1 // 定义一个全局变量 a1
+        function foo6() {
+            // 首先: 提升函数声明 function a1() { console.log('123456') } 到函数foo6的作用域的最前面
+            // 然后: function a1() { console.log('123456') } 就等同于 var a1 = function() { console.log('123456') }
+            var a1 = function () {
+                console.log('123456')
+            }
+            console.log('foo6---刚进入函数---a', a1)
+            // var a1 = 10;
+            a1 = 10; // 修改局部变量 a1 的值. 不会影响全局变量a1
+            return a;
+
+            // function a1() {
+            //     console.log('123456')
+            // }
+        }
+    </script>
+</body>
+
+</html>

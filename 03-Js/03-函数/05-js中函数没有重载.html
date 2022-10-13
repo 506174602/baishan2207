@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	//1. 什么是重载：函数名相同  但参数不同  这种同名不同参的函数互称为"重载函数"通过重载函数可以实现不同的功能(Java语言中存在)
+		function fn(a,b){
+			console.log("这是第一个函数");
+		}
+		function fn(a,b,c){
+			console.log("这是第二个函数");
+		}
+		// 两个调用函数返回值都是  "这是第二个函数"  说明函数中没有重载
+		fn(1,2);
+		fn(1,2,3);
+
+	// 2.如果想要实现函数的重载效果  我们通过arguments的长度做判断 来执行不同的代码块
+		function fn1(){
+			console.log(arguments,this);
+			if(arguments.length == 0){
+				console.log("0个参数");
+			}else if(arguments.length == 1){
+				console.log("1个参数");
+			}else if(arguments.length == 2){
+				console.log("2个参数");
+			}else{
+				console.log("超过2个参数")
+			}
+		}
+		fn1();
+		fn1(2);
+		fn1(2,3);
+		fn1(2,3,4);
+		fn1(2,3,4,5);
+	</script>
+</body>
+</html>

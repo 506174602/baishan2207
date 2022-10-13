@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        存储: Storage >IE7
+        客户端存储数据有两个对象:
+            -- localStorage: 长久的保存整个网站的数据,保存的数据没有过期时间
+                (可以手动存储设置过期时间,取值时先判断是否已过期); 可以手动清除
+                eg: www.image.iqiyi.com /  www.youku.com
+            -- sessionStorage: 临时保存同一窗口或标签页的数据, 在关闭窗口或标签页之后,将会自动删除这些数据.
+
+
+            chrome浏览器中localStorage 的最大存储时 5120Kb 也就是 5M
+
+            
+     -->
+    <script>
+        if (typeof (Storage) !== undefined) {
+            alert('支持')
+        } else {
+            alert('支持')
+        }
+
+        // localStorage
+        // 在ios设备上,无法重复的setItem同一个键名,在setItem之前,先removeItem()再setItem
+        // var weatherValue = '晴' + "; expireTime=" + 
+        var obj = {
+            value: '晴天',
+            expireTime: '2021-12-30 00:00:00'
+        }
+        // location / local
+        localStorage.setItem('weather', JSON.stringify(obj))
+        alert('今天天气:' + JSON.parse(localStorage.getItem('weather')).expireTime)
+        localStorage.removeItem('weather')
+
+        // ===================sessionStorage========================
+        sessionStorage.setItem('token', '1236545555')
+        sessionStorage.getItem('token')
+        sessionStorage.removeItem('token')
+    </script>
+</body>
+
+</html>

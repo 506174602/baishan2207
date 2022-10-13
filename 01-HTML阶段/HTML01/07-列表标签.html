@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<!-- 列表标签：1.无序列表（常用） 2.有序列表   3.自定义列表 
+		 注意： 1.ul标签适用于给多条数据添加列表语义的
+		        2.ul 和li  是一个组合整体，两个标签是一起出现的，不会单个出现使用
+				3.ul标签内不建议再包含li外的其他标签（不是li，li内可以包含 span a 等标签）
+				新闻 商品 导航栏 
+				ul>li*3
+	-->
+	<!-- 1.无序列表  ul  li 组合标签
+			定义：无序列表是一个项目的列表   每一项使用的粗体的圆点进行标记
+			type（了解）:disc：实心圆点
+				 circle：空心圆
+				 square:小方块
+				 none   不显示样式
+	 -->
+	<ul type="disc">
+		<li>李白</li>
+		<li>亚瑟</li>
+		<li>大乔</li>
+		<li>妲己</li>
+		<li>安琪拉</li>
+	</ul>
+	<ul type="circle">
+		<li>李白</li>
+		<li>亚瑟</li>
+		<li>大乔</li>
+		<li>妲己</li>
+		<li>安琪拉</li>
+	</ul>
+	<ul type="square">
+		<li>李白</li>
+		<li>亚瑟</li>
+		<li>大乔</li>
+		<li>妲己</li>
+		<li>安琪拉</li>
+	</ul>
+	<ul type="none">
+		<li>李白</li>
+		<li>亚瑟</li>
+		<li>大乔</li>
+		<li>妲己</li>
+		<li>安琪拉</li>
+	</ul>
+	<!-- 2.有序列表   ol  li组合(了解)
+			列表项目使用数字进行标记
+			type:1 表示列表项目使用数字标记（1，2，3.....）
+			     a  表示列表项目使用小写字母标记（a b c d e.....）
+			     A   表示列表项目使用大写字母标记(A B C D E.....)
+			     i  表示列表项目使用小写的罗马数字标记（i ii iii iv v...... ）
+			     I  表示列表项目使用大写的罗马数字标记（ I II III IV....）
+	 -->
+	<ol type="I">
+		<li>张飞</li>
+		<li>关羽</li>
+		<li>诸葛亮</li>
+		<li>司马懿</li>
+		<li>曹操</li>
+	</ol>
+	<!-- 3.自定义列表(dl dt dd组合)    案例：小米首页最下方  帮助中心 图文混排
+	  -->
+	<dl>
+		<!--<dt> 第一层 列表项标签 definition title 定义列表标题 -->
+		<dt>山东</dt>
+		<!--<dd> 第二层 注释项标签 definition description 定义标题对应描述-->
+		<!-- dl和 dd/dt 是一个组合整体，不会单独出现 -->
+		<dd>青岛</dd>
+		<dd>济南</dd>
+		<dd>曹县</dd>
+		<dd>菏泽</dd>
+
+		<dt>北京</dt>
+		<dd>帝都</dd>
+
+		<dt>上海</dt>
+		<dd>魔都</dd>
+
+		<dt>成都</dt>
+		<dd>雾都</dd>
+	</dl>
+</body>
+
+</html>

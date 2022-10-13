@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 800px;
+			height: 800px;
+			border: 1px solid blue;
+		}
+		p{
+			width: 200px;
+			height: 100px;
+			background-color: orange;
+		}
+		.box:hover p{
+			transform: translate(800px);
+		}
+		.box1{
+			transition: all 3s ease;
+		}
+		.box2{
+			transition: all 3s ease-in-out;
+		}
+		.box3{
+			transition: all 3s ease-in;
+		}
+		.box4{
+			transition: all 3s ease-out;
+		}
+		.box5{
+			transition:all 3s linear;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<p class="box1">ease 先加速后减速</p>
+		<p class="box2">ease-in-out先加速后减速</p>
+		<p class="box3">ease-in加速</p>
+		<p class="box4">ease-out减速</p>
+		<p class="box5">linear匀速</p>
+	</div>
+	
+</body>
+</html>

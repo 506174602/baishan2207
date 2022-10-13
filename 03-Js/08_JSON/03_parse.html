@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>parse</title>
+</head>
+<body>
+	<script>
+		// parse() 参数填写的是需要解析/转换的字符串,把字符串解析成json或者是数组, 调用者 JSON
+		var dataStr = '{"student": [{"name": "张三", "age": 13}, {"name": "李四", "age": 20}], "teacher": "王五"}';
+
+		var dataObj = JSON.parse(dataStr);
+		var studentArr = dataObj.student;
+		console.log('obj-parse', studentArr);
+
+		// for(变量/键名 in 对象) {
+		// 	执行的代码
+		// }
+		for(key in studentArr) {
+			console.log('Arr-key---------', studentArr[key])
+		}
+
+		for(key in dataObj) {
+			console.log('Obj-key---------', dataObj[key])
+		}
+
+	</script>
+</body>
+</html>

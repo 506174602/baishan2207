@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box1{
+			/*宽和高设置为0*/
+			width: 0;
+			height: 0;
+			/*方法2*/
+			/*border: 100px solid red;
+			border-color:  transparent pink transparent transparent ;*/
+			/*方法1*/
+			border-top: 100px solid pink;
+			border-right: 100px solid transparent;
+			border-bottom:100px solid transparent;
+			border-left:100px solid transparent;
+		}
+		/*梯形*/
+		.box2{
+			width: 50px;
+			height: 50px;
+			border: 100px solid red;
+			border-color:  transparent red transparent transparent;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+	</div>
+	<div class="box2">
+	</div>
+</body>
+</html>

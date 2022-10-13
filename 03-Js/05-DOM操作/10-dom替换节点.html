@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>替换节点</title>
+</head>
+<body>
+	<div class="header">
+		<p>12345</p>
+		<p>6789</p>
+		<span>ABCDE</span>
+	</div>
+	<script>
+		// 替换节点：replaceChild('要替换的值', '被替换的值'); 调用者是【父节点】
+		var p = document.createElement('p');
+		p.innerHTML = "新加p标签内容";
+
+		// var header = document.getElementsByClassName('header');
+		var header = document.getElementsByTagName('div')[0];
+
+		header.replaceChild(p, header.children[2]);
+
+	</script>
+</body>
+</html>

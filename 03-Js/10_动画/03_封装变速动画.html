@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封装变速动画</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0
+		}
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+			position: absolute;
+		}
+		
+	</style>
+</head>
+<body>
+	<button class="btn1">水平平移400</button>
+	<button class="btn2">水平平移800</button>
+	<!-- <button class="btn2">垂直平移800</button> -->
+	<div class="box"></div>
+
+	<script src="aminate.js"></script>
+	<script >
+		var btn1 = document.querySelector('.btn1');
+		var btn2 = document.querySelector('.btn2');
+		var box = document.querySelector('.box');
+		var box2 = document.querySelector('.box2');
+
+
+		console.log(box.offsetLeft)
+		btn1.onclick = function() {
+			animate(box, 400);
+		}
+
+		btn2.onclick = function() {
+			animate(box, 800);
+		}
+
+		
+	</script>
+</body>
+</html>

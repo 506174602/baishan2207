@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象的结构性赋值</title>
+</head>
+
+<body>
+    <script>
+        let user = {
+            name: '谁又困了',
+            age: 2
+        } // new Object()
+
+        let name1 = user.name
+        let age1 = user.age
+
+        let {
+            name1: name3,
+            age: age2,
+            age1: age3,
+            name: name2
+        } = user
+        // 根据键名进行结构性赋值,与顺序无关
+        console.log('name----2', name2)
+        console.log('name----3', name3)
+
+        let {
+            age,
+            name
+        } = user
+        console.log('name4----', name)
+
+        // rest 接收剩余参数
+        let opt = {
+            'title': 'menu',
+            "height": 200,
+            width: 100
+        }
+        console.log('opt-----', opt)
+        let {
+            title,
+            ...rest
+        } = opt
+        console.log('title---', title)
+        console.log('rest---', rest.width)
+    </script>
+</body>
+
+</html>

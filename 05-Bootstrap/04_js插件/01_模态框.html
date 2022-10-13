@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模态框</title>
+    <link rel="stylesheet" href="../bootstrap-v3/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="page-header">模态框</h1>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">点我显示模态框</button>
+        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#addModal">添加</button>
+        <!-- 
+            data-target="#myModal"   要在页面上加载显示的模态框的目标 
+            data-toggle="modal"      data- h5自定义的data属性, data-toggle用于切换模态框插件的隐藏内容
+        -->
+        <!-- 
+            模态框 
+            .modal: 将div内容识别为模态框
+             aria-labelledby="myModalLabel" 引用模态框的标题
+             fade 使模态框以淡入淡出的方式  显示或者隐藏
+        -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <!-- .modal-header 模态框窗口的头部样式类 -->
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span>&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">我的第一个模态框</h4>
+                    </div>
+                    <!-- .modal-body 模态框窗口的主体样式类 -->
+                    <div class="modal-body">
+                        我的第一个模态框
+                        <button type="button" class="btn btn-primary">别保存</button>
+                    </div>
+                    <!-- modal-footer 窗口底部的样式类 -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary">保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <!-- .modal-header 模态框窗口的头部样式类 -->
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span>&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">添加团队</h4>
+                    </div>
+                    <!-- .modal-body 模态框窗口的主体样式类 -->
+                    <div class="modal-body">
+                        <form action="#">
+                            <div class="form-group">
+                                <label for="teamName" class="control-label">团队名称</label>
+                                <input type="text" class="form-control" id="teamName">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="control-label">官方邮箱</label>
+                                <input type="text" class="form-control" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="teamDesc" class="control-label">团队描述</label>
+                                <textarea class="form-control" name="" id="teamDesc" cols="30" rows="5"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- modal-footer 窗口底部的样式类 -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary">添加</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../jquery.js"></script>
+    <script src="../bootstrap-v3/js/bootstrap.js"></script>
+    <script>
+        // $(function() {
+
+        // })
+        $('#addModal').on('show.bs.modal', function () {
+            // show.bs.modal 在调用show方法后触发
+            alert('你将要看到模态框')
+        })
+        $('#addModal').on('shown.bs.modal', function () {
+            alert('你看见了模态框')
+        })
+        $('#addModal').on('hide.bs.modal', function () {
+            alert('你要关闭模态框')
+        })
+        $('#addModal').on('hidden.bs.modal', function () {
+            alert('你已经关闭了模态框')
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>prototype</title>
+</head>
+<body>
+	<script>
+		var arr = new Array(1, 2, 3, 4);
+
+		console.log('arr---', arr)
+
+		Array.prototype.sum = function () {
+			var sum = 0;
+			for (var i = 0; i < this.length; i++) {
+				sum += this[i]
+			}
+			return sum;
+		}
+
+		console.log(arr.sum())
+
+		// Array.prototype.push = function(a) {
+		// 	this.push(a)
+		// }
+
+		// arr.push()
+	</script>
+</body>
+</html>

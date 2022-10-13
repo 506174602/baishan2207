@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="swiper-v4/css/swiper.css">
+    <title>swiper下载 引入及使用</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 350px;
+        }
+
+        img {
+            width: 100%;
+            height: 350px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="swiper-container" id="swiper1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="../images/1.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="../images/2.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="../images/3.jpg" alt="">
+            </div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+
+        <!-- 如果需要导航按钮 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- 如果需要滚动条 -->
+        <div class="swiper-scrollbar"></div>
+    </div>
+    <div class="swiper-container" id="swiper2">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="../images/1.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="../images/2.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="../images/3.jpg" alt="">
+            </div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+
+        <!-- 如果需要导航按钮 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- 如果需要滚动条 -->
+        <div class="swiper-scrollbar"></div>
+    </div>
+    <script type="text/javascript" src="swiper-v4/js/swiper.js"></script>
+    <script>
+        /**
+         * swiper下载地址: https://www.swiper.com.cn/download/index.html
+         * 1.下载某个版本的压缩包 如4.5.3,解压后只保留dist文件夹,其他都删除就行
+         * 2.dist中只有js和css文件夹,js文件夹中只保留swiper.js swiper.min.js就行
+         * 3.引入swiper的css和js
+         * 
+         * 使用demo: https://www.swiper.com.cn/usage/index.html
+         * 
+         * API的使用: https://www.swiper.com.cn/api/start/new.html
+         * new Swiper('.swiper-container') 需要传递一个必要参数,参数为要使用swiper的那个盒子
+         * 注意:
+         * 1.Swiper7使用的默认容器是'.swiper'，Swiper6以下使用的是'.swiper-container'。
+         * 2.一个页面中如果要引用多个Swiper,可以给没给容器加上不同的id或class以作区分,但要注意保留默认的类名.swiper-container / .swiper
+         * 3.如果都是同一个类名,js代码不好管理,使用混乱.要给新增的swiper盒子对应新new一个swiper实例
+         *  var swiper1 = new Swiper('#swiper1', {})
+         *  var swiper2 = new Swiper('#swiper2', {})
+         * 
+         * */
+    </script>
+    <script>
+        var mySwiper1 = new Swiper('#swiper1', {
+            direction: 'vertical', // 垂直切换选项
+            loop: true, // 循环模式选项
+
+            // 如果需要分页器
+            pagination: {
+                el: '.swiper-pagination',
+            },
+
+            // 如果需要前进后退按钮
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+            // 如果需要滚动条
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+        })
+        var mySwiper2 = new Swiper('#swiper2', {
+            // direction: 'vertical', // 垂直切换选项
+            direction: 'horizontal', // 垂直切换选项
+            loop: true, // 循环模式选项
+
+            // 如果需要分页器
+            pagination: {
+                el: '.swiper-pagination',
+            },
+
+            // 如果需要前进后退按钮
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+            // 如果需要滚动条
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+        })
+    </script>
+</body>
+
+</html>

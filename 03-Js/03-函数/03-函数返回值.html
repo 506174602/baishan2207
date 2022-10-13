@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数返回值</title>
+</head>
+<body>
+	<script>
+		/*
+		函数返回值：当我们创建的函数并且调用之后  并不是所有的情况都要输出结果  我们期望函数给我们返回一个结果  方便我们进行后续的操作  那么这个结果就是我们的函数返回值
+			1. 我们通过return关键字  返回一个返回值
+			2.注意：在函数中  return 执行后  其后边的代码不会在再执行
+			3.return 默认返回时undefined
+		*/
+	function fn(a,b,c){
+		var sum = 0;
+		sum = a + b + c;
+		return sum;
+		console.log("我是后边的内容");
+	}
+	var sum1 = fn(1,2,3);
+	console.log(sum1.toString());//6 string
+	</script>
+</body>
+</html>

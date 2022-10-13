@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>video</title>
+</head>
+
+<body>
+    <!-- 
+        poster: 视频封面
+     -->
+    <video src="resource/video.mp4" autoplay="autoplay" poster="resource/01.jpg" controls="controls"></video>
+
+    <button>播放</button>
+    <button>暂停</button>
+    <button>快速播放</button>
+    <button>快进</button>
+    <button>快退</button>
+    <button>重载</button>
+    <button>大</button>
+    <button>中</button>
+    <button>小</button>
+    <button>全屏</button>
+
+    <script src="../../04-jq/jquery.js"></script>
+    <script>
+        var btns = document.querySelectorAll('button')
+        var video = document.querySelector('video')
+
+        btns[0].onclick = function () {
+            // 播放
+            video.play()
+        }
+        btns[1].onclick = function () {
+            // 暂停
+            video.pause()
+        }
+        btns[2].onclick = function () {
+            // 快速播放
+            video.playbackRate = 2
+        }
+        btns[3].onclick = function () {
+            // 快进3秒
+            video.currentTime += 3
+        }
+        btns[4].onclick = function () {
+            // 快退3秒
+            video.currentTime -= 3
+        }
+        btns[5].onclick = function () {
+            // 重载
+            video.load()
+        }
+        btns[6].onclick = function () {
+            // 大屏
+            video.width = '2000'
+        }
+        btns[7].onclick = function () {
+            // 中屏
+            video.width = '800'
+        }
+        btns[8].onclick = function () {
+            // 小屏
+            video.width = '400'
+        }
+        btns[9].onclick = function () {
+            // 全屏
+            video.webkitRequestFullScreen()
+        }
+    </script>
+</body>
+
+</html>

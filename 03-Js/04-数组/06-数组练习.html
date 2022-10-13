@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// 1.求数组中所有元素的和
+		var arr = [10,20,30,40,50,60];
+		var sum = 0;
+		/*for(var i= 0;i < arr.length;i++){
+			sum += arr[i];
+		}*/
+		arr.forEach(function(value,index,arr){
+			sum += arr[index];
+		});
+		console.log(sum);
+		// 2.求数组中所有元素的平均数
+		var arr1 = [1,6,8,5,9,10];
+		var sum1 = 0;
+		for(var i= 0;i < arr1.length;i++){
+			sum1 += arr1[i];
+		}
+		console.log(sum1 / arr1.length);
+		// 3.求数组中所有元素的最大值
+		var arr2 = [3,5,7,9,11,30,50,2,4,6,8];
+		// 假设第一数就是最大数
+		var max = arr2[0];
+		for(var i = 0;i <= arr2.length; i++){
+			// 始终保持max这个值是最大的
+			if(arr2[i] > max){
+				max = arr2[i];
+			}
+		}
+		console.log("数组中最大数是"+max);
+		// 4.去掉数组中0 并将其他元素放到新的数组中  将新数组对象在控制台打印出来
+		var arr3 = [2,4,0,8,10,0,9];
+		var newarr = [];
+		for(var i = 0; i < arr3.length;i++){
+			if(arr3[i] != 0){
+				newarr[newar0r.length] = arr3[i];
+			}
+		}
+		console.log(newarr);
+	</script>
+</body>
+</html>

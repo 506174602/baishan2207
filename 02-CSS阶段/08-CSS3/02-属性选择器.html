@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*直接通过元素的属性名找到对应的元素*/
+		a[href="sina"]{
+			font-size: 50px;
+			color: red;
+		}
+		/*找到指定属性以“b”开头的元素*/
+		a[href^="b"]{
+			color: blue;
+		}
+		/*找到属性包含对应内容的所有a元素*/
+		a[href*="i"]{
+			color: pink;
+		}
+		input[type="text"]{
+			outline: none;
+		}
+		input[type*="t"]{
+			width: 200px;
+		}
+	</style>
+</head>
+<body>
+	<a href="sina">新浪</a>
+	<a href="bilibili">哔哩哔</a>
+	<a href="baidu">百度</a>
+	<input type="text">
+	<input type="button" value="按钮">
+</body>
+</html>

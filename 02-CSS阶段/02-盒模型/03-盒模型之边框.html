@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	/*css边框属性  允许我们指定一个元素的边框设置样式和颜色   
+					一般配合(上右下左)border-top  border-right   border-bottom  border-left
+*/
+		.box{
+			width: 300px;
+			height: 200px;
+			background-color: pink;
+			/*1.边框的样式border-style:
+			属性值：solid(实线) dotted(点边框) dashed(虚线) double(双实线)  none(默认值)   
+			*/
+			/*border-style: dotted;
+			border-style: dashed;
+			border-style: double;*/
+			/*border-style: solid;*/
+			/*单个边框的样式*/
+			border-top-style: dashed;
+			border-right-style: dotted;
+			border-bottom-style: solid;
+			border-left-style: double;
+			/*2.边框的宽度border-width*/
+			border-width: 10px;
+			/*单个边框的宽度*/
+			border-top-width: 20px;
+			border-right-width: 15px;
+			border-bottom-width: 20px;
+			border-left-width: 15px;
+			/*3.边框的颜色:取值：关键字  十六进制  rgba() 必须是设置了边框样式才能实现颜色 */
+			border-color: greenyellow;
+			border-top-color: green;
+			border-right-color: blue;
+			border-bottom-color: yellow;
+			border-left-color: red;
+			/*4.border的复合写法(最常用)：   border:宽度  样式  颜色*/
+			border:10px solid #999;
+			border-top: 20px solid #666;
+			border-right:15px  solid #333;
+			border-bottom: 10px solid #ccc;
+			border-left:10px solid #888;
+
+
+			/*5.圆角：左上   右上  右下  左下*/
+			border-radius: 10px 0 0 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		内容
+	</div>
+</body>
+</html>

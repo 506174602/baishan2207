@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件的委托代理</title>
+	<style>
+		li {
+			list-style: none;
+			height: 50px;
+			line-height: 50px;
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<span>我是span1</span>
+			<button>点击删除</button>
+		</li>
+		<li>
+			<span>我是span2</span>
+			<button>点击删除</button>
+		</li>
+	</ul>
+	<script>
+		// 事件委托也称为事件代理:利用事件冒泡的特性，将里层的事件委托给外层事件，根据event对象的属性进行事件委托
+		// 优点：使用事件委托能够避免对特定的每个节点添加事件监听器；(就是将事件监听器添加到父元素上)
+		var ul = document.querySelector('ul');
+		ul.onclick = function(event) {
+			console.log('event-target--->', event.target)
+			if (event.target.nodeName === 'SPAN') {
+				event.target.style.color = 'pink';
+			} else if(event.target.tagName === 'BUTTON') {
+				this.removeChild(event.target.parentNode)
+			}
+		}
+		// tagName 和 nodeName 的区别：
+		// 1. 语义上是一样的
+		// 2. tagName 只能用于元素节点
+		// 3. nodeName 可以用于任何节点, 比如 元素节点、属性节点和文本节点等;
+	</script>
+</body>
+</html>

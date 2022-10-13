@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>module</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        /**
+         * HTML页面中，浏览器的js脚本是通过 <script> 标签加载
+         * 因为在默认情况下， 浏览器是同步加载 js 脚本。
+         * 也就是渲染引擎遇到 <script>标签就会停下等到脚本执行结束，再继续向下渲染执行
+         * 
+         * 如果脚本体积过大，或网络不好，下载和执行的时间就会延长，就会造成浏览器堵塞，造成页面卡顿
+         * 解决以上问题： 让浏览器允许脚本 异步加载：
+         * -- 在script标签中使用 defer 和 async属性，脚本就会异步加载
+         * 渲染引擎遇到 以上两个命令之后，就会开始下载外部脚本，但不会等待它下载和执行，而是直接执行后面的命令
+         *  -- defer 和 async 的区别：
+         * defer 需要等到整个页面在内存中正常渲染结束(DOM已经完全生成， 以及其他脚本执行完成)，才执行
+         * async 一旦下载完，渲染引擎就会中断渲染，执行该脚本后，再继续渲染
+         * ----- defer 渲染完再执行 async 下载完再执行
+         * 若有多个defer脚本 ，会按顺序执行，
+         * 若有多个async脚本 ， 不能保证其加载顺序
+         * <script src="http.jquery.js" defer>
+         * <script src="http.jquery.js" async>
+         */
+        //============================================================
+        /**
+         * 模块功能 由两个命令构成： export  和   import
+         * export 命令 用于规定模块的对外接口,
+         * import 命令 用于输入其他模块中提供的功能
+         * 一个模块就是一个独立的文件，文件内部的所有变量 函数，在外部无法获取
+         * 若要使外部能获取到模块内部的变量 函数。必须使用 export 关键字输出该变量或函数
+         * 
+         * import 命令接收一对大括号，里面指定要从其他模块导入的变量 函数， 
+         * 大括号里面的变量名或函数，必须和被导入的模块中的对外 名称 相同
+         */
+    </script>
+
+    <script type="module">
+        // 模块中可以使用import命令加载其他模块，注意 .js后缀不可以省略，且要提供绝对 URL 或相对的URL
+        // 模块中顶层的this返回的是 undefined， 而不是指向 window，即再模块顶层使用this是无意义的
+        import {
+            f as foo
+        } from './export.js'
+        foo()
+        // alert(this) // undefined
+        let obj = {
+            name: '谁困了',
+            like: function() {
+                console.log('说你呢---', this.name)
+            }
+        }
+        obj.like()
+    </script>
+</body>
+
+</html>

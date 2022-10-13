@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas</title>
+</head>
+
+<body>
+    <!-- 
+        canvas元素用来绘制图形 <canvas></canvas> 
+        必须先设置width height 属性,指定可绘图区域的大小,不指定的情况下为300 X 150 背景透明
+     -->
+
+    <canvas id="myCanvas" width="500" height="500">你的浏览器不支持canvas</canvas>
+
+    <script>
+        /**
+         * getContext(contextId)对象是内建的HTMl5对象, contextId指定了在画布上绘制的图像类型参数值为2d/3d
+         * -- 2d: 二维绘图,返回一个二维绘图api;唯一支持的是2d
+         * -- 3d: 在未来, 如果canvas标签扩展到支持3D绘图, getContext() 方法可能允许传递一个 '3d' 字符串参数
+         */
+        var canvas = document.getElementById('myCanvas')
+        var ctx = canvas.getContext('2d'); // 2d/3d
+        // beiginPath() 新建一条路径, 一旦创建成功,图形绘制命令被指向到路径上  生成路径
+        ctx.beginPath();
+        ctx.moveTo(0, 0) // 将画笔移动到指定坐标  类似起点
+        ctx.lineTo(200, 200) //  将画笔移动到结束坐标 类似终点
+        ctx.strokeStyle = "blue";
+        ctx.stroke();
+        ctx.closePath();
+    </script>
+</body>
+
+</html>

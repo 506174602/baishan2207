@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stroke</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <svg xmlns="http://www/w3.org/2000/svg" version="1.1">
+
+        <!-- stroke 定义一条线,文本或者元素轮廓的颜色 -->
+        <!-- g  group组  -->
+        <g>
+            <path stroke="red" d="M5 20 l215 0" />
+            <path stroke="green" d="M5 40 l215 0" />
+            <path stroke="blue" d="M5 60 l215 0" />
+        </g>
+    </svg>
+
+    <svg xmlns="http://www/w3.org/2000/svg" version="1.1">
+
+        <!-- stroke 定义一条线,文本或者元素轮廓的颜色 -->
+        <!-- g  group组  -->
+        <g stroke="blue">
+            <path stroke-width="2" d="M5 20 l215 0" />
+            <path stroke-width="4" d="M5 40 l215 0" />
+            <path stroke-width="6" d="M5 60 l215 0" />
+        </g>
+    </svg>
+
+    <svg xmlns="http://www/w3.org/2000/svg" version="1.1">
+
+        <!-- stroke 定义一条线,文本或者元素轮廓的颜色 -->
+        <!-- g  group组  -->
+        <!-- stroke-linecap 端点描述的样式 -->
+        <g stroke="blue" stroke-width="8">
+            <path stroke-linecap="butt" d="M5 20 l215 0" />
+            <path stroke-linecap="round" d="M5 40 l215 0" />
+            <path stroke-linecap="square" d="M5 60 l215 0" />
+        </g>
+    </svg>
+
+    <svg xmlns="http://www/w3.org/2000/svg" version="1.1">
+
+        <!-- stroke 定义一条线,文本或者元素轮廓的颜色 -->
+        <!-- g  group组  -->
+        <!-- stroke-linecap 端点描述的样式 -->
+        <g stroke="blue" stroke-width="8">
+            <path stroke-dasharray="5,5" d="M5 20 l215 0" />
+            <path stroke-dasharray="10,10" d="M5 40 l215 0" />
+            <path stroke-dasharray="20,10,5,5,5,10" d="M5 60 l215 0" />
+        </g>
+    </svg>
+</body>
+
+</html>

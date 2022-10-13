@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>post</title>
+</head>
+<body>
+	<div class="box">
+		<h2>登录</h2>
+		<span>用户名:</span> <input type="text" class="user-name"> <br>
+		<span>密&nbsp;&nbsp;&nbsp;码:</span> <input type="text" class="password"> <br>
+		<button>登录</button> <br>
+		<span></span>
+	</div>
+
+
+	<script type="text/javascript">
+		// 先获取页面元素
+		var btn = document.querySelector('button')
+		var userName = document.querySelector('.user-name')
+		var password = document.querySelector('.password')
+		var span = document.querySelector('span')
+
+		btn.onclick = function() {
+			// 1. 创建Ajax异步对象
+			var xhr = new XMLHttpRequest();
+			// 2. post 请求: 设置请求头  setRequestHeader('content-type', 'application/x-www-form-urlencoded'
+			xhr.open('post', 'http://wish.byesame.com/login')
+			// xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+			xhr.setRequestHeader('Content-type', 'application/json')
+			// 2.1  'application/x-www-form-urlencoded' 请求数据格式 form data 字符串形式: xhr.send(userName=admin&password=123456)
+			// 2.2  'application/json' 请求数据格式:JSON对象. var params = { userName: "admin", password: "123456" }  xhr.send(JSON.stringfy(params))
+			// 3. 发送请求 
+			var params = 'userName=' + userName.value + '&passWord=' + password.value
+			// var params = { userName: userName.value, password: password.value }
+			xhr.send(params) // 如果Content-type是 application/json 则需要将参数写为 JSON.stringfy(params)
+			// xhr.send(JSON.stringify(params)) // 如果Content-type是 application/json 则需要将参数写为 JSON.stringify(params)
+			// 4. 获取响应结果
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+
+					console.log('登录异步对象', xhr)
+					console.log('登录结果', xhr.responseText)
+					var jsonData = JSON.parse(xhr.responseText)
+					console.log('登录结果解析', jsonData)
+					if (jsonData.code == 200) {
+						
+						alert('您好,' + (jsonData.data.role === 1 ? '超级管理员' : '普通用户: ') + jsonData.data.name + ', 欢迎登录')
+					} else {
+						alert(jsonData.msg)
+					}
+				}
+			}
+		}
+	</script>
+</body>
+</html>

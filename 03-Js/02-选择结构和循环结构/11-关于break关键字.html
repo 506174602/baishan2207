@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- break:常用来用来终止循环语句（switch）
+			1.一般我们常用一个判断条件来配合我们的这个break来使用   即：条件成立  退出循环	
+			2.break只能终止它自己所在的那个循环语句
+			3.continue和break不能同时使用
+	 -->
+	 <script>
+	 	// 1.输出1-5的所有数字
+	 	/*for(var i = 1;i <= 5;i++){
+	 		if(i == 4){
+	 			break;
+	 		}
+	 		console.log(i);
+	 	}*/
+	 	// 案例2：
+	 	for(var i = 1;i <= 3;i++){
+	 		for(var j = 1;j <= 3;j++){
+	 			if( j == 2){
+	 				break;
+	 			}
+	 			console.log("内循环_"+j);
+	 		}
+	 		console.log("外循环____"+i);
+	 	}
+	 </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新H5的dom操作----选择器</title>
+</head>
+<body>
+	<div class="header"> Header --- 1 </div>
+	<div class="header"> Header --- 2 </div>
+	<div class="header"> Header --- 3 </div>
+
+	<ul>
+		<li>我是Li --- 1</li>
+		<li>我是Li --- 2</li>
+		<li>我是Li --- 3</li>
+		<li>我是Li --- 4</li>
+	</ul>
+
+	<script>
+		// 1、 querySelector('')
+		// 参数：css选择器；调用者是：document; 
+		// 返回值：返回匹配的指定选择器的【第一个】元素，仅支持IE8及以上；
+		// 
+		var header = document.querySelector('.header');
+		console.log('获取的header' + header);
+
+		// 2、querySelectorAll()
+		// 参数：css选择器；调用者:document;
+		// 返回值：所有匹配的元素，数组形式
+		var lis = document.querySelectorAll('ul li');
+
+		console.log('lis--------' + lis);
+
+
+		// 通过原生js获取
+		var lisByNativeJs = document.getElementsByTagName('ul')[0].getElementsByTagName('li');
+
+		console.log('lisByNativeJs----' + lisByNativeJs)
+	</script>
+</body>
+</html>

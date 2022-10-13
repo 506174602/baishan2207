@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回调地狱</title>
+</head>
+
+<body>
+    <script src="../../04-jq/jquery.js"></script>
+    <script>
+        /**
+            什么是同步, 异步
+        */
+        // 同步
+        const a = 2;
+        const b = 3;
+        let c = 0
+        // console.log(a + b)
+
+        // 异步
+        console.log('准备进入定时器')
+        setTimeout(() => { // 异步任务, 放到任务队列中
+            // 回调函数
+            c = a + b
+            console.log('定时任务内部----', c)
+        }, 0)
+        // console.log('定时任务外部---', Math.pow(a, b))
+        console.log('定时任务外部---', c)
+
+        /**
+         * js的Ajax请求
+         * 1. new XMLHttpRequest()
+         * 2.open()
+         * 3.send() // setRequestHeader()
+         * 4.xhr.onreadystatechange = function() {}
+         * -- readyState  4
+         *  0: 请求未初始化 表示创建了异步对象的时刻, new XMLHttpRequest()
+         *  1: 服务器连接已建立, 并初始化异步对象的请求参数, open()
+         *  2: 请求已经被接收, send()
+         *  3: 请求处理中, 从服务器接收数
+         *  4: 请求已完成, 响应已就绪. 异步对象接收成功的数据,并将在对象内部处理完成后显示到页面
+         */
+
+        /**
+         * 要求:
+         *  假设已知 token, 用jQuery-Ajax实现以下步骤
+         *  1.通过token获取用户id
+         *  2.通过id获取用户的用户名: username
+         *  3.通过用户名获取余额: money
+         *  以上问题模拟的是回调地狱的场景: 回调函数中嵌套回调, 称之为回调地狱
+         *  为了解决 回调地狱 的问题 , 提出了 Promise 承诺
+         */
+        const token = 'AAAAAAA'
+        $.ajax({
+            type: 'GET',
+            url: 'data_id.json',
+            headers: {
+                Authentic: token // 王付玉
+            },
+            success: (res) => { // response  result
+                console.log('第一个Ajax请求结果', res)
+                const {
+                    id
+                } = res.data // 对象的解构赋值
+                $.ajax({
+                    tyep: 'GET',
+                    url: 'data_username.json',
+                    headers: {
+                        token: token // 王付玉
+                    },
+                    data: {
+                        id
+                    }, // {id: id}
+                    success: (res) => {
+                        console.log('第二个Ajax请求结果', res)
+                        const {
+                            username
+                        } = res.data
+                        $.ajax({
+                            tyep: 'GET',
+                            url: 'data_money.json',
+                            headers: {
+                                token: token // 王付玉
+                            },
+                            data: {
+                                username
+                            }, // {username: username}
+                            success: (res) => {
+                                console.log('第三个Ajax请求结果', res.data.money)
+                            }
+                        })
+                    }
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>

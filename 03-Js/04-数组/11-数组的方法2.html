@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//1.slice() 截取数组内元素  
+		/*     1.1语法：  数组名.slice(start,end) 表示从数组中截取start位置索引到end位置(不包含end)索引范围内的元素
+								  ps：start参数是必需的，当end不写的时候表示从索引start索引位置的元素的开始一直到最后一个元素
+				1.2:该方法不会改变数组的结构          会将提取的元素封装成一个新的数组作为结果返回
+		 */
+		var arr = ["李白","高渐离","孙悟空","妲己"];
+		var arr1 = arr.slice(1,2);
+		console.log(arr1);
+		console.log(arr);
+		// 2.splice() 删除数组中指定的元素   (常用)
+		/*     2.1语法：数组名.splice(start,m);  start表示从start索引开始进行删除   m是删除的元素个数
+			   2.2  该方法会改变数组的结构       会将删除的元素封装成一个新的数组作为结果返回
+			   2.3  该方法还可以在指定位置添加元素   
+			   			语法： 数组名.splice(start,m,"","",)  从第三个参数之后 就是我们要添加的元素内容
+		 */   
+		var arr2 = [1,2,3,4,5];
+		// 删除
+	    var arr3 = arr2.splice(1,2);
+	    console.log(arr3);
+		console.log(arr2);
+		var  arr4 = ["a","b","c","d"];
+		//指定位置添加元素
+		// arr4.splice(1,0,"+1","+2");
+		// 替换元素
+		arr4.splice(1,2,"+1","+2");
+		console.log(arr4);
+	</script>
+	
+</body>
+</html>

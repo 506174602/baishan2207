@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<ul>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+	<li>6</li>
+</ul>
+</body>
+</html>
+<script src="../jquery.js"></script>
+<script type="text/javascript">
+	$(function () {
+		$("li").click(function(){
+			// index()返回当前元素所在的索引值
+			console.log($(this).index())
+		})
+	})
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>location</title>
+</head>
+<body>
+	<button>点击跳转</button>
+	<script>
+		/**
+		 * location: 是window下面的一个对象,使用时也可以省略window
+		 *  作用: 获取或者设置浏览器地址栏的URLURL https://www.baidu.com/
+		 *
+		 * URL 统一资源定位符 Uniform Resource Locator URL
+		 * 格式: scheme://host:port/path?query
+		 * 参数解释:
+		 * 	scheme/protocol: 通信协议 常用的有 https http ftp
+		 * 	host: 主机 服务器(计算机)域名系统 主机名 或者是 IP地址
+		 * 	port: 端口号 整数 可选;如果省略则使用默认端口 http默认端口号80 ,https默认端口号443
+		 * 	path: 路径 由多个'/'符号分割开的字符串.一般用来表示主机上的一个目录或者文件地址
+		 * 	query: name=李&startAge=18&endAge=50.查询参数 可选,用于给动态网页传递参数,可以有多个. 每个参数的名和值用'='连接, 多个参数之间用&
+		 */
+		console.log('window.location', window.location)
+		/**
+		 * location.href: url地址
+		 * location.host: 主机名 + 端口号
+		 * location.hostname: 主机域名
+		 * location.pathname: 返回路径和文件名
+		 * location.port: 端口号
+		 * location.protocol: 通讯协议
+		 */
+		var btn = document.querySelector('button');
+		btn.onclick = function() {
+			location.href = 'https://www.baidu.com'
+		}
+	</script>
+</body>
+</html>

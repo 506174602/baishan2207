@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+		}
+		/*新闻列表*/
+		.news{
+			margin-top: 30px;
+		}
+		.news .top{
+			height: 32px;
+			line-height: 32px;
+			border-bottom: 1px solid #eaeaea;
+		}
+		.news .top span{
+			float: left;
+			padding: 0 15px;
+			font-size: 12px;
+			color: #000;
+		}
+		.news .top .active{
+			background-color: #f77825;
+			color: #fff;
+		}
+		.news .cont .select{
+			display: block;
+		}
+		.news .cont ul{
+			background:url(../images/ph2.png) no-repeat 0 20px;
+			display: none;
+		}
+		.news .cont ul li{
+			height: 30px;
+			line-height: 30px;
+			padding: 10px 0 0 30px;
+			border-bottom: 1px solid #eaeaea;
+		}
+		.news .cont ul li a{
+			font-size: 12px;
+			color: #666;
+		}
+		.news .cont ul li:hover{
+			border-color: #333;
+		}
+		.news .cont ul li:hover a{
+				color: #333;
+		}
+	</style>
+</head>
+<body>
+	<!-- tab切换 -->
+	<div class="news">
+		<!-- 切换的按钮 -->
+		<div class="top clearfix">
+			<span class="active">点击排行</span>
+			<span>最新文章</span>
+			<span>站长推荐</span>
+		</div>
+		<!-- 切换的内容 -->
+		<div class="cont">
+			<ul class="select">
+				<li><a href="#">住在手机里的朋友</a></li>
+				<li><a href="#">教你怎样用欠费手机拨打电话</a></li>
+				<li><a href="#">原来以为，一个人的勇敢是，删掉他的手机号码...</a></li>
+				<li><a href="#">手机的16个惊人小秘密，据说99.999%的人都不知</a></li>
+				<li><a href="#">你面对的是生活而不是手机</a></li>
+				<li><a href="#">豪雅手机正式发布! 在法国全手工打造的</a></li>
+			</ul>
+			<ul>
+				
+				<li><a href="#">原来以为，一个人的勇敢是，删掉他的手机号码...</a></li>
+				<li><a href="#">手机的16个惊人小秘密，据说99.999%的人都不知</a></li>
+				<li><a href="#">你面对的是生活而不是手机</a></li>
+				<li><a href="#">豪雅手机正式发布! 在法国全手工打造的</a></li>
+				<li><a href="#">住在手机里的朋友</a></li>
+				<li><a href="#">教你怎样用欠费手机拨打电话</a></li>
+			</ul>
+			<ul>
+				<li><a href="#">住在手机里的朋友</a></li>
+				<li><a href="#">教你怎样用欠费手机拨打电话</a></li>				
+				<li><a href="#">你面对的是生活而不是手机</a></li>
+				<li><a href="#">豪雅手机正式发布! 在法国全手工打造的</a></li>
+				<li><a href="#">原来以为，一个人的勇敢是，删掉他的手机号码...</a></li>
+				<li><a href="#">手机的16个惊人小秘密，据说99.999%的人都不知</a></li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript" src="../jquery.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$(".top span").mouseenter(function() {
+				$(this).addClass('active').siblings().removeClass('active')
+				var index = $(this).index()
+				$(".cont ul").eq(index).addClass('select').siblings().removeClass('select')
+			})
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        邮箱email: <input type="email"> <br>
+        地址URL: <input type="url"> <br>
+        日期date: <input type="date"> <br>
+        时间time: <input type="time"> <br>
+        <!-- datetime-local 默认值value格式必须为 YYYY-MM-DDTHH:MM 才可以显示,
+            单个月份要在之前加0,如 08 -->
+        datetime-local: <input type="datetime-local"> <br>
+        月份month <input type="month"> <br>
+        周week <input type="week"> <br>
+        数字 number <input type="number"> <br>
+        <!-- min范围的最小值 max范围的最大值, 默认值 value -->
+        范围 range <input type="range" min="0" max="10" value="5"> <br>
+        <!-- 
+            在电脑版网页中不会使用，因为这个type是为触屏网页开发服务的。
+            在触屏端点击type为tel的输入框时，
+            跳出的虚拟键盘为电话键盘（1-9、*、#）。
+         -->
+        电话 tel <input type="tel"> <br>
+        查找 search <input type="search"> <br>
+        颜色 color <input type="color"> <br>
+        必填 required <input type="text" required> <br>
+        匹配 pattern <input type="text" pattern="[0-9]{3,6}"> <br>
+
+        <input type="submit">
+    </form>
+</body>
+
+</html>

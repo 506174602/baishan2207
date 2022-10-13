@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		div{
+			height: 200px;
+			margin-bottom: 10px;
+			background: pink;
+			display: none
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="显示" id="btn1">
+	<input type="button" value="设置内容" id="btn2">
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>
+<script type="text/javascript">
+	var btn1=document.querySelector('#btn1')
+	var btn2=document.querySelector('#btn2')
+	var divs=document.querySelectorAll('div')
+
+	btn1.onclick=function () {
+		for(var i=0;i<divs.length;i++){
+			divs[i].style.display="block"
+		}
+	}
+	btn2.onclick=function () {
+		for(var i=0;i<divs.length;i++){
+			divs[i].innerText="我是新添加的数据"
+		}
+	}
+
+	// 1 js实现,功能比较麻烦,需要遍历,可能需要嵌套
+	// 2 找对象比较麻烦 方法少 书写还长
+	// 3 s兼容性问题
+	// 4 如果实现动画 需要封装 来回调用参数
+	// 5 js添加事件会被覆盖 addEventListener
+</script>

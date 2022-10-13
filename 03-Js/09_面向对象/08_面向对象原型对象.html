@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象原型对象</title>
+</head>
+<body>
+	<script>
+		// 先构造函数
+		function star(name, age) {
+			this.name = name;
+			this.age = age;
+		}
+
+		// 用原型链添加方法
+		star.prototype.getName = function () {
+			return '明星名字: ' + this.name
+		}
+		star.prototype.getAge = function () {
+			return '明星年龄: ' + this.age
+		}
+
+		var star1 = new star('张三', 18)
+		console.log(star1.getName())
+		console.log(star1.getAge())
+
+		console.log('==================')
+		var star2 = new star('李四', 28)
+		console.log(star2.getName())
+		console.log(star2.getAge())
+
+		console.log('------------')
+		console.log(3 + '2')
+	</script>
+</body>
+</html>

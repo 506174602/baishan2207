@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<p>
+			<span id="sp">我是一个span元素节点</span>
+		</p>
+	</div>
+	<script>
+		var sp = document.getElementById("sp");
+		// 获取父元素节点   语法：子元素节点.parentNode
+		var p = sp.parentNode;
+		console.log(p);
+		// 获取span父元素节点p的父元素节点
+		console.log(p.parentNode);
+	</script>
+</body>
+</html>

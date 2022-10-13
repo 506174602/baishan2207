@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>get</title>
+</head>
+
+<body>
+    <input type="text">
+    <input type="button" value="查询">
+
+    <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+            $('input').eq(1).click(() => {
+                $.ajax({
+                    // http://121.196.8.145:10000/test/getfundAll
+                    type: 'get',
+                    url: 'http://121.196.8.145:10000/test/getfundAll',
+                    data: {
+                        pageNum: $('input').eq(0).val()
+                    },
+                    // dataType: 'json',
+                    // success: function (data) {
+                    //     console.log('列表请求成功', data)
+                    // },
+                    success: (data) => {
+                        console.log('列表请求成功', data)
+                    },
+                    error: function (data) {
+                        console.log('列表请求失败!!!', data)
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

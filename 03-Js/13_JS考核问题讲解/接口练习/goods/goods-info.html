@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑物品</title>
+    <link rel="stylesheet" href="goods-info.css">
+</head>
+<body>
+<div class="container">
+    <div class="head">编辑物品</div>
+    <div class="list">
+        <label for="goodsSn">物品编码：</label><input id="goodsSn" type="text"><br>
+        <label for="name">物品名称：</label><input id="name" type="text"><br>
+        <label for="category">物品分类：</label><input id="category" type="text"><br>
+        <label for="unit">单位：</label><input id="unit" type="text"><br>
+        <label for="agentPrice">代理商采购价：</label><input id="agentPrice" type="text"><br>
+        <label for="storePrice">门店采购价：</label><input id="storePrice" type="text"><br>
+
+        <button onclick="updateGoodsInfo(urlParamsObj.id)">确定</button>
+        <button onclick="history.back()">取消</button>
+
+    </div>
+</div>
+<script type="text/javascript" src="goods.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript">
+    var urlParamsObj = urlParams2Obj(location.href)
+    console.log('参数', urlParamsObj.id > 0)
+    if (urlParamsObj.id > 0) {
+      getGoodsInfoById(urlParamsObj.id)
+    } else {
+      alert('商品信息获取失败！')
+      history.back()
+    }
+</script>
+</body>
+</html>

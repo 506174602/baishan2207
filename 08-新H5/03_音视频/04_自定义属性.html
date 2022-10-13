@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .item {
+            width: 280px;
+            height: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+            position: relative;
+            float: left;
+            margin: 10px;
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 50%;
+            margin-top: -25px;
+            left: 50%;
+            margin-left: -25px;
+        }
+
+        .box {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .8);
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            display: none;
+        }
+
+        .box .video {
+            width: 830px;
+            height: 450px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -225px;
+            margin-left: -415px;
+        }
+
+        .box video {
+            width: 830px;
+            height: 450px;
+        }
+
+        .box span {
+            position: absolute;
+            right: 0;
+            font-size: 30px;
+            color: #fff;
+            top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="item">
+        <img src="./resource/play.jpg" data-video="./resource/01.mp4" alt="">
+    </div>
+    <div class="item">
+        <img src="./resource/play.jpg" data-video="./resource/02.mp4" alt="">
+    </div>
+
+    <div class="box">
+        <div class="video">
+            <video src="" controls></video>
+            <span>x</span>
+        </div>
+    </div>
+    <script type="text/javascript" src="../../04-jq/jquery.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.item img').click(function () {
+                $('.box').show().find('video').attr('src', $(this).attr('data-video')).get(0).play();
+            })
+            $('.box span').click(function () {
+                $('.box').hide().find('video').get(0).pause();
+            })
+        })
+    </script>
+</body>
+
+</html>

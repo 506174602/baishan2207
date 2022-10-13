@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件回顾补充</title>
+</head>
+<body>
+	<script>
+		/**
+		 * 1.事件类型: HTML事件 dom0级事件 dom2级事件
+		 * 2.事件三要素:
+		 * 		事件源: 一般是触发事件的元素
+		 * 		事件类型: onclick onsubmit onmouseenter onmouseover onkeyup onkey down
+		 * 		事件处理程序:一般就是函数
+		 * 3.this: 函数定义的时候是无法确定this指向的; 只有在执行调用的时候才能确定.一般情况下它指的是它的调用者
+		 * 		全局作用域 和 普通函数 指向的是 window
+		 * 	 	函数方法中 谁调用 指向谁
+		 * 4.事件对象: event
+		 * 		特点: 1. 只有在事件发生以后才会存在
+		 * 			  2. 系统自动创建, 不需要主动传参
+		 * 			  3. 只包含与事件相关的一系列数据. 鼠标事件-鼠标 键盘事件- 键盘
+		 * 	    兼容性: var eve = event || window.event(IE 678)
+		 * 	    		var eveTarget = eve.target || eve.srcElement
+		 * 5.事件的三个阶段: 事件捕获 处于目标阶段 事件冒泡\
+		 * 6.事件捕获: 当鼠标点击或者触发dom事件时, 浏览器会从根节点->叶子节点(事件源) 由外到内进行事件传播
+		 * 7. 事件冒泡: 事件到达事件目标之后不会结束,而是	 会逐层向上冒泡传递,直至document, 与事件捕获相反
+		 * 		阻止事件冒泡:
+		 * 			非IE: childElement.stopPropagation()   			
+		 * 			IE: childElement.cancalBubble = true
+		 * 		阻止默认事件
+		 * 			非IE: element.preventDefault();
+		 * 			ie: element.returnValue = false;
+		 * 8. 事件委托: 将事件绑定在父元素上,通过判断点击的event.target子元素的类型来触发相应的事件
+		 * 9. 事件绑定
+		 * 		绑定/注册
+		 * 		非ie: element.addEventListener(type, function, useCapture) useCapture为true时捕获阶段执行 false冒泡阶段窒息你个
+		 * 		ie: element.attachEvent('on' + type, function)	
+		 *
+		 * 		接除绑定
+		 * 		非ie:removeEventListener(type, function, useCapture)
+		 * 		ie: element.detachEvent(on type, function)
+		 */
+	</script>
+</body>
+</html>

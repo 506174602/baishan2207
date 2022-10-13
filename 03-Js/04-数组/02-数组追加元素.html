@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var arr1 = ['李白','妲己','高渐离','孙悟空'];
+		// console.log(arr1);
+		arr1[4] = "白起";
+		console.log(arr1);
+		// 获取数组的长度:  语法  数组名.length
+		console.log(arr1.length);
+		/*通过数组的长度和该数组的最大索引比较发现   arr.length = 最大索引+1;
+			那么我们可以利用这个关系给数组追加数据
+			追加方式：数组名[数组名.length] = 新的数据
+		 */
+		arr1[arr1.length] = "兰陵王";
+		console.log(arr1);
+		arr1[arr1.length] = "刘备";
+		console.log(arr1);
+	</script>
+</body>
+</html>

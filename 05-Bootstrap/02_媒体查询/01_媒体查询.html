@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>媒体查询</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+            margin: 100px auto 0;
+        }
+
+        @media screen and (max-width: 768px) {
+
+            /* 超小屏 */
+            div {
+                width: 150px;
+                height: 150px;
+            }
+
+            body {
+                background-color: blue;
+            }
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 992px) {
+
+            /* 小屏 */
+            div {
+                width: 200px;
+                height: 200px;
+            }
+
+            body {
+                background-color: red;
+            }
+        }
+
+        @media (min-width: 992px) and (max-width: 1200px) {
+
+            /* 中等屏 */
+            div {
+                background-color: green;
+            }
+
+        }
+
+        @media (min-width: 1200px) {
+
+            /* 超大屏 */
+            div {
+                width: 400px;
+                height: 400px;
+                background-color: lightcoral;
+            }
+        }
+
+        /* 
+            media 关键字  默认值screen
+            screen 设备终端 的视口
+            print 打印机
+            all 所有设备
+
+
+            width height 视口的宽高
+            max-width 最大宽度  小于这个宽度 ==> 条件成立
+            min-width 最小宽度  大于这个宽度 ==> 条件成立
+         */
+    </style>
+</head>
+
+<body>
+    <!-- 
+        为什么要使用媒体查询
+        因为科技的进步发展,终端设备趋于多元化,尤其移动端,具有不同的尺寸分辨率,伪类能够在移动端适配
+        所以才会使用媒体查询
+        bootstrap 就是媒体查询的封装
+     -->
+    <div></div>
+</body>
+
+</html>

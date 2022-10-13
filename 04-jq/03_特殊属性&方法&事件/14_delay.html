@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 400px;
+            height: 40px;
+            background-color: #eee;
+            border: 1px solid #aaa;
+            margin: 20px auto;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div> 盒子中的提示信息</div>
+
+    <script src="../jquery.js"></script>
+    <script>
+        $(function () {
+            $('div').text('添加成功').css({
+                'backgroundColor': 'red',
+                'color': 'green'
+            }).delay(2000).fadeOut(1000)
+        })
+    </script>
+</body>
+
+</html>

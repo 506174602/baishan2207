@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 500px;
+			height: 500px;
+			background: blue;
+			margin: 0 auto;
+			position: relative;
+		}
+		.first{
+			width: 100px;
+			height: 100px;
+			background: yellow;
+			/*绝对定位：（重点重点重点）
+				1.原位置不再保留
+				2.参考点：一定是设置了定位<相对 固定 绝对>的父元素（子绝父相）
+						如果父元素没有设置定位  那么绝对定位的这个元素就会逐级往上找  直到body标签
+				3.配合top  right  bottom  left四个方向属性使用
+				4.脱标  元素类型变成行内块
+					
+			*/
+			position: absolute;
+			top: 50px;
+			left: 100px;
+		}
+		.second{
+			width: 100px;
+			height: 100px;
+			background: green;
+			position: absolute;
+			/*top: 50px;
+			left: 100px;*/
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="first"></div>
+		<span class="second">行内元素span</span>
+	</div>
+</body>
+</html>

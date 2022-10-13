@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		/*当我们将js代码写在head标签内，我们要知道，hmtl页面加载顺序是自上而下的  则会出现js代码先加载  然后在加载dom（标签）对象，那么此时会导致我们无法获取对象
+		所以：为了避免出现这种情况发生，我们可以通过两种方式解决：
+		1.将js放在body标签结束之前（）
+		2.通过window.onload 事件来执行js
+		 */
+		var box1 = document.getElementById("box1");
+		console.log(box1);
+		// window.onload() 方法用于在网页加载完毕后立刻执行的操作，即当 HTML 文档加载完毕后，立刻执行这个方法。
+		window.onload = function(){
+			var box1 = document.getElementById("box1");
+			console.log(box1);
+		}
+	</script>
+</head>
+<body>
+	<div id="box1" style="width: 200px;height: 200px;background-color: red;">
+	</div>
+	<script>
+		var box1 = document.getElementById("box1");
+		console.log(box1);
+	</script>
+</body>
+</html>

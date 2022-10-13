@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" class="song">
+	<input type="button" class="btn" value="添加">
+
+	<ul>
+		<li>十年</li>
+	</ul>
+	<script>
+		// 1 获取相关元素
+		var btn = document.querySelector('.btn');
+		var song = document.querySelector('.song');
+		var ul = document.querySelector('ul');
+
+		// 2 给按钮绑定事件
+		btn.onclick = function() {
+			// 3 拿到输入框的值
+			var songName = song.value;
+			// 4 判断歌曲名是否为空
+			if (songName == '' || songName == null) {
+				// 4.1 内容为空, 终止程序的进行
+				alert('歌曲名称不能为空！')
+			} else {
+				// 4.2 创建新的标签并填写内容
+				var newLi = document.createElement('li');
+				newLi.innerText = songName;
+
+				// 5 将新建的li加到列表中 始终添加在第一条
+				ul.appendChild(newLi); // 加在末尾
+
+				// 6添加成功后清空输入框
+				// songName = '';// XXXXXXXXXXXX
+				song.value = '';
+			}
+		}
+	</script>
+</body>
+</html>

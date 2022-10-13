@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	// 1.while循环
+		/*语法：
+		     初始化循环变量
+		     while(循环条件){
+				循环体
+				循环规律
+		     }
+		原理：当循环条件的值为true时  执行循环体 和循环规律语句  为假则退出循环
+		 */
+		// 案例1：输出1-30内的所有偶数
+		var i = 1;//初始化循环变量
+		// 循环条件
+		while(i <= 30){
+			// 循环体
+			if(i % 2 == 0){
+				console.log("偶数:"+i);
+			}
+			// 循环变量变化规律
+			i++;
+		}
+		console.log(i);
+	</script>
+	<script>
+		// do while 循环
+		/*
+		语法：  初始化循环变量
+				do{
+					循环体
+					循环规律
+				}while(循环条件)
+		循环原理：
+				先执行循环体  循环体执行完后  再对while后的循环条件进行判断
+				如果为true  继续执行循环体  执行完再判断
+				直到为false  循环结束
+		*/
+		// 案例2：输出1-30内的所有偶数
+		var i = 1;
+		do{
+			if(i%2 == 0){
+				console.log("偶数________:"+i);
+			}
+			i++;
+		}while(i <= 30);
+
+		//   while循环和do while循环区别：while循环先判断 后执行
+		//   							  do while循环 是先执行再判断
+
+	</script>
+</body>
+</html>

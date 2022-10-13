@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>边界</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// ^ 以^后面的字符开头,  匹配的是输入的开始
+		// 
+		var reg1 = /^[a-z][0-9]\d/
+		var str1 = 'aa3guygyg' // false
+		// var str1 = 'a23' // true
+
+		console.log('一个', reg1.test(str1))
+
+		var reg2 = /^ab/
+		var str2 = 'abc'
+		console.log('第二个', reg2.test(str2))	
+
+
+		// $ 以 $ 前面的字符结尾,匹配的是输入的结束
+		// var reg3 = /[0-9]$/
+		var reg3 = /ab$/
+		var str3 = '789ab' //  true
+		var str3 = '789ab0' // false
+		console.log('第3个', reg3.test(str3))
+	</script>
+</body>
+</html>

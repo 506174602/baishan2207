@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise 应用</title>
+</head>
+
+<body>
+    <script src="../../04-jq/jquery.js"></script>
+    <script>
+        let token = localStorage.getItem('token')
+        // 使异步操作更像同步操作
+        // 使用链式结构,将多个异步操作串联, 避免代码层层嵌套,不会向右缩进
+        getData('data_id.json').then((data) => {
+            return getData('data_username.json', data.data)
+        }).then((data) => {
+            return getData('data_money.json', data.data)
+        }).then((data) => {
+            // alert(data.data.money)
+            console.log('then里面 第三个Ajax请求结果', data)
+        })
+
+        function getData(url, data = {}) {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    type: 'GET',
+                    url: url,
+                    data: data,
+                    headers: {
+                        token: token
+                    },
+                    success: (res) => {
+                        resolve(res)
+                    },
+                    error: (err) => {
+                        reject(err)
+                    }
+                })
+            })
+        }
+
+        /**
+         * 基于promise之上的语法糖, 让异步操作更加简洁明了
+         * 关键字: async 可将函数标记为 异步函数(ECMA2017)
+         */
+        async function foo() { // foo 已经被 async 标记为 异步函数
+            // await,
+            // 在异步函数中,可以继续调用其他异步函数, 但是不需要再使用 then(), 而是使用 await 关键字
+            // await 只能在异步函数中使用并生效, await会等待 Promise 完成后直接返回最终结果
+            const resId = await getData('data_id.json')
+            // 异步操作. 此时, resId 已经是服务器接口返回的响应数据
+            const resUser = await getData('data_username.json', {
+                id: resId.data.id
+            }) // 异步操作. 此时, resUser 已经是服务器接口返回的响应数据
+            const resMoney = await getData('data_money.json', {
+                username: resUser.data.username
+            })
+            // 在以上三个函数前使用 await, 虽然都是 异步操作,但是不会同步执行,
+            // 程序会等待 resId 返回结果后,在执行 resUser 的操作
+        }
+        // foo() // 该函数的返回值永远是 Promise 对象
+        async function foo2() {
+            const resId = getData('data_id.json')
+            const resUser = getData('data_username.json')
+            const resMoney = getData('data_money.json')
+            // 将所有的 promise 组合起来，使用 Promise 组合 Promise.all() 去await， 执行效率会提高一倍
+            const [a, b, c] = await Promise.all([resId, resUser, resMoney])
+            console.log('a---', a)
+            console.log('b---', b)
+            console.log('c---', c)
+        }
+        // foo2()
+
+        async function foo3() {
+            let arr = [1, 2, 3]
+            arr.forEach(async () => {
+                // forEach 会立刻返回， 不会暂停等到所有异步操作都执行完毕;
+                // 若想等待循环中的异步操作都依次执行完，再执行后续操作
+                // 需要使用 for 循环
+                const a = await getData('data_id.json')
+                console.log(a)
+            })
+            console.log('最终执行')
+        }
+        // foo3()
+        async function foo4() {
+            let arr = [1, 2, 3]
+            for (let i of arr) {
+                const a = await getData('data_id.json')
+                console.log(a)
+            }
+            console.log('最终执行')
+        }
+        foo4()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件绑定</title>
+	<style>
+		.parent-box {
+			width: 400px;
+			height: 400px;
+			background-color: red
+		}
+		.child-box {
+			width: 200px;
+			height: 200px;
+			background-color: blue
+		}
+	</style>
+</head>
+<body>
+	<script>
+		/*
+		绑定事件又称为注册事件
+		绑定事件有两种方式：
+			-- on + 事件类型 ; 传统方式
+				特点：绑定的事件具有唯一性，在同一个元素上的同一个事件，只能设置一个事件处理程序(函数);最后一个添加的函数会覆盖之前添加的所有处理函数
+			-- addEventListener(event.type, listener, useCapture)
+				参数：event.type 要添加的事件类型; 注意: 'click' 'mouseenter' 【没有on】
+					  listener: 事件处理函数
+					  useCapture: 默认值为false, 表示事件冒泡阶段调用事件处理函数; 为true时,表示事件捕获阶段调用事件处理函数
+				特点：
+					同一个元素同一个事件可以添加多个监听器(函数)而且会依次按添加的顺序执行
+				ie9之前的版本不支持
+			-- attachEvent('on' + event.type, listener) // ie特有 兼容IE8及以下; 可以添加多个事件处理程序
+				用法：element.attachEvent('onclick', function() {})
+		 */
+	</script>
+	<p>段落文本</p>
+	<input type="button" value="按钮"> 
+	<button>添加</button>
+	<div class="parent-box">
+		<div class="child-box"></div>
+	</div>
+
+
+	<script>
+		var parentBox = document.querySelector('.parent-box');
+		var childBox = document.querySelector('.child-box');
+		console.log(parentBox);
+		console.log(childBox);
+
+
+		parentBox.addEventListener('click', function() {
+			console.log('触发父元素点击事件')
+		}, false);
+		childBox.addEventListener('click', function() {
+			console.log('触发子元素点击事件')
+		}, true);
+
+
+		var p = document.querySelector('p');
+
+		// var ss = function() {
+
+		// }
+		// p.addEventListener('click', function() {});
+		p.addEventListener('click', ss);	// 函数名
+		p.addEventListener('click', tt);	// 函数名
+
+		function ss() {
+			alert('改变p的内容为   111111')
+		}
+		function tt() {
+			alert('改变p的内容为   2222222')
+		}
+
+		var btn = document.querySelector('button');
+		btn.addEventListener('click', function() {
+			console.log('p标签------', p)
+			p.removeEventListener('click', tt); // 事件类型; 监听器; useCapture 默认值为false, 冒泡阶段阶段移除事件， 为true时 捕获阶段移除事件
+		})
+	</script>
+</body>
+</html>

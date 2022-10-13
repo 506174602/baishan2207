@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>其他的表单元素</title>
+</head>
+<body>
+	<!--  -->
+	<form action="xxaction.php" method="get/post">
+		<!-- input类型：image 将图片作为提交按钮（了解） -->
+		<input type="image" src="../HTML01/image/aa.jpg" width="50px" height="50px">
+		<!-- input类型：file 上传文件-->
+		<input type="file" name="img" disabled>
+		<!-- input类型：hidden 隐藏域
+				定义一个隐藏的字段  这个字段对用户时不可见的
+				常用于存储默认值，或者用于js来改变他的值
+		 -->
+		<input type="hidden" name="" value="">
+		<!-- 表单元素的属性：
+			type  input类型
+			value  默认值（js中常用）
+			name   表单元素的名称（js中就用）
+			checked 默认被选中  radio  checkbox
+			selected 默认被选中  配合下拉列表 使用
+			disabled  表示禁用
+			readonly   只读
+		 -->
+		 <input type="text"  readonly="">
+	</form>
+</body>
+</html>

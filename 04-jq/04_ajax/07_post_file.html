@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上传文件</title>
+</head>
+
+<body>
+    <!-- 使用form表单上传文件时,enctype的值必须是 multipart/form-data -->
+    <form action="#" enctype="multipart/form-data">
+        <div>
+            <img id="pic" src="" alt="">
+            <!-- accept: 通过文件上传来提交的文件类型, audio/* video/* image/*  type="file" -->
+            <input type="file" id="file-btn" name="file" accept="image/*">
+        </div>
+        <button id="btn-in">上传-内</button>
+    </form>
+    <div>======================</div>
+    <button id="btn-out">上传-外</button>
+
+
+
+    <script src="../jquery.js"></script>
+    <script>
+        $('#btn-out').click(function () {
+            // var input = document.querySelector('#file-btn')
+            var input = document.querySelector('[type=file]')
+            console.log('文件', input)
+            var formData = new FormData()
+            formData.append('file', input.files[0])
+            /**
+             * formData对象
+             *  -- 用键值对模拟表单空间,把form中所有的表单元素 name 与value组装成queryString
+             *  -- 异步上传二进制文件
+             *  -- 参数是dom对象 不是jQuery对象,通过FormData将文件转换为二进制数据
+             */
+            $.ajax({
+                url: 'http://8.142.68.47:9090/api/file-service/upload',
+                type: 'post',
+                headers: {
+                    token: 'aa8df434eca6eaa7500ffe5b5b5cf27c'
+                },
+                data: formData,
+                cache: false, // 是否缓存此页面,false是不缓存该页面,
+                processData: false, // 必须的.告诉jQuery不要去处理发送的数据
+                contentType: false, // 必须的.告诉jQuery不要去设置Content-Type请求头
+                success: (data) => {
+                    if (data.code === 0) {
+                        $('#pic').attr('src', data.fileUrl)
+                    } else {
+                        alert('????')
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+
+
+</html>

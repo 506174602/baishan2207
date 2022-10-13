@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            text-align: center;
+            line-height: 100px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>看不见</li>
+        <li>看不见</li>
+        <li>看不见</li>
+        <li>看不见</li>
+        <li>看不见</li>
+        <li>看不见</li>
+        <li>看不见</li>
+        <li>看不见</li>
+    </ul>
+
+    <script src="../jquery.js"></script>
+    <script>
+        // array.forEach(function (value, index, array) {
+
+        // });
+        $(function () {
+            // $('li') ===> 
+            console.log($('li'))
+            $('li').each(function (index, element) {
+                $(element).css('opacity', (index + 1) / 10)
+            })
+        })
+    </script>
+</body>
+
+</html>

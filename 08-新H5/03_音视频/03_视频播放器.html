@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .div1 {
+            width: 300px;
+            height: 20px;
+            border-radius: 10px;
+            background: #aaa;
+            position: relative;
+        }
+
+        .box1 {
+            position: absolute;
+            width: 60px;
+            height: 20px;
+            border-radius: 10px;
+            background: orange;
+            left: 0;
+            top: 0;
+        }
+
+        .div2 {
+            width: 100px;
+            height: 10px;
+            background: #000;
+            border-radius: 5px;
+            position: relative;
+            margin-top: 10px;
+        }
+
+        .box2 {
+            width: 20px;
+            height: 10px;
+            background: #fff;
+            border-radius: 5px;
+            position: absolute;
+            top: 0;
+            left: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <video src="resource/video.mp4" controls></video>
+    <br>
+    <input type="button" value="播放">
+    <input type="button" value="00:00:00">
+    <input type="button" value="00:00:00">
+    <input type="button" value="静音">
+    <input type="button" value="全屏">
+
+    <div class="div1">
+        <div class="box1"></div>
+    </div>
+    <div class="div2">
+        <div class="box2"></div>
+    </div>
+
+    <script>
+        // 视频对象
+        var video = document.querySelector('video')
+        // 控件对象
+        var inputs = document.querySelectorAll('input')
+        // 进度条
+        var div1 = document.querySelector('.div1')
+        var box1 = document.querySelector('.box1')
+        // 音量
+        var div2 = document.querySelector('.div2')
+        var box2 = document.querySelector('.box2')
+        // =================================================
+
+        // 音量
+        box2.onmousedown = function (eve) {
+            // 鼠标按下时滑块的偏移 初始位置
+            var dx = eve.offsetX // 0 - 19 
+            console.log('dx---', dx)
+            this.onmousemove = function (ev) {
+                // console.log('move---offseX----', ev.offsetX)
+                var endx = ev.clientX - dx
+                console.log('move-endx---', endx)
+                if (endx < 0) {
+                    endx = 0
+                } else if (endx > div2.offsetWidth - box2.offsetWidth) {
+                    endx = div2.offsetWidth - box2.offsetWidth
+                }
+                // 设置白色滑块的位置
+                box2.style.left = endx + 'px'
+                video.volume = endx / (div2.offsetWidth - box2.offsetWidth)
+            }
+        }
+        box2.onmouseup = function () {
+            this.onmousemove = null
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>drag事件</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo" draggable="true"></div>
+    <p class="txt"></p>
+
+    <script>
+        // 原生js的拖放事件
+        // 一. 应用于被拖动元素的事件
+        // 1. dragstart: 按下鼠标并开始移动鼠标, 会在被拖动的元素身上触发dragstart 事件
+        // 2. drag: 在触发dragstart事件后,随即就会触发drag事件,元素在被拖动的期间持续触发该事件
+        // 3. dragend: 拖动结束(也就是鼠标松开)时 会触发的事件
+
+        var demo = document.querySelector('.demo')
+        var txt = document.querySelector('.txt')
+
+        demo.ondragstart = function () {
+            this.style.background = 'red'
+        }
+        demo.ondrag = function () {
+            txt.innerHTML += '看不见~~~'
+        }
+        demo.ondragend = function () {
+            txt.innerHTML = ''
+            this.style.background = 'pink'
+        }
+    </script>
+</body>
+
+</html>

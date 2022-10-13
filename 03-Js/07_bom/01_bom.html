@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bom</title>
+</head>
+<body>
+	<script>
+		/**
+		 * dom (Document Object Model) 文档对象模型, 用来操作元素标签. DOM的顶级对象时document
+		 *
+		 * bom (Browser Object Model) 浏览器对象模型
+		 * 提供独立于内容的可以与浏览器窗口进行互动的对象结构
+		 *
+		 * bom 由多个对象组成,其中代表浏览器窗口的window对象是bom的顶级对象, 其他对象都是window的子对象
+		 * bom 缺乏标准,兼容性较低(JavaScript语法的标准化组织是ECMA, DOM的是W3C)
+		 *
+		 * BOM > DOM window.document.querySelector('.className') === document.querySelector('.className')
+		 * 设置的全局作用域的变量 函数 都绑定在 window上, 且都会自动成为window对象的属性和方法; 书写时一般省略window.
+		 * 注意: window下的一个特殊属性: window.name
+		 */
+		
+		var a = 10;
+
+		console.log('a');
+		console.log(a);
+		console.log('===', window.a);
+
+
+		function fn(){
+			console.log(this);
+		}
+		window.fn();
+		fn();
+
+		alert(123);
+		window.alert(123);
+		// confirm()
+		var name = '百杉'
+		// window.name;
+	</script>
+</body>
+</html>

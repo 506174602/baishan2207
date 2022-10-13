@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*3.算数运算符:算术运算符用于执行两个变量或值的运算。
+			+ :加   - ：减   *：乘    /：除     %：取余(也是进行除法运算 只不过取得是余数，常用来判断数字的奇偶性)
+			++：自加（单目运算符）  
+			--：自减（单目运算符） 
+		 */
+		var num1 = 1;
+		var num2 = 3;
+		// 加减乘除的运算
+		console.log(num1 + num2);//4
+		console.log(num1 - num2);//-2
+		console.log(num1 * num2);//3
+		console.log(num2 / num1);//3
+		console.log(num2 % num1);//0
+		/*隐式转换：在js中  当运算符在运算时如果两边的数据类型不一致，这是编译器会自动的将两边的数据做一个数据类型转换  转成统一的数据类型再计算  这种无需程序员手动转换而有编译器自动转换的方式称之为：隐式转换
+		ps1:(运算中，null  布尔值以及纯数字字符串 都能进行隐式转换 但是不纯的字符串和undefined 只能给你一个NaN)
+		ps2：隐式转换中加号比较特殊：遇到字符串直接进行字符串的拼接 （**********）
+		 */
+		var num3 = true;
+		var num4 = false;
+		var num5 = "4";
+		var num6 = null;
+		console.log(num1 + num3);//2  true→1
+		console.log(num1 + num4);//1  false→0
+		console.log(num5 - num1);//3  "4"→4
+		console.log(num6 - num1);//-1  null→0
+		console.log(num2 * "4月");//NaN
+		console.log(num2 * undefined);//NaN
+		//+号进行字符串拼接
+		console.log(num5 + num2);//43
+		console.log(num5 + num3);//4true
+		/*var age  = prompt("请输入您的年龄：");
+		console.log("刚才那个小伙输入的年龄是："+age);*/
+		// ++  --
+		var  i = 1;
+		// 后置递增
+		j = i++;//相当于  j = i; i = i+1;  口诀：先返回原来的值 然后再自加   （常用）
+		console.log(j,i);//1，2
+		// 前置递增：
+		var m = 2;
+		n = ++m;//相当于  m=m+1 n=m    口诀：先自加  后返回
+		console.log(n,m);//3,3
+		var k = 10;
+		console.log(k++);//10
+		console.log(k);//11
+		m = 10;
+		console.log(++m);//11
+		console.log(++m);//12
+		var n = 10;
+		console.log(n++);//10
+		console.log(++n);//12
+		var s = 10;
+		console.log(++s);//11
+		console.log(s++);//11
+		console.log(s);//12
+
+		var p = 10;
+		var q = p++ + p++;
+		console.log(p);//12
+		console.log(q);//21
+	</script>
+	<script>
+		/*赋值运算符
+			= 
+			+=
+			-=
+			*=
+			/=
+			%=
+		*/
+		var x = 1;
+		var y = x;
+		console.log(y);
+		y+=x;  //相当于y = y+x;
+		console.log(y);
+		var z = 4;
+		z /= y;//z = z/y
+		console.log(z);
+		var t = 5;
+		t %= 2;
+		console.log(t);
+	</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>设置时间</title>
+</head>
+<body>
+	<script>
+		var time = new Date();
+		console.log(time)
+
+		time.setFullYear(2022);
+		console.log('新年份', time.getFullYear())
+
+		time.setMonth(11)
+		console.log('新月份', time.getMonth())
+
+		time.setDate(2);
+		console.log('新天数', time.getDate())
+
+		time.setHours(23)
+		console.log('新小时', time.getHours())
+
+		time.setMinutes(21)
+		console.log('新分钟', time.getMinutes())
+
+		time.setSeconds(22)
+		console.log('新秒数', time.getSeconds())
+
+		time.setMilliseconds(1001);
+		console.log('新毫秒', time.getMilliseconds())
+
+
+		var timeNew = new Date('2022/10/01, 00:01:02')
+		console.log('timeNew---', timeNew)
+
+		var timeNew1 = new Date(2023,11,11,11,11,11)
+		console.log('timeNew---', timeNew1)
+
+		var timeNew2 = new Date('July 21, 2022,11:11:11')
+		console.log('timeNew---', timeNew2)
+	</script>
+</body>
+</html>

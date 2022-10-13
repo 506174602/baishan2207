@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>回调函数 callbackFunction</title>
+</head>
+<body>
+	<div class="box"></div>
+
+	<script>
+		var box = document.querySelector('.box')
+
+		box.onclick = function() {
+			// ...
+		}
+		// for (var i = 0; i < liArr.length; i++) {
+		// 	// liArr[i].onclick = function() {} // 被点击 的时候回调
+		// }
+
+		setInterval(function(){
+			// ....
+		}, 1000)
+
+
+		function fn(value, callbackFunction) {
+			if (value > 20) {
+				callbackFunction('满足要求被调用')
+			}
+		}
+
+		fn(100, function(str) {
+			// console.log('满足要求被调用')
+			// alert('满足要求被调用')
+			alert(str)
+		})
+
+		// function(str) {
+		// 	alert(str)
+		// }
+		// callbackFunction('满足要求被调用')
+		// ================================
+		
+		function say(val) { // {name: '张三'}
+			alert(val.name)
+		}
+
+		function exe(otherFn) {
+			var value = {
+				name: '李四'
+			}
+			otherFn(value)
+		}
+		var data = {name: '张三'}
+		// exe(say, data) // exe 是主函数; 参数是say函数本身, say也称为回调函数
+		// exe(say, {name: '张三'}) // exe 是主函数; 参数是say函数本身, say也称为回调函数.将函数参数作为与回调函数同一等级进行传递
+
+		exe(say)
+	</script>
+</body>
+</html>

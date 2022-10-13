@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>align-self</title>
+    <style>
+        .flex-container {
+            display: flex;
+            width: 1200px;
+            height: 640px;
+            background-color: skyblue;
+            align-items: center
+        }
+
+        .flex-item {
+            width: 200px;
+            height: 120px;
+            margin: 10px;
+            background-color: pink;
+            order: 0;
+        }
+
+        /* 
+            order 子元素排序
+        */
+        .flex-item:nth-child(2) {
+            width: 300px;
+            /* align-self: stretch; */
+            order: -1;
+        }
+
+        .flex-item:nth-child(3) {
+            width: 300px;
+            order: 4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <span class="flex-item">1</span>
+        <span class="flex-item">2</span>
+        <span class="flex-item">3</span>
+        <span class="flex-item">4</span>
+    </div>
+</body>
+
+</html>

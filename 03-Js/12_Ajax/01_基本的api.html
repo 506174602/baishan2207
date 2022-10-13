@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基本Api</title>
+</head>
+<body>
+	<script>
+		// Ajax(Asynchronous JavaScript And XML 异步JavaScript和XML(Json)) 现在和服务器交换数据一般使用json的数据格式 
+		// Ajax 是一种在无需重新加载整个页面的情况下,能够更新部分网页的技术.也就是js通过一个网址(URL)去加载数据,且这个过程使用户不可见的(无感刷新)
+		// 传统网页(不使用AJAX),如果要更新网页内容,必须重新加载整个网页.
+		/**
+		 * 全局刷新: 使用form 或者href 发起的请求是全局刷新,在用户发起请求时,网页改变,跳转到新的网页(视图),使用新的数据添加到新页面
+		 * 		缺点: 传递的数据量较大,占用网络带宽较高
+		 * 			  浏览器需要重新渲染整个页面,用户等待时间长	
+		 * 			  用户体验差
+		 * AJAX(局部刷新)
+		 * 		优势: 异步加载数据,无需切换页面
+		 * 			  更好的用户体验: 局部刷新,及时验证,操作步骤简化
+		 * 			  节省流量
+		 * 			  JS控制数据的加载,更加灵活多用	
+		 * 					  
+		 */
+		// 1.创建Ajax对象
+		// XMLHttpRequest 用于在后台与服务器之间交换数据; 所有的现代浏览器均支持XMLHttpRequest对象(IE5和IE6使用 ActiveXObject)
+		
+		var xhr = new XMLHttpRequest(); // 实例化完以后可以使用xhr的属性和方法
+		// 考虑兼容
+		if (window.XMLHttpRequest) {
+			xhr = new XMLHttpRequest();
+		} else {
+			xhr = new ActiveXObject('Microsoft.XMLHTTP'); // ie 5/6
+		}
+		// 2.与服务器建立连接, 方法: open() 
+		// xhr.opne(method, ApiURL, Asynchronous) // Asynchronous 可以省略 默认为true
+		xhr.open('get', 'http://localhost:8081/student?age=18&cardNo=123', true)
+		// 	2.1 method: get  post  put  delete
+		// 				get: 获取服务器信息
+		// 				post: 向服务器发送信息(一般用在创建信息的接口,也可以用作更新,获取信息)
+		// 				put: 向服务器发送信息(一般用在更新信息的接口,也可以用作更新,获取信息)
+		// 				delete: 刪除信息
+		// 				// localhost === 127.0.0.1
+		// 				eg:  
+		// 				{
+		// 					"id": 1,
+		// 					"name" : "某某",
+		// 					"age": 18,
+		// 					"grade": "一年级",
+		// 					cardNo: "12356464"
+		// 				}
+		// 	2.2 ApiUrl			
+		// 				http://localhost:8080/student 创建/更新学生信息
+		// 				http://localhost:8080/student?id={id} // 查 获取学生信息 请求方式:GET 删除学生信息 请求方式 DELETE
+		// 				http://localhost:8080/student/create 	post
+		// 				http://localhost:8080/student/update 	post
+		// 				http://localhost:8080/student/get?id=1 	get
+		// 				http://localhost:8080/student/delete?id=1 	get/delete
+		// 	2.3 post put 请求需要加请求头,并且请求头值的不同,请求数据的格式也不同
+		// 		-- application/x-www-form-urlencoded
+		// 			请求数据格式 form data : userName=admin&passWord=123456
+		// 		-- application/json
+		// 			请求数据格式 request payload: 
+		// 						{
+		// 							userName: "admin",
+		// 							passWord: "123456"
+		// 						}	
+		// 		-- multipart/form-data: 上传文件
+		// 			请求数据格式: request payload: // 请求的有效载荷
+		// 					filename: 'wechat0938347847.png', "images: 01.png"					
+		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')	
+		// xhr.setRequestHeader('Content-type', 'application/json')	
+		// xhr.setRequestHeader('Content-type', 'multipart/form-data')	
+
+		// 3. 发送数据 send() 
+		//  -- get请求通过地址蓝传递参数,即在url后面拼接参数,send()里面不写内容
+		//  -- post put 请求 将参数写在send()里面: send(string)
+		// 
+		// 4.接收数据
+		// 当 readyState 改变时,就会 触发  onreadystatechange 事件
+		// readystate 里 一定存了 XMLHttpRequest 状态, 值是 0 - 4 且依次变化
+		// 		-- 0: 请求未初始化;也就是表示创建了异步对象  var xhr = new XMLHttpRequest();
+		// 		-- 1: 服务连接已建立; 初始化异步对象的请求参数 xhr.open()
+		// 		-- 2: 请求已接收;使用send() 方法发送请求
+		// 		-- 3: 请求处理中; 也就是服务器接收了请求数据
+		// 		-- 4: 请求已完成,响应也已就绪; 异步对象接收了数据并将在对象内部处理完成后续的页面展示
+		xhr.onreadystatechange = function() {
+			// 
+			if (xhr.readyState == 4) {
+				// 获取响应的内容 xhr.responseText/ xhr.responseXML
+				// xhr.responseText 获得的是字符串形式的响应数据
+				// xhr.responseXML 获得的是 xml形式的响应数据(一般不用)
+				span.innerText = xhr.responseText
+			} 
+		}	
+	</script>
+</body>
+</html>

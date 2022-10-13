@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 800px;
+    /*height: 600px;*/
+    margin: 2% auto;
+    border: 1px solid #f0f0f0;
+}
+.head {
+    width: 780px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.list {
+    width: 760px;
+    min-height: 100px;
+    padding: 20px;
+}
+.list label {
+    width: 90px;
+    display: block;
+    float: left;
+}
+

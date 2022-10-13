@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>微博发布</title>
+	<style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .demo {
+            width: 600px;
+            margin: 100px auto 0;
+            border: 1px solid #000;
+            padding: 20px;
+        }
+
+        textarea {
+            width: 450px;
+            height: 160px;
+            outline: none;
+            resize: none;
+        }
+
+        ul {
+            width: 450px;
+            padding-left: 80px;
+        }
+
+        ul li {
+            line-height: 25px;
+            border-bottom: 1px dashed #ccc;
+        }
+    </style> 
+</head>
+<body>
+	<div class="demo">
+		<span>微博发布</span>
+		<textarea name="" id="txt" cols="30" rows="10"></textarea>
+		<button>发布</button>
+		<ul></ul>
+	</div>
+	<script src="../jquery.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$("button").click(function() {
+				// todo
+				if ($("#txt").val().trim().length == 0) {
+					alert('内容不能为空')
+				}
+				$("<li></li>").text($("#txt").val()).prependTo('ul')
+				$('#txt').val('')
+			})
+		})
+	</script>
+</body>
+</html>

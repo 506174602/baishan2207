@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0
+		}
+		li{
+			list-style: none
+		}
+		body{
+			background: #000
+		}
+		.warp{
+			width: 630px;
+			margin:100px auto;
+			border: 1px solid #fff
+			padding:10px 0 0 10px;
+		}
+		.warp ul{
+			overflow: hidden;
+		}
+		.warp li{
+			float: left;
+			margin:0 10px 10px 0;
+		}
+		.warp img{
+			width: 200px;
+			height: 200px
+		}
+	</style>
+</head>
+<body>
+	<div class="warp">
+		<ul>
+			<li>
+				<a href="javascript:;">
+					<img src="../images/01.jpg" alt="">
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;">
+					<img src="../images/02.jpg" alt="">
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;">
+					<img src="../images/03.jpg" alt="">
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;">
+					<img src="../images/04.jpg" alt="">
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;">
+					<img src="../images/05.jpg" alt="">
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;">
+					<img src="../images/06.jpg" alt="">
+				</a>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
+<script src="../jquery.js"></script>
+<script type="text/javascript">
+	$(function () {
+		// 当鼠标指向li的时候触发
+		$(".warp>ul>li").mouseenter(function(){
+			// 调用者,当前指向的li元素
+			console.log(this)
+			// 当前指向的li元素,透明度为1
+			// siblings除了本身以外所有的li元素的透明度为0.4
+			$(this).css("opacity","1").siblings(".warp>ul>li").css("opacity","0.4")
+		})
+
+		// 当鼠标离开时透明度全部显示1
+		$(".warp").mouseleave(function(){
+			// this大盒子div
+			// find是后代
+			// 大盒子的后代的所有li元素透明度为1
+			$(this).find("li").css("opacity","1")
+		})
+	})
+</script>

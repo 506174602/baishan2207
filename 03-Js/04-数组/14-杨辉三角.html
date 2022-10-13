@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		// 杨辉三角
+		var num = Number(prompt("请输入行数"));
+		// 1.创建一个二维数组  
+		var arr = new Array(num);
+		// 2.输入多少行就循环多少次
+		for(var i = 0; i < arr.length;i++){
+			arr[i] = new Array(i+1);
+			for(var j = 0;j <= i;j++){
+				if(j == 0 || j == i){
+					arr[i][j] = 1;
+				}else{
+					arr[i][j] = arr[i-1][j-1] + arr[i-1][j];
+				}
+				document.write(arr[i][j] +"&nbsp");
+			}
+			document.write("<br />");
+		}
+		// console.log(arr);
+	</script>
+</body>
+</html>

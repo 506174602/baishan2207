@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            font-size: 40px;
+            color: #ff16cf;
+        }
+
+        ul li {
+            float: left;
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+    </ul>
+
+    <script src="../jquery.js"></script>
+    <script>
+        // ★
+        var kongXin = '☆'
+        var shiXin = '★'
+        $('ul li').mouseenter(function () {
+            $(this).text(shiXin).prevAll().text(shiXin)
+            $(this).text(shiXin).nextAll().text(kongXin)
+        })
+        $('ul li').mouseenter(() => {
+            $(this).text(shiXin).prevAll().text(shiXin)
+            $(this).text(shiXin).nextAll().text(kongXin)
+        })
+
+        $('ul').mouseleave(function () {
+            $(this).children().text(kongXin)
+            $('.active').text(shiXin).prevAll().text(shiXin) // 最后处理点击后保持选中
+        })
+
+        $('ul li').on('click', function () {
+            $(this).addClass('active').siblings().removeClass('active')
+        })
+    </script>
+</body>
+
+</html>

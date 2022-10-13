@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*1.当使用不同选择器设置同一个标签的同一个样式，会根据选择器的优先级（权重）来决定   优先级高的优先展示
+			优先级的权重规律：
+
+			行内样式         1000
+  			id选择器         100
+			类选择器         10
+			标签选择器       1
+			通配符选择器     0
+			继承来的属性     没有优先级
+		 */
+		/*id选择器权重  100*/
+		#dv{
+			color: yellow;
+		}
+		/*类选择器权重   10*/
+		.box{
+			color: red;
+		}
+		/*标签选择器权重  1*/
+		div{
+			color: blue;
+		}
+		/*通配符选择器权重  0*/
+		*{
+			color: green;
+		}
+	/*2.在元素样式后加!important 之后将会获得最高的权重  该方法 只是增大了对应css属性的权重  对选择器没有影响    （一旦设置了!important很难改变  用js也没法修改 慎用）*/
+		.box{
+			color: orange !important;
+			/*font-size: 12px;*/
+		}
+	/*3.当选择标签包含多种选择器时   需要将多个选择器的权重相加  权重总和大的优先级更高（并集选择器除外）*/
+		/*权重：1+10=11*/
+		/*div.box{
+			font-size: 20px;
+		}*/
+		/*权重  10*/
+		/*.box{
+			font-size: 60px;
+		}*/
+
+		/*如果并集选择器:*/
+		/*20*/
+		.box,.box1{
+			font-size: 30px;
+		}
+		/*10*/
+		.box1{
+			font-size: 50px;
+		}
+	</style>
+</head>
+<body>
+<!-- 行内样式权重  1000 -->
+	<div class="box" id="dv" style="color: pink;">
+		我是div盒子
+	</div>
+	<div class="box1">
+		<span>我是另外一个盒子</span>
+	</div>
+</body>
+</html>

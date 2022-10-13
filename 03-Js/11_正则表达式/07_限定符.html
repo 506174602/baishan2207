@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>限定符</title>
+</head>
+<body>
+	<script>
+		/**
+		 *  限定符: 限制单个字符出现在 中括号 区间内
+		 *  []
+		 *  [abc] 查找方括号内的任意字符
+		 *  [^abc] 查找任何不在方括号内的字符
+		 *  [0-9] 查找任何从 0 到 9 的数字
+		 *  [a-z] 查找任何从小写a - 小写z 的字符
+		 *  [A-Z] 查找任何从大写A - 大写Z 的字符
+		 */
+		
+		var str1 = 'afa abc efg bfa ead cfa'
+		var reg1 = /[abc]fa/g
+		console.log('查找任意字符--1', str1.match(reg1))
+
+		var str2 = 'abcd'
+		var reg2 = /[^abc]/g	// [^abc] ^出现在中括号内即在限定字符里面取非或者 排除的意思
+		console.log('查找任意字符--2', str2.match(reg2))
+		console.log('查找任意字符--2-test', reg2.test(str2))
+
+		// \d  [0-9]
+		var reg3 = /[3-6]/g // 匹配中括号 3 - 6 区间内出现的任意一个数字
+		var str3 = 'g871y2635'
+		console.log('匹配数字', str3.match(reg3))
+
+
+		// 所有英文字母和数字 [a-zA-Z0-9]
+		var reg4 = /[a-zA-Z0-9]/g
+		var str4 = 'ch6EdsR7i6JdsHhF7tfDFc_@'
+		console.log('所有英文字母和数字', str4.match(reg4))
+	</script>
+</body>
+</html>

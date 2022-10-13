@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var numList  = [3,5,2,1,4];
+		// 将这个数组从小到大排列
+		// 冒泡排序：和递归一样 也是一种算法
+		// 冒泡中心思想：就是在无序的数组中每循环一次就选出最大的数放到最后
+		// 第二次循环选出此大的数组放到倒数第二个位置    以此类推 直到完成排序
+		function bubble(arr){
+			// 1.外循环目的：为了确定循环的次数
+			for(var i = 1;i < arr.length;i++){
+				// 2.内层循环目的：确定相邻的两个元素之间的位置
+				for(var j = 0;j < arr.length-i;j++){
+					if(arr[j] > arr[j+1]){
+						var temp;//第一个变量  作为交换的中间量
+						temp = arr[j];//将较大的值赋给中间量
+						arr[j] = arr[j+1];//将较小赋值给这个arr[j]
+						arr[j+1] = temp; //将最大的值赋值给arr[j+1]
+					}
+				}
+				console.log(arr);
+			}
+			return arr;
+		}
+		bubble(numList);
+
+		/*冒泡原理总结:
+			1.外循环，确定循环的次数
+
+			2.内循环  确定相邻两个元素之间 的位置
+
+			3.通过判断比较相邻两个元素的大小  并交换位置
+		 */
+	</script>
+</body>
+</html>

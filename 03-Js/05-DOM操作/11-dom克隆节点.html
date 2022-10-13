@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>克隆节点</title>
+</head>
+<body>
+	<div>
+		<ul>
+			<li>我是li ---- 1</li>
+			<li>我是li ---- 2</li>
+			<li>我是li ---- 3</li>
+			<li>我是li ---- 4</li>
+		</ul>
+	</div>
+	<script>
+		// 1、cloneNode(true/false)
+		// 	-- true 深度拷贝
+		// 		包含当前元素及其所有的子节点
+		// 	-- false 浅拷贝
+		// 		只包含当前元素即节点本身
+		var ul = document.getElementsByTagName('ul')[0];
+		ul.appendChild(ul.children[2].cloneNode(true));
+		// insertBefore
+		// 
+		// 作业
+		// 写三个按钮：
+		// 	第一个按钮：全选
+		// 	第二个按钮：取消已选
+		// 	第三个按钮：反选
+	</script>
+</body>
+</html>

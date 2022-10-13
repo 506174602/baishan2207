@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹幕</title>
+	<style>
+        html,body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: "微软雅黑";
+            font-size: 62.5%;
+        }
+
+        .boxDom {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .idDom {
+            width: 100%;
+            height: 100px;
+            background-color: #666;
+            position: fixed;
+            bottom: 0;
+        }
+
+        .content {
+            display: inline-block;
+            width: 450px;
+            height: 40px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        .title {
+            display: inline;
+            font-size: 4em;
+            vertical-align: bottom;
+            color: #fff;
+        }
+
+        .text {
+            border: none;
+            width: 300px;
+            height: 30px;
+            border-radius: 5px;
+            font-size: 2.4em;
+        }
+
+        .btn {
+            width: 60px;
+            height: 30px;
+            background-color: #f90000;
+            border: none;
+            color: #fff;
+            font-size: 2.4em;
+        }
+
+        span {
+            width: 300px;
+            height: 40px;
+            position: absolute;
+            overflow: hidden;
+            color: #000;
+            font-size: 4em;
+            line-height: 1.5em;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+    </style> 
+</head>
+<body>
+	<div class="boxDom">
+		<div class="idDom">
+			<div class="content">
+				<p class="title">吐槽</p>
+				<input type="text" class="text">
+				<button class="btn">发送</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="../jquery.js"></script>
+	<script type="text/javascript">
+		var colorArr = ['red', 'green', 'pink', 'blue', 'black', 'skyblue']
+		$(function() {
+			$('.btn').click(function() {
+				var randColor = parseInt(Math.random() * colorArr.length) // 数字  索引
+				$('<span></span>')
+					.text($('.text').val()) // 获取输入的内容并添加到span中
+					.css('top', Math.random() * 400) // 垂直方向随机位置出现
+					.css('left', $(window).width()) // 屏幕最右侧出现
+					.css('color', colorArr[randColor])
+					.animate({left: -500}, 8000, 'linear', function() {
+						$(this).remove()
+					})
+				.appendTo('.boxDom')
+				$('.text').val('')
+			})
+			$('.text').keyup(function(event) {
+				if (event.keyCode == 13) {
+					$('.btn').click()
+				}
+			})
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画队列</title>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="开始">
+	<div></div>
+
+	<script src="../jquery.js"></script>
+	<script>
+		$(function() {
+			$("input").click(function() {
+				$("div")
+				.animate({top: 400, left: 400})
+				.animate({width: 300, height: 300})
+				.animate({top: 50})
+				.animate({left: 0})
+				.animate({width: 100, height: 100})
+			})
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>offset</title>
+
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.main {
+			width: 300px;
+			height: 300px;
+			background-color: #ccc;
+			position: relative;
+			margin: 20px;
+			padding: 20px;
+			border: 20px solid;
+		}
+		.item {
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+			margin: 20px;
+			position: absolute;
+			top: 50px;
+			left: 50px
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="item"></div>
+	</div>
+
+	<script>
+		// offsetTop offsetLeft 是当前盒子距离最近的定位元素的距离
+		// 父元素的padding + 自身的margin
+		var item = document.querySelector('.item');
+		console.log(item.offsetTop);
+		console.log(item.offsetLeft);
+		// 在不脱标(脱离标准文档流)情况下 offsetTop/offsetLeft是当前盒子距离最近定位元素的距离
+		// 在脱标的情况下  offsetTop/offsetLeft 和父元素失去关系,只考虑自身的 top/left和margin
+	</script>
+</body>
+</html>

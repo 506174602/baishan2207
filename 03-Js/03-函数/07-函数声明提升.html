@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		// 变量提升
+		/*console.log(num);//undefined
+		var num = 1;*/
+		// 相当于 
+		var num;
+		console.log(num); //undefined
+		num = 1;
+	</script>
+	<script>
+		// 函数的声明提升：js解析器会首先把当前作用域的函数声明  提升到整个作用域的最前面
+		// 1.函数声明方式创建的函数可以被提升
+		// 2.函数表达式方式创建的函数不可以被提升
+
+		fun();
+
+		function fun() {
+			console.log("哈喽，明天周四 我要好好复习！！！！！");
+		}
+		// fun1();//报错
+		var fun1 = function () {
+			console.log("我是函数表达式创建的函数");
+		}
+		// fun1()正常调用
+	</script>
+</body>
+
+</html>

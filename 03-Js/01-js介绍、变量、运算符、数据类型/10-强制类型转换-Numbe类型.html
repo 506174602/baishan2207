@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*方法1:使用Number(变量名)方法：
+			该方法也不能改变原变量的数据类型
+		-String→Number:
+			①如果是纯数字的话，那么该方法可以直接转换成Number类型
+			②如果不是纯属字的话  返回NaN（Number类型）
+			③如果是空的字符串 返回一个0（Number类型）
+		--Boolean→Number
+			true返回1；
+			false返回0;
+		--Null→Number
+			返回0
+		--undefined→Number
+			返回NaN
+		该方法有局限：类似"123aaa"这种字符串无法转换我们想要的数字类型
+					所以 我们一般使用parseInt(变量名) parseFloat(变量名)来实现字符串转换
+		*/
+		// 字符串转数字类型案例：
+		var str = "123AA";
+		str = Number(str);
+		console.log(str,typeof str);
+		var str1 = "";
+		str1 = Number(str1);
+		console.log(str1,typeof str1);
+		// 布尔类型转换成数字类型案例
+		var b1  = true;
+		b1 = Number(b1);
+		console.log(b1,typeof b1);
+		var b2 = false;
+		b2 = Number(b2);
+		console.log(b2,typeof b2);
+		// 空类型转换成数字
+		var nul = null;
+		nul = Number(nul);
+		console.log(nul,typeof nul);
+		// undefined转换成数字
+		var ufd  = undefined;
+		ufd = Number(ufd);
+		console.log(ufd,typeof ufd);
+	</script>
+	<script>
+		/*
+		方法2：该方法一般用于针对字符串转换数字使用
+			parseInt():将一个字符串 直接截取整数部分    只截取最前面的整数数字部分
+			parseFloat():将字符串直接截取最前面的浮点数字部分  
+		 */
+		var pit = "123.22abc";
+		pit = parseInt(pit);
+		console.log(pit,typeof pit);//123 number
+		pit = "1.123bb";
+		pit = parseFloat(pit);
+		console.log(pit,typeof pit);//1.1236 number
+
+		pit = "ccc122";
+		console.log(parseFloat(pit),typeof parseFloat(pit));//NaN  Number类型
+	</script>
+</body>
+</html>

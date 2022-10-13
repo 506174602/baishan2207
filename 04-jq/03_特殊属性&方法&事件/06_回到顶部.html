@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            text-align: center;
+        }
+        img {
+            vertical-align: top;
+        }
+        .main {
+            margin: 10px auto 0;
+            width: 1000px;
+        }
+        .fixed {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            margin-left: -640px;
+        }
+        a {
+            text-decoration: none;
+        }
+        .actGoTop {
+            position: fixed;
+            right: 20px;
+            bottom: 50px;
+            width: 150px;
+            height: 195px;
+            z-index: 10;
+            display: none;
+        }
+        .actGoTop a {
+            display: block;
+            width: 150px;
+            height: 195px;
+            background: url(../images/gotop.png) no-repeat;
+        }
+        .actGoTop a:hover {
+            background-image: url(../images/gotop.gif);
+        }
+    </style> 
+
+</head>
+
+<body>
+    <div class="top">
+        <img src="../images/top.png" alt="">
+    </div>
+    <div class="nav">
+        <img src="../images/nav.png" alt="">
+    </div>
+    <div class="main">
+        <img src="../images/main.png" alt="">
+    </div>
+
+    <!-- 返回顶部 -->
+    <div class="actGoTop">
+        <a href="javascript:;"></a>
+    </div>
+    <script src="../jquery.js"></script>
+    <script>
+        $(function(){
+            $(window).scroll(function() {
+                console.log('2222')
+                if ($(window).scrollTop() >= $(window).height()) {
+                    // $('.actGoTop').css('display', 'block')
+                    $('.actGoTop').stop().fadeIn(100)
+                } else {
+                    $('.actGoTop').stop().fadeOut(100)
+                }
+            })
+
+            $('.actGoTop a').click(function() {
+                $('html, body').stop().animate({scrollTop: 0}, 1000)
+                $(window).scrollTop(0)
+            })
+        })
+    </script>
+</body>
+
+</html> 

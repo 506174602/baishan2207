@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var arr = ['a','b','c','d'];
+		// ps1:我们在遍历数组的时候要将循环变量i作为数组的索引，而索引是从0开始的，所以遍历数组时for循环中初始化变量i应该是从0  而不是1
+		// ps2:arr.length = 最大索引数+1  所以我们的循环条件  i < arr.length
+		for(var i = 0; i < arr.length;i++){
+			// 我们想要的是数组内的每一条数据 
+			console.log(arr[i]);
+		}
+		//将一个数组内的小于20的数字列出来组成新的数组
+		var nums = [1,34,56,78,19,20]
+		function  test(){
+			var min = [];//创建最终我们所要的新数组
+			for(var i = 0;i < nums.length;i++){
+				if(nums[i] < 20){
+					// 通过最大索引数 = arr.length-1关系来给min数组追加元素
+					min[min.length] = nums[i];
+				}
+			}
+			return min;
+		}
+		console.log(test());
+	</script>
+</body>
+</html>

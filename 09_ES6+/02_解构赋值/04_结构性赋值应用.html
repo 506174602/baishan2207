@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>结构性赋值应用</title>
+</head>
+
+<body>
+    <script>
+        function foo1() {
+            console.log('foo1----函数内', 12345)
+        }
+        // 有实参的时候 形参的默认值不调用不生效
+        let [a1 = foo1()] = [1]
+        console.log('a1----', a1)
+
+        function foo2([a, b, c = 5]) {
+            console.log('foo2-----', a, b, c)
+        }
+        foo2([1, 2])
+
+        function foo3([a, b, ...rest]) {
+            console.log('foo3----', a, b, rest)
+        }
+        foo3([1, 2, 3, 4, 5])
+
+        function foo4({
+            name,
+            age,
+            money = 1
+        }) {
+            console.log('foo4----', name, age, money)
+        }
+        foo4({
+            name: '李四',
+            name1: '张三',
+            age: 12,
+            money: 100
+        })
+
+        function foo5() {
+            let obj = {
+                name: '程传鹏',
+                age: 20
+            }
+            return obj
+        }
+        let {
+            name
+        } = foo5()
+        console.log('foo5----', name)
+
+        // let json = "'name': '程传鹏'"
+        let jsonStr = '{"name5": "ccp", "age5": 20}'
+        let jsonObj = JSON.parse(jsonStr) // json对象
+        let {
+            name5,
+            age5
+        } = jsonObj
+        console.log('name5 ------', name5, age5)
+    </script>
+</body>
+
+</html>

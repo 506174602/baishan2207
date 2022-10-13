@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建正则表达式</title>
+</head>
+<body>
+	<script>
+		// 正则表达式(构造函数) : RegExp(pattern, attribute)
+		// 第一个参数pattern: 是字符串, 制定了正则表达式的模式或者其他正则表达式
+		// 第二参数 attribute: 是一个可选的参数字符串.包含属性'g', 'i' 和 'm', 分别是用于指定全局匹配, 匹配不区分大小写 和 多行匹配(只对^(开头)和$(结尾)模式有用)
+		// 如果 pattern 是正则表达式, 而不是字符串, 则必须省略第二个参数
+		// 
+		// 				RegExp(/\w+/)  RegExp('a')
+		var reg = new RegExp('g')
+		var str = 'abcdefg'
+		console.log(str.search(reg))
+
+		// 字面量的方式: 公式: /pattern/attribute
+		var reg1= /a/i  // 不区分大小写
+		// var reg1= /z/i  // 不区分大小写
+		// var reg1= /a/  // 区分大小写
+		var str1 = 'Abcdefg'
+		console.log('字面量', str1.search(reg1))
+
+
+		// 正则对象的方法
+		console.log('test()---', reg1.test(str1))	// 存在返回true 否则返回false
+		console.log('exec()---', reg1.exec(str1))	// 检索字符串 返回查找结果的第一个值.返回的是数组,有就返回数组的值,没有则返回null
+	</script>
+</body>
+</html>

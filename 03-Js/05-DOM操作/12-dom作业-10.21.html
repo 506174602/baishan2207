@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业</title>
+</head>
+<body>
+	<div>
+		<input type="button" value="添加" onclick="addCheckBox()">  
+
+		<input type="button" value="全选" onclick="selectAll()">  
+		<input type="button" value="取消全选" onclick="unSelectAll()">
+		<input type="button" value="反选" onclick="reverseAll()"> 
+
+		<hr>
+		<input type="checkbox" /> 语文 <br/>
+		<input type="checkbox" /> 数学 <br/>
+		<input type="checkbox" /> 英语 <br/>
+		<input type="checkbox" /> 物理 <br/>
+		<input type="checkbox" /> 化学 <br/>
+		<input type="checkbox" /> 生物 <br/>
+		</div>
+
+	<script>
+		// [1, 2, 3, 43555, 5555]
+		function selectAll() {
+			var inputArr = document.getElementsByTagName('input');
+			for(var i = 0; i < inputArr.length; i++) {
+				inputArr[i].checked = true;
+			}
+		}
+
+		function unSelectAll() {
+			var inputArr = document.getElementsByTagName('input');
+			for(var i = 0; i < inputArr.length; i++) {
+				inputArr[i].checked = false;
+			}
+		}
+
+		function reverseAll() {
+			var inputArr = document.getElementsByTagName('input');
+
+			for (var i = 0; i < inputArr.length; i++) {
+				inputArr[i].checked = !inputArr[i].checked
+			}
+
+		}
+
+		function addCheckBox() {
+			var div = document.getElementsByTagName('div')[0];
+
+			var newCheckBox = document.createElement('input');
+			// newCheckBox.innerHTML = '高数';
+			newCheckBox.type = 'checkbox';
+			newCheckBox.value = '高数';
+			div.appendChild(newCheckBox);
+
+			var newSpan = document.createElement('span');
+			newSpan.innerText = ' 高数';
+			div.appendChild(newSpan);
+
+			var br = document.createElement('br');
+			div.appendChild(br);
+		}
+	</script>
+</body>
+</html>

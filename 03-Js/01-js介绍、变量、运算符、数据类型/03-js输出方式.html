@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script>
+		// 第一种：控制台输出：最常用 用来程序调试
+		// console:控制台  log就是日志的意思  表示打印
+		console.log("我是控制台输出");
+		console.info("我是控制台输出info");//不常用
+		// 第二种:在页面中输出
+		document.write("大家好，我是周六  明天休息");
+		document.write("<div style='width:100px;height:100px;border:1px solid red'>我是一个盒子</div>");//不常用
+		// 第三种：弹出警告框window.alert()，一般简写成alert() ps：他会阻止程序的执行
+		alert("我是弹出框,会阻止程序的执行");
+		// console.log("我是alert下的输出");
+		// 第四种：prompt弹出框  返回的一个字符串   需要我们将返回值赋值给新的对象
+		var byesameNo = prompt("请输入第一个数字");
+		console.log(byesameNo);
+		// confirm()  判断  通常和我们的判断语句使用  返回的是一个Boolean类型的值（true/false）  需要我们将返回值赋值给新的对象
+		var tip = confirm("你确定要和我分手吗？");
+		console.log(tip,typeof tip);
+
+
+
+	</script>
+</body>
+</html>

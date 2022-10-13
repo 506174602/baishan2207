@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>on事件的绑定注册</title>
+</head>
+<body>
+	<div>
+		<p>001</p>
+		<p>002</p>
+		<p>003</p>
+		<p>004</p>
+		<p>005</p>
+	</div>
+
+	<input type="button" value="添加">
+
+
+	<script src="../jquery.js"></script>
+	<script>
+		$(function() {
+			// $('input').click();
+			$('input').on('click', function() {
+				console.log(33)
+				$('<p>新增的p标签</p>').appendTo('div')
+			})
+
+			$('div').on('click', 'p', function() {
+				console.log(123456)
+				console.log(this)
+			})
+
+			$('div').on('click', 'p', function() {
+				console.log(654321)
+				console.log(this)
+			})
+
+			// 取消事件绑定
+			$('div').off()
+			// $('div').off('click', '')
+		})	
+	</script>
+</body>
+</html>

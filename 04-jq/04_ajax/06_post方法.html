@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>post</title>
+</head>
+
+<body>
+    团队名称: <input type="text"> <br>
+    官方邮箱: <input type="text"> <br>
+    团队描述: <textarea name="" id="" cols="30" rows="10"></textarea> <br>
+    <button>创建</button>
+</body>
+<script src="../jquery.js"></script>
+<script>
+    $(function () {
+        $('button').click(function () {
+            $.post('http://121.196.8.145:10000/test/inertTeam2', {
+                teamname: $('input').eq(0).val(),
+                mailbox: $('input').eq(1).val(),
+                teamdescribe: $('textarea').val()
+            }, (data) => {
+                console.log('新建成功', data)
+            })
+        })
+    })
+</script>
+
+</html>

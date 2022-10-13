@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul li:first-child{
+			color: red;
+		}
+		/*选中序列为奇数的元素*/
+		ul li:nth-child(2n-1){
+			color: blue;
+		}
+		/*选中序列为偶数的元素*/
+		ul li:nth-child(2n){
+			color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>我是li</li>
+		<li>我是li</li>
+		<li>我是li</li>
+		<li>我是li</li>
+		<li>我是li</li>
+		<li>我是li</li>
+	</ul>
+</body>
+</html>

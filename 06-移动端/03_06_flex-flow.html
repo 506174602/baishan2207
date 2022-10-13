@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex-flow</title>
+    <style>
+        .flex-container {
+            display: flex;
+            /* 
+                flex-flow: 是flex-direction 和 flex-wrap 的简写形式 ,默认值row nowrap
+            */
+            flex-flow: column nowrap;
+            width: 1200px;
+            height: 640px;
+            background-color: skyblue;
+        }
+
+        .flex-item {
+            width: 280px;
+            height: 120px;
+            margin: 10px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <span class="flex-item">1</span>
+        <span class="flex-item">2</span>
+        <span class="flex-item">3</span>
+        <span class="flex-item">4</span>
+        <span class="flex-item">5</span>
+        <span class="flex-item">6</span>
+        <span class="flex-item">7</span>
+        <span class="flex-item">8</span>
+        <!-- <span class="flex-item">9</span>
+        <span class="flex-item">10</span>
+        <span class="flex-item">11</span>
+        <span class="flex-item">12</span> -->
+    </div>
+</body>
+
+</html>

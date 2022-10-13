@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>this</title>
+</head>
+<body>
+	<script>
+		/*
+		1、this的指向：在函数定义的时候是无法确定的;只有在函数执行的时候才可以确定this的只想。一般情况下,this的【最终指向
+】是调用它的对象
+			-- 在全局作用域或者普通函数中, this指向的是全局的对象 window;
+			-- 函数方法中，谁调用的函数方法, this就指向谁;
+		 */
+		
+
+		// eg1: 全局作用域
+		console.log('全局作用域下的this---->', this);
+
+		// eg2: 普通函数(也就是全局作用域下的函数，实际上就是window的一个方法)
+		function common() {
+			console.log('普通函数中的this---->', this)
+		};
+		common();	// 等价于 window.common; 所以common()中的this指向的是 window
+
+		var a = function () {
+			console.log('变量a中的this---->', this)
+		}
+		window.a = function() {
+			console.log('window.a 点出来的a的this', this)
+		}
+		window.a()
+		// console.log('调用变量a--->', a)
+		// console.log('调用变量a--->', a())
+		// 
+		// 
+		// 对象： 所有的数据都可以被视为对象
+		// 对象是一种【无序】的数据集合，由多个键值对构成。
+		// 定义对象的两种方式：var obj = new Object(); var obj = {};
+		var obj = {name: '张三', age: 18, 'friends': ['李四', '王五']};
+		console.log('obj----->', obj)
+		var arr = [];
+
+		var nums = {
+			a: 10,
+			b: function() {
+				console.log('对象中 b 对应的函数', this)
+			},
+			c: {
+				a: 100,
+				f: function() {
+					console.log('c中的函数', this)
+				}
+			}
+		}
+
+		// nums.b();
+		nums.c.f();
+		// 总结：不管函数是否被外层对象所调用, this指向的总是它上一级的对象
+	</script>
+</body>
+</html>

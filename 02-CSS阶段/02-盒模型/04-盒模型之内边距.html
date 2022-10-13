@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*1.内边距：定义元素边框到元素内容之间的空间    即上 右 下 左四个内边距
+			（padding-top padding-right  padding-bottom  padding-left） */
+		.box{
+			width: 300px;
+			height: 300px;
+			background-color: orange;
+			/*2.padding的复合用法(常用)：padding:padding-top padding-right  padding-bottom  padding-left*/
+			/*padding: 25px 50px 70px 100px;*/
+			/*2.1：如果只取两个值  padding:上下内边距  左右内边距*/
+			/*padding: 30px 50px;*/
+			/*2.2：如果只取三个值  padding:上内边距  左右内边距  下内边距*/
+			/*padding: 30px 50px 20px;*/
+			/*2.3如果只取一个值  padding:上下左右内边距*/
+			/*padding: 50px;*/
+			padding-top:50px;
+			padding-right: 20px;
+			padding-bottom: 30px;
+			padding-left: 20px;
+			/*综上可见：设置了padding的元素会撑大该元素*/
+		}
+		.bs{
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="bs">
+			
+		</div>
+	</div>
+</body>
+</html>

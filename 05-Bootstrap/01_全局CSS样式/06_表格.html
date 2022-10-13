@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格</title>
+    <link rel="stylesheet" href="bootstrap-v3/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="page-header">bootstrap框架</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped table-condensed">
+                <!-- 
+                    基础样式: .table 基础表格
+                    附加样式:
+                        -- .table-bordered 带边框的表格
+                        -- .table-hover 鼠标悬停高亮的表格
+                        -- .table-striped 斑马线表格
+                        -- .table-condensed 紧凑型表格(单元格没有内边距或者内边距较其他表格的内边距小)
+                    行背景颜色控制:提供了五种不同的类名
+                        -- .active 将悬停的颜色应用在行或者单元格上
+                        -- .success 成功
+                        -- .info 信息提醒
+                        -- .warning 警告
+                        -- .danger 危险
+                 -->
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>第一节</th>
+                        <th>第二节</th>
+                        <th>第三节</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>1</th>
+                        <td class="success">语文</td>
+                        <td>数学</td>
+                        <td>英语</td>
+                    </tr>
+                    <tr class="danger">
+                        <th>2</th>
+                        <td>物理</td>
+                        <td>化学</td>
+                        <td>生物</td>
+                    </tr>
+                    <tr class="info">
+                        <th>3</th>
+                        <td>历史</td>
+                        <td>地理</td>
+                        <td>政治</td>
+                    </tr>
+                    <tr class="warning">
+                        <th>4</th>
+                        <td>高等数学</td>
+                        <td>泛函分析</td>
+                        <td>线性代数</td>
+                    </tr>
+                    <tr class="active">
+                        <th>5</th>
+                        <td>常微分方程</td>
+                        <td>数学分析</td>
+                        <td>离散数学</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

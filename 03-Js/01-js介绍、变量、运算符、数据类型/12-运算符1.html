@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>运算符:</title>
+	<!--运算符分类：
+		1.比较运算符
+		2.逻辑运算符
+		3.算数运算符
+		4.赋值运算符 
+	 -->
+</head>
+<body>
+	<script>
+		/*1.比较运算符：比较两个值的大小  同时给我们返回一个Booolean类型的值
+			== ：判断是否相等，只判断值得大小
+			===：全等;值和类型均判断
+			!= : 不等于  只判断值的大小
+			!== :不全等
+			> ：大于
+			< ：小于
+			>=:大于或等于
+			<=:小于或等于
+		 */
+		console.log(5 == "5");//true
+		console.log(5 === "5");//false
+		console.log(5 != "5");//false
+		console.log(5!== "5");//true
+		console.log(1<"2");//隐式转换  "2"→ 2
+		console.log(5>="4");
+	</script>
+	<script>
+		/*
+		2.逻辑运算符：用于测定变量或值之间的逻辑关系 返回一个Boolean 类型的值
+				&&：逻辑与  “且”    口诀："都真才真 有假就假"（重点）
+				||:逻辑或：逻辑或  “或” 口诀："都假才假  有真就真"（重点）
+				!:逻辑非 
+		 */
+		var a = 2;
+		var b = 4;
+		var c = 6;
+		console.log(a<b && b<c);//true
+		console.log(a>b && b<c);//false
+		console.log(a>b || b<c);//true
+		var flag = a>b;
+		console.log(!flag);//true
+		// **运算顺序： 逻辑非  逻辑与 逻辑或**
+		console.log(a>b || b>c && a<c);//false
+	</script>
+</body>
+</html>

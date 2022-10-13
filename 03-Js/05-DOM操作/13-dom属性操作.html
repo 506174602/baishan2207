@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性操作</title>
+</head>
+<body>
+	<img src="dom树结构.png" alt="图像无法显示时显示的文本">
+
+	<script>
+		// 通过名称获取属性的值 getAttribute('src') 参数必传; 返回值是属性值
+		var img = document.getElementsByTagName('img')[0];	
+		var src = img.getAttribute('src');
+		console.log('获取的src属性值是：' + src);
+		// 创建或者设置某个属性的属性值 setAttribute('要设置的属性名称', '属性值') 没有返回值
+		var set = img.setAttribute('src', 'DOM节点介绍.png');
+	</script>
+</body>
+</html>

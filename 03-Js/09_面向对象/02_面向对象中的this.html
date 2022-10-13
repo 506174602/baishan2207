@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象中的this</title>
+</head>
+<body>
+	<script>
+		var arr = [1, 2, 3]
+		arr.a = 10;
+
+		arr.getA = function() {
+			console.log(this.a)
+			console.log(this)
+			console.log(arr)
+		}
+
+		arr.getA();
+
+		// this 指向的是函数的调用者(对象)
+		// 
+		function fn123() {
+			console.log('fn123---', this)
+		}
+		fn123();
+		// === 等价于
+		window.fn123 = function() {
+			console.log('window- fn123', this)
+		}
+		window.fn123();
+
+		// ---------------------------
+		var num = 10;
+		function foo() {
+			console.log('foo-num1', this.num)
+		}
+
+		function hoo(fn) {
+			var num = 100;
+			fn();
+		}
+
+		hoo(foo);
+		// === 等价于
+		window.hoo = function(fn) {
+			var num = 100;
+			console.log('hoo---this', this)
+			foo();
+			// this.foo();
+			// this.foo = function() {
+			// 	console.log('foo-num2', this.num)
+			// }
+		}
+		// hoo(foo);
+	</script>
+</body>
+</html>

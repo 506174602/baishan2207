@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*1.数组的定义：
+			存储一组有序（index索引值）的数据
+			作用：不同于变量 数组可以一次性存储多个值
+		*/
+		/*2.创建数组：
+			   2.1 字面量方式定义数组
+			   2.2 构造函数方式创建数组
+		 */
+		// 2.1字面量方式
+		var arr = [1,2,4,5,6];
+		console.log(arr);//输出数组对象
+		console.log(arr.length);//arr.length 获取数组的长度
+		// 2.2构造函数 方式
+		// 2.2.1
+		var arr1 = new Array(1,2,4,5,6);
+		console.log(arr1);
+		// 2.2.2先创建一个空的数组  通过数组的索引给每一个元素赋值
+		var arr2 = new Array();
+		arr2[0] = 1;
+		arr2[1] = 2;
+		arr2[2] = 4;
+		arr2[3] = 5;
+		arr2[4] = 6;
+ 		console.log(arr2);
+ 		// 2.2.3先创建一个指定长度的数组   ps：此时数组的每一条数据都是undefined
+ 		var arr3 = new Array(5)
+ 		console.log(arr3);
+ 		console.log(arr3[0]);
+ 		// 3.数组内存储的数据类型可以不一样
+ 		var arr4 = ["狗蛋","狗剩",1,2];
+ 		console.log(arr4);
+ 			//数组内还可以是数组   -----二维数组 
+ 		var arr5 =  [[1,2,3],["李白","高渐离","孙悟空","妲己"],["百杉36","百杉35","百杉34"]];
+ 		console.log(arr5[0]);
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+	</ul>
+	<a href="javascript:;" wfy="250">百度一下</a>
+	<a href="javascript:;">百度二下</a>
+</body>
+</html>
+<script src="../jquery.js"></script>
+<script type="text/javascript">
+	// :eq(索引) 获取元素中的某一项的dom元素
+	// 索引为3的元素为li的第四个li
+	console.log($("li:eq(3)"))
+	$("li:eq(3)").css("background","red")
+	// .eq(索引)
+	$("li").eq(2).css("background","blue")
+
+	// 通过序选择器取偶数:nth-child(2n)
+	$("li:nth-child(2n)").css('background','green')
+
+	// 通过索引取奇数 even
+	$("li:even").css('background','yellow')
+
+	// 通过索引取偶数 odd
+	$("li:odd").css('background','blue')
+
+	// 大于这个索引 gt(索引)
+	$("li:gt(2)").css("fontSize","100px")
+
+	// 小于这个索引 lt(索引)
+	$("li:lt(2)").css("fontSize","60px")
+
+	// 属性选择器
+	$("a[wfy=250]").css("color","green")
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	/*box-shadow:  水平方向的位置   垂直方向的位置  模糊度     颜色     inset
+					必需值           必需值         可选       可选		可选
+					正负值		    正负值			正值      默认黑色  默认外阴影
+	*/
+		.box1{
+			width: 200px;
+			height: 200px;
+			margin: 0 auto;
+			background: #ccc;
+			/*模糊度：（最常用）*/
+			box-shadow: 0px 0px 20px  red inset;
+		}
+		.box2{
+			width: 300px;
+			height: 300px;
+			background-color: pink;
+			margin:50px auto;
+			/*三个方向的阴影
+					将水平/垂直的阴影设置为0  靠模糊度增强该方向的阴影效果
+			*/
+			box-shadow: 0 10px 20px yellow;
+			/*四个方向的阴影：
+				    将垂直和水平的阴影都设置为0  靠模糊都增强四个方向的阴影
+			*/
+			box-shadow: 0 0px 20px yellow;
+		}
+	</style>
+</head>
+<body>
+	<!-- 盒子阴影案例 -->
+	<div class="box1"></div>
+	<!-- 多个方向的阴影案例 -->
+	<div class="box2"></div>
+</body>
+</html>

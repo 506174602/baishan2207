@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+
+	<script type="text/javascript">
+		// 通过封装函数的方式获取滚动时浏览器卷曲的高度
+		window.onscroll = function() {
+			// console.log('卷曲的高度', getScroll().top) // getScroll() === data.top
+			console.log('卷曲的宽度', getScroll().left) // getScroll() === data.top
+		}
+
+		function getScroll() {
+			console.log('enter')
+			var data = {}
+			data.top = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+			data.left = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
+
+			return data
+		}
+	</script>
+</body>
+</html>

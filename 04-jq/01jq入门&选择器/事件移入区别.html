@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			margin:10px;
+			float: left;
+			padding: 30px;
+			text-align: center;
+			background: lightgray;
+		}
+		p{
+			background: #fff
+		}
+	</style>
+</head>
+<body>
+	<!-- onmouseenter鼠标移入触发 -->
+	<div onmouseenter="seenter()">
+		<p>onmouseenter</p>
+	</div>
+	<!-- onmouseover鼠标移入触发 -->
+	<div onmouseover="seOver()">
+		<p>onmouseover</p>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	function seenter(){
+		console.log("我是seenter")
+	}
+	function seOver(){
+		console.log("我是seOver")
+	}
+
+	/*
+		onmouseenter给元素添加事件,子元素不会触发,只给当前选中的元素触发,不会触发事件冒泡
+		onmouseover给元素添加事件,子元素也会触发,会触发事件冒泡
+	*/ 
+</script>

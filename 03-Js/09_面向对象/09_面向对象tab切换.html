@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.change{
+			width: 600px;
+			margin: 100px auto;
+		}
+		.title{
+			overflow: hidden;
+		}
+		.title span{
+			float: left;
+			width: 198px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			border: 1px solid #000;
+		}
+		.title .active{
+			background-color: orange;
+			color: #fff;
+		}
+		.content p{
+			width: 598px;
+			height: 200px;
+			border: 1px solid #000;
+			line-height: 200px;
+			text-align: center;
+			display: none;
+		}
+		.content .select{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="change">
+		<!-- 点击交互区域 -->
+		<div class="title">
+			<span class="active">标题1</span>
+			<span>标题2</span>
+			<span>标题3</span>
+		</div>
+		<!-- 显示切换内容区域 -->
+		<div class="content">
+			<p class="select">内容1</p>
+			<p>内容2</p>
+			<p>内容3</p>
+		</div>
+	</div>
+	<script type="text/javascript">
+		// 变量 -- 属性
+		// 函数 -- 方法
+		// 
+		function changeTab(clickEle, contentEle) {
+			// 取出要操作的元素
+			// var spanArr = document.querySelectorAll('span');
+			// var spanArr = document.querySelectorAll(clickEle);
+			this.spanArr = document.querySelectorAll(clickEle);
+			// var pArr = document.querySelectorAll('p')
+			// var pArr = document.querySelectorAll(contentEle)
+			this.pArr = document.querySelectorAll(contentEle)
+			console.log('this指向谁---', this)
+			var _this = this // 这个this指向changeTab 当函数嵌套函数的时候, this的指向会发生改变
+			// var that = this
+			for (var i = 0; i < this.spanArr.length; i++) { // 这个this指向 changeTab
+				this.spanArr[i].onclick = function() { // 这个this指向 changeTab
+					// this  现在是某一个span
+					_this.change(this) // 这个this指向 this.spanArr[i]
+				}
+			}
+		}
+
+		changeTab.prototype.change = function(tab) { // tab指向第70行this.spanArr[i] 点击的span
+			for (var i = 0; i < this.spanArr.length; i++) { // 这个this指向 changeTab
+				this.spanArr[i].className = '' // 这个this指向 changeTab
+				this.pArr[i].className = '' // 这个this指向 changeTab
+				if (this.spanArr[i] == tab) {// 这个this指向 changeTab
+					this.spanArr[i].className = 'active'// 这个this指向 changeTab
+					this.pArr[i].className = 'select'// 这个this指向 changeTab
+				}
+			}
+		}
+
+		var tabs = new changeTab('span', 'p');
+	</script>
+</body>
+</html>

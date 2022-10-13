@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>工厂模式没有new</title>
+</head>
+<body>
+	<script>
+		function createStar(name, age) { // 命名函数 构造函数
+			// 1.创建空对象(模板 原材料)
+			// var this = new Object();
+
+			// 2.添加属性
+			this.name = name;
+			this.age = age;
+
+			// 3.添加方法
+			this.getName = function() {
+				console.log('明星姓名: ' + this.name)
+				return '明星姓名: ' + this.name
+			}
+			this.getAge = function() {
+				console.log('明星年龄: ' + this.age)
+			}
+			// 4.出厂
+			// return this;
+		}
+		var zhangSan = new createStar('张三', 18);
+		console.log('new-getName', zhangSan.getName());
+		// 在函数中添加 new 系统会为我们偷干两件事:
+		// 1.创建空对象
+		// 2.返回对象
+		// 构造函数和普通函数的唯一区别: 构造函数用new来调用; 否则就是个普通函数
+		// this代表的是当前作用域的对象的使用;如果在全局作用域下this指向的是window对象; 如果实在构造函数中代表的是当前的这个构造函数所声明的对象;
+	</script>
+</body>
+</html>

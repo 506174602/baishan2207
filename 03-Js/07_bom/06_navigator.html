@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>navigator</title>
+</head>
+<body>
+	<div class="box"></div>
+	<script>
+		// navigator 包含有关用户浏览器的信息;同样window可以省略
+		// 
+		console.log('navigator----', navigator)
+
+		text = "<p>浏览器代号:" + navigator.appCodeName + "</p>"
+		text += "<p>浏览器名称:" + navigator.appName + "</p>"
+		text += "<p>浏览器版本:" + navigator.appVersion + "</p>"
+		text += "<p>浏览器cookies:" + navigator.cookieEnabled + "</p>"
+		text += "<p>浏览器硬件平台:" + navigator.platform + "</p>"
+		text += "<p>浏览器代理信息:" + navigator.userAgent + "</p>"
+		text += "<p>浏览器代理语言:" + navigator.language + "</p>"
+		
+		document.querySelector('.box').innerHTML = text;
+	</script>
+</body>
+</html>

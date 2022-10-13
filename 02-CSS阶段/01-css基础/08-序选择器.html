@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	/*当同时有多个相同的标签  我们可以通过序选择器来设置对应的标签样式*/
+		ul li{
+			color:red;
+		}
+		/*选中第一个li标签*/
+		ul li:first-child{
+			color: blue;
+		}
+		/*第n个li标签：nth-child(X)  X是可变值*/
+		ul li:nth-child(4){
+			color: yellow;
+		}
+		/*选中最后一个li标签*/
+		ul li:last-child{
+			color: pink;
+		}
+		/*练习*/
+		div a:first-child{
+			color: red;
+		}
+		div a:nth-child(2){
+			text-decoration: none;
+		}
+		div a:last-child{
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>第1个li</li>
+		<li>第2个li</li>
+		<li>第3个li</li>
+		<li>第4个li</li>
+		<li>第5个li</li>
+	</ul>
+	<!-- 练习 -->
+	<div>
+		<a href="">第一个链接</a>
+		<a href="">第二个链接</a>
+		<a href="">第三个链接</a>
+	</div>
+</body>
+</html>

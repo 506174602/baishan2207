@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>删除节点</title>
+</head>
+<body>
+	<ul>
+		<li> 我是li----1</li>
+		<li> 我是li----2</li>
+		<li> 我是li----3</li>
+		<li> 我是li----4</li>
+		<li> 我是li----5</li>
+		<li> 我是li----6</li>
+		<li> 我是li----7</li>
+	</ul>
+
+	<script>
+		// 删除节点
+		// 第一种：removeChild('子节点') 调用者是父节点
+		// 第二种：remove()		 调用者是自己
+		var ul = document.getElementsByTagName('ul')[0];
+		ul.removeChild(ul.firstElementChild);
+
+		var li = document.getElementsByTagName('li')[0];
+		li.remove();
+
+
+	</script>
+</body>
+</html>

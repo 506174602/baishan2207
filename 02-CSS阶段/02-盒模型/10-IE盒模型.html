@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box1{
+			background-color: pink;
+			width: 200px;
+			height: 200px;
+			border: 20px solid red;
+			padding: 20px;
+			/*将标准盒子转换成IE盒子    谷歌浏览器中元素的默认值  content-box标准盒模型
+																  border-box怪异盒模型（IE盒模型）
+			*/
+			box-sizing: border-box;
+			/*ie盒模型的实际宽度就是我们设置的width  = 左右边框宽度+左右内边距宽度+content
+						实际高度就是我们设置的height = 上下边框高度+上下内边距高度 +content
+			*/
+		}
+		/*-------------------------------------IE盒模型案例-------------*/
+		.box2{
+			width: 600px;
+			height: 600px;
+			background-color: pink;
+			/*因为块级元素会换行  html中对换行符  空格符 等会合并成空白符  而且这个空白符会占据宽度 造成元素设置成行内块时产生间隙   给父元素设置一font-size = 0 可以解决*/
+			font-size: 0;
+		}
+		.box2 div{
+			width: 200px;
+			height: 200px;
+			display: inline-block;
+			padding: 0 20px;
+			/*将盒子转成IE盒子  总宽度width保持不变*/
+			box-sizing: border-box;
+		}
+		.first{
+			background-color: green;
+		}
+		.second{
+			background-color: blue;
+		}
+		.third{
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		
+	</div>
+	<!-- IE盒子案例 -->
+	<div class="box2">
+		<div class="first">123</div>
+		<div class="second">123</div>
+		<div class="third">123</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取css样式</title>
+	<style>
+		.box{
+			width: 300px;
+			height: 400px;
+			background-color: rgb(107, 200, 217);
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+
+	<script>
+		var box = document.querySelector('.box')
+
+		var boxBgc = box.style.backgroundColor;
+		console.log('获取到背景色', boxBgc)
+
+		// getComputedStyle( , ) // 第一个参数:标签对象; 第二个参数: [CSS属性]; 调用者window
+		console.log('获取box样式', window.getComputedStyle(box, null))
+		console.log('获取box样式1', window.getComputedStyle(box, null)['background-color'])
+		console.log('获取box样式2', window.getComputedStyle(box, null)['backgroundColor'])
+
+		// ie 
+		// currentStyle() // 调用者:标签对象
+		// box.currentStyle.width
+		// 
+		function getCssStyle(elementObj, attribute) {
+			return window.getComputedStyle ? window.getComputedStyle(elementObj, null)[attribute] : elementObj.current[attribute]
+		}
+		console.log('函数方式获取背景样式', getCssStyle(box, 'background-color'))
+		console.log('函数方式获取宽度', getCssStyle(box, 'width'))
+		console.log('函数方式获取高度', getCssStyle(box, 'height'))
+	</script>
+</body>
+</html>

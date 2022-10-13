@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 800px;
+    /*height: 600px;*/
+    margin: 2% auto;
+    border: 1px solid #f0f0f0;
+}
+.head {
+    width: 780px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.search {
+    width: 780px;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.search input {
+    width: 150px;
+    height: 25px;
+    padding-left: 10px;
+    border: 1px solid #f0f0f0;
+}
+.search button {
+    width: 50px;
+    height: 25px;
+    margin-left: 5px;
+    border: 1px solid #005ec6;
+    background-color: #005ec6;
+    color: #fff;
+    cursor: pointer;
+}
+.list {
+    width: 760px;
+    min-height: 100px;
+    /*max-height: 405px;*/
+    padding: 20px;
+    /*border-bottom: 1px solid #f0f0f0;*/
+}
+.list ul {
+    width: 100%;
+    list-style: none;
+}
+/*列表*/
+.list .list-item {
+    /*公共样式*/
+    width: 100%;
+    display: flex;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.list .list-head span {
+    /*列表表头*/
+    width: 12%;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    margin: 0 8px;
+    display: block;
+}
+.list .list-content span {
+    /*列表内容*/
+    width: 12%;
+    font-size: 12px;
+    text-align: left;
+    margin: 0 8px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/*物品名称*/
+.list .list-head span:nth-child(2) {
+    width: 20%;
+}
+.list .list-content span:nth-child(2) {
+    width: 20%;
+}
+/*物品分类*/
+.list .list-head span:nth-child(3) {
+    width: 20%;
+}
+.list .list-content span:nth-child(3) {
+    width: 20%;
+}
+/*代理商采购价*/
+.list .list-head span:nth-child(5) {
+    width: 20%;
+}
+.list .list-content span:nth-child(5) {
+    width: 20%;
+}
+.list .list-content span:last-child {
+    /*列表内容 - 编辑按钮*/
+    color: #005ec6;
+    cursor: pointer;
+}
+/*分页*/
+.pagination {
+    width: 100%;
+    height: 50px;
+    padding: 10px 20px;
+}
+.pagination span {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    margin-left: 10px;
+    text-align: center;
+    display: block;
+    float: left;
+    border: 1px solid #f0f0f0;
+}
+.pagination .active {
+    background-color: #005ec6;
+    color: #fff;
+}

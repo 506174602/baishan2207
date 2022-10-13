@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面试中常见的闭包问题</title>
+</head>
+<body>
+	<script>
+		// var a = 3;
+		function fn1(){
+			// var a = 2 ;
+			function fn2(){
+				var a = 1;
+				return a;
+			}
+			return fn2;
+		}
+		//作用域链中  在fn1()这个函数可以访问到其内部函数fn2这个函数的内部的变量a
+		console.log(fn1()());//1
+		/*闭包的定义：
+			fn2就是个闭包函数   闭包可以简单理解为：可以读取其他函数内部变量的函数
+			ps1:js中  只有函数内部的函数才能访问到局部变量（访问顺序：由内到外  即闭包先找自己的变量再找外部变量，）
+			ps2:闭包函数就是定义在另一个函数内部的函数
+		*/
+	/*闭包的作用：（*****）
+		1.可以访问一个函数内部的变量
+		2.可以让函数内部的变量保存到内存中  摆脱程序的垃圾回收机制
+	*/
+		function fun(){
+			var num = 1;
+			function add(){
+				num++;
+				return num;
+			}
+			return add;
+		}
+		console.log(fun()());//2
+		console.log(fun()());//2
+		// fun()返回的函数add对象   将函数对象赋值了一个变量  相当于函数被保存到内存中 这个时候变量就不会消失
+		var f = fun();
+		console.log(f());//2
+		console.log(f());//3
+	</script>
+</body>
+</html>

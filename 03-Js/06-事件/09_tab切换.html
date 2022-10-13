@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.change{
+			width: 600px;
+			margin: 100px auto;
+		}
+		.title span{
+			float: left;
+			width: 198px;
+			height: 38px;
+			border: 1px solid #000;
+			line-height: 38px;
+			text-align: center;
+		}
+		.title .active{
+			background-color: orange;
+			color: #fff;
+		}
+		.content p{
+			width: 598px;
+			height: 198px;
+			border: 1px solid #000;
+			text-align: center;
+			line-height: 198px;
+			margin-top: 20px;
+			display: none;
+		}
+		.content .select{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="change">
+		<!-- 鼠标交互区域 -->
+		<div class="title">
+			<span class="active">标题1</span>
+			<span>标题2</span>
+			<span>标题3</span>
+		</div>
+		<!-- 内容切换区域 -->
+		<div class="content">
+			<p class="select">内容1</p>
+			<p>内容2</p>
+			<p>内容3</p>
+		</div>
+	</div>
+	<script type="text/javascript">
+		//1.获取相关元素
+		var spans = document.querySelectorAll(".title span");
+		var ps = document.querySelectorAll(".content p");
+		//2.给所有按钮绑定事件
+		for (var i = 0; i < spans.length; i++) {
+			spans[i].onclick = function(){
+				// for 循环 遍历所有按钮和被点击按钮作比较
+				for (var j = 0; j < spans.length; j++) {
+					//被点击的按钮和遍历的按钮是同一个的话
+					if(spans[j] == this){
+						//满足条件的时候 被点击的按钮变为特殊样式
+						this.className = "active";
+						// 被点击的按钮的索引值控制内容的显示
+						ps[j].className = "select";
+					}else{
+						//不满足条件的按钮去除掉特殊的类名 如果原来有基础类名，则保留基础类名
+						spans[j].className = "";
+						ps[j].className = "";
+					}
+				}
+			}
+		}
+	</script>
+</body>
+</html>

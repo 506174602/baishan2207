@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取传参</title>
+</head>
+<body>
+	<ul>
+		<li></li>
+
+
+		<div class="content">
+			<li></li>
+			<li>   
+				<div></div>
+				<p></p>
+				<span class="update">编辑</span> <span>删除</span>
+			</li>
+		</div>
+	</ul>
+	<script>
+		var data = jsonData.list // 接口返回的主要数据, 获取目标数据链式写法较长,建议赋值给新的变量使用
+		for (var i = 0; i < data.length; i++) {
+			// 第一步: 先创建 li
+			var newLi = document.createElement('li')
+			// 创建li里面的所有子元素并添加(appendChild)到newLi中,每个子元素需设置内容值,样式
+			// 创建按钮,设置按钮样式,文本内容及点击事件,将触发点击事件所需要的参数隐藏设置在新建的元素对象中(为传参时使用)
+			var  updateSpan = document.createElement('span')
+			updateSpan.innerHTML = '编辑'
+			// createSpan.index = jsonData.list[i].id
+			updateSpan.teamId = data[i].id
+			updateSpan.teamname = data[i].teamname
+			updateSpan.teamnumber = data[i].teamnumber
+			updateSpan.className = 'update'
+			updateSpan.onclick = function() {
+				location.href = '01_获取传参_b.html?id=' + this.teamId + '&teamname=' + this.teamname
+			}
+			newLi.appendChild(updateSpan)
+			// content.appendChild(newLi)
+		}
+	</script>
+</body>
+</html>

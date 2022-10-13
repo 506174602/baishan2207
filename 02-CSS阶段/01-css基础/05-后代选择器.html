@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	/*1.后代选择器（ 空格 ）
+			选中的父元素box1下的所有的span标签  不管是儿子还是孙子  重孙子 重重孙子。。。。。
+	*/
+		.box1 span{
+			color: pink;
+		}
+		.box1 .pp .sp{
+			font-size: 30px;
+		}
+	/*2.子代选择器（儿子选择器）( 父元素>子元素 )*/
+		.box2>.son>span{
+			color: red;
+		}
+		.box2>.son>p{
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<span>我是box1的儿子</span>
+		<p class="pp">我是box2的儿子<span class="sp">我是box1的孙子，p标签的儿子</span></p>
+	</div>
+	<div class="box2">
+		<div class="son">
+			<span>box2的孙子</span>
+			<p>我是一个段落</p>
+		</div>
+	</div>
+</body>
+</html>

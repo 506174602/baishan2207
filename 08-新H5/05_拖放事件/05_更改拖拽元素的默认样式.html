@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_更改拖拽元素的默认样式</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div draggable="true"></div>
+
+    <script>
+        var div = document.querySelector('div')
+        var img = document.createElement('img')
+        img.src = '../../04-jq/images/gotop.gif'
+
+        div.ondragstart = function (ev) {
+            // 第一个参数: elemnt 图片
+            // 第二个参数: xOffset 相对于图片的横向偏移量
+            // 第三个参数: yOffset 相对于图片的纵向偏移量
+            ev.dataTransfer.setDragImage(img, 50, 50)
+        }
+    </script>
+</body>
+
+</html>

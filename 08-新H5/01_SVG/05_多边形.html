@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>矩形</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body onclick="getPoint(event)">
+    <svg width="500" height="250" xmlns="http://www/w3.org/2000/svg" version="1.1">
+        <!-- 
+
+            polygon 能够创建含有不少于三个边的图形
+            points: 用逗号分隔每个点的xy坐标 用空格分隔两个点
+            fill-rule填充规则: 默认值: nozero 非零  evenodd奇偶
+         -->
+        <polygon points="200,10 250,190 160,210 250,120" style="fill: lawngreen; stroke: purple; stroke-width: 2" />
+    </svg>
+    <svg width="500" height="250" xmlns="http://www/w3.org/2000/svg" version="1.1">
+
+        <polygon points="100,10 40,198 190,78 10,78 160,198"
+            style="fill: lawngreen; stroke: purple; stroke-width: 2; fill-rule: evenodd;" />
+    </svg>
+
+    <script>
+        function getPoint(event) {
+            alert('x的坐标:' + event.clientX + '; y的坐标:' + event.clientY)
+        }
+    </script>
+</body>
+
+</html>

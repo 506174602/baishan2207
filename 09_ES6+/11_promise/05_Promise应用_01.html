@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise 应用</title>
+</head>
+
+<body>
+    <script src="../../04-jq/jquery.js"></script>
+    <script>
+        // $.ajax({
+        //     type: 'GET',
+        //     url: 'data_id.json',
+        //     headers: {
+        //         token: 'AAAA'
+        //     },
+        //     success: (data) => {
+        //         console.log(data)
+        //     }
+        // })
+
+        new Promise((resolve, reject) => {
+            // 执行体
+            $.ajax({
+                type: 'GET',
+                url: 'data_id.json',
+                headers: {
+                    token: 'AAAA'
+                },
+                // 
+                success: (res) => { // response: 响应; result: 结果
+                    console.log(res)
+                    // 保存Ajax返回的结果res 到promise的结果 promiseResult 中,并修改 promise的状态为fulfilled
+                    resolve(res)
+                },
+                error: (err) => {
+                    console.log(err)
+                    // rejected
+                    reject(err)
+                }
+            })
+        }).then((data) => {
+            console.log('第一个then接收成功函数的参数', data)
+            const {
+                id
+            } = data.data
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    type: 'GET',
+                    url: 'data_username.json',
+                    data: {
+                        id
+                    }, // {id: id}
+                    headers: {
+                        token: 'AAAA'
+                    },
+                    success: (res) => {
+                        console.log('第二个Ajax返回结果', res)
+                        resolve(res)
+                    },
+                    error: (err) => {
+                        reject(err)
+                    }
+                })
+            })
+        }).then((data) => {
+            console.log('第二个then接收成功函数的参数', data)
+            const {
+                username
+            } = data.data
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    type: 'GET',
+                    url: 'data_money.json',
+                    data: {
+                        username
+                    },
+                    headers: {
+                        token: 'AAAA'
+                    },
+                    success: (res) => {
+                        console.log('第三个Ajax返回结果', res)
+                        // resolve(res)
+                    },
+                    error: (err) => {
+                        // reject(err)
+                    }
+                })
+            })
+        })
+
+        function getData(url, data = {}) {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    type: 'GET',
+                    url: url,
+                    data: data,
+                    headers: {
+                        token: 'AAAA'
+                    },
+                    success: (res) => {
+                        console.log('第三个Ajax返回结果', res)
+                        resolve(res)
+                    },
+                    error: (err) => {
+                        reject(err)
+                    }
+                })
+            })
+        }
+    </script>
+</body>
+
+</html>

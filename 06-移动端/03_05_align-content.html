@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>align-content</title>
+    <style>
+        .flex-container {
+            display: flex;
+            /* 主轴居中 */
+            justify-content: center;
+            flex-wrap: wrap;
+            /* 
+                align-content: 设置子项在侧轴上的排列方式,只能用于子项时多行的情况,单行无效
+                    -- stretch 子项元素高度平分父项高度(子项不能右设置高度,否则不能拉伸)
+                    -- center 在侧轴中间显示
+                    -- flex-start 默认值, 从侧轴的头部开始排列
+                    -- flex-end 从侧轴的尾部开始排列
+                    -- space-between 子项在侧轴 先分布两头,再平分剩余空间
+                    -- space-around 子项再侧轴平剩余空间
+            */
+            /* 多行情况下的侧轴居中 */
+            align-content: space-around;
+            width: 1200px;
+            height: 640px;
+            background-color: skyblue;
+        }
+
+        .flex-item {
+            width: 280px;
+            height: 120px;
+            margin: 10px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <span class="flex-item">1</span>
+        <span class="flex-item">2</span>
+        <span class="flex-item">3</span>
+        <span class="flex-item">4</span>
+        <span class="flex-item">5</span>
+        <span class="flex-item">6</span>
+        <span class="flex-item">7</span>
+        <span class="flex-item">8</span>
+        <span class="flex-item">9</span>
+        <span class="flex-item">10</span>
+        <span class="flex-item">11</span>
+        <span class="flex-item">12</span>
+    </div>
+</body>
+
+</html>

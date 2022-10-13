@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取角色列表</title>
+</head>
+<body>
+	<script>
+	// setAttribute('src', '/images/001.png')
+	// xhr.setRequestHeader('Content-type','application/josn')
+		// 1.通过登录接口获取认证令牌 token
+		// 2.利用拿到的 token, [头部中的属性名为 token] 请求接口http://wish.byesame.com/admin, 请求方式GET; xhr.setRequestHeader('token', token)
+		// 	 参数共两个,分别为: 页数: page 类型为数字类型;每页个数:rows, 参数类型为数字类型
+		// 	 xhr.open('get', 'http://wish.byesame.com/admin' + 'page=1&rows=2', true)
+		// 	GET  xhr.setRequestHeader('token', token)
+		// 	
+		// 	POST xhr.setRequestHeader('token', token)
+		// 	POST xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+		// 	 xhr.send()
+		// 	 onreadystatechange = function() {
+		// 	 	var data = JSON.parse(xhr.responseText)
+		// 	 	for (var i; i < data.Arr; i++) {
+			// 	 	var newLi =	crenteElement('li')
+			// 	 	newLi.innerText = data.Arr[i].name + '-' +  data.Arr[i].userName
+		// 	 	}
+		// 	 	
+		// 	 }
+		// 3.将列表接口返回的数据以列表形式显示在页面.形式:
+		//   页面应该显示的数据样子: 
+		//   			岳老师 - admin - 2021-0106 08:25:05
+		//   			岳老师 - admin - 2021-0106 08:25:05
+		//   			岳老师 - admin - 2021-0106 08:25:05
+		//   			岳老师 - admin - 2021-0106 08:25:05
+		//   			岳老师 - admin - 2021-0106 08:25:05
+		//   对应字段:name   - userName - lastLoginAt	 
+	</script>
+</body>
+</html>

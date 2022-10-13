@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cookie</title>
+</head>
+
+<body>
+    <!-- 
+        cookie 是dom的一个属性, 它返回了当前文档所有的键值对cookie
+        js可以使用document.cookie 属性来创建 获取 删除cookie
+        创建: document.cookie = '***'
+        获取 var c = document.cookie
+        删除时不需指定cookie的值, 设置expires  参数为以前的时间即可
+     -->
+
+    <script>
+        function setCookie(name, value, days) {
+            var t = new Date();
+            // console.log(t.getTime() + days * 24 * 60 * 60 * 1000)
+            // t.getTime() 获取毫秒级时间戳
+            // days * 24 * 60 * 60 * 1000 将天数转为毫秒数
+            // 相加得到 days天以后的时间
+            t.setTime(t.getTime() + days * 24 * 60 * 60 * 1000)
+            console.log(t.toDateString())
+            var expires = "expires=" + t.toDateString()
+
+            document.cookie = name + '=' + value + ';' + expires
+            getCookie('username')
+        }
+        // username=于明凯username123 ;expires='Sat Dec 25 2021'  parse
+
+        setCookie('username', '于明凯', 7)
+
+        function getCookie(name) { // 键名
+            var c_name = name + '=' // username=
+            var c_all = document.cookie.split(';') // [username=于明凯, expires='Sat Dec 25 2021']
+            console.log('???', c_all)
+            for (var i = 0; i < c_all.length; i++) {
+                var ca = c_all[i].trim() // username=于明凯username123
+                console.log('----------', ca)
+                if (ca.indexOf(c_name) == 0) {
+                    return ca.substring(c_name.length, ca.length)
+                }
+            }
+            return ''
+        }
+    </script>
+</body>
+
+</html>

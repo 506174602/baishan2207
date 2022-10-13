@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// 1.在页面输入一个数n  用递归函数实现 1 -  n的累加和
+		var  n = Number(prompt("请输入一个数字"));
+		function getSum(i){
+			if(i == 1){
+				return 1;
+			}else{
+				return i + getSum(i-1);
+			}
+		}
+		console.log(getSum(n));
+
+		// 2.有个数列 斐波那契数列   1、1、2、3、5、8、13、21、34.......
+		// 要求当我们输入一个正整数n时 求数列第n个数的值
+		// 规律：除了第一个和第二个数   从第三个开始 每一项都是前两项的和
+		var f  = Number(prompt("斐波那契数列的第N个数"));
+		function fib(num){
+			// 1.先写结束条件
+			if (num == 1 || num == 2) {
+				return 1;
+				//2.不满足结束条件时的返回值
+			}else{
+				return  fib(num - 1) + fib(num - 2); 
+			}
+		}
+		console.log(fib(f));
+	</script>
+</body>
+</html>

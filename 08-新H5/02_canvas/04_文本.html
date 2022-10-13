@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="500" height="500">你的浏览器不支持canvas</canvas>
+
+    <script>
+        var canvas = document.getElementById('myCanvas')
+        // 标识画布 获取上下文
+        var ctx = canvas.getContext('2d')
+        ctx.font = "50px 微软雅黑"
+        ctx.fillStyle = "blue"
+        /**
+         * 在画布上绘制填色的文本,文本的默认色是黑色
+         * context.fillText(text, x, y, maxWidth) IE> 8
+         * text 在画布上输出的文本内容
+         * x y  相对于画布开始绘制文本的xy坐标
+         * maxWidth: 可选参数 允许的最大文本宽度 单位px
+         */
+        ctx.fillText('Hello World', 10, 100)
+
+        /**
+         * 在画布上绘制无填充的文本, 文本的默认色是黑色
+         * context.strokeText(text, x, y, maxWidth)
+         */
+        ctx.strokeStyle = 'red'
+        ctx.strokeText('Hello World', 10, 200)
+    </script>
+</body>
+
+</html>

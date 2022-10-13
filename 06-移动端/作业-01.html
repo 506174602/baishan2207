@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .main {
+            width: 100%;
+            display: flex;
+            height: 200px;
+        }
+
+        .left,
+        .right {
+            height: 100%;
+            /* box-sizing: border-box; */
+        }
+
+        .left {
+            width: 300px;
+            background-color: pink;
+        }
+
+        .right {
+            width: 100%;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 使用css3弹性盒子实现左右布局，左侧定宽300px, 右侧自适应填满 -->
+    <div class="main">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+
+</body>
+
+</html>

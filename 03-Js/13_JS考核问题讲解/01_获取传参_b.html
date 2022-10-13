@@ -1,0 +1,24 @@
+<script src="common.js"></script>
+<script>
+	// var url = location.href // www.baidu.com/team/update.html?id=190
+	var paramsObj = str2Obj(location.href)
+
+	var a = document.querySelector('')
+	a.innerHTML = paramsObj.teamnumber
+
+
+	
+	var xhr = new XMLHttpRequest()
+	xhr.open('get', '123.1.1./10000/test/getDetail?id=' + paramsObj.id)
+	xhr.send()
+	xhr.onreadstatechange = function() {
+		if (xhr.readyState === 4 && xgr.status === 200) {
+			var data =JSON.parse(xhr.responseText)
+			a.innerHTML = data.teamnumber
+			a.value = data.teamnumber
+		}
+	}
+
+
+
+</script>

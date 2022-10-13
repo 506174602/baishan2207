@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .slider {
+            width: 790px;
+            height: 340px;
+            margin: 50px auto 0;
+            position: relative;
+        }
+
+        .slider li {
+            position: absolute;
+            display: none;
+        }
+
+        .slider li:first-child {
+            display: block;
+        }
+
+        .arrow_left,
+        .arrow_right {
+            position: absolute;
+            width: 30px;
+            height: 60px;
+            top: 50%;
+            margin-top: -30px;
+            text-align: center;
+            line-height: 60px;
+            font-weight: 700;
+            font-family: "宋体";
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+            background: rgba(0, 0, 0, .1);
+        }
+
+        .arrow_left:hover,
+        .arrow_right:hover {
+            background: rgba(0, 0, 0, .5);
+        }
+
+        .arrow_left {
+            left: 0px;
+        }
+
+        .arrow_right {
+            right: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <ul>
+            <li>
+                <img src="../images/1.jpg" alt="">
+            </li>
+            <li>
+                <img src="../images/2.jpg" alt="">
+            </li>
+            <li>
+                <img src="../images/3.jpg" alt="">
+            </li>
+            <li>
+                <img src="../images/4.jpg" alt="">
+            </li>
+            <li>
+                <img src="../images/5.jpg" alt="">
+            </li>
+            <li>
+                <img src="../images/6.jpg" alt="">
+            </li>
+            <li>
+                <img src="../images/7.jpg" alt="">
+            </li>
+            <li>
+                <img src="../images/8.jpg" alt="">
+            </li>
+        </ul>
+        <div class="arrow">
+            <span class="arrow_left"><</span>
+            <span class="arrow_right">></span>
+        </div>
+    </div>
+    <script src="../jquery.js"></script>
+    <script>
+        $(function() {
+            var key = 0
+            $(".arrow_left").click(function() {
+                key--;
+                if (key == -1) {
+                    key = $(".slider li").length - 1
+                }
+                $(".slider li").eq(key).fadeIn().siblings().fadeOut()
+            })
+
+            $(".arrow_right").click(function() {
+                key++
+                if (key == $(".slider li").length) {
+                    key = 0
+                }
+                $(".slider li").eq(key).fadeIn().siblings().fadeOut()
+            })
+        })
+    </script>
+</body>
+
+</html> 

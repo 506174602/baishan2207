@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分页</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #container {
+            width: 80%;
+            height: 500px;
+            margin: 0 auto;
+            border: 1px solid #00aa00;
+        }
+        #container ul {
+            height: 85%;
+            padding: 10px;
+        }
+        #container ul li {
+            list-style: none;
+            padding: 5px;
+        }
+        #container .page {
+            position: absolute;
+            width: 80%;
+            height: 10%;
+            line-height: 40px;
+            text-align: center;
+        }
+        #container .page span {
+            min-width: 25px;
+            height: 25px;
+            margin-left: 10px;
+            padding: 5px 15px;
+            line-height: 25px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid #FFCE00;
+            position: relative;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul>
+        <li class="head">标题</li>
+        <div class="content">
+            <!-- <li></li> -->
+        </div>  
+    </ul>
+    <div class="page">
+        <span>上一页</span>
+        <div>
+            <!-- <span>1</span> -->
+            <!-- <span>2</span> -->
+        </div>
+        
+        <span>下一页</span>
+    </div>
+</div>
+<script type="text/javascript">
+    // window.onload = 
+    var key = 1
+    function getRecruitePage(pageNum) {
+        var content = document.querySelector('.content')
+        var page = document.querySelector('.page')
+
+        content.innerHTML = ''
+        page.innerHTML = ''
+        var xhr = new XMLHttpRequest()
+        xhr.open('get', 'http://121.196.8.145:10000/test/getfundAll?pageNum=' + pageNum)
+        xhr.send()
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var data = JSON.parse(xhr.responseText)
+                var list = data.list
+                // 渲染列表
+                for (var i = 0; i < list.length; i++) {
+                    var newLi = document.createElement('li')
+                    newLi.innerHTML = '标题' + list[i].fundtitle + ', 地点:' + list[i].fundplace
+                    newLi.className = ''
+                    // 创建操作栏的三个按钮 并绑定点击事件,添加到 newLi
+                    content.appendChild(newLi)
+                }
+                // 渲染分页
+                // 上一页
+                var firstSpan = document.createElement('span')
+                firstSpan.innerHTML = '上一页 << '
+                firstSpan.onclick = function() {
+                    key = key - 1 > 0 ? key - 1 : 1
+                    getRecruitePage(key)
+                }
+                page.appendChild(firstSpan)
+                // 循环出页码
+                for (var j = 1; j <= data.pages; j++) {
+                    var newSpan = document.createElement('span')
+                    newSpan.index = j
+                    newSpan.innerHTML = j
+                    newSpan.onclick = function() {
+                        console.log('innerText', this.innerText)
+                        // 点了第几页 就去请求第几页的接口
+                        key = this.index
+                        getRecruitePage(this.index)
+                       
+                    }
+
+                    if (j === pageNum) {
+                        // newSpan.className = ''
+                        newSpan.style.backgroundColor = '#FFCE00'
+                        newSpan.style.borderColor = '#fff'
+                    }
+                    page.appendChild(newSpan)
+                }
+                // 下一页
+                var lastSpan = document.createElement('span')
+                lastSpan.innerHTML = '下一页 >> '
+                lastSpan.onclick = function() {
+                    key = key + 1 > data.pages ? data.pages : key + 1
+                    getRecruitePage(key)
+                }
+                page.appendChild(lastSpan)
+
+            }
+        }
+    }
+    getRecruitePage(1)
+</script>
+</body>
+</html>

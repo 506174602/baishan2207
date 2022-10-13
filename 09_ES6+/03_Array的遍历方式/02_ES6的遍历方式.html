@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6的遍历方式</title>
+</head>
+
+<body>
+    <script>
+        let arr = [1, 2, 3, 4]
+        let arrObj = [{
+            name: '谁困了',
+            age: 10
+        }, {
+            name: '你困了',
+            age: 12
+        }, {
+            name: '自觉站起来',
+            age: 3
+        }]
+        /**
+         * for...of____
+         * values()方法 返回一个新的Array Iterator(迭代) 对象, 该对象包含数组每个索引的值
+         * keys() 方法返回一个包含数组中每个索引键的Array iterator 对象
+         */
+        for (let item of arrObj) { // arrObj[0]得到的是一个对象, is not iterable
+            // console.log('for--of----', item)
+        }
+
+        /**
+         * array.values()方法 返回一个新的Array Iterator(迭代) 对象, 该对象包含数组每个索引的值
+         */
+        for (let item of arr.values()) {
+            // console.log('for--of----values()', item)
+        }
+        /**
+         * keys() 方法返回一个包含数组中每个索引键的Array iterator 对象
+         */
+        // for(let item of arrObj.keys())
+        for (let item of arrObj.keys()) {
+            // console.log('for-of-keys()---', item)
+        }
+        /**
+         * entries() 方法返回一个新的Array Iterator对象, 该对象包含数组中每个索引的键/值对
+         */
+        for (let [index, item] of arrObj.entries()) {
+            // console.log('for-of-entries()---', index, '-----', item)
+        }
+
+        // =======================================================================
+        /**
+         * find() 方法返回数组中满足提供的测试函数的 [第一个] 元素的值, 否则返回 undefined
+         */
+        arr.unshift(4)
+        console.log('赋值arr----', arr)
+        let resFind = arr.find(function (item) {
+            console.log('resFind--循环内', item)
+            return item === 40
+        })
+        console.log('resFind----外层 ', resFind)
+        arr.shift(4)
+        console.log('赋值arr----2---', arr)
+        // ======================================================================
+        /**
+         * findIndex() 返回数组中满足提供的测试函数的第一个元素的索引值, 否则返回 -1
+         */
+        let resFindIndex = arr.findIndex(function (item) {
+            return item === 4
+        })
+        console.log('resFindIndex----外层 ', resFindIndex)
+
+        // ======================================================================
+        /**
+         * Array.from() 方法 对一个类似数组或 可迭代 对象 创建一个新的 浅拷贝的数组实例
+         */
+        function foo1() {
+            // console.log('arguments-----', arguments)
+            // console.log('arguments-----', Array.from(arguments))
+        }
+        foo1(1, 2, 3)
+
+        let arrLike = {
+            0: 'es5',
+            1: 'es6',
+            2: 'es7',
+            3: 'es12',
+            length: 4 // []
+        }
+        console.log('arrLike----', Array.from(arrLike))
+        // ======================================================================
+        /**
+         * Array.of() 方法创建一个具有可变数量参数的新数组实力,而不考虑参数的数量或者类型.
+         * Array()(构造函数) 和 Array.of() 的区别: 如何处理[整数]参数
+         * 
+         */
+        let arrOf0 = [, , , , , , , ];
+        let arrOf1 = Array(7); // 创建一个长度为7的空数组(注意: 该处指的是一个有7个空位(empty)的数组, 而不是由7个undefined组成的数组)
+        let arrOf2 = new Array(7);
+        let arrOf2_1 = Array(1, 2, 3); // [1, 2, 3]
+
+        let arrOf3 = Array.of(7); // 创建一个具有单个元素 7  的数组
+        let arrOf4 = Array.of(1, 2, 3);
+
+        console.log('arr-of-----0', arrOf0) // [, , , , , , , ]
+        console.log('arr-of-----1', arrOf1) // [, , , , , , , ]
+        console.log('arr-of-----2', arrOf2) // [, , , , , , , ]
+        console.log('arr-of-----2_1', arrOf2_1) // [1, 2, 3]
+
+        console.log('arr-of-----3', arrOf3) // [7]
+        console.log('arr-of-----3', arrOf4) // [1, 2, 3]
+        // ====================================================================
+        /**
+         * fill(固定值, 起始索引, 终止索引) 方法用一个固定值填充一个数组中从起始索引到终止索引内的全部元素, 不包括终止索引 [).
+         * 
+         */
+        let fillArr = [1, 2, 3, 4, 5, 6, 7, 8]
+        // fillArr.fill(0, 2, 4)
+        console.log('fill()----', fillArr)
+
+        // ====================================================================
+        /**
+         * copyWithin(targetIndex, startIndex, endIndex) 浅复制数组的一部分到同一数组中的另一个位置,并返回他,不会改变原数组的长度.
+         * 在当前数组内部,将指定位置的成员复制到其他位置,并会覆盖这个[其他位置]上的原有成员,不包括结束索引 [).然后返回当前数组.会修改当前数组
+         * 只有targetIndex是必须参数
+         * endIndex 默认是 array.length
+         */
+        console.log('copyWithin-----', fillArr.copyWithin(4, 0, 2))
+    </script>
+</body>
+
+</html>

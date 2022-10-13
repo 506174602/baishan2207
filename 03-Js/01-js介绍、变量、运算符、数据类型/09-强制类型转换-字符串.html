@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<!-- 强制类型转换：
+		将一个数据类型的数据强制转换成另外一种数据类型
+		一般  我们类型转换主要是指的是将其他类型转换成:String  Number Boolean-->
+	<script>
+		/*
+		1.将其他类型转换成String
+			1.1：toString():
+					语法： 变量名.toString()
+					ps:该方法不能改变原变量的数据类型  他会给你返回一个字符串
+					局限性：无法将null 和undefined类型进行转换成字符串
+					另外一个作用：转换成进制字符串
+			1.2:String():
+					语法：String(变量名)
+					可以将null和undefined类型进行转换成字符串
+		 */
+		// 1.1：toString()案例
+		var a = 123;
+		a.toString()
+		console.log(a,typeof a);//该方法不能改变原变量的数据类型  所以返回  number类型
+		a = a.toString();
+		console.log(a,typeof a);//我们将toString()的返回值重新赋值给了a所以此处返回的是String类型
+		// var c = null;
+		// var d = undefined;
+		// console.log(c.toString());
+		// console.log(d.toString());
+		var i = 10;
+		console.log(typeof i.toString(2));//
+		console.log(i.toString(8));
+		console.log(i.toString(16));
+		// 1.2String()方法案例
+		var e = 234;
+		String(e);
+		console.log(e,typeof e);//该方法也不能改变原变量的数据类型  所以返回  number类型
+		e = String(e);
+		console.log(e,typeof e);
+		var c = null;
+		var d = undefined;
+		console.log(String(c),typeof String(c));
+		console.log(String(d),typeof String(d));
+		/*
+		两种方法
+		总结：区别：toString()不能将null和undefined类型转换成字符串 
+					但可以将数字以进制字符串形式而String()方法可以将null 和undefined类型转换成字符串 但不可以将数字以进制字符串形式
+			共同点：都不能改变原变量的数据类型
+		 */
+	</script>
+</body>
+</html>

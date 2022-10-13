@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>表格标签</title>
+</head>
+
+<body>
+	<!--table表格标签 
+		1.表格介绍：一般用来清晰展示数据  在这方面非常优秀   通过与css的结合  可以让数据变得更加美观和整齐
+		2.表格的特点   行  列  单元格   单元格特点：同行等高 同列等宽
+	 -->
+	<!-- 
+			table标签内属性：
+			border:表示表格的边框尺寸，默认属性值是0
+			width：表示table表的宽度  table td 使用  表格的宽高默认是是根据内容调整的
+			height:表示table表的高度 table td 使用
+			cellpadding:表示单元格内容的填充间距(默认是1px) table使用
+			cellspacing:表示单元格与单元格之间的间距（默认也是2px）
+			bordercolor:边框的颜色
+
+			水平对齐 align="center" table表格对齐方式; tr一行中所有单元格的对齐方式;td一个单元格内容的对齐方式；如果都设置了，按照 td中的显示
+			垂直对齐: valgin="top center bottom" tr td 如果都设置了，按照 td中的显示
+
+			外边距cellspacing: 单元格与单元格之间的距离，称之为外边距
+			bgcolor table  tr, cellspacing="1px"
+	  -->
+	<table border="1" width="300px" height="200px" cellpadding="10px" cellspacing="20px" bordercolor="red">
+		<!-- tr table row表示一行 -->
+		<tr>
+			<!-- td表示一个单元格 -->
+			<td width="100px">1</td>
+			<!-- alig单元格内容水平对齐方式:center:水平居中
+					   left:居左
+					   right：居右
+	 		 -->
+			<td align="right">2</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td>a</td>
+			<td>b</td>
+			<td>c</td>
+		</tr>
+	</table>
+
+
+	<!-- 2.表头 
+			一般表格的第一行是标题（居中 加粗） 可以直接将table的第一个tr内的td换成th
+	 -->
+	<table border="1">
+		<tr>
+			<th>姓名sadasdasda</th>
+			<th>性别</th>
+			<th>籍贯</th>
+		</tr>
+		<tr>
+			<td>刘士余</td>
+			<td>男啊实打实的</td>
+			<td>山东大苏打</td>
+		</tr>
+	</table>
+	<!-- 3.table表的跨行跨列（了解） 
+	 找出合并格的最左上角的”侵占格“   
+	 rowspan:表示跨行侵占   
+	 colspan:表示跨列侵占  
+	 如果既有跨行又有跨列   给侵占格  添加rowspan=""  colspan=""
+	 -->
+	<table border="1" width="500px" height="300px">
+		<tr>
+			<td rowspan="3"></td>
+			<td colspan="2"></td>
+			<!-- <td></td> -->
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<!-- <td></td> -->
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<!-- <td></td> -->
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td rowspan="2" colspan="2"></td>
+			<!-- <td></td> -->
+			<td></td>
+		</tr>
+		<tr>
+			<!-- <td></td> -->
+			<!-- <td></td> -->
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+</body>
+
+</html>

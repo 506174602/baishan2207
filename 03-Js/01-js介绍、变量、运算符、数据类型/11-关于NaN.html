@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>NaN</title>
+</head>
+<body>
+	<script>
+		/*NaN：  Not a Number(不是一个数字) 但是它又是Number类型的特殊值*/
+		console.log(typeof NaN);
+		/*什么情况下会产生NaN
+			1.强制类型转换时  直接将一个非数字的值通过Number() parseInt() parseFloat()转换成数字时均会返回一个NaN
+			2.运算表达式计算时产生：
+		*/
+		var str1 = "abc123";
+		console.log(Number(str1));
+		var str = "SS123";
+		var result = str - 2;
+		console.log(result);
+
+		/*isNaN()方法判断一个对象是否是数字   
+				语法：isNaN(变量名)   返回一个布尔类型的值
+				原理：如果不是一个数字或者不是一个纯数字字符串  他会返回true
+					  如果是数字或者是一个数字字符串  它会返回  false
+
+		*/
+		
+		var num = prompt("请输入数字");
+		// console.log(isNaN(num));
+		/*if(isNaN(num)){
+			alert("呵呵 请输入数字");
+		}else{
+			console.log("您输入的数字是："+num);
+		}*/
+		
+		/*if(isNaN(num) == false){
+			console.log("num是"+num);
+		}*/
+		if(!isNaN(num)){
+			console.log("num是"+num);
+		}
+
+	</script>
+</body>
+</html>

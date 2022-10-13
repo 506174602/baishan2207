@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="swiper-v4/css/swiper.css">
+    <title>swiper下载 引入及使用</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 350px;
+        }
+
+        img {
+            width: 100%;
+            height: 350px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="swiper-container" id="swiper1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="../images/1.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="../images/2.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="../images/3.jpg" alt="">
+            </div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+
+        <!-- 如果需要导航按钮 -->
+        <!-- <div class="swiper-button-prev"></div> -->
+        <!-- <div class="swiper-button-next"></div> -->
+
+        <!-- 如果需要滚动条 -->
+        <!-- <div class="swiper-scrollbar"></div> -->
+    </div>
+
+    <script type="text/javascript" src="swiper-v4/js/swiper.js"></script>
+    <script>
+        /**
+         * api文档:https://www.swiper.com.cn/api/index.html
+         * Basic: swiper的一般选项
+         * -- initialSlide:设定初始化时slide的索引。默认是0即第一张图片.也就是刷新页面后首先显示的图片是第几张
+         * -- direction: Swiper的滑动方向, 水平horizontal 和 垂直vertical ,默认是 horizontal
+         * -- loop: 环路 循环播放, 默认是false, 设置为true则开启环路模式
+         * -- autoPlay 自动切换轮播图,默认为false,而且停留的默认时间是3秒
+         * pagination: 分页器
+         * -- renderBullet 渲染分页器小点。这个参数允许完全自定义分页器的指示点。接受指示点索引和指示点类名作为参数。
+         * effect:
+         设置Slide的切换效果,默认为"slide"（普通位移切换），还可设置为"fade"（淡入）、"cube"（方块）、"coverflow"（3d流）、"flip"（3d翻转）、"cards"(卡片式)、"creative"（创意性）
+         */
+    </script>
+    <script>
+        var mySwiper1 = new Swiper('#swiper1', {
+            initialSlide: 2,
+            // direction: 'vertical', // 垂直切换选项
+            loop: false, // 循环模式选项
+            // autoplay: true, // 自定义设置如下:
+            autoplay: {
+                delay: 1000,
+                stopOnLastSlide: false,
+                disableOnInteraction: true, // 用户操作swiper之后，是否禁止autoplay
+            },
+
+            // 如果需要分页器
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                renderBullet: function (index, className) {
+                    return '<span class="' + className + '">' + (index + 1) + '</span>';
+                }
+            },
+            effect: 'cards',
+            // 如果需要前进后退按钮
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+            // 如果需要滚动条
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+        })
+    </script>
+</body>
+
+</html>

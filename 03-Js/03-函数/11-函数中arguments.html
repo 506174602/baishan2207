@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*在调用时 浏览器会给我们传入两个隐含的参数  this  arguments
+			this是window对象
+			arguments是一个类数组对象  它可以通过索引值来操作数据  还可以获取长度
+					---我们在调用函数时 所有传入的参数都会保存在arguments中保存
+					---通过arguments.length：可获取我们传入的参数个数
+		 */
+		function fun(){
+			// console.log(this,arguments);
+			console.log(arguments.length);
+			console.log(arguments[0]);//类数组中保存的第一个参数
+			console.log(arguments[1]);
+			console.log(arguments[2]);
+		}
+		fun(1,2,3);
+	</script>
+</body>
+</html>

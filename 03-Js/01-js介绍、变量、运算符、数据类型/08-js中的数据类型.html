@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*1.基本数据类型：
+				1.Number：数字类型：js中数据类型不区分整形和浮点型  只有number：
+						它包含所有的数字（正负数。整数  小数  极大极小值）
+						Infinity(正无穷大)  NaN（not a number  即：不是一个数字）
+				2.String:字符串类型：
+						2.1引号内的内容
+						2.2 返回字符串长度使用（变量.length ） 
+				3.Boolean：布尔类型
+							true / false 
+				4.undefined
+				5.null：是一个空对象指针  表示用来准备保存对象 还没有真正保存对象
+						ps：用typeof会返回一个Object类型
+				6.symbol(ES6中新增的类型，表示独一无二的值)
+		  2.引用数据类型：
+				Object（js中顶级数据类型）
+				array（数组）
+				function(函数)
+				等*/
+		// typeof 变量名  用来判断变量的数据类型
+		// 1.Number类型
+		var a1 = 2.33;
+		var a2 = -2.33;
+		var a3 = Infinity;
+		var a4 = 6e3;//6乘以10的3次方
+		var a5 = 6e-3;//6乘以10的负3次方
+		var a6 = NaN;
+		console.log(a3,typeof a3);
+		console.log(a4,typeof a4);
+		console.log(a5,typeof a5);
+		console.log(a6,typeof a6);
+		// 2.String类型
+		var str1 = "123";
+		var str2 = "1111aaa";
+		var str3 = "";
+		var str4 = 1+"1";
+		console.log(str1,typeof str1,str1.length);
+		console.log(str2,typeof str2,str2.length);
+		console.log(str3,typeof str3);
+		console.log(str4,typeof str4);
+		// 3.Boolean类型
+		var ble1 = true;
+		var ble2 = false;
+		console.log(ble1,typeof ble1);
+		console.log(ble2,typeof ble2);
+		console.log(3<2);
+		console.log(3>2);
+		// 4.undefined
+		var ufd;
+		console.log(ufd,typeof ufd);
+		// 5.null
+		var nl = null;
+		console.log(nl,typeof nl);
+	</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise方法-then</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * Promise方法: catch() 捕获 finally() 最终处理 ****then() 然后*****
+         * then() Promise 中最重要的方法,没有之一
+         * 
+         */
+        const p1 = new Promise((resolve, reject) => {
+            // 初始状态 pending  resolve和reject 都没有调用
+            resolve('p1----调用成功的结果') // 状态:fulfilled; 结果: 'p1----调用成功的结果'
+            // reject('p1----调用失败的结果') // 状态: rejected; 结果: 'p1----调用失败的结果'
+            /**
+             ((err) => {
+                 console.log('p1--then----第二个参数被调用', err)
+             })('p1----调用失败的结果')
+             
+            */
+        })
+        console.log('p1----', p1)
+
+        /**
+         * p1实例原型上的 then() 方法, 也就是函数, 参数和返回值
+         * then()接收两个参数, 且参数都是函数. then(function1, function2)
+         *    -- function1: 成功时调用的函数
+         *    -- function2: 失败时调用的函数
+         * 返回值:
+         *    -- 仍然是一个 Promise 对象
+         */
+        const t = p1.then((data) => { // t 是 新的 Promise 实例(pending), 可以使用原型对象的方法 支持链式操作
+            console.log('p1--then----第一个参数被调用', data)
+        }, (err) => {
+            console.log('p1--then----第二个参数被调用', err)
+        });
+        // t.then()
+        /**
+         * 为什么能拿到这个 data ?
+         * resolve() 在执行的时候, 实际上是执行了 then() 方法中的第一个参数 ()=>{}
+         * 且同时传递了一个实参 data('p1----调用成功的结果'),给了then()方法的
+         * 第一个参数函数,作为他的形参
+         */
+        console.log('t----', t)
+        /**
+         * 总结:
+         * 通过调用 resolve 的参数,可以传递 数据, 通过then() 里面的(第一个/第二个)形参可以接收(成功时/失败时)的数据
+         */
+    </script>
+
+    <script>
+        console.log('====================')
+        /**
+         *  Promise 的状态不改变,就不会调用 then()里面的方法
+         */
+        const p2 = new Promise((resolve, reject) => {
+            resolve()
+            // reject()
+        }).then((data) => {
+            console.log('1---data', data)
+            // then方法中 使用 return 会改变 promise 实力的状态为 fulfilled
+            // console.log(aa) // aa不存在, 程序报错
+            throw new Error('手动抛出错误')
+            // return 'abc'
+        }, (err) => {
+            console.log('1---err', err)
+        }).then((data) => {
+            console.log('2---data', data)
+            // return 'xyz'
+        }, (err) => {
+            console.log('2---err', err)
+        }).then((data) => {
+            console.log('3---data', data)
+        }, (err) => {
+            console.log('3---err', err)
+        })
+        console.log('p2----', p2)
+    </script>
+</body>
+
+</html>

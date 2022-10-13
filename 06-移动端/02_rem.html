@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rem</title>
+    <style>
+        html,
+        body {
+            /* 
+                16px * 62.5% = 10px
+                1rem = 10px 初始化赋值
+            */
+            font-size: 62.5%;
+            /* font-size: 10px; */
+        }
+
+        .wrap {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            font-size: 18px;
+            background-color: aquamarine;
+        }
+
+        .title {
+            width: 100%;
+            height: 9.8rem;
+            text-align: center;
+            line-height: 9.8rem;
+            font-size: 3.2rem;
+            color: brown;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        css中常用的长度单位 px em  rem
+        px是固定的像素,一旦设置就无法因适应页面大小而改变
+        em:是相对长度单位,相对于当前对象内文本的[[字体尺寸]].
+            em的值并不是固定的,他会继承父级元素的字体大小.
+            任意浏览器的默认字体高度是16px
+            所有未经调整的浏览器 都适合: 1em=16px; 12px=0.75em; 10px=0.625em
+
+            为能够简化font-size的换算,要在css中body选择器里声明font-size=62.5%
+            16px * 62.5% = 10px; 12px=1.2em  10px=1em
+            将原来的px单位数值除以10
+        
+            
+        em: 相对父元素的大小
+        rem: 相对html元素字体大小
+     -->
+    <div class="wrap">
+        <div class="title">首页内容</div>
+    </div>
+</body>
+
+</html>

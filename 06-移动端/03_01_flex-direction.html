@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex-direction</title>
+    <style>
+        /* 
+            flex-direction 决定弹性盒子元素的排列方向(主轴方向), 默认值值为row
+            flex-direction:
+                -- row; 默认值row, 子项元素将在容器中水平显示
+                -- row-reverse 与row效果相同,但是是以相反的顺序显示
+                -- column 使子项元素垂直显示
+                -- column-reverse 与column 效果相同,但是是以相反的顺序显示
+        */
+        .flex-container {
+            display: flex;
+            /* flex-direction: row-reverse; */
+            /* flex-direction: column; */
+            flex-direction: column-reverse;
+            width: 1200px;
+            height: 640px;
+            background-color: skyblue;
+        }
+
+        .flex-item {
+            width: 320px;
+            height: 120px;
+            margin: 10px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+    </div>
+</body>
+
+</html>

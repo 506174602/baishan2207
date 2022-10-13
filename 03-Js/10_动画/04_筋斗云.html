@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		.slider{
+			width: 700px;
+			height: 50px;
+			margin: 0 auto;
+			position: relative;
+			overflow: hidden;
+			background-color: orange;
+		}
+		.slider span{
+			position: absolute;
+			width: 100px;
+			height: 50px;
+			background-image: url(images/1.gif);
+			background-size: 100px 50px;
+			background-position: center;
+		}
+		.slider ul{
+			position: relative;
+		}
+		.slider ul li{
+			float: left;
+			width: 100px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			font-size: 20px;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div class="slider">
+		<span></span>
+		<ul>
+			<li>首页</li>
+			<li>新闻</li>
+			<li>娱乐</li>
+			<li>视频</li>
+			<li>音乐</li>
+			<li>小说</li>
+			<li>地图</li>
+		</ul>
+	</div>
+
+	<script type="text/javascript">
+		// 获取图片所在滑块
+		var span = document.querySelector('.slider span')
+		// 获取所有按钮
+		var liArr = document.querySelectorAll('li');
+
+		for (var i = 0; i < liArr.length; i++) {
+			// 添加鼠标移入的事件
+			liArr[i].addEventListener('mouseenter', enter)
+			// 添加鼠标移出的事件
+			liArr[i].addEventListener('mouseleave', leave)
+			// 添加点击事件
+			liArr[i].addEventListener('click', click)
+		}
+
+		function enter() {
+			// 传参:span  this.offsetLeft
+			// this 指向谁??? ===> liArr[i]
+			// console.log('enter--this', this)
+			animate(span, this.offsetLeft)
+		}
+
+		function leave() {
+			animate(span, 0) // 鼠标离开当前元素偏移量不发生改变
+		}
+
+		function click() {
+
+		}
+
+		function animate(elementObj, position) {
+			clearInterval(elementObj.timer)
+			elementObj.timer = setInterval(function() {
+				// 获取当前元素的偏移量(起始位置)
+				var current = elementObj.offsetLeft
+				var step = (position - current) / 20 // step > 0 鼠标滑入 图片的右侧; step< 0 鼠标滑入图片的左侧
+				step = step > 0  ? Math.ceil(step) : Math.floor(step)
+				if (Math.abs(position - current) > step) {
+					elementObj.style.left = current + step + 'px'
+				} else {
+					// 直接让目标元素到位
+					elementObj.style.left = position + 'px'
+					clearInterval(elementObj.timer)
+				}
+			}, 20)
+		}
+	</script>
+</body>
+</html>

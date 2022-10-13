@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>new出来的对象不能属性</title>
+</head>
+<body>
+	<script>
+		function Dog(name) {
+			this.name = name
+			// this.species = species
+		}
+
+		// var dog1 = new Dog('金毛');
+		// dog1.species = '犬科';
+
+		// console.log('金毛', dog1)
+
+		// var dog2 = new Dog('哈士奇');
+		// console.log('哈士奇是什么物种', dog2.species)
+
+		Dog.prototype = { species: '猫科', fn: function() {} }; // 原型属性
+
+
+		var dog3 = new Dog('萨摩耶');
+		console.log('dog3---', dog3)
+		// console.log('dog3---species', dog3)
+		console.log('dog3---species', dog3.species)
+
+		var dog4 = new Dog('泰迪')
+		console.log('dog4--泰迪', dog4)
+
+		// 我们创建的每个函数,都有一个prototype(原型)属性,这个属性是一个小对象.里面包含特定类型的所有 实例对象 共享的属性和方法
+		// 
+		function star() {
+			return 1;
+		}
+		star.prototype.name = '拉布拉多';
+		star.prototype.age = '15'
+		star.prototype.food = '狗粮'
+		star.prototype.eat = function() {
+			return this.name + '喜欢吃' + this.food
+		}
+		var s = new star();
+		console.log(s)
+	</script>
+</body>
+</html>

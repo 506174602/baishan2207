@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		h1{
+			width: 1000px;
+			border: 1px solid red;
+			color: blue;
+			text-align: center;
+			margin: 0 auto;
+		}
+		/*h1标签内最前和最后添加两个空的伪对象  并设置宽高+上边框+定位*/
+		h1:before{
+			content: "";
+			display: inline-block;
+			width: 400px;
+			border-top: 1px solid blue;
+			margin-right: 20px;
+			position: relative;
+			top: -10px;
+		}
+		h1:after{
+			content: "";
+			display: inline-block;
+			width: 400px;
+			border-top: 1px solid blue;
+			margin-left: 20px;
+			position: relative;
+			top: -10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>平台优势</h1>
+</body>
+</html>

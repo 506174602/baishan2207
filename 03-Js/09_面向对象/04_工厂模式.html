@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>工厂模式</title>
+</head>
+<body>
+	<script>
+		// 创建函数
+		function createStar(name, age) { // 命名函数 构造函数
+			// 1.创建空对象(模板 原材料)
+			var obj = new Object();
+
+			// 2.添加属性
+			obj.name = name;
+			obj.age = age;
+
+			// 3.添加方法
+			obj.getName = function() {
+				console.log('明星姓名: ' + this.name)
+			}
+			obj.getAge = function() {
+				console.log('明星年龄: ' + this.age)
+			}
+			// 4.出厂
+			return obj;
+		}
+
+		var zhangSan = new createStar('张三', 18)
+		var zhangSan2 = createStar('张三', 18)
+
+		console.log('zhangSan-----', zhangSan)
+		console.log('zhangSan22-----', zhangSan2)
+
+		var liSi = createStar('李四', 28)
+	</script>
+</body>
+</html>

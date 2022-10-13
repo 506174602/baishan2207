@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件对象</title>
+</head>
+<body>
+	<div>div-----1</div>
+	<ul>
+		<li>001</li>
+		<li>002</li>
+	</ul>
+
+	<script src="../jquery.js"></script>
+	<script>
+		$(function() {
+			$('div').on('click', {teamname: '36期', 'teamnuber': 1301, createdAt: '2021-09-10 10:00:00'}, function(event) {
+				console.log('event-----', event.data) // jsonData.list[i]
+			})
+
+			$(document).on('contextmenu', function(event) {
+				// contextmenu 鼠标右键
+				console.log(event)
+			})
+		})
+	</script>
+</body>
+</html>

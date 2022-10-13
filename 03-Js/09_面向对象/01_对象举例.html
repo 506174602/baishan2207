@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象举例</title>
+</head>
+<body>
+	<script>
+		// 面向过程编程(POP, Procedure Oriented Programming)
+		// 面向对象编程(OOP, Object Oriented Programming): 把构成问题的事物分解成各个对象,建立对象的目的不是为了完成一个步骤,而是为了描述某个事物在整个解决问题的步骤中的行为.
+		// 	1.对象是对单个实物的一种抽象
+		// 	2.对象是一个容器,封装了对应的属性和方法
+		// 	属性是对象的状态, 方法是对象的行为(实现的功能)
+		// 	js的四种内置对象: Math对象, Date对象, String对象和Array对象
+		// 	js对象是由属性和方法组成的.
+		// 	
+		
+		var a = 10;	// 变量 属于window
+
+		var arr = [1, 2, 3]
+		console.log('arr--', arr)
+		arr.a = 10;	// 属性
+		console.log('arr---a', arr.a)
+		// console.log('arr---a2', arr[3])
+		// 变量能做的事情,属性也能做,属性和变量其实是一个东西;但变量是自由的,而属性属于对象
+		// 
+		var obj = new Object(); // {}
+		obj.name = 'zhangSan';
+		obj.getName = function() {
+			console.log(this.name)
+			console.log(obj.name)
+			// return '我是zhangSan' 
+			return '我是' + this.name
+		}
+
+		// 获取name
+		var myName = obj.getName();
+		console.log('我的名字---', myName)
+
+		// 当想要创建多个对象的时候,代码会重复,冗余.所以就需要封装,继而有了工厂模式.
+	</script>
+</body>
+</html>

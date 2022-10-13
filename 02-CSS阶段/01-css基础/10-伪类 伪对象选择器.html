@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*1.伪类选择器  （常用于a的hover效果  其他标签也可以使用）
+			伪类 向某些选择器添加特殊的效果
+		*/
+		.box1 a:hover {
+			font-size: 50px;
+			color: pink;
+			text-decoration: none;
+		}
+
+		/*2.伪对象选择器
+			用于将特殊的效果添加到某些选择器，其实是对那些不能通过class id等选择器选择元素的补充
+		*/
+		.box2 {
+			width: 500px;
+			height: 500px;
+			background-color: pink;
+		}
+
+		/*在box2内部的最前面加一个伪对象
+			不存在在dom文档中，虚拟元素，是新创建的元素, 某个元素的子元素，该子元素虽然逻辑上存在，但是并不实际存在于文档中
+		*/
+		.box2:before {
+			/*content: "我是新家进来的内容文本";*/
+			content: url(image/bb.jpg);
+		}
+
+		/*在box2内部的最后边加一个伪对象*/
+		.box2:after {
+			/*content: "我是后边的文本";*/
+			content: url(image/bb.jpg);
+		}
+
+		/* 根本区别: 是否创造了新元素 
+			注意：
+			伪类只能使用“：”
+			而伪元素既可以使用“:”，也可以使用“::”
+			因为伪类是类似于添加类所以可以是多个，而伪元素在一个选择器中只能出现一次，并且只能出现在末尾
+			:after/::after和:before/::before的异同
+			相同点
+
+			都可以用来表示伪类对象，用来设置对象前的内容
+			:before和::before写法是等效的; :after和::after写法是等效的
+			不同点
+
+			:before/:after是Css2的写法，::before/::after是Css3的写法
+			:before/:after 的兼容性要比::before/::after好 ，
+			不过在H5开发中建议使用::before/::after比较好
+			注意：
+
+			伪对象要配合content属性一起使用
+			伪对象不会出现在DOM中，所以不能通过js来操作，仅仅是在 CSS 渲染层加入
+			伪对象的特效通常要使用:hover伪类样式来激活
+		*/
+	</style>
+</head>
+
+<body>
+	<!-- 伪类选择器小案例 -->
+	<div class="box1">
+		<a href="">大家好我是一个a链接 我给大家展示一下我的hover效果</a>
+	</div>
+	<!-- 伪对象选择器小案例 -->
+	<div class="box2">
+		<span>伪对象选择器案例</span>
+	</div>
+</body>
+
+</html>

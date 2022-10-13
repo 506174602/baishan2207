@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>json字符串转为对象</title>
+</head>
+<body>
+	<script>
+		var dataObj = {
+			student: [{"name": "张三", age: 13}, {"name": "李四", age: 20}],
+			teacher: "王五"
+		}
+		console.log('dataObj', dataObj)
+		// dataObj => string
+		var dataStr1 = '{"student": [{"name": "张三", "age": 13}, {"name": "李四", "age": 20}], "teacher": "王五"}'
+		var dataStr = "{\"student\": [{\"name\": \"张三\", \"age\": 13}, {\"name\": \"李四\", \"age\": 20}], \"teacher\": \"王五\"}"
+		// eval()
+		// 1.当我们拿到后台返回的数据data时,需要转换json字符串为json对象
+		// eval() 是js 自带的转换json字符串对象的方法,但是在使用之前必须给字符串添加一个(),以避免错误
+		var dataObj2 = eval('(' + dataStr + ')')
+		console.log('dataObj2', dataObj2)
+		console.log('dataObj2-stu-1-name', dataObj2.student[0].name)
+
+		for (var i = 0; i < dataObj2.student.length; i++) {
+			// Things[i]
+		}
+
+		var studentArr = dataObj2.student
+		studentArr.forEach(function(value, index, studentArr) {
+			console.log('forEach----' + index, value.name)
+			// console.log('forEach----', ind)
+		})
+
+	</script>
+</body>
+</html>

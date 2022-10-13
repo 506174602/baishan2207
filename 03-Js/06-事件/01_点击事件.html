@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>点击事件</title>
+</head>
+<body>
+	<!-- <p onclick="pClick()">段落文本</p> -->
+	<p>段落文本</p>
+	<button onclick="">111</button>
+	<script>
+		/*
+		事件：事件有html事件, DOM0级事件, DOM2级事件
+		HTML事件事件发生在HTML元素上的事情，当在HTML页面中使用JavaScript时，JavaScript可以触发这些事件，可以简单的理解为HTML和js之间发生交互的点。也就是触发-相应的一种机制。
+
+		一个完整的事件，由以下三个要素组成：
+		1、事件源：触发事件的元素;
+		2、事件类型：
+			-- HTML事件：onsubmit 表单提交, onload 页面加载, onchange内容改变，onfocus input获取焦点, onblur input失去焦点
+			-- 鼠标事件：onclick 鼠标点击, ondblclick鼠标双击, onmouseover 鼠标移入, onmouseout 鼠标移出
+			-- 键盘事件: onkeydown 键盘按下, onkeypress 键盘按下并松开的瞬间, onkeyup 键盘抬起
+		3、事件处理程序：事件触发后要执行的JavaScript代码（一般以函数的形式）
+		 */
+		function pClick() {
+			alert('被点名了');
+		}
+		// 一、获取页面元素（事件源）
+		var p = document.querySelector('p');
+		console.log('querySelector----p', p);
+		// 二、指定操作方法（事件类型）
+		p.onclick = function() {
+			// 三、设置相应的样式要求（事件处理程序）
+			p.style.color = 'red'
+			this.style.fontSize = '32px'
+			console.log('p中的this' + this);
+			console.log('p中的this', this);
+		}
+		// 事件源.事件类型 = 事件处理程序
+	</script>
+
+	<ul>
+		<li>我是 Li ---- 0</li>
+		<li>我是 Li ---- 1</li>
+		<li>我是 Li ---- 2</li>
+		<li>我是 Li ---- 3</li>
+		<li>我是 Li ---- 4</li>
+	</ul>
+	<script>
+		var lis = document.querySelectorAll('ul li');
+		for (var i = 0; i < lis.length; i++) {
+			// 注意：页面加载时，for循环已经执行完毕，发生在点击事件之前
+			console.log('第' + i + '次执行');
+			// lis[i].onclick = function() {
+			// 	// this.style.backgroundColor = 'red'; // 通过样式属性的方式
+			// 	// this.style.display = 'none'	 // 通过样式属性的方式
+			// 	// this.remove(); // 通过节点删除本身
+			// 	this.parentNode.removeChild(this); // 通过父节点删除子节点的方式
+			// }
+			 
+			// 1、 <input type="button" onclick="fucName()"> 
+			// 2、 节点.事件 = function () {};
+			// 3、 节点.事件 = 函数名; 注意：函数名后，不是立即调用
+			lis[i].onclick = pClick2;
+
+			function pClick2() {
+			console.log('pClick2被调用!!!!!!!!', this)
+			// this.style.display = 'none';
+			// this.remove();
+			// this.parentNode.removeChild(this);
+		}
+		}
+		
+	</script>
+</body>
+</html>

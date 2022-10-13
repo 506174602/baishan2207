@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<ul>
+		<li id="first">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li id="four">4</li>
+		<li>5</li>
+		<li>6</li>
+		<span>15474874654</span>
+	</ul>
+</body>
+</html>
+<script src="../jquery.js"></script>
+<script type="text/javascript">
+	// children相当于子代选择器即 ul>span
+	$("ul").children("span").css("background","red")
+	// find相当于后代选择器即 ul li
+	$("ul").find("li").css("color","pink")
+
+	// siblings除了自己以外的所有兄弟节点
+	$("#first").siblings("li").css("fontSize","30px")
+
+	// 下一个兄弟节点next()
+	$("#four").next().css("background","blue")
+	// 上一个兄弟节点prev()
+	$("#four").prev().css("background","green")
+
+	// 获取父节点 parent()
+	console.log($("#first").parent()[0])
+
+	// 通过索引
+	var index=4
+	$("li").eq(index).css("background","#000")
+</script>

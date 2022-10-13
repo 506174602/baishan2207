@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单校验</title>
+</head>
+<body>
+	<label for="user">用户名: 
+	<input type="text" name="" id="user">
+	</label>
+	<span>请输入5-8位用户名</span>
+
+	<script>
+		var user = document.querySelector('#user');
+		var span = document.querySelector('span');
+
+		// onfocus // 获得焦点时
+		// user.onblur = function() {	// 失去焦点时
+		// 	// this 指向 user
+		// 	var val = this.value.trim()
+		// 	if (!val) {
+		// 		span.innerText = '用户名不能为空'
+		// 		span.style.color = 'red'
+		// 	} else if (val.length >= 5 && val.length < 9) {
+		// 		span.innerText = '格式正确'
+		// 		span.style.color = 'green'
+		// 	} else {
+		// 		span.innerText = '格式错误'
+		// 		span.style.color = 'red'
+		// 	}
+		// }
+
+
+		// user.onchange = function() {
+		// 	console.log('实时文本', this.va)
+		// }
+		// 
+		// 
+		// user.onkeydown = function() {
+		// 	console.log('键盘按下', this.value)	// 存在异步问题
+		// }
+
+		user.onkeyup = function() {
+			var val = this.value.trim()
+			if (!val) {
+				span.innerText = '用户名不能为空'
+				span.style.color = 'red'
+			} else if (val.length >= 5 && val.length < 9) {
+				span.innerText = '格式正确'
+				span.style.color = 'green'
+			} else {
+				span.innerText = '格式错误'
+				span.style.color = 'red'
+			}
+		}
+	</script>
+</body>
+</html>

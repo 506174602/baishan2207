@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="点我">
+	<script>
+		//之前我们往往将变量作为函数的参数进行使用  案例如下
+		function test(a){
+			console.log(a);
+		}
+		var i = 1;
+		test(i);
+		// 将函数作为参数：有两种方式
+		// 第一种：将命名函数作为参数使用
+		function fun1(){
+			console.log("我是第一个函数");
+		}
+		function fun2(f){
+			console.log("我是第二个函数");
+			f();
+		}
+		// f是个形参  函数对象fun1就是实参
+		fun2(fun1);
+		// 第二种将匿名函数直接作为参数使用
+		fun2(function(){
+			console.log("我是匿名函数");
+		});
+		/*总结：当一个命名函数作为另一个函数的参数使用时 ，一般只需要将函数名传入  不带括号，也可以直接将一个匿名函数作为另一个函数的参数直接传入
+		那么我们通常将这个作为参数的命名函数或者匿名函数 称之为“回调函数”
+			回调函数的应用：
+				1.DOM事件
+				2.定时器
+				3.ajax请求（后期学习使用）
+		*/
+		//回调函数  dom事件 应用场景
+		var btn = document.querySelector("input");
+		console.log(btn);
+		btn.onclick = function(){
+			alert("讨厌，不要点我！！！");
+		}
+		// 定时器
+		setInterval(function(){
+			console.log("我是一个定时器");
+		},1000);
+		</script>
+</body>
+</html>

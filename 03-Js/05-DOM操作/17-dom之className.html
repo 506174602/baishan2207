@@ -1,0 +1,27 @@
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>className</title>
+</head>
+<body>
+	<div class="fs fu"> 111 </div>
+	<div class="hs hu"> 222 </div>
+	<div class="zs zu"> 333 </div>
+
+	<script>
+		// var divSecond = document.querySelector('.hs .hu')
+		// :nth-child(2)
+		var divSecond = document.querySelector('div:nth-child(2)')
+
+		var secondClass = divSecond.getAttribute('class');
+		console.log('secondClass----' + secondClass);
+
+		divSecond.setAttribute('class', 'yy zz');
+
+		console.log('divSecond.className------------' + divSecond.className)
+
+		divSecond.className = 'zy zx';
+	</script>
+</body>
+</html>

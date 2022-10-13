@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//创建一个空数组
+		var  arr = [];
+		// 1.数组赋值  通过数组的索引来给对应的位置赋值
+		arr[0] = "李白";
+		arr[1] = "妲己";
+		arr[2] = "高渐离";
+		arr[3] = "孙悟空";
+		// ps:可以通过索引给任意位置赋值 没赋值的直接定义为undefined
+		console.log(arr);
+		// 2.数组的取值
+		var  arr1 = ['a','b','c',1,2,3];
+		console.log(arr1[0],arr1[1],arr1[2],arr1[3],arr1[4],arr1[5]);
+		// 我们可以通过数组遍历方式进行数组取值
+		for(var i = 0;i < arr.length;i++){
+			console.log(arr[i])
+		}
+	</script>
+</body>
+</html>

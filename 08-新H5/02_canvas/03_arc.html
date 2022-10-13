@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arc</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="500" height="500">你的浏览器不支持canvas</canvas>
+
+    <script>
+        var canvas = document.getElementById('myCanvas')
+        // 标识画布 获取上下文
+        var ctx = canvas.getContext('2d')
+
+        ctx.beginPath();
+        /**
+         * arc 创建圆弧/曲线
+         * 使用 stroke() 或 fill() 方法在画布上绘制实际的弧
+         * 若用arc() 创建圆, 需要把起始角设置为0, 结束角设置为 2 * Math.PI
+         * arc(x, y, r, sAngle, eAngle, counterclockwise)
+         * x,y 圆/弧的中心坐标
+         * r 圆的半径
+         * sAngle eAngle 起始角 和结束角 单位是 弧度(圆形的三点钟位置是0 度)
+         * counterclockwise 逆时针还是顺时针绘图 false 顺时针; true逆时针
+         */
+        ctx.arc(100, 100, 50, 0, 0.1 * Math.PI, false)
+        ctx.strokeStyle = 'red'
+        ctx.stroke()
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.arc(100, 100, 60, 0, 0.5 * Math.PI, false)
+        ctx.strokeStyle = 'red'
+        ctx.stroke()
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.arc(100, 100, 70, 0, 1.5 * Math.PI, false)
+        ctx.strokeStyle = 'red'
+        ctx.stroke()
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.arc(100, 100, 80, 0, 2 * Math.PI, false)
+        ctx.strokeStyle = 'red'
+        ctx.stroke()
+        ctx.closePath();
+    </script>
+</body>
+
+</html>

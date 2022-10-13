@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手画</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="1200" height="800">你的浏览器不支持canvas</canvas>
+
+    <script>
+        var canvas = document.getElementById('myCanvas')
+        // 标识画布 获取上下文
+        var ctx = canvas.getContext('2d')
+        ctx.strokeStyle = '#000'; // 边框颜色
+        ctx.lineWidth = 3; // 线条宽度
+        canvas.onmousedown = function (event) { // 监听鼠标按下
+            ctx.beginPath(); // 创建路径
+            ctx.moveTo(event.clientX, event.clientY) // 将画笔移动到开始的位置
+            canvas.onmousemove = function (ev) { // 监听鼠标移动
+                ctx.lineTo(ev.clientX, ev.clientY) // 配置画线到 鼠标移动到的位置
+                ctx.stroke() // 画线
+            }
+        }
+        canvas.onmouseup = function () {
+            canvas.onmousemove = null
+        }
+    </script>
+</body>
+
+</html>

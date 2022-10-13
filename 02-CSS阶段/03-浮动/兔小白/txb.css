@@ -1,0 +1,313 @@
+/*初始化标签*/
+*{
+	padding: 0;
+	margin: 0;
+}
+/*公用的属性*/
+a{
+	text-decoration: none;
+}
+ul,li{
+	list-style: none;
+}
+.clearfloat:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+/*-----设置版心------*/
+.container{
+	width: 1000px;
+	border: 2px solid orange;
+	margin: 20px auto;
+}
+/*----------头部-----------*/
+.header{
+	height: 47px;
+	line-height: 47px;
+	/*border: 1px solid blue;*/
+}
+/*logo*/
+.header .logo{
+	float: left;
+}
+/*头部导航右侧*/
+.header .nav_right{
+	float: right;
+	width: 600px;
+	background-color: #48ae15;
+	font-size: 18px;
+	text-align: center;
+	border-radius: 50px;
+}
+.header .nav_right a{
+	display: inline-block;
+	padding: 0 20px;
+	color: #fff;
+}
+.header .nav_right a.active{
+	color: #000;
+	background-color:#f3ff41;
+}
+.header .nav_right a:hover{
+	background-color: #fff;
+	color: #000;
+}
+/*-------content部分--------*/
+.content{
+	width: 100%;
+	margin-top: 20px;
+	border: 1px solid pink;
+}
+/*内容左侧*/
+.cont_left{
+	float: left;
+	width: 670px;
+	border: 1px solid blue;
+}
+.articleRecom{
+	line-height: 36px;
+	border: 1px solid red;
+}
+.articleRecom .left{
+	float: left;
+}
+.articleRecom .right{
+	float: right;
+}
+.articleRecom .right a{
+	padding: 0 5px;
+	font-size: 12px;
+	color: #666;
+}
+.articleRecom .right a:hover{
+	color: #222;
+}
+/*item*/
+.item{
+	border: 1px solid green;
+	padding:  30px 0;
+	border-bottom: 1px solid #ccc;
+}
+.item .left{
+	width: 167px;
+	float: left;
+}
+.item .left img{
+	width: 100%;
+	/*height: 100%;*/
+}
+/*item的右侧文字*/
+.item .right{
+	width: 482px;
+	float: right;
+}
+.item .right h3{
+	margin-bottom: 10px;
+}
+.item .right h3:hover{
+	color: #066;
+	text-decoration: underline;
+}
+.item .right p{
+	font-size: 12px;
+	color: #756f71;
+	line-height: 20px;
+}
+.item .right .author{
+	margin:10px 0;
+}
+/*author*/
+.author{
+	font-size: 12px;
+}
+.author .lm,.author .time{
+ 	float: left;
+}
+.author .pl,.author .viewnum{
+	float: right;
+}
+.author span{
+	margin-right: 10px;
+	padding-left: 20px;
+	color: #838383;
+}
+.author .lm{
+	background:url(images/newsbg01.png) no-repeat 0;
+}
+.author .time{
+	background:url(images/time.png) no-repeat 0;
+}
+.author .pl{
+	background:url(images/newsbg03.png) no-repeat 0;
+}
+.author .viewnum{
+	background:url(images/newsbg04.png) no-repeat 0;
+}
+.author .lm a{
+	color: #759b08;
+}
+/*---cont_right---*/
+.cont_right{
+	float: right;
+	width: 300px;
+	border: 1px solid orange;
+}
+/*cont_right下的每一模块的h3标题*/
+.focus_me h3,.tagName h3,.tuwen h3,.links h3{
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px solid #E6E6E6;
+}
+.focus_me ul{
+	margin: 30px 0;
+	font-size: 12px;
+	border: 1px solid green;
+}
+.focus_me ul li{
+	/*background-color: pink;*/
+	text-align: center;
+	float: left;
+	margin: 0 15px 0 5px;
+}
+.focus_me ul li a{
+	width: 52px;
+	/*直接给a这个行内设置padding无效  通过浮动a会变成行内块*/
+	float: left;
+	padding-top: 60px;
+	color: #747f8c;
+	text-align: center;
+}
+/*背景图设置  和hover效果*/
+.focus_me ul li .sina{
+	background:url(images/mail.jpg) no-repeat;
+}
+.focus_me ul li .sina:hover{
+	background:url(images/E-mail.png) no-repeat;
+}
+.focus_me ul li .tx{
+	background:url(images/mail.jpg) no-repeat;
+}
+.focus_me ul li .tx:hover{
+	background:url(images/E-mail.png) no-repeat;
+}
+.focus_me ul li .rs{
+	background:url(images/mail.jpg) no-repeat;
+}
+.focus_me ul li .rs:hover{
+	background:url(images/E-mail.png) no-repeat;
+}
+.focus_me ul li .em{
+	background:url(images/mail.jpg) no-repeat;
+}
+.focus_me ul li .em:hover{
+	background:url(images/E-mail.png) no-repeat;
+}
+/*   文章列表    */
+.textlist{
+	margin-top: 30px;
+	margin-bottom: 20px;
+	font-size: 14px;
+}
+.textlist_top a{
+	float: left;
+	color: #666;
+	width: 56px;
+	height: 32px;
+	line-height: 32px;
+	/*background-color: #ccc;*/
+	padding:0 15px;
+}
+.textlist_top a.active{
+	background-color: #f77825;
+	color: #fff;
+}
+.textlist_top a:hover{
+	color: #fff;
+	background-color: #f77825;
+}
+/*textlist_main*/
+.textlist_main{
+	padding: 10px 0 0 10px;
+	background-image: url(images/liebiao.png);
+	background-repeat: no-repeat;
+	background-position: 10px 27px;
+
+}
+.textlist_main li{
+	height: 30px;
+	line-height: 30px;
+	padding: 10px 0 0 30px;
+	border-bottom: 1px solid #eaeaea;
+}
+.textlist_main li a{
+	color: #666;
+}
+.textlist_main li:hover{
+	color: #222;
+	border-bottom: 1px solid #222;
+}
+.textlist_main li:hover>a{
+	color: #222;
+}
+/*标签云*/
+
+.tagName ul{
+	margin: 20px 0;
+	font-size: 12px;
+}
+.tagName ul li{
+	margin: 10px 10px 0 0;
+	padding: 3px 11px;
+	background-color: pink;
+	height: 24px;
+	line-height: 24px;
+	float: left;
+	border-radius: 8px;
+}
+.tagName ul li a{
+	color: #fff;
+}
+/*图文推荐*/
+.tuwen ul{
+	margin: 30px 0;
+	font-size: 14px;
+}
+.tuwen ul li{
+	/*清除图片浮动对li的高度塌陷*/
+	overflow: hidden;
+	border: 1px solid red;
+	margin-bottom: 10px;
+}
+/*图片浮动形成字围效果*/
+.tuwen ul li img{
+	float: left;
+	margin-right: 15px;
+}
+.tuwen ul li a{
+	color: #333;
+}
+.tuwen ul li p{
+	margin-top:9px;
+	color: #999;
+}
+.tuwen ul li p a{
+	padding-left: 17px;
+	background:url(images/lanmbq.png) no-repeat 0;
+}
+.tuwen ul li p span{
+	padding-left: 17px;
+	background:url(images/datepng.png) no-repeat 0;
+}
+.links .links_about{
+	padding:10px;
+	border: 1px solid #e9e9e9;
+	background-color: #f9f9f9;
+}
+.links .links_about a{
+	float: left;
+	padding: 5px 8px;
+	font-size: 12px;
+	color: #666;
+	/*background-color: #ccc;*/
+}

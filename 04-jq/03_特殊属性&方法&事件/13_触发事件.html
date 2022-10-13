@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="触发">
+
+    <p>段落内容</p>
+
+    <script src="../jquery.js"></script>
+
+    <script>
+        $(function () {
+            $('p').on('click', function () {
+                console.log('段落被点击')
+            })
+            $('input').on('click', function () {
+                $('p').trigger('click') // trigger 触发
+            })
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义动画</title>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+			position: absolute;
+		}
+		.box2 {
+			background-color: orange;
+			margin-top: 150px
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="开始">
+
+	<div class="box1"></div>
+	<div class="box2"></div>
+
+	<script src="../jquery.js"></script>
+	<script>
+		$(function() {
+			$("input").click(function() {
+				// swing 荡秋千, 默认效果
+				$(".box1").animate({left: 800}, 8000, 'swing', function() {
+					console.log('第一个盒子移动完成')
+				})
+				// linear 线性的  匀速的
+				$(".box2").animate({left: 800}, 8000, 'linear', function() {
+					console.log('第一个盒子移动完成')
+				})
+			})
+		})
+	</script>
+</body>
+</html>

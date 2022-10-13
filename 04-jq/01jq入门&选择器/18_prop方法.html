@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>prop</title>
+</head>
+<body>
+	<input type="checkbox" checked>
+	<input type="button" value="按钮" >
+	<span>11</span>
+
+
+	<script type="text/javascript" src="../jquery.js"></script>
+	<script type="text/javascript">
+		/**
+		 * 对于布尔类型的属性(checked disabled selected)不能使用attr(), 应该使用prop()方法
+		 * 对于 HTML 元素本身就有的固定属性,在处理时使用prop()方法
+		 * 对于 HTML 元素 我们自定义的DOM属性,在处理时使用attr()方法
+		 *
+		 * prop()函数:
+		 * 1. 如果有相应的属性,返回指定的属性值
+		 * 2.如果没有相应的属性,返回的是空字符串  (undefined)
+		 *
+		 * attr()函数
+		 * 1.如果有相应的属性,返回指定的属性值
+		 * 2.如果没有相应的属性, 返回值是undefined
+		 */
+		console.log($("input").eq(1).prop('aaaa')) // 
+		console.log('span----', $("span").prop('aaaa'))
+		// console.log('aaaa', $("input").attr('fuyu wang'))
+	</script>
+</body>
+</html>

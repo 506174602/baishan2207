@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>矩形</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        可缩放矢量图形 Scalable Vector Graphics(IE>8)
+        svg图像放大或者改变尺寸,图像质量不会损失
+        svg: 开启标签 闭合标签
+        width height 属性设置svg文档的宽度和高度,也就是svg这个画布的大小
+        xmlns 定义的是svg的命名空间
+     -->
+    <svg width="800" height="800" xmlns="http://www/w3.org/2000/svg" version="1.1">
+        <!-- 
+            预定义的形状元素: 
+                -- 矩形 <rect  />
+                -- 圆形 <circle />
+                -- 椭圆 <ellipse />
+                -- 直线 <line>
+                -- 多边形 <polygon>
+         -->
+        <rect width="300" height="100"
+            style="fill: rgb(65, 65, 134); fill-opacity: 0.7; stroke: brown; stroke-width: 10px; stroke-opacity: 0.9;"
+            x="50" y="90" rx="100" ry="20" />
+        <!-- 
+            width height rect的宽度 高度
+            style 定义css属性
+                -- fill: 定义矩形的填充颜色
+                -- fill-opacity: 定义填充颜色透明度
+                -- stroke: 定义矩形边框颜色
+                -- stroke-width: 定义边框的宽度
+                -- stroke-opacity: 边框颜色透明度 
+            -- x: 定义矩形左侧位置
+            -- y: 定义矩形顶端的位置
+            -- rx ry 定义矩形的圆角
+          -->
+    </svg>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!--
+		前端三层：
+			结构层：  HTML           从语义的角度描述页面的结构   身体
+			样式层：  CSS            从审美的角度的角度装饰页面    衣服
+			行为层：  JavaScript      从交互的角度提升用户体验     动作行为
+	-->
+</head>
+<body>
+	<!-- js的三种写法：行内  内嵌  外联 -->
+	<!-- 1.行内 -->
+	<a href="" onclick="alert('混蛋，点我干什么')">点我</a>
+	<!--  2.外联：在head标签内引入.js文件-->
+	<script src="test.js">
+		// 不要写任何代码
+	</script>
+	<!-- 3.内嵌 ：推荐写在body结束标签之前-->
+	<script>
+		window.alert("Hello World！");
+		/*Js的组成部分
+			1.ECMAscript（）
+			   js基本语法   变量  数据类型   运算符 分支结构  循环结构   函数  对象  数组等
+			2.DOM文档对象模型
+			3.BOM浏览器对象模型
+		 */
+	</script>
+</body>
+</html>

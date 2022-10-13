@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性操作</title>
+</head>
+<body>
+	<img src="../images/01.jpg" alt="">
+	<input type="checkbox" checked>
+	<script type="text/javascript" src="../jquery.js"></script>
+	<script type="text/javascript">
+		// js dom 操作属性 
+		// setAttribute('属性名', '属性值'); getAttribute('属性名')返回值是属性值
+		// css() 
+		// attr('属性名') ,则有返回值且返回值为属性值, 取值
+		// attr('属性名', '属性值') 赋值
+		console.log($("img").attr('src'))
+		$("img").attr('src', '../images/02.jpg')
+		$("img").attr("alt", "图片显示失败时显示的文本")
+
+		console.log('==========================')
+		// console.log($("input").attr('checked')) // 失效
+		console.log($("input").prop('checked', false))
+		var a = {}
+		console.log(a['name'])
+	</script>
+</body>
+</html>

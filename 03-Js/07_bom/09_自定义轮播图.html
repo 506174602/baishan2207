@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.banner{
+			width: 980px;
+			height: 460px;
+			margin: 10px auto;
+			position: relative;
+			border: 1px solid #000;
+			padding: 5px;
+		}
+		.banner img{
+			width: 980px;
+			height: 460px;
+		}
+		.icon{
+			position: absolute;
+			bottom: 5px;
+			left: 50%;
+			width: 250px;
+			margin-left: -125px;
+		}
+		.icon span{
+			float: left;
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			margin: 10px;
+			text-align: center;
+			background-color: #eee;
+			cursor: pointer;
+		}
+		.icon .active,.icon span:hover{
+			background-color: orange;
+			color: #fff;
+		}
+		.left,.right{
+			position: absolute;
+			top: 50%;
+			margin-top: -25px;
+			width: 50px;
+			height: 50px;
+			line-height: 40px;
+			text-align: center;
+			font-size: 40px;
+			color: #fff;
+			background-color: #eee;
+			cursor: pointer;
+		}
+		.left:hover,.right:hover{
+			background-color: #aaa;
+		}
+		.left{
+			left: 10px;
+		}
+		.right{
+			right: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="banner">
+		<a href="">
+			<img src="images/1.jpg" alt="">
+		</a>
+		<div class="icon">
+			<span class="active" data-img="images/1.jpg" data-href="http://www.baidu.com">1</span>
+			<span data-img="images/2.jpg" data-href="http://www.baidu.com">2</span>
+			<span data-img="images/3.jpg" data-href="http://www.baidu.com">3</span>
+			<span data-img="images/4.jpg" data-href="http://www.baidu.com">4</span>
+			<span data-img="images/5.jpg" data-href="http://www.baidu.com">5</span>
+		</div>
+		<div class="left">‹</div>
+		<div class="right">›</div>
+	</div>
+	<script type="text/javascript">
+		// 1.获取所需元素
+		var spanArr = document.querySelectorAll('.icon span')
+		var a = document.querySelector('.banner a');
+		var img = document.querySelector('.banner img');
+
+		for (var i = 0; i < spanArr.length; i++) {
+			spanArr[i].onclick = function() {
+				// 获取每一个span绑定的数据 图片地址和链接
+				var href = this.getAttribute('data-href');
+				var imgSrc = this.getAttribute('data-img');
+				img.setAttribute('src', imgSrc);
+				a.setAttribute('href', href);
+
+				document.querySelector('.active').className = '';
+				this.className = 'active';
+
+			}
+		}
+		var right = document.querySelector('.right');
+		// right.onclick = function() {
+		// 	var active = document.querySelector('.active');
+		// 	if (active.nextElementSibling == null) {
+		// 		spanArr[0].onclick();
+		// 	} else {
+		// 		active.nextElementSibling.onclick();
+		// 	}
+		// }
+		right.onclick = timer
+		var left = document.querySelector('.left');
+		left.onclick = function() {
+			var active = document.querySelector('.active');
+			if (active.previousElementSibling == null) {
+				spanArr[spanArr.length - 1].onclick();
+			} else{
+				active.previousElementSibling.onclick();
+			}
+		}
+
+		// =========================================
+		// setInterval(function() {
+		// 	right.onclick();
+		// }, 2000);
+		var timer = setInterval(clickNext, 2000);	// 函数名
+
+		function clickNext() {
+			var active = document.querySelector('.active');
+			if (active.nextElementSibling == null) {
+				spanArr[0].onclick();
+			} else {
+				active.nextElementSibling.onclick();
+			}
+		}
+
+
+		// =========================================
+		var banner = document.querySelector('.banner');
+		banner.onmouseenter  = function() {
+			clearInterval(timer);
+		}
+		banner.onmouseleave  = function() {
+			timer = setInterval(clickNext, 2000);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// 1.push()方法（常用）  在数组的最后添加一个新的元素  该方法返回的是新的数组的长度
+		var arr = [1,2,3,4];  
+		var str = arr.push(5,8,0);
+		console.log(str);//7
+		console.log(arr);
+		// 2.pop()方法             删除数组的最后一个元素       该方法会返回被删除的那个元素   
+		var arr1 = ["张飞","刘备","关羽"];
+		str  = arr1.pop();
+		console.log(str);
+		console.log(arr1);
+		// 3.unshift()            在数组的最前面添加新的元素    该方法返回的是新的数组的长度
+		var arr3 = ["李白","高渐离","刘备"];
+		str = arr3.unshift("白起");
+		console.log(str);
+		console.log(arr3); 
+		// 4.shift()            删除数组的第一个元素             该方法会返回被删除的那个元素  
+		str = arr3.shift();
+		console.log(str);
+		console.log(arr3);
+	</script>
+
+</body>
+</html>

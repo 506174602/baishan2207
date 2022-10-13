@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font:bold 14px Arial;
+		}
+		/*计算器面板*/
+		.calculator{
+			width: 325px;
+			/*height: 500px;*/
+			margin: 100px auto;
+			background-color: #9dd2ea;
+			background-image: linear-gradient(#9dd2ea,#8bceec);
+			border-radius: 3px;
+			box-shadow: 0 4px #009de4,0 10px 15px rgba(0,0,0,.2);
+			padding: 20px 20px 9px;
+		}
+		.top .clear{
+			float: left;
+		}
+		.top .screen{
+			float: right;
+			width: 212px;
+			height: 40px;
+			text-align: right;
+			background-color: rgba(0,0,0,.2);
+			border-radius: 3px;
+			box-shadow: inset 0 4px rgba(0,0,0,.2);
+			font-size: 17px;
+			line-height: 40px;
+			color: #777;
+			text-shadow: 1px 1px 2px rgba(0,0,0,.2);
+			letter-spacing: 1px;
+		}
+		/*清除浮动*/
+		.top,.keys{
+			overflow: hidden;
+		}
+		.keys span,.top span{
+			float: left;
+			width: 66px;
+			height: 36px;
+			background-color: #fff;
+			border-radius: 3px;
+			box-shadow: 0 4px rgba(0,0,0,.2);
+			margin: 0 7px 11px 0;
+			text-align: center;
+			line-height: 36px;
+			color: #888;
+			cursor: pointer;
+			transition: all .3s;
+			position: relative;
+			top: 0;
+		}
+		.keys .operator{
+			margin-right: 0;
+			background-color: #fff0f5;
+		}
+		.top .clear{
+			background-color: #ff9fa8;
+			box-shadow: 0 4px #ff7c87;
+			color: #fff;
+		}
+		.keys .eval{
+			background-color: #f1ff92;
+			box-shadow: 0 4px #9da853;
+			color: #888e5f;
+		}
+		.keys span:hover{
+			background-color: #9c89f6;
+			box-shadow: 0 4px #6b54d3;
+		}
+		.keys .eval:hover{
+			background-color: #abb850;
+			box-shadow: 0 4px #717a33;
+			color: #fff;
+		}
+		.top .clear:hover{
+			background-color: #f68991;
+			box-shadow: 0 4px #d3545d;
+			color: #fff;
+		}
+
+		.keys span:active{
+			top: 4px;
+			box-shadow: 0 0px #6b54d3;
+		}
+		.keys .eval:active{
+			top: 4px;
+			box-shadow: 0 0px #717a33;
+		}
+		.top .clear:active{
+			top: 4px;
+			box-shadow: 0 0px #d3545d;
+		}
+	</style>
+</head>
+<body>
+	<div class="calculator">
+		<!-- 清除按钮 屏幕 -->
+		<div class="top">
+			<span class="clear">C</span>
+			<div class="screen"></div>
+		</div>
+		<!-- 数字按键 运算符 -->
+		<div class="keys">
+			<span>7</span>
+			<span>8</span>
+			<span>9</span>
+			<span class="operator">+</span>
+			<span>4</span>
+			<span>5</span>
+			<span>6</span>
+			<span class="operator">-</span>
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+			<span class="operator">*</span>
+			<span>0</span>
+			<span>.</span>
+			<span class="eval">=</span>
+			<span class="operator">/</span>
+		</div>
+	</div>
+	<script type="text/javascript">
+		// 1.取元素
+		var spanArr = document.querySelectorAll('span');
+		var screen = document.querySelector('.screen')
+		// 2.给span绑定事件
+		for (var i = 0; i < spanArr.length; i++) {
+			spanArr[i].onclick = function() {
+				// 屏幕值
+				var screenValue = screen.innerText;
+				var clickValue = this.innerText;
+				if (clickValue == 'C') {
+					screen.innerText = ''
+				} else if (clickValue == '=') {
+					screen.innerText = eval(screenValue) // 4554 + 9 - 12 * 1 / 3
+				} else {
+					screen.innerText = screenValue + clickValue
+				}
+			}
+		}
+	</script>
+</body>
+</html>

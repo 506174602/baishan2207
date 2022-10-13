@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * ES6里面 引入了一种新的  原始数据类型 Symbol, 表示 独一无二的值
+         * 这是js的第 七 种 基本数据类型
+         * 前六种: null, undefined, boolean, String, Number, Object
+         * ==================================
+         * Symbol函数 前面不能用new 命令,否则会报错. 因为生成的Symbol是一个原始类型的值,不是对象, 不能添加属性!
+         * Symbol() 函数可以接收一个字符串作为参数, 表示的是 对 Symbol 实例 的描述
+         */
+        let s1 = Symbol(1)
+        console.log('s1------', s1)
+        let s2 = Symbol(1)
+        // Symbol 函数的参数只表示对这个Symbol的描述. 所以 相同参数的Symbol 函数 的返回值是不相等,与参数无关
+        console.log(s1 == s2) // false
+
+        console.log(Symbol('foo') == Symbol('foo'))
+
+        // 由于每一个Symbol的值都是不相等的,
+        // 这就意味着 Symbol的值可以作为标识符,用于对象的属性名,保证不会出现相同名称的属性
+
+        const grade = {
+            '张三': {
+                address: '光水路',
+                tel: 1352666666
+            },
+            '李四': {
+                address: '汉川路',
+                tel: 1565552255
+            },
+            '李四': {
+                address: '铜川路',
+                tel: 1896666333
+            }
+        }
+
+        console.log('grade------1', grade)
+
+        const stu1 = Symbol('李四')
+        const stu2 = Symbol('李四') // stu1 == stu2 ? // false
+        const grade1 = {
+            '张三': {
+                address: '光水路',
+                tel: 1352666666
+            },
+            [stu1]: {
+                address: '汉川路',
+                tel: 1565552255
+            },
+            [stu2]: {
+                address: '铜川路',
+                tel: 1896666333
+            }
+        }
+        console.log('grade------2', grade1)
+    </script>
+</body>
+
+</html>

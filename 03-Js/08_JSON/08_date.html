@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Date</title>
+</head>
+<body>
+	<div class="clock">
+		<p class="year"><span></span> <span>年</span> </p>
+		<p class="month"><span></span> <span>月</span> </p>
+		<p class="day"><span></span> <span>日</span> </p>
+		<p class="hour"><span></span> <span>时</span> </p>
+		<p class="minute"><span></span> <span>分</span> </p>
+		<p class="second"><span></span> <span>秒</span> </p>
+	</div>
+	<script>
+		function nowTime() {
+			var date = new Date();
+
+			console.log('获取时间', date);
+
+			var year = date.getFullYear();
+			console.log('获取年份', year)
+
+			var month = date.getMonth();
+			console.log('获取月份', month) // 0 - 11
+
+			var day = date.getDate();
+			console.log('获取某天', day)
+
+			var hour = date.getHours();
+			console.log('获取小时', hour) // 24小时
+
+			var minute = date.getMinutes();
+			console.log('获取分钟', minute)
+
+			var second = date.getSeconds();
+			console.log('获取秒数', second)
+
+			var millisecond = date.getMilliseconds()
+			console.log('获取毫秒', millisecond)
+
+			var timeArr = [year, month, day, hour, minute, second];
+			// timeArr.push(year)
+			// timeArr.push(month)
+
+			//  2021-10-30 15:55:30
+			console.log(year + '-' + (month + 1) + '-' + day + ' ' + hour + ':' + minute + ':' + second + ':' + millisecond)
+
+			var spanArr = document.querySelectorAll('.clock p span:first-child')
+			console.log('页面元素', spanArr)
+			console.log('时间数组', timeArr)
+			for (var i = 0; i < spanArr.length; i++) {
+				spanArr[i].innerText = timeArr[i]
+			}
+		}
+		
+		// nowTime();
+		// setInterval(nowTime, 1000)
+	</script>
+</body>
+</html>

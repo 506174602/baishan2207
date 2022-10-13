@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*js当中需要注意的问题：
+		1.在一个script标签内出现错误的js代码，那么错误的js代码后的js语句不再执行
+		2.script标签可以多对出现
+		3.如果第一个script标签内的代码有错误，不会影响后边的script标签内的代码执行
+		4.如果外联js文件  那么外联的这个script标签内不要书写任何的js代码   
+			如果真要写  那就再重新写一个script
+		*/
+	</script>
+	<script>
+		var a = "1";
+		console.log(a.length());//报错
+		console.log("我是后边的js代码");//此代码不执行
+	</script>
+	<script>
+		var b = "123";
+		console.log(b.length);
+	</script>
+	<script src="test.js">	
+	</script>
+</body>
+</html>

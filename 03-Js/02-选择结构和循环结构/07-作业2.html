@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*1.求三个数（5,25,15）的最大数  并输出*/
+		var a = 5;
+		var b = 25;
+		var c = 15;
+		var max;
+		// 假设法：假设a最大
+		max = a;
+		if(max<b){
+			console.log(max = b);
+		}else if(max<c){
+			console.log(max = c);
+		}else{
+			console.log(max);
+		}
+	</script>
+	<script>
+		/*2.让用户输入一个数字  然后判断这个数被5和6整除的情况  并把情况输出*/ 
+		var num = prompt("请输入一个数字");
+		if(num%5 == 0&&num%6 == 0){
+			document.write("既能被5整除还能被6整除");
+		}else if(num%5 != 0&&num%6 == 0){
+			document.write("不能被5整除但能被6整除");
+		}else if(num%5 == 0&&num%6 != 0){
+			document.write("能被5整除但不能被6整除");
+		}else{
+			document.write("5和6都不能整除");
+		}
+	</script>
+	<script>
+		/*3.让用户输入一个年份  然后判断是闰年/平年  并输出
+			（闰年能被4整除且不能被100整除    或者能被400整除的 年份就是闰年）
+		 */
+		var year =prompt("请输入一个年份");
+		if(year%4 == 0 && year%100 != 0 || year%400 == 0){
+			console.log("闰年");
+		}else{
+			console.log("平年");
+		}
+	</script>
+</body>
+</html>

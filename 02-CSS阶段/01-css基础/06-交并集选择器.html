@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box1{
+			font-size: 20px;
+		}
+		/*1.交集选择器：当有多个相同类名的不同类型标签  可以用交集选择器给其中一种标签设置单独的样式*/
+		p.box1{
+			color: red;
+		}
+		div.box1{
+			color:yellow;
+		}
+		/* 2.并集选择器：（,） */
+		div.box2,div.box3{
+			color: blue;
+		}
+		/*标签和类名可以同时使用*/
+		div.box3,h2{
+			font-size: 36px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 交集选择器案例 -->
+	<div class="box1">第一个div</div>
+	<div class="box1">第二个div</div>
+	<p class="box1">p标签的box1</p>
+	<!-- 并集选择器案例 -->
+	<div class="box2">box2</div>
+	<div class="box3">box3</div>
+	<h2>标题</h2>
+</body>
+</html>

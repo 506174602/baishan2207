@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>读写内容</title>
+</head>
+<body>
+	<div class="weather"></div>
+
+	<script type="text/javascript">
+		var div = document.getElementsByClassName('weather')[0];
+
+		//  innerHTML	以【代码】形式插入到标签
+		//  innerText	设置文本, 以文本的形式插入到标签
+		var str = '天气晴朗';
+		var strHtml = '<span>天气不好，我要回家</span>'
+
+		div.innerText = str;
+		// div[0].innerHTML = strHtml;
+
+		// div[0].innerText = strHtml;
+		console.log(div.innerText)
+		console.log(div.innerHTML)
+	</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>stop停止动画</title>
+	<style>
+		div {
+			width: 400px;
+			height: 400px;
+			background-color: blue;
+			display: none
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="开始">
+	<input type="button" value="结束">
+	<div></div>
+
+	<script src="../jquery.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$("input").eq(0).click(function() {
+				$("div").slideDown(4000).slideUp(4000)
+				// $("div").slideUp(4000)
+			})
+			$("input").eq(1).click(function() {
+				// stop(clearQueue, jumpToEnd) // 函数意义是停止当前正在执行的动画; 参数值为布尔值
+				// clearQueue: 是否清除动画队列
+				// jumpToEnd: 是否跳转到当前动画的结束位置
+				// $("div").stop(true, false)
+				$("div").stop(false, false)
+				// $("div").stop(true, true)
+			})
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标事件</title>\
+	<style>
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: red
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<script>
+		var box = document.querySelector('.box');
+
+		box.onclick = function() {
+			console.log('鼠标点击事件')
+		}
+
+		box.onmousedown = function() {
+			console.log('鼠标按下')
+		}
+
+		box.onmouseup = function() {
+			console.log('鼠标抬起')
+		}
+
+		box.onmouseover = function() {
+			console.log('鼠标移入')	// 不建议使用 冒泡事件
+		}
+
+		box.onmouseout = function() {
+			console.log('鼠标移出') // 不建议使用 冒泡事件
+		}
+
+		box.onmouseleave = function() {
+			console.log('鼠标离开') // 建议使用 阻止事件的冒泡
+		}
+
+		box.onmouseenter = function() {
+			console.log('鼠标进入') // 建议使用 阻止事件的冒泡
+		}
+
+		box.onmousemove = function() {
+			console.log('鼠标移动')
+		}
+	</script>
+</body>
+</html>

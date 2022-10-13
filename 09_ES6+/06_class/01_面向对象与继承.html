@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>面向对象与继承</title>
+</head>
+
+<body>
+    <script>
+        console.log([1, 2, 3])
+        // es5 面向对象与继承
+        // 父类
+        function Animal(name) { // 构造函数
+            this.name = name
+        }
+
+        Animal.prototype.showName = function () {
+            console.log('显示下动物名称---', this.name)
+        }
+        let dog = new Animal('keJi')
+        // dog.showName()
+
+        // 子类
+        function Dog(name, color) {
+            Animal.call(this, name)
+            this.color = color
+            console.log('es5----子类中的 this', this)
+        }
+        Dog.prototype = Animal.prototype
+        let dog1 = new Dog('hashiqi', '黑色')
+        dog1.showName()
+
+        // es6 面向对象与继承
+        /**
+         * ES6 里引入了 class 类的概念, 这个class 其实是一种'语法糖', 只是写法上更加优雅,更加像面向对象编程,
+         * 实际上思想还是和ES5一致.
+         * 每创建一个 class类,都要有一个 constructor 方法,不手动添加,类也会自动创建.constructor()方法是私有属性方法,
+         * 一个类只允许有一个 constructor()方法,如果有多个 会报错
+         */
+        // 父类
+        class Animal1 {
+            constructor(name) {
+                // Animal1 类里的 constructor方法中的this指向的是被创建的实例对象
+                // constructor()方法是构造方法,this关键字就代表实例对象
+                this.name = name
+            }
+
+            showName() {
+                console.log('es6-显示下动物名称-', this.name)
+            }
+            toString() {
+                return '你这个动物是' + this.name
+            }
+            /**
+             * 等同于
+             * Animal.protoType =  {
+             *      showName() {},
+             *      toString() {}
+             * }
+             * 
+             */
+        }
+
+        // let dog2 = new Animal1('jinMao')
+        // dog2.showName()
+
+        // console.log(Animal1.prototype)
+
+        // 子类
+        // class 使用 extends 关键字实现继承
+        class Dog1 extends Animal1 { // 使用extends关键字 继承Animal1类的所有属性和方法
+            // 使用 extends 必须使用 super()(必须要调用一次,否则会报错), super关键字用来调用父类的构造方法
+            // super 关键字 既可以当作函数使用 也可以当作对象使用, 用法完全不同.
+            // 注意: 1. 在子类的构造函数中,只有在调用了 super()之后,才可以使用 this关键字,否则会报错
+            //       -- 因为子类实例的构建,基于父类父类实例,只有super方法才能调用父类的实例
+            constructor(name, color) {
+                super(name) // 调用父类的 constructor(name)
+                this.color = color
+            }
+
+            showName() { // 重载 重写
+                // super.showName() // 调用父类的 showName()
+                console.log('名字是' + this.name + ', 颜色是:' + this.color)
+            }
+        }
+        let dog3 = new Dog1('chaiQuan', 'yellow')
+        dog3.showName()
+        console.log('class继承的 dog3---', dog3)
+    </script>
+</body>
+
+</html>

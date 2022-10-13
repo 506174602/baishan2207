@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES5的遍历方式</title>
+</head>
+
+<body>
+    <script>
+        var arr = [1, 2, 3, 4, 5]
+        /**
+         * for循环
+         */
+        for (var i = 0; i < arr.length; i++) {
+            console.log('for循环', arr[i])
+            if (i === 2) {
+                break
+            }
+            // if (i === 3) {
+            //     return '返回3'
+            // }
+        }
+        /**
+         * forEach(function(value, index, array(可选)) {})
+         * 第一个参数: 数值, 第二个参数: 索引值
+         */
+        var a = arr.forEach(function (value, index, arr) {
+            console.log('forEach-value---:', value, '; index---:', index)
+            // console.log('forEach-index---:', index)
+            // if (index === 2) {
+            //     break // Illegal break statement
+            // }
+            if (index === 2) {
+                return '返回2'
+            }
+        })
+        console.log('forEach---a', a)
+        /**
+         * for循环和forEach的区别:
+         *  -- forEach不支持 break 和 continue
+         *  -- forEach没有返回值
+         */
+
+        /**
+         * map(function(currentValue, index, arr){})
+         * -- 遍历数据,并返回一个新的数组,对数据的处理会返回原先对应的位置
+         * -- 第一个参数是值(必须的),第二个参数是索引值(可选的),第三个参数是当前元素所属的数组对象(可选)
+         */
+        let res = arr.map(function (value) {
+            value = value * 2
+            return value
+        })
+        console.log('map----res', res)
+        /**
+         * 将如下数组对象处理输出为: {number1: 1, number2: 2} {label: value}
+         */
+        var arr1 = [{
+            value: 1,
+            label: 'number1'
+        }, {
+            value: 2,
+            label: 'number2'
+        }]
+        // 解答:
+        var res2 = {}
+        arr1.map(item => {
+            res2[item.label] = item.value
+        })
+        console.log('解答res2---', res2)
+        // ==============================↓ 补充 ==================================
+        // 浅拷贝(shallow Copy): a把值赋给了b, 当b的值发生改变, a的值也同时改变. //  a的值发生改变, b的值也发生改变 
+        // ==> 是否指向同一个内存地址?
+        // 深拷贝: a b 无论哪个发生变化, 都互不干扰,互不影响
+        // let shallowCopyArr = [{name: '张三'}, 2, 3] // 0xbax18 0xbax19
+        let shallowCopyArr = [1, 2, 3]
+        let newArr1 = shallowCopyArr.map(value => {
+            // console.log('浅拷贝', shallowCopyArr[index] = value * 2)
+            // return shallowCopyArr[index] = value * 2 // 更新了原数组,同时将值返回给了新数组
+            return value // 不更新原数组,直接将原始值处理后返回给新数组
+            // 新数组和原数组没有关系
+        })
+        // newArr1 = [{name: '张三'}, 2, 3] // 0xbcx26
+        console.log('shallowCopyArr----Arr1', newArr1)
+        console.log('shallowCopyArr----shallowCopyArr', shallowCopyArr)
+
+        // 深拷贝 举例
+        let deepCopyArr = [{
+            name: '张三',
+            age: 19,
+            skill: {
+                name: 'html',
+                year: 5
+            }
+        }, {
+            name: '李四',
+            age: 20,
+            skill: {
+                name: 'css3',
+                year: 3
+            }
+        }]
+        // 第一种方法
+        let newArr2 = deepCopyArr.map(item => {
+            // item
+            return {
+                name: item.name,
+                age: item.age,
+                // skill: { // 当前对象 深拷贝原始skill对象
+                //     name: item.skill.name,
+                //     year: item.skill.year
+                // }
+                // skill: item.skill // 当前对象:浅拷贝原始skill对象
+            }
+        })
+        newArr2[0].name = '王五'
+        // newArr2[0].skill.name = 'ajax'
+        console.log('deepCopyArr---原来', deepCopyArr)
+        console.log('deepCopyArr---新的', newArr2)
+        /**
+         * 第二种方法
+         * JSON.stringify(obj) 把对象转化为字符串, 再使用 JSON.parse() 把字符串转化为一个新的对象
+         */
+        // let deepCopyArr
+        let newArr3 = JSON.parse(JSON.stringify(deepCopyArr))
+        newArr3[0].name = '赵四'
+        newArr3[0].skill.name = 'jquery'
+        console.log('深拷贝---deepArr', deepCopyArr)
+        console.log('深拷贝---newArr3', newArr3)
+
+        //=============================↑ 补充=======================================
+
+        /**
+         * filter(function(value) {}) 返回符合function条件的元素数组
+         * 把条件成立的元素存入  新  数组, 不成立不存
+         */
+        // arr [1,2,3,4,5]
+        let newArr4 = arr.filter(function (value) {
+            console.log('filter----', value)
+            if (value % 2 === 0) {
+                return value
+            }
+            // return value === 3
+        })
+        console.log('filter----result', newArr4)
+
+        /**
+         * some(function() {}) 返回的是布尔值, 判断是否有元素符合function条件,有符合的则返回true, 没有则返回false
+         */
+        let result1 = arr.some(function (val) {
+            if (val % 2 === 0) {
+                return val
+            }
+            // return val === 40
+        })
+        console.log('some()-----res', result1)
+
+        /**
+         * every(function() {}) 返回布尔值, 判断每个元素是否  都   符合 function条件
+         * 如果其中一个为false, 则全部返回false. 一个为假全部为假
+         */
+        let result2 = arr.every(val => {
+            // return val === 2
+            return val > 0
+        })
+        console.log('every----res', result2)
+
+        /**
+         * [1, 2, 3, 4, 5]
+         * reduce(): 接收一个函数作为累加器, 数组中的每个值(从左到右)开始缩减, 最终计算为一个值
+         * 声明一个数组,数组里面放数字,让数组里的数字显示为累加的总和
+         * array.reduce(function(total, currentValue, currentIndex, array) {}, initialValue) 
+         * -- total 必须.初始值或者是计算结束后返回的值
+         * -- currentValue: 必须. 当前元素
+         * -- currentIndex: 可选. 当前元素的索引值
+         * -- arrray: 可选. 当前元素所属的数组对象
+         * -- initialValue: 可选 传递给函数的初始值
+         */
+        let result3 = arr.reduce(function (total, cur) {
+            return total + cur
+        }, 10)
+        console.log('reduce()----res3', result3)
+        console.log('=========================================')
+        let arr2 = [5, 4, 3, 2, 1]
+        let result4 = arr2.reduce(function (total, cur) {
+            console.log('max----total', total)
+            // return total
+            return Math.max(total, cur)
+        })
+        console.log('reduce()----res4', result4)
+
+        let arr3 = [1, 2, 3, 2, 4]
+        let result5 = arr3.reduce((total, cur) => {
+            // 1 [1]
+            // 2 [1, 2]
+            // 3 [1, 2, 3]
+            // 2 [1, 2, 3, 2] XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX   [1, 2, 3] 
+            // 4 [1, 2, 3, 4]
+            if (total.indexOf(cur) == -1) {
+                // indeOf() 返回数组中指定元素(cur)的位置
+                // array.indexOf(n)
+                // total         cur
+                // 如果在数组中没有找到指定元素,则返回 -1
+                total.push(cur);
+            }
+            return total
+        }, [])
+        console.log('去重-----', result5)
+    </script>
+</body>
+
+</html>

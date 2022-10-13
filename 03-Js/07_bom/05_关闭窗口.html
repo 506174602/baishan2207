@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>关闭窗口</title>
+</head>
+<body>
+	<input type="button" value="关闭窗口" onclick="window.close()">
+	<p>点我可以去第四节</p>
+	<button>向前走</button>
+	<script>
+		/**
+		 * close
+		 * window.close() 关闭窗口
+		 * chrome firfox 等浏览器中有时会失效
+		 * window.open('about:blank', '_self').close()
+		 * 或者:
+		 * window.open('', '_self').close()
+		 */
+		var p = document.querySelector('p');
+		p.onclick = function() {
+			// window.open('04_打开窗口.html');
+			location.href ='04_打开窗口.html';
+		}
+		var btn = document.querySelector('button');
+		btn.onclick = function() {
+			history.forward();
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	/*overflow:hidden的三种用法1.隐藏溢出 2.清除浮动 3.解决父元素外边距塌陷*/
+		.box{
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			/*1.隐藏溢出的部分  hidden直接将超出的部分进行隐藏   
+								scroll  隐藏超出的部分 以滚动条方式展示剩余内容*/
+			overflow: scroll;
+		}
+		
+		.box1{
+			background-color: blue;
+			height: 300px;
+			/*3.父元素内部有子元素  如果给子元素设置margin-top  那么父元素也会跟着下来  这就是外边距塌陷 用overflow:hidden  来解决此问题*/
+			overflow: hidden;
+			/*padding-top: 20px;*/
+		}
+		.kid{
+			width: 100px;
+			height: 100px;
+			background-color: yellow;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		新闻 民政部对杏林医疗救助基金会作出停止活动一个月的行政处罚央视网 | 2021年09月10日10:40:43央视网消息:据民政部网站消息,近日,民政部对杏林医疗救助基金会作出停止活动一个月的行政处罚。 消息指出,经查,杏林医疗救助基金会新闻 民政部对杏林医疗救助基金会作出停止活动一个月的行政处罚央视网 | 2021年09月10日0:40:43央视网消息:据民政部网站消息,近日,民政部对杏林医疗救助基金会作出停止活动一个月的行政处罚。 消息指出,经查,杏林医疗救助基金会新闻 民政部对杏林医疗救助基金会作出停止活动一个月的行政处罚央视网 | 2021年09月10日10:40:43央视网消息:据民政部网站消息,近日,民政部对杏林医疗救助基金会作出停止活动一个月的行政处罚。 消息指出,经查,杏林医疗救助基金会
+	</div>
+
+	<div class="box1">
+		<div class="kid">子元素</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	/*当父元素不设置高度的情况下   高度是被子元素的高度撑起来的   因此当子元素都浮动后 原位置不再保留  父元素的高度就会出现“高度塌陷”的现象*  会影响后边元素的布局  因此我们需要解决掉父元素高度塌陷这个问题*/
+		.one{
+			background-color: red;
+		}
+		.two{
+			background-color: blue;
+		}
+		.three{
+			background-color: green;
+		}
+		.box div{
+			width: 200px;
+			height: 200px;
+			float: left;
+		}
+		/*解决父元素"高度塌陷"的方法*/
+		.box{
+			background-color: pink;
+			/*方法1：给父元素设置一个固定的高度*/
+			/*height: 200px;*/
+			/*方法2（偏方）： 给父元素找到一个合适的高度（方法）
+					缺点：不能和定位配合使用      
+			*/
+			/*overflow: hidden;*/
+		}
+		/*3.伪对象方法：（重点   推荐使用）*/
+		.clearfloat:after{
+			/*3.1给父元素内部的最后边添加一个空的元素*/
+			content: "";
+			/*3.2把这个伪对象设置成块级元素  独占一行*/
+			display: block;
+			/*3.3 清除兄弟元素浮动对这个空元素位置的影响*/
+			clear: both;
+			/*原理：就是给父元素最后添加一个空的块级元素
+				IE8及以上的浏览器才支持after	
+				优点：浏览器支持好 不容易出现怪问题 （大型网站都在使用）
+				缺点：代码多  要结合多行代码使用
+				建议：推荐使用  定义公共类 减少css代码
+			*/
+		}
+	</style>
+</head>
+<body>
+	<div class="box clearfloat">
+		<div class="one"></div>
+		<div class="two"></div>
+		<div class="three"></div>
+	</div>
+	<div class="box1" style="background-color: yellow;width: 200px;height: 300px;"></div>
+</body>
+</html>

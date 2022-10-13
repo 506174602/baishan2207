@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建节点和插入节点</title>
+</head>
+<body>
+	<div class="title">
+		<div>22222</div>
+		<div>33333</div>
+		<div>44444</div>
+	</div>
+	<ul>
+		<li>内容1</li>
+		<li>内容2</li>
+
+		<li>内容3</li>
+		<li>内容4</li>
+		<li>内容5</li>
+	</ul>
+
+	<script>
+		// createElement
+		// 创建h2标签
+		var h2 = document.createElement("h2");
+		h2.innerHTML = "新建H2标题";
+		console.log('h2----' + h2);
+		// 获取目标元素
+		// var titles = document.getElementsByClassName('title');
+		var title = document.getElementsByClassName('title')[0];
+		console.log(title)
+		// 插入节点
+		// 方法一：appendChild()
+		title.appendChild(h2);
+		console.log('插入后的title' + title);
+		// 方法二：insertBefore('要添加的元素', '参照节点')
+		var ul = document.getElementsByTagName('ul')[0];
+		var newLi = document.createElement('li');
+		newLi.innerHTML = '新加的Li';
+		ul.insertBefore(newLi, ul.children[2]);
+	</script>
+</body>
+</html>

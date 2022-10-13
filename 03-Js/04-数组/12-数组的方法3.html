@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var arr = ["百杉1","百杉2","百杉3","百杉4","百杉5"];
+		var arr1 = ["byesame1","byesame2"];
+		// 1.concat()  拼接数组          ps:他不会改变数组的结构  而是将拼接的新数组作为结果返回
+		console.log(arr.concat(arr1));
+		console.log(arr);
+		// 2.join()将数组转换成一个字符串   ps:不会改变原数组结构   而是返回一个字符串
+		//        该方法还可以在添加连接符   join（x）    
+		console.log(arr.join(),typeof arr.join());
+		console.log(arr);
+		console.log(arr.join("+"));
+		// 3.toString()将数组转换一个字符串 ps:他不会改变数组的结构  而是将拼接的新数组作为结果返回
+		arr.toString();
+		console.log(arr);
+	</script>
+	<script>
+		// 4.reverse()  反转数组内元素的顺序   ps:会改变数组的结构   
+		var arr2 = ["李白","高渐离","孙悟空","妲己"];
+		// console.log(arr2.reverse());
+		console.log(arr2);
+		// 5.sort()  对数组进行正序排列    
+		var  arr3 = ["a","d","b","c"];
+		arr3.sort();
+		console.log(arr3);
+		/*注意:sort()如果方法内没有参数的话  
+					将按照字母顺序 进行顺序排序，但是对于数字 可能返回的结果会是错误的
+					解决方法：利用sort方法内回调函数指定一个规则进行排序
+										负值时元素正序排列
+										正值时元素降序排列
+										0  元素不改变
+
+		 */
+		var  arr4 = [1,5,12,11,3];
+		// arr4.sort();
+		// console.log(arr4);
+		// sort()方法的回调函数原理：比较数组的两个值时  将两个值传递我们的回调函数，根据返回的值的（正  负  零 ）来进行排序
+		arr4.sort(function(a,b){
+			return a - b;
+		});
+		console.log(arr4);
+	</script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单</title>
+    <link rel="stylesheet" href="bootstrap-v3/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- 
+            input button selected textarea
+            表单中常见的元素: 文本输入框, 按钮, 下拉选择框,单选按钮, 复选按钮,文本域等
+
+            表单控件: form-control  .input-lg较大 .input-sm较小
+            输入框控件 input-group form-group
+         -->
+
+        <div class="col-md-3">
+            <!-- 表单控件 form-control -->
+            <input type="text" class="form-control">
+            <input type="text" class="form-control input-lg">
+            <input type="text" class="form-control input-sm">
+        </div>
+        <div class="col-md-3">
+            <!-- 下拉选择框 单选 -->
+            <select class="form-control" name="" id="" multiple="multiple">
+                <option value="1">北京</option>
+                <option value="2">上海</option>
+                <option value="3">广州</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <!-- 下拉选择框 多行选择设置 multiple="multiple" -->
+            <select class="form-control" name="" id="">
+                <option value="1">北京</option>
+                <option value="2">上海</option>
+                <option value="3">广州</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <!-- 文本域 -->
+            <textarea class="form-control" name="" id="" cols="30" rows="3"></textarea>
+        </div>
+        <br>
+        <div>
+            <!-- 复选框 checkbox -->
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox">下课
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox">上课
+                </label>
+            </div>
+        </div>
+
+        <h1 class="page-header text-center">用户登录</h1>
+        <form action="#">
+            <!-- 默认垂直方向 -->
+            <div class="form-group">
+                <label for="userName">用户名</label>
+                <input class="form-control" type="text" id="userName" placeholder="请输入用户名">
+            </div>
+            <div class="form-group">
+                <label for="password">密码</label>
+                <input class="form-control" type="password" id="password" placeholder="请输入密码">
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> 记住密码
+                </label>
+            </div>
+
+            <button class="btn btn-warning" type="submit">登录</button>
+        </form>
+        <br>
+        <br>
+        <hr>
+        <h1 class="page-header text-center">用户登录</h1>
+        <!--form-horizontal 标签水平方向 -->
+        <form class="form-horizontal" action="#">
+            <div class="form-group">
+                <label for="userName" class="col-md-2 control-label">用户名</label>
+                <div class="col-md-8">
+                    <input class="form-control" type="text" id="userName" placeholder="请输入用户名">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-md-2 control-label">密码</label>
+                <div class="col-md-8">
+                    <input class="form-control" type="password" id="password" placeholder="请输入密码">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10 col-md-offset-2">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> 记住密码
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10 col-md-offset-2">
+                    <button type="submit" class="btn btn-success">登录</button>
+                </div>
+            </div>
+
+            <div>
+                <!-- 复选框 checkbox -->
+                <div class="checkbox">
+                    <!-- 默认垂直方向 .checkbox .radio -->
+                    <label>
+                        <input type="checkbox">下课
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox">上课
+                    </label>
+                </div>
+            </div>
+            <!-- <div>
+                <div class="checkbox-inline">
+                    <label class="checkbox-inline">
+                        <input type="checkbox">下课
+                    </label>
+                </div>
+                <div class="checkbox-inline">
+                    <label class="checkbox-inline">
+                        <input type="checkbox">上课
+                    </label>
+                </div>
+            </div> -->
+            <hr>
+            <div>
+                <!-- 水平方向 .checkbox-inline  .radio-inline -->
+                <label class="checkbox-inline">
+                    <input type="checkbox">下课
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox">上课
+                </label>
+            </div>
+        </form>
+
+        <!-- 2021 12 1 -->
+        <!-- has-feedback 反馈图标,针对校验状态 为 输入框添加额外的图标 -->
+        <div class="form-group has-warning has-feedback">
+            <label class="control-label" for="inputWarning">Input with warning</label>
+            <input type="text" class="form-control" id="inputWarning" aria-describedby="inputWarningStatus">
+            <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
+            <span id="inputWarningStatus" class="sr-only">(warning)</span>
+        </div>
+
+        <div class="form-group has-success has-feedback">
+            <label for="" class="control-label">Input with success</label>
+            <!-- <input type="text"> -->
+            <div class="input-group">
+                <span class="input-group-addon">http://</span>
+                <input type="text" class="form-control" id="inputSuccess" aria-describedby="inputSuccessStatus">
+            </div>
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+            <span id="inputSuccessStatus" class="sr-only">(success)</span>
+        </div>
+    </div>
+</body>
+
+</html>

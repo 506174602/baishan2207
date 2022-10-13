@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .wrap {
+            width: 700px;
+            height: 60px;
+            background: #abcdef;
+            margin: 100px auto 0;
+        }
+
+        .wrap li {
+            width: 100px;
+            height: 60px;
+            float: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wrap li a {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            font-size: 18px;
+            text-align: center;
+            line-height: 60px;
+            color: #fff;
+            text-decoration: none;
+            z-index: 2;
+        }
+
+        .wrap li span {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: yellowgreen;
+            top: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul>
+            <li><a href="">导航1</a><span></span></li>
+            <li><a href="">导航2</a><span></span></li>
+            <li><a href="">导航3</a><span></span></li>
+            <li><a href="">导航4</a><span></span></li>
+            <li><a href="">导航5</a><span></span></li>
+            <li><a href="">导航6</a><span></span></li>
+            <li><a href="">导航7</a><span></span></li>
+        </ul>
+        <div>
+            <audio src="../mp3/A7.MP3"></audio>
+            <audio src="../mp3/B7.MP3"></audio>
+            <audio src="../mp3/C7.MP3"></audio>
+            <audio src="../mp3/D7.MP3"></audio>
+            <audio src="../mp3/E7.MP3"></audio>
+            <audio src="../mp3/F7.MP3"></audio>
+            <audio src="../mp3/G7.MP3"></audio>
+        </div>
+    </div>
+
+    <script src="../jquery.js"></script>
+    <script>
+        $('.wrap li').mouseenter(function () {
+            // this ===> li
+            $(this).children('span').stop().animate({
+                top: 0
+            }, 1000)
+            // $('audio') 数组对象
+            // $('audio').get($(this).index()) // jq对象转为 js对象才能调用 play()
+            // console.log($('audio').get($(this).index()))    // js对象
+            // console.log($('audio').eq($(this).index())) // jq对象
+            $('audio').get($(this).index()).play() // play()
+            // $('span').eq($(this).index())
+        }).mouseleave(function () {
+            $(this).children('span').stop().animate({
+                top: 60
+            }, 1000)
+        })
+    </script>
+</body>
+
+</html>

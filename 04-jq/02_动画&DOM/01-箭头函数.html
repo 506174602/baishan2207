@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>箭头函数</title>
+</head>
+
+<body>
+
+	<script src="../jquery.js"></script>
+	<script type="text/javascript">
+		/*
+    		箭头函数：() => {} 是一种函数表达式 是匿名函数不是构造函数 不能通过new来创建
+    		() 中定义了函数的参数 如果只有一个参数的时候 (a) => {} ===> a => {}
+    		{}中写的是函数体 如果函数整体中只有返回值代码 可以不写return 直接写返回值代码 () => { number + 100}
+    		小括号和 箭头之间不能换行
+    	 */
+		var a = function (number) {
+			// console.log(123)
+			return number + 100
+		}
+		a();
+		var b = (a) => {}
+		var b1 = a => {}
+		b()
+		var c = () => {
+			return number + 100
+		}
+		var c1 = (number) => {
+			number + 100
+		} // 错误写法
+		var d = (number) => {
+			return number + 100
+		}
+		var d1 = (num) => num + 100
+		console.log(c1(111))
+
+		function func(a, b, c) {
+			console.log('参数个数=========', arguments.length)
+		}
+		func(1, 2, 3)
+
+		var obj = {
+			name: "张三",
+			age: 18,
+			desc: function () {
+				// console.log("匿名函数+++++++", this) // this====>obj
+				// console.log("匿名函数+++++++", this.name + "已经" + this.age + "岁了") 
+
+				// setTimeout(function(){
+				// 	// console.log("延时器 匿名函数++++++", this) //this====>
+				// 	console.log("匿名函数+++++++", this) // this====>obj
+				// 	console.log("匿名函数+++++++", this.name + "已经" + this.age + "岁了") 
+				// },2000)
+
+				setTimeout(() => { // 改变了箭头函数 不改变this的指向 还是指向外部函数的this指向
+					console.log("延时器 箭头函数+++++++", this) // this====>obj
+					console.log("延时器 箭头函数+++++++", this.name + "已经" + this.age + "岁了") // this====>obj
+				}, 2000)
+			}
+		}
+		obj.desc()
+
+
+
+
+
+
+		/*
+			箭头函数和普通函数的区别
+			1.箭头函数没有arguments对象
+			2.箭头函数不能用new来创建构造函数的实例 普通函数可以
+			3.this指向  普通函数 遵循谁调用 指向谁
+						箭头函数 在哪里定义函数 this就指向哪里 不改变this的指向
+						普通函数的this是动态的 箭头函数中this的指向是紧紧包裹箭头函数的那个对象
+			4.箭头函数不能通过call() 来改变this的指向[bind apply]
+		 */
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.box1 {
+			/*border: 1px solid red;*/
+			background-color: red;
+			/*1.宽高固定属性值  像素*/
+			/*width: 800px;
+			height: 100px;*/
+			/*2.宽高：占可视化窗口的百分比（vw vh）
+				vw viewport width 视口宽度，1vw=视口宽度的1%，100vw就是视口的宽度
+				vh viewport height 视口高度，1vh=视口高度的1%，100vh就是视口的高度
+				注意：支持css3的浏览器才支持vw vh这两个长度单位
+			*/
+			/*div的宽度占可视化窗口宽度的50%*/
+			/*width: 50vw;*/
+			/*div的高度占可视化窗口高度的50%*/
+			/*height: 50vh;*/
+			/*3.宽高属性值如果取父元素的百分比
+				要给父元素设置一个高度  而这里父元素是body  body的父元素是html html的父元素是可视化窗口  因此我们需要给body  html设置继承父元素的100%*/
+			width: 80%;
+			height: 50%;
+		}
+
+		body,
+		html {
+			height: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box1">
+
+	</div>
+</body>
+
+</html>

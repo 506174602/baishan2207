@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let</title>
+</head>
+
+<body>
+    <script>
+        var a1 = 5;
+        delete a1;
+        console.log('a1----', window.a1)
+
+        function a2() {
+            console.log('func----a2')
+        }
+        delete a2;
+        console.log('a2----', a2)
+        /**
+         * delete 操作符会从某个对象上移除指定的属性, 成功删除时返回true, 否则返回false, 
+         * 通过这种方式让GC(Garbage Collection 垃圾回收)来回收内存. 但是在js中并不是所有的对象 属性都可以被删除
+         * js中 通过 var/ function 声明的变量或函数,因含有DontDelete, 而不可被删除.
+         * 但通过var 声明的对象的属性,数组的成员却可以删除 
+         */
+        var a3 = {
+            name: '张三',
+            age: 20
+        }
+        delete a3.age;
+        console.log('a3----', a3)
+
+        num = 1; // 前面没有var, 等价于
+        delete num
+        console.log(this) // window
+        console.log('num----', this.num)
+
+        // ===================================================
+        /**
+         * let
+         * 1.let 声明的全局变量不是全局对象window的属性
+         * 2.用let 定义的变量,不允许重复声明, 防止多人协作,引起冲突; 但可以改变值甚至类型
+         * 3.let声明的变量不存在变量提升
+         * 4.let 声明的变量具有暂时性死区(temporal dead zone 简称TDZ)
+         *  -- 只要块级作用域内,存在let命令,它所声明的变量就 '绑定'(binding) 在这个区域,不再受外部影响
+         *  -- ES6明确规定: 若区块中存在let(和const)命令,这个区块对这些命令声明的变量,从最开始就形成了封闭作用域.
+         *                  凡是在声明之前就使用这些变量,都会报错
+         * 5.let 声明的变量拥有块级作用域
+         */
+        // console.log('a4之前----', a4) // Cannot access 'a4' before initialization
+        let a4 = 4; // 必须要先声明,再使用 
+        a4 = 55;
+        a4 = 'abc';
+        console.log('a4----', window.a4)
+        console.log('a4----', a4)
+        // let a4 = 5; // 'a4' has already been declared
+
+        /**
+         * 5.let 声明的变量拥有块级作用域
+         */
+        {
+            var a5 = 5
+        };
+        console.log('a5----', a5); {
+            let a6 = 6;
+            console.log('a6----内', a6)
+        };
+        // console.log('a6----外', a6)
+
+        for (let i = 0; i < 3; i++) {
+            console.log(i)
+        }
+        // console.log('for---i:', i) // 3√   2X   
+        for (let i = 0; i < 3; i++) {
+            console.log(i)
+        }
+        console.log('for---i---2:')
+
+        var a7 = 7;
+        if (true) {
+            // console.log('a7----', a7) // Cannot access 'a7' before initialization
+            let a7 = 77;
+            // 虽然存在全局变量 a7, 但是块级作用域内let又声明了一个局部变量 a7, 导致后者a7(花括号内的a7)绑定在了
+            // 这个块级作用域内(花括号内), 所以在let声明变量前,对a7赋值(使用),会报错
+        }
+        console.log('a7----for外', a7) // 7
+
+        function foo(a = b, b = 2) {
+            console.log('foo----', a, b)
+        }
+        // foo() // undefined 2
+        // foo(1, 2) // 1 2
+        function foo2(a = 22, b = a) {
+            console.log('foo2----', a, b)
+        }
+        foo2()
+    </script>
+</body>
+
+</html>

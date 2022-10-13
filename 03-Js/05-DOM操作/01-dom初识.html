@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!--DOM节点对象
+			1.文档节点    document 
+			2.元素节点    html元素
+			3.属性节点    标签元素的属性 
+			4.文本节点     标签元素的内容（换行 空格等也属于）
+			ps:注释节点
+	 -->
+	 <div class="box" id="wenben" name="text" style="color: orange">
+	 	我是div的文本节点
+	 </div>
+	 <script>
+	 	// 1.获取文档节点：当页面加载的是时候  浏览器会给网页创建一个document对象，所有的节点都属document对象的子节点
+	 	// 整个页面的代码在控制台打印出来就是document文档节点对象
+	 	console.log(document);
+	 	// 2.获取元素节点：（后边重点学习）
+	 	var wenben = document.getElementById("wenben");
+	 	console.log(wenben);
+	 	/*3.获取属性节点
+	 		方法1：元素节点.属性名   这种方法局限性 类似 name属性无法获取
+	 		方法2：元素节点.getAttribute("属性名")   
+	 	 */
+	 	// 3.1方法1
+	 	console.log(wenben.id);
+	 	console.log(wenben.style);
+	 	console.log(wenben.className);
+	 	console.log(wenben.name);
+	 	// 3.2方法2
+	 	console.log(wenben.getAttribute("name"));
+	 	console.log(wenben.getAttribute("class"));
+	 	// 4.获取文本节点
+	 	// console.log(wenben.innerHTML);
+	 	// 修改文本节点
+	 	wenben.innerHTML = "我是一个新的文本节点！！！！！！！！！！！";
+	 	// 修改文本节点 同时给父节点div设置了子节点
+	 	var str = "<p>我是新的段落<span>我是span</span></p>";
+	 	wenben.innerHTML = str;
+	</script>
+</body>
+</html>

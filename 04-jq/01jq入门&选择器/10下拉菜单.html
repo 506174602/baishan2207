@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0
+		}
+		li{
+			list-style: none
+		}
+		.warp{
+			width: 320px;
+			height: 30px;
+			margin:100px auto;
+			background: #000
+		}
+		.warp li{
+			background: #000
+		}
+		.warp ul{
+		  display: table;
+		}
+		.warp>ul>li{
+			float: left;
+			margin-left: 10px;
+			position: relative;
+		}
+		.warp>ul>li:nth-child(1){
+			margin-left: 0
+		}
+		.warp a{
+			display: block;
+			width: 100px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			text-decoration: none;
+			color: #fff
+		}
+		.warp ul li ul{
+			position: absolute;
+			top: 30px;
+			display: none
+		}
+	</style>
+</head>
+<body>
+<div class="warp">
+	<ul>
+		<li>
+			<a href="javascript:;">一级菜单1</a>
+			<ul>
+				<li>
+					<a href="javascript:;">二级菜单</a>
+				</li>
+				<li>
+					<a href="javascript:;">二级菜单</a>
+				</li>
+				<li>
+					<a href="javascript:;">二级菜单</a>
+				</li>
+				<li>
+					<a href="javascript:;">二级菜单</a>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="javascript:;">一级菜单2</a>
+			<ul>
+				<li>
+					<a href="javascript:;">二级菜单</a>
+				</li>
+				<li>
+					<a href="javascript:;">二级菜单</a>
+				</li>
+				<li>
+					<a href="javascript:;">二级菜单</a>
+				</li>
+				<li>
+					<a href="javascript:;">二级菜单</a>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="javascript:;">一级菜单3</a>
+			<ul>
+				<li>
+					<a href="javascript:;">二级菜单</a>
+				</li>
+				<li>
+					<a href="javascript:;">二级菜单</a>
+				</li>
+				<li>
+					<a href="javascript:;">二级菜单</a>
+				</li>
+				<li>
+					<a href="javascript:;">二级菜单</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+</body>
+<script src="../jquery.js"></script>
+<script type="text/javascript">
+	// 鼠标移入事件
+	// mouseover   会触发事件冒泡
+	// mouseenter  不会触发事件冒泡
+
+	// 当鼠标移入的时候触发
+	$(".warp>ul>li").mouseenter(function(){
+		// 当前指向的元素 当前li
+		console.log(this)
+
+		// 当前元素li的子后代的ul显示
+		// show()显示
+		// children()相当于后代
+		$(this).children("ul").show()
+	})
+
+	// 鼠标离开的时候触发
+	$(".warp>ul>li").mouseleave(function(){
+		// 当前指向的元素 当前li
+		console.log(this)
+
+		// 当前元素li的子后代的ul显示
+		// hide()隐藏
+		// children()相当于后代
+		$(this).children("ul").hide()
+	})
+</script>

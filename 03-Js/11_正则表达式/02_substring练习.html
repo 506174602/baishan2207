@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>substring练习</title>
+	<style>
+		.text1, .text2 {
+			display: none
+		}
+	</style>
+</head>
+<body>
+	<p class="text1">团战可以输</p>
+	<p class="text2">鲁班必须死</p>
+
+	<div>
+		<p class="showText"></p>
+	</div>
+
+	<script>
+		// 第一步: 获取相关元素
+		var text1 = document.querySelector('.text1')
+		var text2 = document.querySelector('.text2')
+		var showText = document.querySelector('.showText')
+
+		// 第二步: 设置定时器,循环获取文本
+		var i = 0;
+		var timer = setInterval(subText, 300)
+
+		// 获取文本
+		function subText() {
+			showText.innerText = text1.innerText.substring(0, i)
+			i++;	// 定时器每执行一次,记录值加1,下次多显示一个文字
+			if (showText.innerText === text1.innerText) {
+				// 当显示文本与第一行文本一样时,开始显示第二行
+				clearInterval(timer)	// 先清除第一行的定时器
+				var j = 0; // 初始化第二行显示的记录值
+				var timer2 = setInterval(function(){
+					showText.innerText = text2.innerText.substring(0, j)
+					j++;
+					if (showText.innerText === text2.innerText) {	// 第二行也显示完,准备重新显示第一行(循环显示)
+						clearInterval(timer2)	// 再清除第二行定时器
+						i = 0;	// 重置第一行的记录值,重新开始计数
+						// j = 0;
+						timer = setInterval(subText, 300)
+					}
+				}, 300)
+			}
+		}
+	</script>
+</body>
+</html>

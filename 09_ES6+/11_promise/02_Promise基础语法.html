@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * Promise 是一个函数, (首字符大写)构造函数, 通过 new 实例化对象
+         * 构造函数可以接收参数, 在 Promise中 接收的参数是一个 [函数]
+         * p1 是看以下 Promise
+         */
+        const p1 = new Promise(() => {})
+        console.log('p1----', p1)
+        /**
+         * 作为Promise对象参数的函数,也可以接收参数,且此处接收两个参数
+         * 这两个参数 也 还是 函数
+         * Promise的参数:       () => {}
+         *                      |接收两个参数
+         * Promise参数的参数:resolve, reject
+         * -- resolve: 解决 决定
+         * -- reject: 拒绝
+         */
+        const p2 = new Promise((resolve, reject) => {}) // 初始状态: pending
+        console.log('p2----', p2)
+        /**
+         * Promise的两个重要属性
+         * -- state(PromiseState) 状态:
+         *      1.pending. 等待, 待解决,进行中,处理中===> Ajax 状态: 0, 1, 2, 3(远程服务器异步回调本地请求,知道现在是什么状态)
+         *      2.fulfilled 已完成 成功(看p3)
+         *      3.rejected  已拒绝 失败(看p4)
+         *      -- 如何改变 当前 Promise的状态? 
+         *          通过调用 resolve(看p3)和reject(看p4) 来改变 promise对象的状态
+         *      -- 注意:
+         *          Promise状态 的改变, 是一次性的(互斥, 要么A 要么B), 看 p5
+         */
+        const p3 = new Promise((resolve, reject) => {
+            // 调用 resolve 函数, 会使当前Promise对象的状态变为 fulfilled 成功状态
+            resolve()
+        })
+        console.log('p3----', p3)
+        const p4 = new Promise((resolve, reject) => {
+            // 调用 reject 函数, 会使当前Promise对象的状态变为 rejected 失败状态
+            reject()
+        })
+        console.log('p4----', p4)
+
+        const p5 = new Promise((resolve, reject) => {
+            // resolve()
+            reject()
+            console.log('p5 拒绝以后')
+            resolve()
+        })
+        console.log('p5----', p5)
+
+        // ==================以上 状态 结束============================
+        // ==================以下 结果 开始============================
+        const p6 = new Promise((resolve, reject) => {
+            // 调用 resolve, 改变当前promise对象状态fulfilled的同时, 改变当前promise对象的结果
+
+            resolve('调用成功的结果')
+        })
+        console.log('p6----', p6)
+
+        const p7 = new Promise((resolve, reject) => {
+            // 调用 reject, 改变当前promise对象状态rejected的同时, 改变当前promise对象的结果
+            reject('调用失败的结果')
+        })
+        console.log('p7----', p7)
+    </script>
+</body>
+
+</html>

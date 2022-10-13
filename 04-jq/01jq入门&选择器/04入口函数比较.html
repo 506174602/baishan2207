@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="../jquery.js"></script>
+<script type="text/javascript">
+	// js的入口函数 包括普通函数都会被覆盖
+	window.onload=function(){
+		console.log(111)
+	}
+	window.onload=function(){
+		console.log(222)
+	}
+
+	function fn(){
+		console.log("我是第一fn函数")
+	}
+	function fn(){
+		console.log("我是第二个fn函数")
+	}
+	fn()
+
+	// jq入口函数 jq可以写多个入口函数 并且不会被覆盖
+
+	$(function(){
+		console.log("333")
+	})
+	$(function(){
+		console.log("444")
+	})
+
+</script>

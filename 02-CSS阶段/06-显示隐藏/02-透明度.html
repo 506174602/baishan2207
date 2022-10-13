@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 310px;
+			height: 190px;
+			margin: 50px auto;
+			position: relative;
+		}
+		.trans{
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,.3);
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;
+		}
+		.box:hover .trans{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img src="./imgs/adv.jpg" alt="wrong">
+		<div class="trans"></div>
+	</div>
+</body>
+</html>

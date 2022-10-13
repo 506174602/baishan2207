@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*转换之缩放：
+			transform:scale(2,3)  宽度变为原来的2倍  高变成原来的3倍;
+		*/
+		div{
+			width: 500px;
+			height: 500px;
+			border: 1px solid blue;
+			overflow: hidden;
+		}
+		div img{
+			width: 400px;
+			height: 380px;
+			border: 1px solid red;
+			/*过渡动画*/
+			transition:all 3s;
+			transform-origin: top left
+		}
+		div:hover img{
+			/*
+			  特点：1.参数可以取两个值也可以取一个值
+			  		2.当取一个值的时候  	这个值表示宽高都进行缩放到相应倍数（比1大放大，比1小就缩小）
+					3.优点：不会影响其他元素位置  还可以设置转换基点
+			 */
+			transform: scale(0.5);
+			/*width: 200px;
+			height: 190px;*/
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<img src="imgs/test.jfif" alt="wrong">
+		<p>我是乌龟下的蛋OOOOO</p>
+	</div>
+</body>
+</html>

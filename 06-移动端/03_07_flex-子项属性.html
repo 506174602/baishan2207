@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex子项属性</title>
+    <style>
+        .flex-container {
+            display: flex;
+            width: 1200px;
+            height: 640px;
+            background-color: skyblue;
+        }
+
+        .flex-item {
+            width: 200px;
+            height: 120px;
+            margin: 10px;
+            background-color: pink;
+        }
+
+        /* 
+            flex 定义子项分配剩余空间,用flex来表示子项占多少份,默认是0 表示不占分数
+        */
+        .flex-item:nth-child(2) {
+            /* width: 250px; */
+            flex: 1;
+        }
+
+        .flex-item:nth-child(3) {
+            /* width: 250px; */
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <span class="flex-item">1</span>
+        <span class="flex-item">2</span>
+        <span class="flex-item">3</span>
+        <span class="flex-item">4</span>
+    </div>
+</body>
+
+</html>

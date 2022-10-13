@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*循环：计算机可以帮助我们重复的去做一件事情  这个就是循环
+		3种循环 
+			1.for循环  （******）
+			2.while 循环
+			3.do while 循环
+			4.for/in 循环 循环遍历对象（后期在学）
+		 */
+		
+		 /*for循环语法：
+				for(初始化循环变量;循环条件;循环规律){
+						循环体（被执行的代码块）
+				}
+		 */
+		// 输出1-10之间的数字
+		for(var i = 1; i<=100;i++){
+			console.log("当前i的值是："+i);	
+		}
+		// 输出 1-10的阶乘   
+		var j = 1;//总积数：j
+		for(var i = 1;i<=10;i++){
+			j *= i;
+			// console.log(j);
+		}
+		console.log(j);
+		// 求1-100的和
+		var sum = 0;
+		for(var i = 1;i <= 100;i++){
+			sum += i;
+		}
+		console.log(sum);
+		// 分别输出1-100的所有的奇数和偶数
+		/*for(var i = 1; i <= 100;i+=2){
+			document.write("奇数"+i+";");
+		}
+		for(var i = 2; i <=100 ;i+=2){
+			document.write("偶数"+i+";");
+		}*/
+		for(var i = 1;i <= 100;i++){
+			if(i%2 == 0){
+				document.write("偶数"+i+"<br />");
+			}else if(i%2!=0){
+				document.write("奇数"+i+"<br />")
+			}
+		}
+	</script>
+</body>
+</html>

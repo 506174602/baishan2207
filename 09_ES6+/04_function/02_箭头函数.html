@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数</title>
+</head>
+
+<body>
+
+    <script>
+        let foo1 = {
+            name: 'es6',
+            say: () => {
+                console.log(this)
+            }
+        }
+        /**
+         * 箭头函数中的this;
+         * 箭头函数本身与 say 平级 以 key:value形式呈现的,
+         * 箭头函数本身处在 foo1 对象中, foo1 处在 window 作用域内, 即foo1的上下文环境指向window
+         */
+        // console.log(foo1.say)
+        foo1.say()
+
+        /**
+         * es5 this的出身并不能决定它永远指向谁,要看它最终谁直接调用了它
+         * es6 箭头函数 this 指向的对象在定义的那个一刻(出生),就已经确定下来, 指向它所处对象所在的作用域
+         */
+        function a() {
+            return () => {
+                // console.log('函数a---1', this) // window
+                return () => {
+                    console.log('函数a---2', this) // window
+                }
+            }
+        }
+        console.log(a()()())
+    </script>
+</body>
+
+</html>

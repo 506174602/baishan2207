@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		div{
+			height: 200px;
+			margin-bottom: 10px;
+			background: pink;
+			display: none
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="显示" id="btn1">
+	<input type="button" value="设置内容" id="btn2">
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>
+<!-- 第一步 先引入jq 所有的框架都是先引入后使用-->
+<script src="../jquery.js"></script>
+<script type="text/javascript">
+	// jq逻辑
+
+	// 入口函数
+	$(document).ready(function () {
+
+		//  $获取dom元素  语法：$('选择器/id/class/标签名')
+		//  注意：事件名不带on，并且在同一行代码中js语法与jq语法不能混着用 
+		$('#btn1').click(function () {
+			// show()显示，jq里面封装好的函数
+			$('div').show()
+		})
+
+		// 添加多个事件不会被覆盖
+		$("#btn2").click(function () {
+			// .html() 相当于js中的innerHTML
+			// .text() 相当于js中的innerText
+			$('div').html("<h1>我是添加的内容</h1>")
+		})
+
+		$("#btn2").click(function () {
+			console.log("我是王付玉")			
+		})
+
+		// dom.onclick=function () {
+			
+		// }
+	})
+
+	// 入口函数相当于js中的
+	// 因为浏览器加载页面顺序是从上往下指向，如果先加载js会导致dom元素获取不到而报错，所以一般情况下js代码不放在head标签里面，如果非得放在head里面，需要进行特殊处理，页面加载完成之后在执行js
+	// window.onload=function(){}
+
+
+	/*
+		js:js就是可以运行在浏览器端的脚本语言。
+		jq：就是js封装后的方法，可以直接使用，说白了就是一个js框架
+
+		为什么要学习jq？优点？
+			要比js简单，粗暴
+			查找元素方法多，简单灵活
+			拥有隐迭代特性 可以不用for循环
+			兼容性好 因为jq已经做了兼容
+	*/ 
+</script>

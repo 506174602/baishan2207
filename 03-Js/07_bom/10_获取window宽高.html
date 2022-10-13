@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取window的宽高</title>
+</head>
+<body>
+	<button>获取宽高</button>
+
+	<script>
+		// console.log(window)
+		console.log(document.documentElement.clientWidth)
+		// 在响应式页面可以使用,不包含边框但是包含滚动条
+		var width = window.innerWidth;
+		var height = window.innerHeight;
+
+		// var w = document.documentElement.clientWidth;
+		// var h = document.documentElement.clientHeight;
+
+		var w = window.innerWidth || document.documentElement.clientWidth;
+		var h = window.innerHeight || document.documentElement.clientHeight;
+		console.log('宽度', w)
+		console.log('高度', h)
+	</script>
+</body>
+</html>

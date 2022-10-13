@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>post</title>
+</head>
+<body>
+	<div class="box">
+		<h2>登录</h2>
+		<span>用户名:</span> <input type="text" class="user-name"> <br>
+		<span>密&nbsp;&nbsp;&nbsp;码:</span> <input type="text" class="password"> <br>
+		<button>登录</button> <br>
+		<span></span>
+	</div>
+	<div class="list">
+		<ul></ul>
+	</div>
+
+
+	<script type="text/javascript">
+	// 1.通过登录接口获取认证令牌 token
+		// 2.利用拿到的 token, [头部中的属性名为 token] 请求接口http://wish.byesame.com/admin, 请求方式GET; xhr.setRequestHeader('token', token)
+		// 	 参数共两个,分别为: 页数: page 类型为数字类型;每页个数:rows, 参数类型为数字类型
+		// 3.将列表接口返回的数据以列表形式显示在页面.形式:
+		//   页面应该显示的数据样子: 
+		//   			岳老师 - admin - 2021-0106 08:25:05
+		//   			岳老师 - admin - 2021-0106 08:25:05
+		//   			岳老师 - admin - 2021-0106 08:25:05
+		//   			岳老师 - admin - 2021-0106 08:25:05
+		//   			岳老师 - admin - 2021-0106 08:25:05
+		//   对应字段:name   - userName - lastLoginAt	 
+		var btn = document.querySelector('button')
+		var userName = document.querySelector('.user-name')
+		var password = document.querySelector('.password')
+		var span = document.querySelector('span')
+		var ul = document.querySelector('.list ul')
+
+		btn.onclick = function() {
+			var xhr = new XMLHttpRequest();
+			xhr.open('post', 'http://wish.byesame.com/login')
+			xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+			var params = 'userName=' + userName.value + '&passWord=' + password.value
+			console.log('登录参数', params)
+			xhr.send(params) 
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					var jsonData = JSON.parse(xhr.responseText)
+					if (jsonData.code == 200) {
+						var token = jsonData.data.token
+						getUserList(token);
+					} else {
+						alert(jsonData.msg)
+					}
+				}
+			}
+		}
+
+		function getUserList(aaa) {
+			var xhr = new XMLHttpRequest();
+			xhr.open('get', 'http://wish.byesame.com/admin?page=1&rows=10')
+			xhr.setRequestHeader('token', aaa)
+			xhr.send()
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					var jsonData = JSON.parse(xhr.responseText)
+					 if (jsonData.code == 200) {
+					 	console.log('返回的有用数据', jsonData.data.list)
+					 	var userList = jsonData.data.list
+					 	for (var i = 0; i < userList.length; i++) {
+					 		// userList[i]
+					 		var newLi = document.createElement('li')
+					 		newLi.innerText = userList[i].name + '  -  ' + userList[i].userName + '  -  ' + userList[i].lastLoginAt
+
+					 		ul.appendChild(newLi)
+					 	}
+					 } else {
+					 	alert(jsonData.msg)
+					 }
+				}
+			}
+		}
+	</script>
+</body>
+</html>

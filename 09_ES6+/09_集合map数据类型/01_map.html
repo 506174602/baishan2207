@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * Javascript 的对象 Object 本质上是键值对的集合(Hash结构),但是 传统上只能用字符串当作键,受到很多限制
+         * 为解决该问题,ES6 提供了Map数据结构,它类似于对象, 也是键值对的集合
+         * Object '字符串-值'   Map: 值-值
+         */
+        let obj = {
+            name: '李士龙',
+            'age': 18
+        }
+        let m1 = new Map()
+        /**
+         * set(key, value)  set方法设置键名key对应的键值位value,然后 返回整个 Map 结构
+         * 若 key 已经有值,则键值会被更新,否则就新生成该键
+         */
+        console.log('m1----', m1)
+        let arr1 = [3, 2, 1]
+        // ↓ 键名相同,但实际值的存储地址不一样,是两个对象,不是同一个对象,所以两个都添加,前者没有被更新
+        // m1.set([3, 2, 3], [1, 2, 3]).set([3, 2, 1], [8, 9 ,10])
+        m1.set(arr1, [1, 2, 3]) // 数组作为 m1的一个键
+        m1.set(arr1, null)
+        // m1.set(obj, '1') // 对象作为m1 的一个键
+        // m1.set(obj, '2')
+        console.log('m1----set()', m1)
+
+        // 查询
+        // has()  get()
+        console.log('查询----has', m1.has(arr1)) // true   /  false
+        // get() 方法读取 key 的对应的键值; 如果找不到key, 返回 undefined
+        console.log('查询----get', m1.get(arr1)) // ''  null 
+        if (m1.get(arr1)) {
+            alert(1111)
+        }
+
+        // 删除 delete() 方法删除某个键, 成功返回 true , 失败 返回 false
+        console.log(m1.delete(arr1))
+
+        // Map 可以接收一个数组作为参数,该数组的成员是一个个表示键值对的数组
+        let m2 = new Map([
+            ['name', 'lishilong'],
+            ['age', 18],
+            ['like', 'sleep']
+        ])
+        // size Map 成员个数
+        console.log('m2-----', m2.size)
+
+        // 循环
+        m2.forEach((value, key) => console.log('forEach---', key, value))
+        // 清除
+        m2.clear()
+        console.log(m2.size)
+    </script>
+</body>
+
+</html>

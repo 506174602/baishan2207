@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<!-- 
+	  	HTML   超文本标记语言    从语义的角度描述页面的结构
+	  	CSS     层叠样式表       从审美的角度负责页面的样式
+	  	Js      Javascript       从交互的角度描述页面的行为
+	-->
+
+	<!-- 
+		引入css样式的三种方式：
+				1.行内样式：直接在标签的内部设置样式（实际在开发时不提倡使用行内样式   可以在测试的时候使用）
+				2.内嵌/内联样式：在head标签内直接  <style></style>(讲课最常用)
+				3.外部引入：①：链接式   link方式引入(做项目必用)，head标签内
+							 <link href="./style.css" rel="stylesheet" type="text/css">
+							 rel: relations关联, 关联的是一个样式表stylesheet文档，表示link在html文档初始化时被使用
+				            ②：导入式  基本不用.
+								<style type="text/css">
+									@import "style.css"
+									或者 @import url("style.css")
+								</style>
+					注意: import和link的区别: link为html加载前就引用, import在html加载后引用; 即先显示无样式的页面闪一下, 然后再把样式加上，页面还原为正常样式
+	    优先级:行内样式>内嵌样式=外部引入（内嵌和外部引入谁写在后边  谁就会覆盖掉前面那个样式）
+	  -->
+	<!-- 3.1外部引入  连接式 -->
+	<link rel="stylesheet" href="byesame.css">
+	<!-- 2.内嵌 -->
+	<style>
+		p {
+			color: blue;
+		}
+
+		div {
+			font-size: 60px;
+		}
+	</style>
+
+
+	<!-- 3.2外部引入   导入式 -->
+	<!-- <style>
+	  	@import url(byesame.css);
+	  </style> -->
+</head>
+
+<body>
+	<!--1.行内样式  -->
+	<h2 style="color: red;">1.行内样式引入css</h2>
+	<p>2.内嵌样式案例</p>
+	<span>3.外部引入之链接式案例</span>
+
+
+
+	<div>css三种引入方式的优先级（了解）</div>
+</body>
+
+</html>

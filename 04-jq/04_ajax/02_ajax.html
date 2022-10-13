@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax</title>
+</head>
+
+<body>
+    <script src="../jquery.js"></script>
+    <script>
+        /**
+         * 
+         * 
+         */
+        $(function () { // 入口函数
+            $.ajax({ // 创建ajax异步对象  js: new XMLHttpRequest()
+                // 请求方式 method
+                type: 'get/post/put/delete',
+                // 请求的数据类型 Content-type
+                // 1. application/json 请求的数据格式 request payload: { userName: 'admin', password: 123456 } (JSON.stringify())
+                // 2. application/x-www-form-urlencoded 请求的数据格式 form data: userName=admin&password=123456
+                // 3. multipart/form-data 上传文件 请求的数据格式 request payload: filename: '123.jpg', 'images:123.jpg'
+                contentType: 'application/json, application/x-www-form-urlencoded',
+                beforeSend: (xhr) => {
+                    xhr.setRequestHeader('token', '*************************************')
+                },
+                url: 'http://121.39.10.1:10000/api/getList',
+                data: {
+                    key: 'value',
+                    userName: 'admin',
+                    password: 123456
+                },
+                // 数据格式
+                dataType: 'json',
+                // 是否异步
+                async: true, // 异步
+                // 数据请求成功的回调
+                success: function (data) {
+                    // data 接口返回的数据 json 
+                },
+                error: function (data) {
+                    // var dataSuccess = {
+                    //     code: 100000,_
+                    //     msg: '请求成功',
+                    //     data: {
+
+                    //     }
+                    // }
+                    // var dataError = {
+                    //     code: 100001,
+                    //     msg: '请求失败'
+                    // }
+                }
+
+            })
+        })
+    </script>
+</body>
+
+</html>

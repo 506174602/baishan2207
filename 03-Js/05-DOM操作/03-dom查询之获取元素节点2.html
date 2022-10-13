@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<select name="produce" id="pro">
+		<option class="city" value="" selected="">青岛</option>
+		<option class="city" value="">潍坊</option>
+		<option class="city" value="">菏泽</option>
+		<option class="city" value="">德州</option>
+		<option class="city" value="">济南</option>
+	</select>
+	<div id="dv">
+		<a href="" name="link">链接</a>
+		<a href="" name="link">链接</a>
+		<a href="" name="link">链接</a>
+		<a href="" name="link">链接</a>
+		<a href="" name="link">链接</a>
+	</div>
+	<script>
+		//3. getElementsByClassName()方法  获取元素节点
+		// IE8及以下不能使用 
+		var citys = document.getElementsByClassName("city");
+		console.log(citys);
+		for(var i = 0;i<citys.length;i++){
+			citys[i].style.color = "red";
+		}
+		// 4.getElementsByName()方法
+		var links = document.getElementsByName("link");
+		console.log(links);
+		for(var i = 0;i < links.length;i++){
+			console.log(links[i])
+		}
+	</script>
+</body>
+</html>

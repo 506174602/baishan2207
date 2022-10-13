@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>当当首页轮播图</title>
+    <link rel="stylesheet" type="text/css" href="swiper-v4/css/swiper.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper-container {
+            width: 796px;
+            height: 326px;
+        }
+
+        img {
+            width: 796px;
+            height: 326px;
+        }
+
+        .swiper-pagination-bullet {
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            color: #fff;
+            background-color: #646464;
+            opacity: 1;
+            font-size: 12px;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: red;
+        }
+
+        .swiper-container .hide {
+            opacity: 0;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            transition: opacity 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="../images/dangdang/1.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="../images/dangdang/2.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="../images/dangdang/3.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="../images/dangdang/4.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="../images/dangdang/6.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="../images/dangdang/7.jpg" alt="">
+            </div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+
+        <!-- 如果需要导航按钮 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+    <script src="../jquery.js"></script>
+    <script type="text/javascript" src="swiper-v4/js/swiper.js"></script>
+
+    <script type="text/javascript">
+        var bannerSwiper = new Swiper('.swiper-container', {
+            loop: true,
+            autoplay: {
+                delay: 2000,
+                stopOnLastSlide: false,
+                disableOnInteraction: false
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                renderBullet: function (index, className) {
+                    return '<span class="' + className + '">' + (index + 1) + '</span>';
+                }
+            },
+            // 如果需要前进后退按钮
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            }
+        })
+        $('.swiper-pagination-bullet').hover(function () {
+            $(this).click();
+        }, function () {
+            bannerSwiper.autoplay.start()
+        })
+
+        //鼠标移出隐藏按钮，移入显示按钮
+        bannerSwiper.el.onmouseover = function () {
+            bannerSwiper.navigation.$nextEl.removeClass('hide');
+            bannerSwiper.navigation.$prevEl.removeClass('hide');
+        }
+        bannerSwiper.el.onmouseout = function () {
+            bannerSwiper.navigation.$nextEl.addClass('hide');
+            bannerSwiper.navigation.$prevEl.addClass('hide');
+        }
+    </script>
+</body>
+
+</html>

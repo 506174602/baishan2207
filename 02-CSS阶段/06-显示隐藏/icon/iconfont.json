@@ -1,0 +1,30 @@
+{
+  "id": "2827612",
+  "name": "byesame",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5030",
+      "name": "购物车满",
+      "font_class": "gouwucheman",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "8776878",
+      "name": "download",
+      "font_class": "icon-test",
+      "unicode": "e640",
+      "unicode_decimal": 58944
+    },
+    {
+      "icon_id": "19657980",
+      "name": "时 间",
+      "font_class": "time",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    }
+  ]
+}

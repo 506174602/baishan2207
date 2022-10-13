@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>量词</title>
+</head>
+<body>
+	<script>
+		// 量词
+		// * 重复零次或者更多次
+		// + 重复一次或者更多次
+		// ? 重复零次或者一次
+		// {n} 重复n次
+		// {n, m} 重复 n 到 m 次
+		 
+		
+		// + 匹配一次或者多次
+		var reg1 = /[a-z]([0-9])+/g
+		var reg2 = /[a-z][0-9]+/g
+
+		var str1 = 'A5S4F655AS4Fasfaf6as'
+		console.log('匹配 +++1', str1.match(reg1))	// f6
+		console.log('匹配 +++2', str1.match(reg2))	// f6
+
+		// {n} 匹配出现n 次
+		// 138 0000 1111
+		var reg2  = /^13[0-9]\d{8}/
+		var str2 = '13800001111' // true 
+		// var str2 = '1380000111a' // false
+		console.log('手机号', reg2.test(str2))
+
+		// {n, m} 
+		// var reg3 = /([1]){2,4}/
+		var reg3 = /([0-1]){2,4}/
+		console.log('手机号靓号', reg3.test(str2))
+	</script>
+</body>
+</html>

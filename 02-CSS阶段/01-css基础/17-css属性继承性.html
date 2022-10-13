@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	/*继承性：字体属性（font-  color）  文本属性（text-） 行高line-  这些属性都可以被后代继承
+			a比较特殊  他不会继承父元素的颜色和下划线属性  需要单独给其设置
+			另外：关于盒子模型  定位  浮动等属性不会被继承 
+	*/
+		div{
+			background-color: pink;
+			color: red;
+			font-size: 2em;
+			text-decoration: none;
+			line-height: 100px;
+			text-align: center;
+		}
+		a{
+			color: red;
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<p>今天是周一  有点困（div的儿子）<span>我还能坚持（div的孙子 p的儿子）</span></p>
+		<a href="">我是一个特殊性的a</a>
+	</div>
+</body>
+</html>

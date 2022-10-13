@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>drag files</title>
+    <style>
+        .content {
+            height: 800px;
+            background-color: pink;
+        }
+
+        img {
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content"></div>
+
+    <script>
+        var content = document.querySelector('.content')
+        content.ondragover = function (ev) {
+            ev.preventDefault()
+        }
+        content.ondrop = function (ev) {
+            ev.preventDefault()
+            // dataTransfer 只有在拖放事件过程中才能访问
+            console.log('-----', ev.dataTransfer.files[0])
+            // 获取相关文件
+            var file = ev.dataTransfer.files[0]
+
+
+            // 文件输入流: FileReader()
+            var read = new FileReader()
+            read.readAsDataURL(file)
+            // 开始读取指定二进制文件的内容, 完成后 result属性中就包含文件地址
+            read.onload = function () {
+                var img = document.createElement('img')
+                img.src = this.result
+                content.appendChild(img)
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 500px;
+			height: 500px;
+			background:pink;
+			margin: 100px auto;
+		}
+		.one{
+			width: 100px;
+			height: 100px;
+			background: red;
+			/*相对定位：
+				1.参考点：就是元素本身原来的位置
+				2.原位置 保留
+				3.通过top  right bottom  left属性值进行设置准确的位置
+				4.元素类型不发生变化
+
+				应用场景：①小范围移动  ②配合绝对定位使用
+
+
+			*/
+			position: relative;
+			top: 20px;
+			left: 80px;
+		}
+		.two{
+			width: 100px;
+			height: 100px;
+			background: blue;
+			position: relative;
+			top: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="one"></div>
+		<span class="two">行内元素span</span>
+	</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	/*定位的元素堆叠：
+		1.定位的元素会覆盖没有定位的元素
+		2.当我们不设置z-index属性时：后定位的元素会覆盖前面定位的元素
+		3.都定位的元素用z-index来决定覆盖顺序   拥有更高堆叠顺序的元素总会覆盖住堆叠顺序低的元素
+		4.z-index只能给定位（fixed  relative absolute）的元素来设置  浮动和普通元素设置都无效
+	 */
+		.box1{
+			width: 200px;
+			height: 200px;
+			background: red;
+			position: absolute;
+			top: 200px;
+			/*z-index属性  默认值是0
+						特点1.只能给定位的元素来设置
+						特点2.z-index  值没有单位i  就是一个整数  默认为0
+			 */
+			z-index: 3;
+		}
+		.box2{
+			width: 300px;
+			height: 300px;
+			background: blue;
+			/*position:absolute;*/
+			z-index: 100;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		
+	</div>
+	<div class="box2">
+		
+	</div>
+</body>
+</html>

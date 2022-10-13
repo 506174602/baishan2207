@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>加载事件</title>
+	<script>
+		// html代码是从上往下执行
+		// 加载事件: onload 在浏览器中当监听到内容(dom元素 js css 图片资源 文件)完全加载完成后调用的方法.
+		// 
+		// window.onload = function() { // 传统方式注册的. 多次绑定同一个事件
+		// 	console.log(111)
+		// 	var img = window.document.querySelector('img');
+		// 	console.log('img----', img)
+		// }
+
+		var img = window.document.querySelector('img');
+			console.log('img----', img)
+
+	
+		// window.addEventListener('load', function() {
+		// 	console.log(4444)
+		// })
+		// window.addEventListener('load', function() {
+		// 	console.log(5555)
+		// })
+
+		// window.attachEvent('onload', function(){
+
+		// })
+	</script>
+</head>
+<body>
+	<img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Ffile02.16sucai.com%2Fd%2Ffile%2F2014%2F0829%2F372edfeb74c3119b666237bd4af92be5.jpg&refer=http%3A%2F%2Ffile02.16sucai.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1638066969&t=c3ceaf02764747a97fb659652ba6a385" alt="">
+
+
+</body>
+</html>

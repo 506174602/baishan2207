@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>data属性</title>
+</head>
+<body>
+	<!-- 
+		data-* 属性可以在所有的HTML元素中嵌入数据
+		注意：
+			- 属性名称不要包含大写字母，在 data- 后面必须要有一个字符
+			- 该属性可以是任意的字符串
+	 -->
+
+	 <ul>
+	 	<li data-id="3001" data-name="曹操">曹操</li>
+	 	<li data-id="3002" data-name="劉備">劉唄</li>
+	 	<li data-id="3003" data-name="諸葛亮">諸葛亮</li>
+	 </ul>
+
+	 <script>
+	 	var lis = document.querySelectorAll('ul li');
+	 	for (var i = 0; i < lis.length; i++) {
+	 		// 第一種
+	 		var dataId = lis[i].getAttribute('data-id');
+	 		var dataName = lis[i].getAttribute('data-name');
+	 		lis[i].setAttribute('data-power', '11111')
+	 		// console.log('dataId----' + dataId);
+	 		// console.log('dataName----' + dataName);
+
+	 		// 第二种 dataset
+	 		var dataId1 = lis[i].dataset.id;
+	 		var dataName1 = lis[i].dataset.name;
+
+	 		console.log('dataId1----' + dataId);
+	 		console.log('dataName1----' + dataName);
+	 	}
+	 </script>
+</body>
+</html>

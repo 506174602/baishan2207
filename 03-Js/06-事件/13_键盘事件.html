@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>键盘事件</title>
+</head>
+<body>
+	<input type="text">
+
+	<script>
+		var input = document.querySelector('input');
+		// input.onkeyup = function(event) {
+		// 	if (event.keyCode != '123') {
+		// 		console.log(event.keyCode)
+		// 	} else {
+		// 		console.log('没有输入')
+		// 	}
+		// }
+
+		
+		input.onkeydown = function(event) {
+			if (event.keyCode == '13') {
+				console.log(event.keyCode)
+				event.preventDefault();
+			} else {
+				console.log('没有输入')
+			}
+		}
+	</script>
+</body>
+</html>

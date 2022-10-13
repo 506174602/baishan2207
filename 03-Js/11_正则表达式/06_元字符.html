@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>元字符</title>
+</head>
+<body>
+	<script>
+		// 字符类别: 元字符,限定符,边界符,量词
+		// 
+		// 转义符号 \
+		// 转义字符 \'  \" \d 0-9
+		var a = '你"真好"';
+		var b = '你\'真好\'';
+
+		console.log(b)
+
+		var a = "你'真好'";
+		var d = "你\"真好\"";
+		console.log(d)
+
+		/**
+		 * 元字符
+		 * \d 匹配数字 0-9
+		 * \D 匹配任意非数字的字符
+		 * \w 匹配字母或者数字或者下划线
+		 * \W 匹配任意不是字符,数字和下划线的字符
+		 * \s 匹配任意的空白符
+		 * \S 匹配任意不是空白符的字符
+		 * . 匹配除换行符以外的任意字符 (\n 换行符 \t 制表符)
+		 * ^ 表示匹配行首的文本(以某个字符开始)
+		 * $ 表示匹配行尾的文本(以某个字符结束)
+		 */
+		var n = 'asdf\nlkj'
+		console.log('换行', n)
+
+		// exec
+		var a1 = 'a1b2c345'
+		// var reg = /\d/
+		var reg = /\d/g	// g 全局匹配
+		console.log('匹配数字', reg.exec(a1))
+		// match()
+		console.log('匹配数字- match', a1.match(reg))
+
+		var reg2 = /\d\d/g
+		console.log('匹配2个数字- match', a1.match(reg2))
+
+		var reg3 = /\d\d\d/g
+		console.log('匹配3个数字- match', a1.match(reg3))
+
+		// replace() 符合条件的字符被替换成新的字符
+		var str1 = 'taiy独'
+		var reg4 = /t|i|a|独/g
+		console.log('查找并且替换', str1.replace(reg4, '*'))
+
+		// \w 字母 数字 下划线
+		var str2 = 'd2a4sd_su+?!@'
+		var reg5 = /\w/g
+		var reg6 = /\W/g
+		console.log('有字母数字下划线', str2.match(reg5))
+		console.log('无字母数字下划线', str2.match(reg6))
+
+		// . 匹配除换行符以外的任意字符 (\n 换行符 \t 制表符)
+		var reg7 = /./g
+		var reg8 = /../g
+		var reg9 = /.../g
+		var str3 = '123\n4567'
+		console.log('1个点 元字符获取值', str3.match(reg7))
+		console.log('2个点 元字符获取值', str3.match(reg8))
+		console.log('3个点 元字符获取值', str3.match(reg9))
+	</script>
+</body>
+</html>

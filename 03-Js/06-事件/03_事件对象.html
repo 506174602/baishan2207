@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			background-color: #ccc;
+			margin: 0;
+			padding: 0;
+		}
+		.main{
+			width: 500px;
+			height: 330px;
+			background-color: #eee;
+			margin: 100px auto;
+			position: relative;
+			/*padding: 50px;*/
+		}
+		.box{
+			width: 220px;
+			height: 180px;
+			background-color: orange;
+			position: absolute;
+			top: 80px;
+			left: 80px;
+			/*padding: 50px;*/
+		}
+		body{
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="box"></div>
+	</div>
+	<script type="text/javascript">
+		var box = document.querySelector('.box');
+		// box.onclick = function(event) {
+		// 	console.log('onlick-事件对象', event)
+		// 	// event 即为事件对象, 在监听函数中作为形参获取到
+		// 	// 注意：
+		// 	//  --	事件对象event只有在事件发生后才会存在
+		// 	//  --	event 为系统自动创建, 不需要主动传参
+		// 	//  --	event 中包含的是与 事件 相关的一系列数据
+		// 	event = event || window.event // ie特有的 支持ie678
+		// 	event.target 在ie9之前没有, event.srcElement
+		// }
+		box.onmousedown = function(event) {
+			console.log(event);
+			// 1.clientX, clintY 点击的位置距离当前body可视区域的 X/Y 坐标
+			console.log('XY坐标', event.clientX, event.clientY);
+
+			// 2.pageX, pageY 对整个页面来说, 包括卷曲的body部分内容
+			console.log('pageX Y', event.pageX, event.pageY);
+
+			// 3.screenX screenY 当前位置距离整个屏幕的X , Y坐标
+			console.log('screenX Y', event.screenX, event.screenY);
+
+			// 4.offsetX offsetY 相当于具有定位的父元素的点击位置 ，距离当前元素的X, Y坐标
+			console.log('offsetX Y', event.offsetX, event.offsetY);
+		}
+	</script>
+</body>
+</html>

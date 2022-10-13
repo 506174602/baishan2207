@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<ul>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+	<li>6</li>
+</ul>
+</body>
+</html>
+<script src="../jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// 修改单个样式  驼峰式
+		// $("li").css("backgroundColor","pink").css("fontSize","30px")
+
+		// 修改多个样式,css怎么写,里面就怎么写	
+		$("li").css({
+			"background-color":"pink",
+			"color":"blue",
+			"font-size":"60px"
+		})
+	})
+</script>

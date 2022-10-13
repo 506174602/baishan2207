@@ -1,0 +1,156 @@
+/*公共的属性*/
+*{
+	padding: 0;
+	margin: 0;
+}
+a{
+	text-decoration: none;
+	color: #222;
+}
+ul,li{
+	list-style: none;
+}
+.clearfloat:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+/*-----------头部导航---------------*/
+.nav{
+	height: 60px;
+	border: 1px solid red;
+	font-size: 13px;
+	padding: 0 24px;
+	overflow: hidden;
+}
+.nav-left{
+	float: left;
+	/*background-color: pink;*/
+}
+.nav-left a{
+	line-height: 60px;
+	margin-right: 31px;
+}
+.nav-left a:hover{
+	color: #315efb;
+}
+
+.nav-right{
+	float: right;
+	/*background-color: pink;*/
+}
+.nav .nav-right a{
+	float: left;
+	margin: 18px 0  0 32px;
+}
+.nav .nav-right a.login{
+	/*display: inline-block;*/
+	width: 48px;
+	height: 24px;
+	line-height: 24px;
+	background-color: blue;
+	text-align: center;
+	color: #fff;
+	margin: 14px 0  0 32px;
+	border-radius: 5px;
+}
+/*-------内容contain部分-------------------*/
+.contain{
+	height: 88vh;
+	border:1px solid blue;
+}
+/*logo图片*/
+.contain .logo{
+	/*background-color: pink;*/
+	text-align: center;
+}
+.contain .logo img{
+	width: 270px;
+	height: 129px;
+}
+/*搜索区域*/
+.contain .search{
+	width: 662px;
+	margin: 30px auto;
+	/*border:1px solid red;*/
+	/*background-color: pink;*/
+}
+.contain .search input{
+	float: left;
+}
+.contain .search .inp{
+	width: 548px;
+	height: 44px;
+	/*去除轮廓线*/
+	outline: none;
+	border:2px solid #ccc;
+	border-right-width: 0;
+	border-radius: 9px 0 0 9px;
+}
+.contain .search .sub{
+	width: 100px;
+	height: 48px;
+	background-color: #4E6EF2;
+	color: #fff;
+	border-radius:  0 9px 9px 0;
+	border:none;
+}
+/*--新闻列表---*/
+.news{
+	background-color: pink;
+	width: 660px;
+	margin: 0 auto;
+	font-size: 14px;
+}
+/*新闻头*/
+.news .title{
+	/*background-color: blue;*/
+}
+.news .title a:first-child{
+	float: left;
+}
+.news .title a:last-child{
+	float: right;
+}
+/*新闻内容*/
+.newslist{
+	border:1px solid red;
+	margin-top: 5px;
+}
+.newslist li{
+	border:1px solid blue;
+	width: 268px;
+	line-height: 32px;
+	float: left;
+}
+.newslist .left{
+	margin-right: 59px;
+}
+.newslist .right{
+	margin-left: 59px;
+}
+.newslist li a .active_1{
+	color: #fe2d46;
+}
+.newslist li a .active_2{
+	color: #f60;
+}
+.newslist li a .active_3{
+	color: #faa90e;
+}
+.normal{
+	color: #9195a3;
+}
+.newslist li a  span:first-child{
+	margin-right: 8px;
+}
+/*-----底部-----*/
+.footer{
+	font-size: 12px;
+	text-align: center;
+	color: #bbb;
+}
+.footer a{
+	color: #bbb;
+	margin-right: 20px;
+}

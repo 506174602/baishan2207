@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>阻止事件冒泡</title>
+	<style>
+		.parent-box {
+			width: 200px;
+			height: 200px;
+			background-color: red
+		}
+		.child-box {
+			width: 100px;
+			height: 100px;
+			background-color: blue
+		}
+	</style>
+</head>
+<body>
+	<div class="parent-box">
+		<div class="child-box"></div>
+	</div>
+	<a href="http://www.baidu.com" target="_blank">百度两下</a>
+	<script>
+		// 阻止事件冒泡：防止点击子元素后，触发父元素上的方法
+		// event.stopPropagation(); // 阻止事件冒泡
+		document.querySelector('.parent-box').addEventListener('click', function() {
+			console.log('父元素')
+		})
+
+		document.querySelector('.child-box').addEventListener('click', function(event) {
+			console.log('子元素')
+			event.stopPropagation();
+		})
+
+		document.querySelector('a').addEventListener('click', function(event) {
+			console.log('event----->', event)
+			event.preventDefault();
+		})
+	</script>
+</body>
+</html>

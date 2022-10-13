@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>背景属性</title>
+	<style>
+		.bgd{
+			width:1000px;
+			height: 3000px;
+			/*1.背景颜色:关键字（red  blue ....）rgba(0,0,0,0.2) 十六进制（#000000）*/
+			background-color: rgba(245,245,20,0.8);
+			/*2.背景图引入：
+					背景图和img图片的区别：看看窗户
+					背景图超出容器的尺寸时，超出部分会被隐藏  而img图片会溢出容器*/
+			background-image: url(image/bb.jpg);
+			/*3.背景图平铺方式：no-repeat不平铺
+							repeat-x  只在水平方向上平铺
+							repeat-y  只在垂直方向上平铺
+			*/
+			background-repeat: no-repeat;
+			/*4.背景图的大小:
+				语法：background-size:宽度  高度;
+				属性值：px(像素)
+						百分比：(相对于父元素的宽高)
+						cover: 自动填满父元素的内容部分;
+				ps:如果该属性 只取一个值 那么这个值是宽度  对应的高度进行原比例缩放;			
+			*/
+			/*background-size: 50%;*/
+			/*5.背景图定位：语法：background-position:水平移动的位置  垂直移动的位置;
+							取值：px  百分比
+							如果只取一个值  这个是水平移动的位置  默认垂直方向上居中*/
+			/*background-position: 200px;*/
+			/*6.背景图是否固定：语法：background-attachment:
+									  fixed  背景图固定
+									  scroll  背景图随着滚动条进行滚动
+									  */
+			background-attachment: scroll;
+		}
+
+	</style>
+</head>
+<body>
+	圣诞节了就安分
+	<div class="bgd">
+		<!-- <img src="image/aa.jpg" alt=""> -->
+	</div>
+	afdkasfhkasdhf
+</body>
+</html>
