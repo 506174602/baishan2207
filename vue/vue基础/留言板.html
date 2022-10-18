@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="mytext">
+		<button @click="addText">添加</button>
+	<ul>
+		<li v-for="(item,index) in list">
+			{{item}} ---{{index}}
+			<button @click="delText(index)">删除</button>
+			</li>
+	</ul>
+	</div>
+	
+	<script src="lib/vue.js"></script>
+	<script>
+		new Vue({
+			el:"#app",
+			data:{
+				// input的值
+				mytext:null,
+				list:[]
+			},
+			methods: {
+				// 添加方法
+				addText() {
+				
+					this.list.push(this.mytext)
+						console.log(this.list);
+					
+				},
+				// 删除的方法
+				delText(index){
+					console.log(index);
+					this.list.splice(index,1)
+				}
+			},
+		})
+	</script>
+</body>
+</html>

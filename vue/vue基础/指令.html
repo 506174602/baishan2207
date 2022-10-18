@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="msg">
+		<button v-on:click="look">look</button>
+		<p>{{msg}}</p>
+		<!-- v-model:双向数据绑定   数据发生变化的时候，试图发生变化，视图发生变化的时候数据也同步变化 -->
+		<!-- 注册一个非诚勿扰 -->
+		<!-- 修饰符  
+		lazy 失去焦点后触发
+		number 转换为数值型
+		trim 去掉前后空格
+		-->
+		<!-- v-cloak ：防止页面加载时出现闪烁现象
+		v-on ：事件 缩写时@ 
+		v-text 将数据填充到标签中，和插值表达式很像，没有闪动问题
+		如果存在html标签那么会将html标签一并渲染出来
+		他是单项绑定 数据改变页面才会发生改变，页面变化不会影响数据
+		v-html 可以解析html代码
+		v-once: 执行一次性的插值 当数据改变时不会发生改变
+		v-pre:显示原始信息 跳过编译过程
+		跳过这个元素和他的子元素
+		你有一些静态内容不需要编译可以使用这个指令加快渲染
+		-->
+		姓名：<input type="text" v-model="formdata.name">
+		<br>
+		性别：
+		<label for="">
+			<input type="radio" value="男" v-model="formdata.sex">男
+		</label>
+		<label for="">
+			<input type="radio" value="女" v-model="formdata.sex">女
+		</label>
+		<br>
+		出生年月：<input type="date">
+		<br>
+		优势：<input type="checkbox" value="车" v-model="formdata.advantage">车
+		<input type="checkbox" value="房" v-model="formdata.advantage">房
+		<input type="checkbox" value="年薪百万" v-model="formdata.advantage">年薪百万
+		<br>
+		个人介绍：<textarea id="" cols="30" rows="10" v-model="formdata.low"></textarea>
+		<br>
+		<button @click = look>提交</button>
+		<!-- ======= -->
+		<p>lazy: <input type="text" v-model.lazy="msg"></p>
+		<p>number: <input type="text" v-model.number="msg2"></p>
+		<p>trim <input type="text" v-model.trim="msg3"></p>
+		<p>msg3</p>
+		<p>{{msg3}}</p>
+		<p>msg</p>
+		<p>{{msg}}</p>
+		<p>msg2</p>
+		<p>{{msg2}}</p>
+		<!-- ----------- -->
+		
+		<!-- <style>
+			[v-cloak]{
+				display: none;
+			}
+		</style>
+		<br>
+		v-text <br>
+		<p v-text="msg"></p>
+		v-cloak <br>
+		<p v-cloak>{{msg}}</p>
+		什么都没有 <br>
+		<p>{{msg}}</p> -->
+		v-text <br>
+		<p v-text="msg"></p>
+		v-once <br>
+		<p v-once>{{msg}}</p>
+		v-html <br>
+		<p v-html="msg"></p>
+		<input type="text" v-model="msg">
+		<!-- <div v-html="htmm"></div> -->
+		<p>v-pre</p>
+		<p v-pre>{{msg}}</p>
+	</div>
+	<script src="lib/vue.js"></script>
+	<script>
+		new Vue({
+			el:'#app',
+			data:{
+				msg:'<i>张三123<i>',
+				msg2:0,
+				msg3:null,
+				
+				formdata:{
+					// name:null, //姓名
+					// sex:null, //性别
+					advantage:[], //优势
+					// low:null //介绍
+				}
+			},
+			methods:{
+				look(){
+					console.log(this.msg ,typeof this.msg);
+					console.log(this.msg3 );
+					console.log(this.msg2 ,	typeof this.msg2);
+					// setInterval(o=>{
+					// 	this.msg ++
+					// },2000)
+					console.log(this.formdata);
+				}
+			}
+		})
+	</script>
+</body>
+</html>

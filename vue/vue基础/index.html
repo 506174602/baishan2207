@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+	<script src="lib/vue.js"></script>
+</head>
+<body>
+	<!-- <div id="app">
+		{{message}}
+		{{10 +20}}
+	</div> -->
+	<div id="app">
+		<input type="text" v-model="msg">	
+		<p>{{msg}}</p>
+		<br>
+		<button @click="lookClik">提交</button>
+		<!-- 模板语法 -->
+		<br>
+		{{num >15?'张三':'李四'}}
+	</div>	
+	
+	<script>
+		// 创建一个vue实例 vue2的写法
+		var app = new Vue({
+			// 声明空间
+		  el: '#app',
+		  // 用来存放所有用到的变量 数据
+		  data: {
+		    message: 'Hello 黄子南!',
+			msg:15,
+			num:16
+		  },
+		  methods:{
+			  lookClik(){
+				  let res = '张三'
+				  if (this.msg ==res) {
+				  	alert('ok')
+				  } else{
+				  	alert('no')
+				  }
+				  setInterval(()=>{
+					  this.msg ++
+				  },2000)
+			  }
+		  }
+		})
+		
+	</script>
+</body>
+</html>

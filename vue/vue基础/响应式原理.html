@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div id="div"></div>
+	<script>
+	var obj = {}
+	// Object.defineProperty(参数1,参数2,参数3) 一共有三个参数
+	// 参数1要添加的对象
+	// 参数2添加对象的属性
+	// 参数3 {} 针对书的属性进行设置
+	let div = document.querySelector("#div")
+	Object.defineProperty(obj,'name',{
+		// 使用时的状态
+		get(){
+			console.log('get');
+			return div.innerHTML
+		},
+		// 设置时的状态
+		set(value){
+			console.log('set',value);
+			div.innerHTML=value
+		}
+	}) 
+	
+	</script>
+</body>
+</html>

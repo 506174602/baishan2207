@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<p v-show="type">张三是show</p>
+		<p v-if="type">张三是if</p>
+		<p v-if="name === 1">张三</p>
+		<p v-else-if="name===2">刘康</p>
+		<p v-else>李四</p>
+		<button @click="handClass(132)">查看</button>
+	</div>
+	<!-- v-show 和v-if 的区别
+	 1.v-show 本质上是通过display 设置为none 控制显示与隐藏
+	 v-if 动态向dom树内添加或者删除dom元素
+	 2.v-show 只编译一次，之后是通过css控制而v-if不停的销毁和创建，所以v-sho的性能好
+	 -->
+	
+	
+	<script src="lib/vue.js"></script>
+	<script>
+		new Vue({
+			el:'#app',
+			data:{
+				type:false,
+				name:2
+			},
+			methods:{
+				handClass(index){
+					console.log(index);
+					// this.colorClass = !this.colorClass
+				}
+				
+			}
+		})
+	</script>
+</body>
+</html>

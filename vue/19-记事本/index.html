@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>notebook</title>
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <section class="todoapp" id="app">
+      <header class="header">
+        <h1>记事本</h1>
+        <!-- 输入框 -->
+        <input
+          id="addTodo"
+          class="new-todo"
+          placeholder="请输入内容"
+          autofocus
+		  v-model="mytext"
+		  @keyup.enter="addText"
+        />
+      </header>
+      <section class="main">
+        <!-- 容器 -->
+        <ul class="todo-list" id="todoList">
+          <!-- 模板 -->
+          <li v-for="(item,index) in list">
+            <div class="view">
+              <label>{{item}}</label>
+              <button class="destroy" @click="delText(index)"></button>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <footer class="footer">
+        <!-- 计数区域 -->
+        <span class="todo-count">
+          合计:
+          <strong>{{list.length}}</strong>
+        </span>
+      </footer>
+    </section>
+  <script src="../vue基础/lib/vue.js"></script>
+  <script>
+  	new Vue({
+  		el:"#app",
+  		data:{
+  			// input的值
+  			mytext:null,
+  			list:[]
+  		},
+		created(){
+			
+			if(localStorage.getItem('list')){
+				this.list = JSON.parse(localStorage.getItem('list'))
+			}else{
+				
+			}
+			
+			
+		},
+		
+		
+  		methods: {
+  			// 添加方法
+  			addText() {
+  				this.list.push(this.mytext)
+				this.setlog()
+				this.mytext = ''
+
+  			},
+  			// 删除的方法
+  			delText(index){
+  				this.list.splice(index,1)
+				this.setlog()
+  			},
+			setlog(){
+				localStorage.setItem('list',JSON.stringify(this.list))
+			}
+  		},
+  	})
+  </script>
+  </body>
+</html>

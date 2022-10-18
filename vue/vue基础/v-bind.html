@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.red{
+			color: red;
+		}
+		.yellow{
+			color: yellow;
+			
+		}
+		.pink{
+			background: deeppink;
+		}
+		.fz{
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		{{msg + num}}
+		<br>
+		{{num*5}}
+		<br>
+		{{num>6 ? '皇子男':'正研成'}}
+		<p v-bind:class="colorClass?'red':'yellow'">{{msg}}</p>
+		<p :class="colorClass">{{msg}}</p>
+		<p :class="[classA,classB]" class="pink">多个类</p>
+		<button v-on:click='handClass'>切换</button>
+		<img :src="url" alt=""/>
+		<!-- v-bind :用来相应的更新html属性  缩写： -->
+		<p :style="{color:'red'}" style="line-height: 500px;">
+		<p :style="[red,yellow]" style="line-height: 500px;">
+			黑哥在看电脑
+		</p>
+		<!-- 绑定对象和绑定数组的区别
+		 绑定对象的时候，对象的属性就是要渲染的类名，对象的属性值对应的data中的数据
+		 绑定数组的是存的数据值
+		 -->
+	</div>
+	<script src="lib/vue.js"></script>
+	<script>
+		new Vue({
+			el:'#app',
+			data:{
+				red:{
+					color:'red',
+					// CSS的属性名要使用驼峰命名
+					fontSize:'20px'
+				},
+				yellow:{
+					background:'yellow'
+				},
+				msg:'张三',
+				num:1,
+				classA:'fz',
+				classB:'red',
+				colorClass:false,
+				url:'https://cn.vuejs.org/images/partners/64robots-hero.jpg'
+			},
+			methods:{
+				handClass(){
+					this.colorClass = !this.colorClass
+				}
+				
+			}
+		})
+	</script>
+</body>
+</html>
