@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.tab{
+		margin: 20px;
+		}
+		.tab ul{
+			display: flex;
+		}
+		.tab ul li{
+			list-style: none;
+			width: 100px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			
+		}
+		.open{
+			background: pink;
+		}
+		.content{
+			width: 500px;
+			height: 300px;
+			margin-top: 30px;
+		}
+		img{
+			width: 100%;
+			height: 300px;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div class="tab">
+			<!-- 头部切换 -->
+			<ul>
+				<li :class="index == type ?'open':''" v-for="(item,index) in tablist" @click="openFun(index)">
+					{{item}}
+				</li>
+			
+			</ul>
+			<!-- 内容区域 -->
+			<div class="content">
+				<img :src="imglist[type]" alt="">
+			</div>
+		</div>
+	</div>
+	<script src="lib/vue.js"></script>
+	<script>
+		new Vue({
+			el:'#app',
+			data:{
+				tablist:[
+					'首页',
+					'个人中心',
+					'购物车'
+				],
+				imglist:[
+					'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp2.music.126.net%2FYp6k6ZibOnbW42YRQiWy7A%3D%3D%2F109951163293132866.jpg&refer=http%3A%2F%2Fp2.music.126.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1668739139&t=5447277d8b1637118fda94f138d6bfc4https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp2.music.126.net%2FYp6k6ZibOnbW42YRQiWy7A%3D%3D%2F109951163293132866.jpg&refer=http%3A%2F%2Fp2.music.126.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1668739139&t=5447277d8b1637118fda94f138d6bfc4',
+					'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201905%2F07%2F20190507134654_cmyie.thumb.400_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1668739139&t=5de3016c22258d903b6af8c7fd6449a8',
+					'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201205%2F09%2F20120509001948_T2rF8.thumb.700_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1668739139&t=c66333d434e887cd11ad571ef3fb9821'
+				],
+				type:0
+			},
+			methods:{
+				openFun(index){
+					this.type = index
+				}
+			}
+		})
+	</script>
+</body>
+</html>
