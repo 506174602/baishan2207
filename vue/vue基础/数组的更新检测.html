@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.red{
+			color: red;
+		}
+		.pink{
+			color: pink;
+		}
+		.yellow{
+			color: yellow;
+		}
+		.blue{
+			color: blue;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="app">
+	
+	 <!-- 数组更新的检测 -->
+	 <!-- 可以被检测到的数组操作 
+	 push() pop shift unshift splice reverse sort
+	 -->
+	 <!-- 不可以被检测的 
+	 concat() map filter slice
+	 要想发生变化，用新的替换旧的
+	 -->
+	 
+	 
+	<p v-for="(item,index) in list" :key="index">
+		{{item}}
+	</p>
+	</div> 
+	<script src="lib/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el:'#app',
+			data:{
+				list:['1111','2222','3333','44444'],
+				
+			},
+			methods:{
+				handClass(){
+					this.colorClass = !this.colorClass
+				}
+				
+			}
+		})
+	</script>
+</body>
+</html>

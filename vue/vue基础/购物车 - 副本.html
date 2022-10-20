@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		#app{
+			width: 400px;
+			margin: 0 auto;
+		}
+		li{
+			display: flex;
+			    flex-direction: row;
+			    flex-wrap: nowrap;
+			    align-content: center;
+			    justify-content: flex-start;
+			    align-items: center;
+		}
+		img{
+			width: 100px;
+			height: 100px;
+		}
+		ul{
+			height: 60vh;
+		}
+		.right{
+			display: flex;
+			    flex-direction: column;
+			    flex-wrap: nowrap;
+			    align-content: flex-start;
+			    justify-content: center;
+			    align-items: center;
+		}
+		.text{
+			flex: 2;
+		}
+	</style>
+</head>
+<body>
+		<div id="app">
+			<input type="checkbox" v-model="allType" @click='allfun'> 全选
+			<ul>
+				<li v-for="(item,index) in shoplist" :key="index">
+					<input type="checkbox" v-model="newList" :value="item" @change="setType">
+					<img :src="item.img" alt="">
+					<div class="text">{{item.name}}</div>
+					<div class="right">
+						<div>
+							<button @click="item.num--" :disabled="item.num==1">-</button>
+							<span>{{item.num}}</span>
+							<button @click="item.num++">+</button>
+						</div>
+						<div>￥{{item.price}}</div>
+						</div>
+				</li>
+				
+			</ul>
+			<div>总计：{{sum()}}</div>
+		</div>
+		<script src="lib/vue.js"></script>
+		<script>
+			var app = new Vue({
+				el:'#app',
+				data:{
+					nums:0,
+					shoplist:[
+						{
+						id:1,
+						name:'火鸡面',
+						img:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.baicaolu.com%2Farticle%2Fwp-content%2Fuploads%2F2017%2F08%2F201702241341347309141.png&refer=http%3A%2F%2Fwww.baicaolu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1668752186&t=10097ea1edfbe281c907c6fcd322eb09',
+						num:1,
+						price:3.15,
+						type:true
+						},
+						{
+							id:2,
+							name:'干脆面',
+						img:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fgaitaobao4.alicdn.com%2Ftfscom%2Fi1%2F43368023%2FTB2Un43kpXXXXaCXpXXXXXXXXXX_%21%2143368023.jpg_300x300.jpg&refer=http%3A%2F%2Fgaitaobao4.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1668751523&t=f994a0b900ca953404986f0c925c3b01',
+						num:1,
+						price:5.25,
+						type:false
+						},
+						{
+							id:3,
+							name:'快乐水',
+						img:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwx1.sinaimg.cn%2Flarge%2F007h0Pn6ly1gpjbqqyw21j30k00j7dje.jpg%3Fw%3D720%26h%3D691&refer=http%3A%2F%2Fwx1.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1668752261&t=7f7b977cb6bf41ecd6cfb829943540d7',
+						num:1,
+						price:10.65,
+						type:false
+						},
+						
+					],
+					// 选中的商品
+					newList:[],
+					// 全选的状态
+					allType:false
+				},
+				methods: {
+					// 单选
+					setType(){
+						if (this.newList.length === this.shoplist.length) {
+							this.allType = true
+						} else{
+							this.allType = false
+						}
+							
+					},
+					// 全选
+					allfun() {
+						console.log(this.allType);
+						if (!this.allType) {
+							this.newList = this.shoplist
+						} else{
+							this.newList = []
+						}
+						
+					},
+					sum(){
+						var numss = 0
+						this.newList.forEach(e=>{
+							numss+=e.num*e.price
+						})
+						return numss
+					}
+				},
+				})
+		</script>
+</body>
+</html>

@@ -27,9 +27,9 @@
 	<p>{{list[1]}}</p>
 	<p>{{list[2]}}</p>
 	<p>{{list[3]}}</p> -->
-	<p v-for="(item,index) in list">
+	<!-- <p v-for="(item,index) in list">
 		{{item}} ===={{index}}
-	</p>
+	</p> -->
 	<!-- 1:未付款
 	2.已付款
 	3.已发货
@@ -47,14 +47,28 @@
 		<span :class="item.type ===3?'yellow':''">已发货</span>
 		<span :class="item.type ===4?'blue':''">签收</span> -->
 	</p>
-	</div>
+	<!-- <p v-for="item in 10">
+		{{item}}
+	</p>
+	<p v-for="(item,key) in obj">
+		{{key}}:{{item}}
+	</p>
+	-->
 	<!-- v-show 和v-if 的区别
 	 1.v-show 本质上是通过display 设置为none 控制显示与隐藏
 	 v-if 动态向dom树内添加或者删除dom元素
 	 2.v-show 只编译一次，之后是通过css控制而v-if不停的销毁和创建，所以v-sho的性能好
 	 -->
-	
-	
+	<!-- v-for: key是来给每一个节点做一个唯一的标识 为了让vue可以区分它们
+	 key的主要作用是为了高效的更新虚拟dom 减少资源消耗
+	 理想的key 每一项都有切唯一的id
+	 -->
+	 <!-- 数组更新的检测 -->
+	 <!-- 可以被检测到的数组操作 -->
+	<p v-for="(item,index) in list" :key="index">
+		{{item}}
+	</p>
+	</div> 
 	<script src="lib/vue.js"></script>
 	<script>
 		new Vue({
@@ -70,7 +84,12 @@
 					{name:'gpu',type:2},
 					{name:'gdp',type:3},
 					{name:'xyz',type:4},
-				]
+				],
+				obj:{
+					name:'张三',
+					id:1,
+					age:15
+				}
 			},
 			methods:{
 				handClass(){
