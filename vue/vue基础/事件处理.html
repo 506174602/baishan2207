@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.red{
+			color: red;
+		}
+		.pink{
+			color: pink;
+		}
+		.yellow{
+			color: yellow;
+		}
+		.blue{
+			color: blue;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="app">
+	{{num}}
+	<!-- 1.直接触发代码 -->
+	<button @click="num++">++</button>
+	<!-- 函数名的形式进行调用  默认有一个事件对象-->
+	<button @click="setNum">2++</button>
+	<!-- 函数表达式进行调用  
+	可以传参数
+	传递事件对象的话 setNum4($event,2) 
+	-->
+	<button @click="setNum2(2)">3++</button>
+	<button @click="setNum4">4++</button>
+	<input type="text" @input="setNum4($event , 2,3)">
+	<ul @click="ulfun">
+		<li @click="lifun"></li>
+	</ul>
+	</div> 
+	<script src="lib/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el:'#app',
+			data:{
+				num:1
+				
+			},
+			methods:{
+				setNum(){
+					this.num++
+					
+				},
+				setNum2(n){
+					console.log(n);
+					this.num += n
+				},
+				setNum4(evt , n,x){
+					console.log(x);
+					console.log(evt.target , n ,x);
+					console.log(evt.target.value,n);
+					console.log(evt.target.value + n);
+					this.num = evt.target.value + n
+				}
+			}
+		})
+		
+	</script>
+</body>
+</html>

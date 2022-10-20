@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.red{
+			color: red;
+		}
+		.pink{
+			color: pink;
+		}
+		.yellow{
+			color: yellow;
+		}
+		.blue{
+			color: blue;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="app">
+	 <input type="text" v-model="values">
+	<p v-for="(item,index) in look()" :key="index">
+		{{item}}
+	</p>
+	</div> 
+	<script src="lib/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el:'#app',
+			data:{
+				values:'',//输入框的值
+				oldlist:['aaa','abc','bcd','cbd','abcd','bbb','ccc','ddd'],
+				list:['aaa','abc','bcd','cbd','abcd','bbb','ccc','ddd'],
+				
+			},
+			methods:{
+				// 输入查找的方法
+				look(){
+					console.log('values');
+					return this.list.filter(item=>item.includes(this.values))
+					
+				
+				}
+				// look(){
+				// 	console.log('values');
+				// 	this.list = this.oldlist.filter(item=>item.includes(this.values))
+					
+				
+				// }
+			}
+		})
+		// var arr = ['aaa','abc','bcd','cbd','abcd','bbb','ccc','ddd']
+		
+		// var newarr = arr.filter(item=>item.indexOf('a') >-1)
+		// var newarr = arr.filter(item=>item.includes('b'))
+		
+		// console.log(newarr);
+		// var newss = arr.filter(item=>item.indexOf('a')>-1)
+		// var newss = arr.filter(item=>item.includes('a'))
+		// console.log(newss);
+	</script>
+</body>
+</html>

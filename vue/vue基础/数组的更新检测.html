@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -32,8 +33,9 @@
 	 concat() map filter slice
 	 要想发生变化，用新的替换旧的
 	 -->
-	 
-	 
+	 <!-- input方法 当输入框内容发生变化的时候触发
+	 change 方法 失去焦点的是时候触发-->
+	 <input type="text" v-model="values" @input="inputfun">
 	<p v-for="(item,index) in list" :key="index">
 		{{item}}
 	</p>
@@ -42,13 +44,17 @@
 	<script>
 		var app = new Vue({
 			el:'#app',
+			
 			data:{
-				list:['1111','2222','3333','44444'],
-				
+				list:['1111','2222','3333','44444','55555','66666'],
+				values:null //输入的内容
 			},
 			methods:{
 				handClass(){
 					this.colorClass = !this.colorClass
+				},
+				inputfun(e){
+					console.log(e);
 				}
 				
 			}

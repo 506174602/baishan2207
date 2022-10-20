@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.red{
+			color: red;
+		}
+		.pink{
+			color: pink;
+		}
+		.yellow{
+			color: yellow;
+		}
+		.blue{
+			color: blue;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="app">
+
+	<ul @click.self="ulfun">
+		<li @click.stop="lifun">是兄弟就来砍我</li>
+		<li @click="lifun">一定要预习</li>
+	</ul>
+	<a href="http://baidu.com" @click.prevent>百度</a>
+	</div> 
+	<script src="lib/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el:'#app',
+			data:{
+				num:1
+				
+			},
+			methods:{
+				ulfun(){
+					console.log('ul');
+				},
+				lifun(evt){
+					console.log('li');
+					// evt.stopPropagation()	
+				},
+			}
+		})
+		
+	</script>
+</body>
+</html>

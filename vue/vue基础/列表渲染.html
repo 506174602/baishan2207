@@ -68,6 +68,9 @@
 	<p v-for="(item,index) in list" :key="index">
 		{{item}}
 	</p>
+	<p v-for="item in arrfun()">
+		{{item}}
+	</p>
 	</div> 
 	<script src="lib/vue.js"></script>
 	<script>
@@ -94,6 +97,9 @@
 			methods:{
 				handClass(){
 					this.colorClass = !this.colorClass
+				},
+				arrfun(){
+					return [123,321,258,315,541]
 				}
 				
 			}
