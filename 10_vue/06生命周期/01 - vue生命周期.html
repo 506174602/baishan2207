@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue生命周期</title>
+</head>
+<body>         
+    <div id="app">
+        {{num}}
+        <button @click="setNum">setNum</button>
+        <button onclick="destroy()">销毁</button>
+    </div>
+
+</body>
+</html>
+<script src="../vue.js"></script>
+<script>
+    // 生命周期 事物从诞生到死亡的整个过程
+    // new Vue  开始 Vue  出生 vue 替我们做了很多事情
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            num: "张三",
+        },
+        methods: {
+            setNum() {
+                this.num = "李四";
+            }
+
+        },
+        // vue 实例 创建之前调用
+        beforeCreate() {
+            console.log("vue 实例 创建之前调用");
+            //这个方法 不能获取到 data 中的数据
+        },
+        // vue 实例已经创建成功
+        created() {
+            // 比较常用 例如接口的调用
+            console.log("vue 实例已经创建成功")
+        },
+        // 视图层编译之前
+        beforeMount() {
+            console.log("视图层编译之前")
+        },
+        //视图层编译之后
+        mounted() {
+            console.log("视图层编译之后")
+        },
+        //数据改变之前
+        beforeUpdate() {
+            console.log("数据改变之前")
+        },
+        // 数据改变之后
+        updated() {
+            console.log("数据改变之后")
+        },
+        // vue 实例销毁之前
+        beforeDestroy() {
+            console.log("vue 实例销毁之前")
+        },
+        // vue 实例销毁之后
+        destroyed() {
+            console.log("vue 实例销毁之后")
+        }
+    })
+
+    function destroy() {
+        // $destroy()  // 完全销毁一个实例，清理它与其他实例的连接，解绑所有指令以及监听器
+        vm.$destroy();
+    }
+</script> 

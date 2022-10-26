@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div id="app">
+		<!-- 
+			v-html：以代码的形式输出 相当于js中的innerHTML
+			v-text：以文本的形式输出 相当于js中的innerText
+		 -->
+		 <input type="text" name="" v-model="msg">
+		 <!-- v-once：给谁绑定这个指令，那么这个指令就只【渲染一次】，包括元素或者组件所有的子节点。首次渲染后，不会随着数据的变化而重新渲染。视为静态内容 -->
+		 <div v-html="msg"></div>
+		 <div v-text="msg" v-once></div>
+		 {{msg}}
+		 <!-- 区别：插值渲染与v-text渲染数据虽然相同,但是当js报错的时候,v-text不会暴露代码 -->
+	</div>
+</body>
+</html>
+<script src="../vue.js"></script>
+<script type="text/javascript">
+	// 构建出一个vue实例
+	var app=new Vue({
+		el:"#app",
+		// 存储数据变量
+		data:{
+			msg:"<h1>我是h1</h1>"
+		},
+		// 存放函数的地方
+		methods:{
+		}
+	})
+
+</script>

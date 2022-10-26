@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<body>
+	<div id="app">
+		<!-- 
+			v-on用来绑定事件 v-on：事件名称="函数"
+			v-on简写@
+		 -->
+		<input type="button" value="按钮" v-on:click="show">
+		<input type="button" value="按钮@" @click="show">
+
+		<input type="button" value="事件委托" @click="handleClick">
+		<!-- 
+			带括号意味着传递参数，因为你没有传递所以打印的事件委托失效了
+			怎么解决？触发事件的时候传递$event
+		 -->
+		<input type="button" value="事件委托()" @click="handleClick($event)">
+		<input type="button" value="事件传递参数()" @click="handleRow('王付玉')">
+
+
+	</div>
+</body>
+
+</html>
+<script src="../vue.js"></script>
+<script type="text/javascript">
+	// vue实例
+	var app = new Vue({
+		el: "#app",
+		// 存放数据变量
+		data: {
+			arr: ["html", "css", "js"],
+			str: "vue"
+		},
+		// 存放函数的地方
+		methods: {
+			show() {
+				console.log("我是show函数")
+			},
+			handleClick(e) {
+				console.log(e)
+				// 每次点击都会将str的内容添加到arr里面去
+				this.arr.push(this.str)
+
+				console.log(this.arr)
+			},
+			handleRow(str) {
+				console.log(str + "是小狗")
+				// 函数嵌套
+				this.show()
+			}
+		}
+	})
+</script>

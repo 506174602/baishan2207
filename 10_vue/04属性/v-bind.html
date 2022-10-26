@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <style>
+        .colorSty {
+            background-color: blueviolet;
+            height: 40px;
+        }
+
+        .colorElse {
+            background-color: rgb(67, 245, 12);
+            height: 40px;
+        }
+
+        .colorDs {
+            background-color: rgb(238, 28, 28);
+            height: 40px;
+        }
+
+        .sizeSty {
+            font-size: 40px;
+            font-weight: bold;
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <!-- <img v-bind:src="srcc" alt=""> -->
+        <button @click="setSrc">清空路径</button>
+        <!-- 动态绑定class -->
+        <div v-bind:class="{colorSty:isShow}">动态绑定class</div>
+        <!-- 通过三元运算符 动态绑定class  -->
+        <div :class="[isShow?'colorSty':'colorElse']">我是class 的三元运算符</div>
+        <!-- 在不同条件下　执行不同的ｃｌａｓｓ -->
+        <div class="sizeSty" :class="{colorSty: index ===0,colorElse:index === 1,colorDs: index === 2}">在不同条件下　执行不同的
+        </div>
+
+
+
+        <input type="number" v-model.number="index">
+
+        <!-- : === v-bind   简写的方式 -->
+        <div :style="{fontSize: size+'px'}">我是动态绑定Style</div>
+        <!-- 通过三元运算符进行动态绑定 -->
+        <div :style="{color:(isShow?'#0099ff':'#ff0000')}">我是三元运算符</div>
+
+        <button @click="setSize">改变字体大小</button>
+        <button @click="setSrc">改变isShow</button>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                srcc: "../img/Capture001.png",
+                isShow: true,
+                size: 30,
+                index: 0
+
+            },
+            methods: {
+                setSrc() {
+                    // this.srcc = ""
+                    this.isShow = false
+                },
+                setSize() {
+                    // this.size = 20;
+                    // if (this.size === 20) {
+                    //     this.size = 30
+                    // } else {
+                    //     this.size = 20
+                    // }
+                    //三元运算的方法
+                    this.size = this.size === 30 ? 20 : 30
+                },
+            }
+        })
+    </script>
+
+</body>
+
+</html>

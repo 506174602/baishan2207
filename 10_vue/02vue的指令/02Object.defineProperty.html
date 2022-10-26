@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+
+	</style>
+</head>
+
+<body>
+</body>
+
+</html>
+<script type="text/javascript">
+	/*
+		Object.defineProperty(参数1，参数2，参数3):方法是给对象设置属性
+		参数1：要添加的或者要修改的对象
+		参数2：要添加的对象的属性
+		参数3：是个对象，针对数据的属性进行设置
+
+	*/
+	let obj = {}
+
+	// let obj={
+	// 	name:"张三"
+	// }
+
+	// 给obj这个空对象添加一个name属性，并且对这个属性进行设置
+	Object.defineProperty(obj, "name", {
+		// delete(删除对象的属性)，默认是true,false不可以使用删除属性
+		configurable: false,
+		// 能否对这个对象for-in/for-of等方法进行必须遍历。默认是true,false不可以对对象进行遍历
+		enumerable: false,
+		// 对象的属性值是否可以进行修改，默认值是true,false不可以修改对象的属性值
+		writable: false,
+		// 对象的属性值，默认如果没有value属性那么就是undefined
+		value: "李贤良"
+	})
+	// value属性
+	console.log(obj.name)
+	// writable属性
+	obj.name = "张三"
+	console.log(obj.name, "writable属性")
+	// enumerable属性
+	for (var i in obj) {
+		console.log(i, "enumerable属性")
+	}
+	// configurable属性
+	delete obj.name
+	console.log(obj.name, "configurable属性")
+</script>

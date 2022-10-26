@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<body>
+	<!-- view -->
+	<div id="app">
+		{{mlq}}
+	</div>
+	<!-- view -->
+	<div id="app1">
+		{{lxl}}
+		<!-- 因为mlq是app实例里面的变量，不是app1里面的变量，所以在app1这个实例中找不到这个变量，报错defined -->
+		{{mlq}}
+		<!-- vue实例不能嵌套 -->
+		<!-- <div id="app2">
+			{{str}}
+		</div> -->
+	</div>
+</body>
+
+</html>
+<script src="../vue.js"></script>
+<script type="text/javascript">
+	// 构建出一个vue实例，view model
+	var app = new Vue({
+		// 声明空间,不能用类名，要用id唯一的。因为用类名是可以重复的，但是vue中不允许重复
+		el: "#app",
+		// 用来存放所有用到的数据变量
+		data: {
+			mlq: "hello 马龙泉 我是app"
+		}
+	})
+	// 构建出一个vue实例，view model
+	var app1 = new Vue({
+		// 声明空间
+		el: "#app1",
+		// 用来存放所有用到的数据变量
+		data: {
+			lxl: "hello 特朗普 我是app1"
+		}
+	})
+	// 构建出一个vue实例，view model
+	var app2 = new Vue({
+		// 声明空间
+		el: "#app2",
+		// 用来存放所有用到的数据变量
+		data: {
+			str: "hello 我是app2"
+		}
+	})
+
+	/*
+		声明空间，不能用类名，要用id唯一的。因为用类名是可以重复的，但是vue中不允许重复
+		vue实例不能嵌套，app实例里面的变量不能去app1里面渲染数据，每个实例都是独立的个体
+	*/
+</script>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{mess}}
+        <abc></abc>
+    </div>
+    <p>----------------------------------------------------------</p>
+    <div id="two">
+        <abc></abc>
+    </div>
+    <script>
+        // 什么是组件？
+        // 编写 可复用组件 的几个原则
+        // 1. 以组件的功能命名
+        // 2. 只负责ui 的展示和交互动画，不要在组件中与服务器打交道
+        // 3 可复用组件不会因组件的位置，场景而发生变化，尽量减少对外部条件的依赖
+        var head = Vue.extend({ // 继承出来一个vue 实例
+            template: "<h2>{{message}}</h2>",
+            data() {
+                return {
+                    message: "我是局部组件"
+                }
+            }
+        })
+        // 挂载到全局
+        Vue.component("abc", head)
+
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                mess: "我是父亲"
+            },
+            // components: { // 用来声明局部组件
+            //     abc: head // 将组件head 重命名为abc
+            // }
+        })
+        var vms = new Vue({
+            el: "#two",
+            data: {
+                mess: "我是父亲"
+            },
+        })
+    </script>
+
+
+</body>
+
+</html>

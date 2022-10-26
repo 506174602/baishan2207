@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div id="app">
+		书名：<input type="text" v-model="str">
+		作者：<input type="text" v-model="user">
+		<input type="submit" value="新增" @click="add">
+
+		<table border="1" width="500" cellspacing="0" cellpadding="0">
+			<tr>
+				<th>序号</th>
+				<th>书名</th>
+				<th>作者</th>
+				<th>操作</th>
+			</tr>
+			<tr v-for="(item,index) in arr" :key="index">
+				<td>{{index+1}}</td>
+				<td>{{item.name}}</td>
+				<td>{{item.user}}</td>
+				<td>
+					<a href="javascript:;" @click="del(index)">删除</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
+<script src="../vue.js"></script>
+<script>
+	var app=new Vue({
+		el:"#app",
+		data:{
+			arr:[
+				{
+					name:"三国志",
+					user:"陈寿"
+				},
+				{
+					name:"三国演义",
+					user:"罗贯中"
+				},
+			],
+
+			str:"",
+			user:""
+		},
+		methods:{
+			del(index){
+				console.log(index)
+				// splice(要删除的下标，删除的长度)
+				this.arr.splice(index,1)
+			},
+			add(){
+				// 判断inupt框里面的内容不能为空
+				if(this.str!=''&&this.user!=''){
+					// 首先定义一个对象,然后把这个对象push到arr中
+					let obj={
+						// 将当前输入的内容赋值给对象中的属性
+						name:this.str,
+						user:this.user
+					}
+					// 将这个对象push到arr数组中
+					this.arr.push(obj)
+					// 添加完成之后清空内容
+					this.str=''
+					this.user=''
+				}
+				else{
+					alert("内容不能为空")
+				}
+			}
+		}
+	})
+</script>

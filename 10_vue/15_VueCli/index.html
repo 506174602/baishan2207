@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    vue/cli
+    脚手架: 自动帮助我们构建项目的工具。vue的自动化构建工具是 node.js做的，所以 这就是为什么下载 node的原因
+    脚手架需要的环境:
+    -- node.js 运行环境。它承载了js的运行。js本身不能独立的运行，它需要借助html的引用，而nodejs可以让js独立的运行起来
+    -- npm 管理依赖包
+
+    脚手架的优势:
+    -- 提高开发效率
+    -- 可以使用主流的 ECMAScript 语法
+    -- 通过webpack实现编译查看效果(注意: 不是浏览器编译)。浏览器认识: html css js 。vue文件需要通过webpack编译成浏览器认识的代码(比浏览器编译要快一些)
+    -- 自动更新，能够实时查看效果，会监听代码的变化，实时编译
+
+    ---- webpack 模块打包工具。
+    ------ 工作内容: 分析项目结构，找到js模块以及其他的一些浏览器不能直接运行的拓展语言(TypeScript Scss), 并将其打包为合适格式的文件以供浏览器使用
+
+
+
+    1.安装脚手架 npm install -g @vue/cli / cnpm install -g @vue/cli
+    2.检查安装的vue cli 版本 vue --version
+    安装 cnpm: npm install -g cnpm --registry=https://registry.npmmirror.com
+
+
+
+    2022年1月14日 作业
+    1. 通过tree命令列出当前项目的结构，找出合适的 tree 命令，
+    2. 解释项目结构，即解释每一个文件或文件夹 的功能，或其代码内容实现了什么功能。
+    3. 列出脚手架创建出来的项目，用到了哪些目前所学习的知识点，及相关代码
+
+    ===================================================================
+    1. 创建vue项目 vue create vue-demo (vue-demo就是自己命名的项目名称)
+    2.创建成功后 ,切换到 vue-demo目录下，也就是进入项目中， cd vue-demo
+    3. 执行 npm run serve 启动项目。（该命令不是唯一的，执行什么命令启动项目，自己去package.json中的script属性中查看）
+
+    == 工作中的操作，给你一个项目，一般给的是 git地址(https ssh)
+    1. git clone git@gitee.com:WeBank/fes.js.git ssh的方式获取项目
+    1. git clone https://gitee.com/WeBank/fes.js.git https的方式获取项目
+    2.1 ls（/dir）
+    2.2 cd fs.js （就是项目名称）
+    3. npm install (安装项目依赖， nvm use 12.15.0 )
+    4. npm run serve / npm run dev / npm start
+
+    == 解释项目结构
+    README.md: md: markdown文件.做项目介绍，功能说明，环境配置方式 安装 启动等等。
+    package.json: 非常重要。
+    -- scripts 定义了npm运行的命令，启动 打包
+    -- dependencies 项目所需要的依赖 和 插件
+    -- devDependencieds 插件(插件名称: 插件所需要的(最低)版本)
+    package-lock.json:
+    babel.config.js: 对babel的配置。对es6+的语法进行处理 编译
+    .gitignore: 占用空间大，不是必须的，私有的配置文件，环境变量文件等。尤其是 node_modules 文件夹, 它包含了我们安装的所有依赖和插件，占用了非常大的空间。
+    src(source):
+    -- assets: 包含 image js css 等所有的静态文件
+    -- components: 项目所有的组件. 每个文件就是对应的组件内容，注意文件名都是大驼峰形式写法，文件名后缀都是以.vue结尾
+    ---- HelloWorld.vue
+
+    -- app.vue: 根组件，最顶级的组件
+    -- main.js: js 逻辑的主入口文件
+    public:
+    -- favicon.ico: 浏览器头部投标
+    -- index.html: 项目的入口文件
+    node_modules: 包含了所安装的所有依赖和插件
+
+</body>
+
+</html>

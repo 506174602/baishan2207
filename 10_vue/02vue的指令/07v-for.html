@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<body>
+	<div id="app">
+		<!-- v-for 具体想要生成谁，就把v-for写在谁身上  -->
+		<!-- 
+			语法：v-for="item in arr" 
+			v-for="数组循环后每条数据的别名(随便起的) in data中定义的变量名称也就是数组"
+		-->
+		<ul>
+			<li v-for="item in arr">
+				{{item}}
+			</li>
+		</ul>
+		<!-- 
+			语法：v-for="(item,index) in arr"
+			v-for="(数组循环后每条数据的别名,每条数据的索引下标) in data中定义的变量名称也就是数组"
+		 -->
+		<ul>
+			<li v-for="(ccc,i) in arr">
+				{{i}}---{{ccc}}
+			</li>
+		</ul>
+		<!-- 只有遇到v-for就给他加上:key="index" -->
+		<ul>
+			<li v-for="(item,index) in stu" :key="index">
+				<span>{{index+1}}---姓名：{{item.name}}</span>
+				<span>{{index+1}}---性别：{{item["sex"]}}</span>
+				<span>{{index+1}}---年龄：{{item["age"]}}</span>
+				<span>{{index+1}}---学校：{{item.sch}}</span>
+			</li>
+		</ul>
+		<table width="500" border="1" cellpadding="0" cellspacing="0">
+			<tr>
+				<th>序号</th>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>年龄</th>
+				<th>学校</th>
+				<th>操作</th>
+			</tr>
+			<tr v-for="(item,index) in stu" :key="index">
+				<td>{{index+1}}</td>
+				<td>{{item.name}}</td>
+				<td>{{item.sex}}</td>
+				<td>{{item.age}}</td>
+				<td>{{item.sch}}</td>
+				<td>
+					<a href="">删除</a>
+				</td>
+			</tr>
+		</table>
+		<!-- 
+			1 v-for里面的key的作用？
+				:key代表的是唯一，不加key会在项目中报警告,渲染的时候会出现渲染错位。key的作用主要是为了高效更新虚拟dom，其目的是为了让vue可以区分他们，加上key属性有利于代码优化，减少资源浪费
+
+			2 v-if与v-for能在一起使用吗？
+
+				能，但是不建议使用，因为v-for优先级比v-if高，带来性能方面的浪费。（每次渲染都会先循环在进行条件判断）
+
+				循环了一万条数据，准备显示到页面上了
+				v-if判断是个false:不加载,不用渲染页面了
+		  -->
+	</div>
+</body>
+
+</html>
+<script src="../vue.js"></script>
+<script type="text/javascript">
+	/*
+js的写法：
+	for(var i=0;i<arr.length;i++){
+		// 第一种方法
+		// ul.innerHTML+=`<li>${arr[i]}</li>`
+
+		// 第二种方法
+		var oli = document.createElement('li');
+		oli.innerText=arr[i]
+		ul.appendChild(oli)
+	}
+*/
+	var app = new Vue({
+		el: "#app",
+		data: {
+			stu: [{
+					name: "王付玉",
+					age: 53,
+					sex: "第三性别",
+					sch: "家里蹲大学"
+				},
+				{
+					name: "代振",
+					age: 20,
+					sex: "男",
+					sch: "山铝大学"
+				},
+				{
+					name: "马龙泉",
+					age: 20,
+					sex: "男",
+					sch: "山铝大学"
+				},
+			],
+			arr: ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
+		}
+	})
+</script>

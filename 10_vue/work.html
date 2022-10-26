@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../05-Bootstrap/bootstrap-v3/css/bootstrap.css">
+    <style>
+        .det {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .det-m {
+            width: 1000px;
+            height: 400px;
+            background: #fff;
+            position: absolute;
+            top: 25%;
+            left: 25%;
+        }
+        
+        #app {
+            width: 1200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h2>学生管理</h2>
+        <hr>
+
+        <div id="app">
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-2">
+                    <button type="submit" class="btn btn-default" @click="amend">提交</button>
+                </div>
+            </div>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <form action="" class="for-horizontal">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">
+                            姓名:
+                        </label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputEmail3" placeholder="请输入你的姓名" v-model="newName">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">
+                                年龄:
+                            </label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputEmail3" placeholder="请输入你的年龄" v-model="newAge">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">
+                                学校:
+                            </label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputEmail3" placeholder="请输入你的学校" v-model="newSch">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">
+                                出生日期:
+                            </label>
+                        <div class="col-sm-9">
+                            <input type="date" name="" v-model="newDate">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">
+                            性别:
+                        </label>
+                        <div class="col-sm-9">
+                            <input type="radio" v-model="newSex" name="s"> 男
+                            <input type="radio" v-model="newSex" name="s"> 女
+                            <input type="radio" v-model="newSex" name="s"> 不确定
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- <input type="submit" value="新增"> -->
+            <table border="1" width="500" cellspacing="0" cellpadding="0" class="table table-bordered table-condensed">
+                <tr>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>年龄</th>
+                    <th>学校</th>
+                    <th>出生日期</th>
+                    <th>操作</th>
+                </tr>
+                <tr v-for="(item,index) in arr" :key="index">
+                    <td>{{arr[index].name}}</td>
+                    <td>{{arr[index].sex}}</td>
+                    <td>{{arr[index].age}}</td>
+                    <td>{{arr[index].sch}}</td>
+                    <td>{{arr[index].date}}</td>
+                    <td>
+                        <a href="javascript:;" @click="del(index)">删除</a>
+                        <a href="javascript:;" @click="rev(index)">修改</a>
+                        <a href="javascript:;" @click="det(index)">详情</a>
+                    </td>
+                </tr>
+            </table>
+            <label>共{{arr.length}}条数据</label>
+            <div class="det" style="display: none;">
+                <div class="det-m">
+                    <label>
+                    姓名：<input type="text" name="" placeholder="请输入你的姓名" class="name" disabled>
+                </label>
+                    <br> 性别：
+                    <label>
+                    <input type="radio" name="s" value="男" class="sex1" disabled>男
+                </label>
+                    <label>
+                    <input type="radio" name="s" value="女" class="sex2" disabled>女
+                </label>
+                    <br>
+                    <label>
+                    年龄：<input type="text" name="" placeholder="请输入你的年龄" disabled class="age">
+                </label>
+                    <br>
+                    <label>
+                    学校：<input type="text" name="" placeholder="请输入你的学校" disabled class="sch">
+                </label>
+                    <br>
+                    <label>
+                    出生日期：<input type="date" name="" disabled class="date">
+                </label>
+                    <br>
+                    <a href="javascript:;" class="close">关闭</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="../05-Bootstrap/bootstrap-v3/js/bootstrap.js"></script>
+<script src="js/vue.js"></script>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            arr: [{
+                name: "王付玉",
+                sex: "男",
+                age: 28,
+                sch: "天上飞",
+                date: "1994-04-23"
+            }, {
+                name: "李世龙",
+                sex: "女",
+                age: 20,
+                sch: "海里靠",
+                date: "2001-12-03"
+            }, {
+                name: "栾金鹏",
+                sex: "男",
+                age: 20,
+                sch: "家里蹲",
+                date: "2001-10-03"
+            }],
+            newName: "",
+            newSex: "",
+            newAge: "",
+            newSch: "",
+            newDate: "",
+        },
+        methods: {
+            del(index) {
+                this.arr.splice(index, 1)
+            },
+            add() {
+                let obj = {
+                    name: this.newName,
+                    sex: this.newSex,
+                    age: this.newAge,
+                    sch: this.newSch,
+                    date: this.newDate
+                }
+                if (this.newName !== "" && this.newSex !== "" && this.newAge !== "" && this.newSch !== "" && this.newDate !== "") {
+                    this.arr.push(obj)
+                    this.newName = ""
+                    this.newSex = ""
+                    this.newAge = ""
+                    this.newSch = ""
+                    this.newDate = ""
+                } else {
+                    alert("内容不能为空")
+                }
+            },
+            rev(index) {
+                console.log("123", index);
+
+            },
+            det(index) {
+                var det1 = document.querySelector(".det");
+                var name = document.querySelector(".name");
+                det1.style.display = "block"
+                name.value = this.arr[index].name
+
+                var sex1 = document.querySelector(".sex1");
+                var sex2 = document.querySelector(".sex2");
+                if (this.arr[index].sex == "男") {
+                    sex1.checked = "checked"
+                } else if (this.arr[index].sex == "女") {
+                    sex2.checked = "checked"
+                }
+
+                var age = document.querySelector(".age");
+                age.value = this.arr[index].age
+
+                var sch = document.querySelector(".sch");
+                sch.value = this.arr[index].sch
+
+                var date = document.querySelector(".date")
+                date.value = this.arr[index].date
+
+                var close = document.querySelector(".close")
+                close.onclick = function() {
+                    det1.style.display = "none"
+                }
+
+            },
+            amend(val) {
+                val = this.name
+                console.log(val);
+            }
+        }
+    })
+</script>

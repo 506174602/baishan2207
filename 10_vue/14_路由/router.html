@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Router</title>
+    <script src="../vue.js"></script>
+    <script src="../vue-router.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <a href=""></a> -->
+        <!-- 声明式导航 应用于视图层， 理解为上面的 a 标签。  -->
+        <router-link to="/">去foo页面</router-link>
+        <router-link to="/bar">去bar页面</router-link>
+        <!-- 显示路由对应组件的地方，当用到切换路由时，需要用 router-view 进行显示 -->
+
+        <router-view></router-view>
+
+        <!-- 命令视图 -->
+        <!-- 编程式导航，应用与逻辑层，理解为 location.href -->
+        <!-- 
+            第一种
+            this.$router.push({path: `/user/${id}`}) // 跳转到 user组件
+            {
+                // 对应的路由配置
+                path: '/user/:id',
+                name: 'user',
+                component: user
+            }
+            在user组件里 取路由上的参数： this.$route.params.id
+
+            第二种
+            this.$router.push({
+                name: 'user', // 唯一
+                params: {
+                    id: id
+                }
+            })
+            {
+                // 对应的路由配置
+                path: '/user',
+                name: 'user',
+                component: user
+            }
+            在user组件里 取路由上的参数： this.$route.params.id
+
+            第三种
+            this.$router.push({
+                path: '/user',
+                query: {
+                    id: id
+                }
+            })
+            {
+                // 对应的路由配置
+                path: '/user',
+                name: 'user',
+                component: user
+            }
+             在user组件里 取路由上的参数： this.$route.query.id
+         -->
+
+    </div>
+</body>
+<script>
+    // 1.定义了一个组件(代表一个路由地址)
+    const foo = {
+        template: `<p style="color: green">这里是 foo 页面</p>`
+    }
+    const bar = {
+        template: '<p style="color: red">这里是 bar 页面</p>'
+    }
+    // 2.定义路由，通过路由来映射每一个组件
+    const routes = [{
+        path: '/',
+        redirect: '/foo'
+    }, {
+        path: '/foo',
+        component: foo
+    }, {
+        path: '/bar',
+        component: bar
+    }]
+    // 3.创建路由实例， 把routes配置传进去
+    const router = new VueRouter({
+        routes
+    })
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                message: 'Hello World'
+            }
+        },
+        // 4.引用路由实例
+        router
+    })
+</script>
+
+</html>

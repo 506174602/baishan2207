@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<body>
+	<div id="app">
+		<!-- v-if判断是否加载这个p标签 -->
+		<p v-if="isTrue">
+			我是v-if
+		</p>
+		<p v-else>
+			我是v-else
+		</p>
+
+		<!-- 根据多个条件进行加载 -->
+		<h3 v-if="msg=='A'">我是A</h3>
+		<h3 v-else-if="msg=='B'">我是B</h3>
+		<h3 v-else-if="msg=='C'">我是C</h3>
+		<h3 v-else-if="msg=='D'">我是D</h3>
+		<h3 v-else>啥也不是</h3>
+
+		<!-- v-show加载完成，只是改变了display的显示隐藏 -->
+		<p v-show="isOk">
+			我王付玉是狗蛋
+		</p>
+	</div>
+	<!-- 
+		v-if与v-show的区别？
+		v-if判断的是元素是否加载渲染到页面上
+		v-show是加载完成之后，判断元素是否显示与隐藏，实际改变的是
+		display的显示隐藏样式
+	 -->
+</body>
+
+</html>
+<script src="../vue.js"></script>
+<script type="text/javascript">
+	// 创建vue实例
+	var app = new Vue({
+		// 声明一个空间
+		el: "#app",
+		// 存放所用到的变量
+		data: {
+			isOk: false,
+			isTrue: true,
+			msg: "w"
+		}
+	})
+</script>

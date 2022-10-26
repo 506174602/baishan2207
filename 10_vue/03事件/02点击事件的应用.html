@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<body>
+	<div id="app">
+		<input type="submit" value="提交" @click="handleClick('函数传参数')">
+
+		<ul>
+			<!-- 当前点击的对象，当前点击对象的索引，事件对象 -->
+			<li v-for="(item,index) in stu" :key="index" @click="handleRow(item,index,$event)">
+				{{item.name}}
+			</li>
+			<!-- 
+
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+
+				for(var i=0;i<oli.length;i++){
+					oli[i].onclick=function(){
+						console.log(this.innerText)
+					}
+				}
+			 -->
+		</ul>
+	</div>
+</body>
+
+</html>
+<script src="../vue.js"></script>
+<script type="text/javascript">
+	var app = new Vue({
+		el: "#app",
+		// 存放变量的地方
+		data: {
+			arr: ["html", "css", "js"],
+			stu: [{
+					name: "特朗普",
+					age: 53,
+					sex: "第三性别",
+					sch: "家里蹲大学"
+				},
+				{
+					name: "代振",
+					age: 20,
+					sex: "男",
+					sch: "山铝大学"
+				},
+				{
+					name: "马龙泉",
+					age: 20,
+					sex: "男",
+					sch: "山铝大学"
+				},
+			],
+		},
+		// 存放函数的地方
+		methods: {
+			handleClick(val) {
+				console.log(val)
+			},
+			handleRow(row, i, e) {
+				console.log(row, i, e)
+			}
+		}
+	})
+</script>

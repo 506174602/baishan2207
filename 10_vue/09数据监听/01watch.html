@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <h1>ands=>{{ands}}</h1>
+        <input type="number" v-model.number="num">
+        <button @click="setObjs">修改对象中的值</button>
+        {{objs}}
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                num: 100,
+                ands: 0,
+                objs: {
+                    a: "hello"
+                }
+            },
+            methods: {
+                setObjs() {
+                    this.objs.a = "world"
+                }
+            },
+            computed: {
+                // 应用于同步操作
+                // ands: function () {
+                //     // setTimeout(() => { 
+                //     //     return this.num * 2;
+                //     // }, 2000)
+                //     return 999
+                // }
+            },
+            // watch 侦听器 主要的作用是观察 无缓存值，类似于某些数据的监听回调，每当监听的数据发生变化时，就会触发，（可以进行异步操作）
+            watch: {
+                // 它有两个参数
+                // 第一个 代表修改以后的值
+                // 第二个 代表修改之前的值
+                // num: function (newVal, oldValue) {
+                //     setTimeout(() => {
+                //         this.ands = newVal * 2;
+                //     }, 5000)
+                // },
+
+                //在页面加载时先自动执行一次
+                // num: {
+                //     handler: function (newVal, oldVal) {
+                //         this.ands = newVal * 2
+                //     },
+                //     immediate: true  // 当改属性的值为true 时，该侦听器会先执行一次
+                // }
+
+                // objs: function (newVal) {
+                //     console.log("newVal", newVal);
+                // }
+                objs: {
+                    handler: function (newVal) {
+                        console.log("newVal", newVal);
+                    },
+                    deep: true, // 当被监听的属性 有嵌套内容的时候，为了能监听到内部数据的变化，我们可以使用 deep 属性 
+                }
+
+
+                // 1. 不支持缓存 数据变化，会触发相应操作
+                // 2. watch 支持异步操作
+                // 3.监听的函数接收两个参数，第一个是最新的值，第二个 更新之前的值
+                // 4.监听的值必须在data 中 声明过
+                // 5.当一个属性发生变化 ，多个属性需要执行对应的操作，（一对多）可以使用watch
+
+
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>父传子</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="pMessage"><br>
+        ===========上面是父组件 下面是子组件挂载================
+        <!-- 使用子组件， 以下两种写法都可以 -->
+        <!-- <my-component /> -->
+        <my-component :my-msg="pMessage"></my-component>
+    </div>
+</body>
+<script>
+    // 父组件 向 子组件 传值,  通过 props
+    // 给子组件绑定一个自定义属性，在子组件内部使用 props 进行接收渲染父组件的传来的对应值
+    const child = Vue.extend({ // 构造子组件
+        template: `<div><p>{{ cMessage }}</p><button @click="change()">修改</button></div>`,
+        props: ['myMsg'], // 在子组件中声明一个props属性，里面是 接收父组件数据的对应属性名
+        data() {
+            return {
+                cMessage: 456
+            }
+        },
+        methods: {
+            change() {
+                // 获取父组件中的值并使用
+                this.cMessage = this.myMsg
+            }
+        }
+    })
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                pMessage: 'Hello World'
+            }
+        },
+        components: {
+            myComponent: child
+        }
+    })
+</script>
+
+</html>

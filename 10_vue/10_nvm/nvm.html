@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    nvm （nodejs version management） nodejs版本管理器
+    windows + R
+    输入 cmd
+    输入 nvm version
+    输出 1.1.9
+    安装成功
+
+    nvm list
+    node -v
+    npm -v
+    nvm install 12.15.0 安装失败，因为没有配置镜像源
+    打开nvm安装目录
+    c:/nvm/
+    打开 settings.txt
+    把以下内容 放到settings.txt文件内容的最后
+    proxy: none
+    node_mirror: http://npm.taobao.org/mirror/node
+    npm_mirror: http://npm.taobao.org/mirror/npm
+    保存，关闭 settings.txt文件
+    重新开cmd窗口
+    安装 nvm install 12.15.0
+
+    nvm list
+    卸载 nvm uninstall 12.15.0
+
+    cd 到项目一根目录下
+    nvm use 12.15.0 回车
+    cd 到项目二根目录下
+    nvm use 10.15.0 回车
+
+</body>
+
+</html>

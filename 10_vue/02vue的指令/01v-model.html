@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<body>
+	<!-- view -->
+	<div id="app">
+		<!-- v-model将数据绑定在指定的【表单元素】，非常轻松的实现数据的双向绑定 -->
+		<p>
+			<input type="text" v-model="mlq">
+		</p>
+		<p>
+			<!-- 后面只能输入数字，输入其他失去焦点的时候就清空后面不是数字的内容 -->
+			number:<input type="text" name="" v-model.number="mlq">
+		</p>
+		<p>
+			<!-- 懒加载：失去焦点的时候执行 -->
+			lazy:<input type="text" v-model.lazy="mlq">
+		</p>
+		<p>
+			<!-- 去掉前后空格 -->
+			trim:<input type="text" v-model.trim="mlq">
+		</p>
+
+		<h3>多选框绑定一个值</h3>
+		<label>
+			<!-- 多选框默认是不选中的状态，也就是false.我给isTrue定义了true并且双向绑定给这个多选框，就改变了原来的默认值，变成了选中的状态 -->
+			<input type="checkbox" v-model="isTrue">{{isTrue}}
+		</label>
+		<h3>多选框绑定多个值</h3>
+		<!--这三个input绑定了一个空数组,arr没有东西,默认就是false,都是不选中状态 -->
+		<!-- 当checkbox为选中的时候就是true -->
+		<!-- 为true的时候默认会把value的值放到数组中去 -->
+		<label>
+			<input type="checkbox" v-model="arr" value="张三">张三
+		</label>
+		<label>
+			<input type="checkbox" v-model="arr" value="李四">李四
+		</label>
+		<label>
+			<!--
+				会隐性的将arr这个变量里面的值与value进行对比，如果有李老师那么就删除，false就不选中
+			  -->
+			<input type="checkbox" v-model="arr" value="李老师">李老师
+		</label>
+		<p>
+			{{arr}}
+		</p>
+
+		<h3>单选框绑定值</h3>
+		<label>
+			<!-- 
+				vue实现单选，v-model="sex"   sex：男
+				会隐性的将sex这个变量里面的值与value进行对比，如果一致那么就选中
+			 -->
+			<input type="radio" name="s" value="男" v-model="sex">男
+		</label>
+		<label>
+			<input type="radio" name="s" value="女" v-model="sex">女
+		</label>
+		<label>
+			<input type="radio" name="s" value="其他" v-model="sex">其他
+		</label>
+		<p>
+			螳螂铺：{{sex}}
+		</p>
+	</div>
+</body>
+
+</html>
+<script src="../vue.js"></script>
+<script type="text/javascript">
+	// 构建出一个vue实例，view model
+	var app = new Vue({
+		// 声明空间,不能用类名，要用id唯一的。因为用类名是可以重复的，但是vue中不允许重复
+		el: "#app",
+		// 用来存放所有用到的数据变量
+		data: {
+			mlq: "123123",
+			isTrue: true,
+			arr: [],
+			sex: "男"
+		}
+	})
+</script>

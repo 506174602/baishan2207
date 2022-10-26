@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<body>
+	<!-- view 视图层,也就是咱们看到的页面 -->
+	<div id="lixianliang">
+		<!-- 花括号语法:{{}} 插值渲染 -->
+		<!-- {{是data中定义的变量}} -->
+		<!-- 第三步渲染数据 -->
+		<p>{{name}}</p>
+		<!-- 花括号可以写js逻辑代码 -->
+		<p>{{1+50}}</p>
+		<p>
+			{{1+2==2?"等于2":"不等于2"}}
+		</p>
+		<p>
+			{{arr[2]}}---姓名：{{obj.name}}--年龄：{{obj.age}}--性别：{{obj.sex}}
+		</p>
+
+		<!-- 如果没有在data定义会报错，defined -->
+		<!-- <p>{{str}}</p> -->
+	</div>
+	<!-- 插值渲染必须在声明空间的div中，否则原样输出 -->
+	<p>{{obj.name}}</p>
+</body>
+
+</html>
+<script src="../vue.js"></script>
+<script type="text/javascript">
+	// 第一步构建出vue实例  相当于view Model即视图模型（定义的变量，后端请求的数据）
+	var vm = new Vue({
+		// 声明空间,
+		el: "#lixianliang",
+		// 第二步，定义变量，用来存放所有用到的变量
+		data: {
+			// 我定义了一个变量为name,并把数据赋值给name
+			name: "特朗普",
+			arr: [1, 2, 3, 5],
+			obj: {
+				name: "特朗普",
+				age: 52,
+				sex: "不详"
+			},
+		}
+
+		// ajax请求过来的数据:就是Model
+	})
+
+	/*
+			1、创建vue实例  (view model)
+			2、在data中定义变量，多个变量用逗号隔开，然后请求数据将请求过来的数据重新赋值给data中的变量。 (model)
+			3、利用{{}}将数据变量渲染到页面上。（view）
+
+			注意：如果没有在data中定义变量，用插值渲染会报defined,告诉你没有定义
+			插值渲染必须在声明空间的div中，否则原样输出
+			定义变量起的名字驼峰式命名。
+	*/
+</script>

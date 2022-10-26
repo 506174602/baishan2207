@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<input type="text" id="inp">
+	<p class="sp"></p>
+</body>
+</html>
+<script type="text/javascript">
+	let oInput=document.querySelector("#inp")
+	let oP=document.querySelector(".sp")
+
+	/*
+		Object.defineProperty(参数1，参数2，参数3):方法是给对象设置属性
+		参数1：要添加的或者要修改的对象
+		参数2：要添加的对象的属性
+		参数3：是个对象，针对数据的属性进行设置
+
+	*/ 
+	let obj={}
+
+	// 给obj这个空对象添加一个name属性，并且对这个属性进行设置
+	Object.defineProperty(obj,"name",{
+		// 对定义的属性取值的时候会触发get对应的函数，并返回结果
+		get:function () {
+			
+		},
+		// set:对定义的属性取值的时候会触发set对应的函数，会接受一个参数，并且实时监听这个参数的变化，这个参数是动态绑定的值，会变化
+		set:function(newVal){
+			// 会变化的
+			console.log(newVal)
+			// input框里面的内容等于实时变化的内容
+			oInput.value=newVal
+			// p里面的内容等于实时变化的内容
+			oP.innerText=newVal
+		}
+	})
+	// change主要用于select选中输出
+	// change多选框内容发生改变的时候
+	
+	oInput.addEventListener("input",function(){
+		console.log(oInput.value,"oInput.value")
+		// 对象里面的属性等于input里面的属性
+		obj.name=oInput.value
+	})
+	// 默认给对象设置一个值
+	obj.name="张三"
+
+	/*
+		给input绑定事件，将input里面的值给了对象中的name属性，只有input值发生了变化就把值给对象中的name
+
+		然后利用Object.defineProperty方法里面的set方法对name这个数据进行监听，然后将发生改变的数据给p标签
+
+	*/ 
+</script>

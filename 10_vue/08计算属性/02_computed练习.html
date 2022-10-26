@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <style>
+        .box {
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            margin: 20px 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="box" v-for="item in arrList">
+            <p>姓名 ：{{item.name}}</p>
+            <p>工资：{{item.money}}</p>
+        </div>
+        <h1>总工资：{{sum}}</h1>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                arrList: [{
+                        name: "特朗普",
+                        money: "3000.21"
+                    },
+                    {
+                        name: "徐磊",
+                        money: "6500.21"
+                    },
+                    {
+                        name: "张忠文",
+                        money: "4500.21"
+                    },
+                    {
+                        name: "于波",
+                        money: "3500.21"
+                    }
+                ]
+            },
+            computed: {
+                // 李世龙 版本
+                sum: function () {
+                    // let sum = 0; //
+                    // for (let i = 0; i < this.arrList.length; i++) {
+                    //     sum += Math.floor(Number(this.arrList[i].money))
+                    // }
+                    // return sum
+                    // 1.
+                    // let sum = 0;
+                    // for (const item of this.arrList) {
+                    //     sum += Number(item.money)
+                    // }
+                    // return Math.floor(sum)
+
+                    // 2. reduce() 接收 4个参数
+                    // 第一个参数  （累计器）
+                    // 第二个参数  当前值
+                    // 第三个参数  当前索引
+                    // 第四个参数  源数组
+                    let nums = this.arrList.reduce((and, val, index, arr) => {
+                        // ands = ands + Number(val.money)
+                        console.log("ands", and);
+                        return and
+                    }, 0)
+                    // 0 代表累计器的初始值
+                    // 如果没有提供初始值 默认使用数组中的第一个元素
+                    console.log('======', nums);
+                    return Math.floor(nums)
+
+
+                },
+
+
+
+
+            },
+            methods: {
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>

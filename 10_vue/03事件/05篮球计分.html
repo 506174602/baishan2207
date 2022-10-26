@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div id="app">
+		本场得分：{{score}} 分
+		<p>
+			<button @click="add">加分</button>
+			<button @click="reduce">减分</button>
+			<button @click="score+=3">三分球</button>
+			<input type="text" v-model="num" @keyup.enter="handleE">
+		</p>
+	</div>
+</body>
+</html>
+<script src="../vue.js"></script>
+<script>
+	var app=new Vue({
+		el:"#app",
+		data:{
+			// 分数，默认是0
+			score:0,
+			num:2
+		},
+		methods:{
+			// 加分每次加1
+			add(){
+				this.score++
+			},
+			// 减分每次减1
+			reduce(){
+				if(this.score>0){
+					this.score--
+				}else{
+					alert("不能再减了")
+				}
+			},
+			handleE(){
+				// 总分=当前输入的值加上原来的数值
+				// this.score=Number(this.num)+Number(this.score)
+				this.score+=Number(this.num)
+			}
+		}
+	})
+</script>

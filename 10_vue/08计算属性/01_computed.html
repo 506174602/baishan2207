@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        a=>:{{a}}
+
+        <button @click="setB">修改B</button>
+    </div>
+
+    <script>
+        // computed  计算属性 ：依赖其他属性值，并且 computed 有缓存，只有他依赖的属性值发生改变，下一次computed 才会重新计算
+        // 页面加载时 会 主动执行一次
+        // 它是同步的操作
+
+
+        // 1. 支持缓存， 只有依赖的数据发生改变时发生改变
+        // 2. 不支持异步
+        // 3. computed 可以进行值得缓存
+        // 4. 如果一个属性是由其他属性计算得来的， 也就是说这个属性依赖其他属性， 及一对一或一对多我们通常使用computed
+        // 5. computed 的属性值是函数 默认会执行 get 方法 函数的返回值就是 属性的属性值， 在computed 中每一个属性 都有一个get 方法 和 set 方法（ 必须return 才有值）
+
+
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                b: 100,
+                c: 200,
+            },
+            computed: {
+                // a: function () {
+                //     let num = this.b + this.c;
+                //     console.log("this.b+this.c", num);
+                //     return num;
+                // }
+
+                a: {
+                    // 默认执行的是get
+                    get: function () { // 读取
+                        return this.b + this.c
+                    },
+                    set: function (val) { // 设置
+                        console.log("val", val);
+                        this.b = val;
+                    }
+                }
+
+
+            },
+            methods: {
+                setB() {
+                    this.a = 20;
+                    // this.b = 200;
+                }
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>

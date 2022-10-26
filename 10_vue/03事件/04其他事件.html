@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div id="app">
+		<!-- focus、blur、mouseout、mousemove....... -->
+		<input type="submit" value="鼠标移入" v-on:mouseover="handleDown($event)">
+		<!-- @keyup.enter:当键盘抬起并且按得是回车键的时候触发 -->
+		<input type="text" value="回车抬起" @keyup.enter="show">
+	</div>
+</body>
+</html>
+<script src="../vue.js"></script>
+<script>
+	var app=new Vue({
+		el:"#app",
+		data:{
+
+		},
+		methods:{
+			handleDown(e){
+				console.log(e)
+			},
+			show(){
+				console.log("登录成功")
+			}
+		}
+	})
+</script>

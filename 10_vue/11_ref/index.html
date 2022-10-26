@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ref</title>
+    <!-- cdn -->
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Ref</h1>
+        <label>姓名</label>
+        <input type="text" @keyup="getName" ref="name">
+        <span>{{ name }}</span> <br>
+
+        <label>年龄</label>
+        <input type="text" v-on:keyup="getAge" ref="age">
+        <span>{{ age }}</span>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                name: '',
+                age: 20
+            }
+        },
+        methods: {
+            getName() {
+                console.log('获取名称---', this.$refs.name.value);
+                this.name = this.$refs.name.value
+            },
+            getAge() {
+                this.age = this.$refs.age.value
+            }
+        }
+    })
+    // 刘志浩 孔祥峰 刘文龙 张莹莹 王雨堑 战浩林 王可 尹兴力
+</script>
+
+</html>

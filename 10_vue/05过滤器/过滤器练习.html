@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <style>
+        .main {
+            border: 1px solid #0099ff;
+            width: 60%;
+            margin: 0 auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="main" v-for="item in arrs">
+            <p>姓名：{{item.name | setName}}</p>
+            <p>工资：{{item.money | moneyFun | nameFun}}</p>
+        </div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                arrs: [{
+                        name: '张三', //  张*
+                        age: 22,
+                        money: 2312.32
+                    },
+                    {
+                        name: '王付玉', // 王**
+                        age: 22,
+                        money: 3423.67
+                    },
+                    {
+                        name: '山本五十六', //山****
+                        age: 22,
+                        money: 9756.23
+                    },
+                ]
+            },
+            filters: {
+                // Math.floor 向下取整
+                moneyFun(val) {
+                    return Math.floor(val)
+                },
+                nameFun(val) {
+                    return val + '日元'
+                },
+
+                // 宋兴智 版本
+                // setName(val) {
+                //     let setVal = '';
+                //     for (let i = 1; i < val.length; i++) {
+                //         setVal += val[i] = '*';
+                //     }
+                //     return val[0] + setVal
+                // },
+                setName(val) {
+                    let vals = val.split('');
+                    //fill() 填充方法、
+                    // 第一个参数 要填充的值
+                    // 第二个参数 是开始的位置
+                    // 第三个参数 是结束的位置
+                    vals.fill('*', 1, val.length);
+                    //通过join  方法进行转换成字符串
+                    let newVal = vals.join('');
+                    return newVal
+                }
+
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>

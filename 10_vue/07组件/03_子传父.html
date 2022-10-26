@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>子传父</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{ total }}</p> <br>
+        ============================== <br>
+        <!-- <button @click="increment()">{{ counter }}</button> -->
+        <button-counter @c-add-emit="pTotalEmit" :step="1" />
+    </div>
+</body>
+<script>
+    // $http $refs $emit
+    // 子组件向父组件传值， 通过事件调用实现， $emit
+    // 给子组件绑定一个自定义事件，$emit 值是接收参数的函数.父组件函数接收的值就是子组件传递参数。要在子组件内部使用 this.$emit() 发送
+    const child = Vue.extend({
+        template: `<button @click="increment()">点击次数 {{ counter }}</button>`,
+        props: ['step'],
+        data() {
+            return {
+                counter: 0
+            }
+        },
+        methods: {
+            increment() {
+                this.counter += this.step
+                /**
+                 * 
+                 *let params =  {
+                 *      name: this.name,
+                 *      age: this.age,
+                 *      counter: this.counter
+                 * }
+                 * this.$emit('c-add-emit', params)
+                 */
+                // 第一个参数：注册触发的事件名， 第二个参数： 需要传递的参数对象
+                this.$emit('c-add-emit', this.counter)
+            }
+        }
+    })
+    const parent = new Vue({
+        el: '#app',
+        data() {
+            return {
+                total: 0
+            }
+        },
+        components: {
+            'button-counter': child
+        },
+        methods: {
+            pTotalEmit(counter) {
+                this.total = counter
+            }
+        }
+    })
+</script>
+
+</html>

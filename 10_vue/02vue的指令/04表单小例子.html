@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<body>
+	<h1>小例子</h1>
+	<hr>
+	<div id="app">
+		<p>
+			<label>
+				姓名：<input type="text" name="" v-model="form.name" placeholder="请输入姓名">
+			</label>
+		</p>
+		<p>
+			<label>
+				年龄：<input type="text" v-model="form.age" placeholder="请输入年龄">
+			</label>
+		</p>
+		<p>
+			性别：
+			<label>
+				<input type="radio" name="s" v-model="form.sex" value="男">男
+			</label>
+			<label>
+				<input type="radio" name="s" v-model="form.sex" value="女">女
+			</label>
+		</p>
+		<!-- @click绑定点击事件，触发btnClick函数-->
+		<input type="submit" value="提交" @click="btnClick">
+		<p>
+			{{obj.name}}--
+			{{obj.age}}--
+			{{obj.sex}}
+		</p>
+	</div>
+</body>
+
+</html>
+<script src="../vue.js"></script>
+<script type="text/javascript">
+	// 构建出一个vue实例
+	var app = new Vue({
+		el: "#app",
+		// 存储数据变量
+		data: {
+			form: {
+				name: "",
+				age: "",
+				sex: ""
+			},
+			obj: {
+				name: "",
+				age: "",
+				sex: ""
+			}
+		},
+		// 存放函数的地方
+		methods: {
+			// fn:function () {
+
+			// },
+			// fn2:function(){
+
+			// }
+			// 简写
+			// fn(){}
+
+			btnClick() {
+				// this.obj.name=this.form.name
+				// this.obj.age=this.form.age
+				// this.obj.sex=this.form.sex
+				// 简写
+				// this.obj=this.form
+
+				// ajax请求数据，请求成功之后
+				setTimeout(() => {
+					let objList = {
+						name: "王付玉",
+						age: 52,
+						sex: "女"
+					}
+					// 把后端请求的数据给data中定义的obj变量
+					this.obj = objList
+				}, 3000)
+
+				/*
+					在函数中请求后端数据，将请求成功的数据赋值给data中定义的变量，然后将变量用插值的方法渲染到页面
+				*/
+			},
+		}
+	})
+
+	/*
+		在普通函数中的this属于直接调用者：比如btn.onclick=function(){}，这个函数中的this属于btn。
+		如果默认情况下没有找到调用者，则this属于window
+		在严格情况下没有直接调用者this是undefined
+		箭头函数中this属于所处的对象。
+
+		构造函数中的this是new出来的那个对象
+	*/
+</script>

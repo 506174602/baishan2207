@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		div{
+			width: 300px;
+			height: 300px;
+			background: red
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<!-- 
+			第一种方法：事件委托，e.stopPropagation()
+		 -->
+		<div @click="fn">
+			<input type="submit" value="点击" @click="handleClick">
+		</div>
+		<!-- 第二种方法：.stop -->
+		<!-- 事件只触发一次 .once -->
+		<div @click="fn">
+			<input type="submit" value="点击" @click.stop="handleClick1">
+		</div>
+	</div>
+</body>
+</html>
+<script src="../vue.js"></script>
+<script type="text/javascript">
+	/*
+		事件冒泡：两个div都添加点击事件，当我点击里面的div的时候，外面div事件也会触发
+	*/ 
+	var app=new Vue({
+		el:"#app",
+		data:{
+
+		},
+		methods:{
+			fn(){
+				console.log("我是爸爸")
+			},
+			handleClick(e){
+				// js的原生方法
+				e.stopPropagation()
+				console.log("我是后代")
+			},
+			handleClick1(){
+				console.log("我是后代")
+			}
+		}
+	})
+</script>

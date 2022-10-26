@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <style>
+        .mainBox {
+            width: 300px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .onlyBox {
+            flex: 1;
+            height: 100%;
+            border: 1px solid #777;
+
+        }
+
+        .contentBox {
+            width: 300px;
+            height: 600px;
+            background-color: #ececec;
+            text-align: center;
+            line-height: 600px;
+            font-size: 23px;
+            color: #ff0000;
+        }
+
+        /* 被选中时加载该样式 */
+        .selectSty {
+            background-color: chocolate;
+            color: #fff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <div class="mainBox">
+            <div class="onlyBox" :class={selectSty:index===0} @click="setIndex(0)">项目1</div>
+            <div class="onlyBox" :class={selectSty:index===1} @click="setIndex(1)">项目2</div>
+            <div class="onlyBox" :class={selectSty:index===2} @click="setIndex(2)">项目3</div>
+        </div>
+
+        <div class="contentBox" v-if="index === 0">内容1</div>
+        <div class="contentBox" v-if="index === 1">内容2</div>
+        <div class="contentBox" v-if="index === 2">内容3</div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                index: 0 //通过index 判断 显示哪一项（index0 显示 内容1 index1 显示内容2 ）
+            },
+            methods: {
+                setIndex(ind) {
+                    console.log(ind);
+                    this.index = ind;
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

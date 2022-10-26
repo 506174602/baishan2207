@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div id="app">
+		<!-- 第一种阻止事件默认行为的方法: js中的原生方法:e.preventDefault -->
+		<a href="http://www.baidu.com" target="_blank" @click="handleClick($event)">百度一下</a>
+		<!-- 第二种阻止事件默认行为的方法: 修饰符.prevent -->
+		<a href="http://www.baidu.com" target="_blank" @click.prevent="handleClick1">百度一下</a>
+	</div>
+</body>
+</html>
+<script src="../vue.js"></script>
+<script>
+	var app=new Vue({
+		el:"#app",
+		data:{
+
+		},
+		methods:{
+			handleClick(e){
+				e.preventDefault()
+				console.log(e)
+			},
+			handleClick1(){
+			}
+		}
+	})
+</script>

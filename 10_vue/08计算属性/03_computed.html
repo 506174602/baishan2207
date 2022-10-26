@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="a++">加一岁</button>
+        <button @click="b--">减一岁</button>
+
+
+        <p>A 的年龄: {{ add() }} </p>
+        <p>B 的年龄: {{ subtract() }} </p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                // 为什么data是一个函数？？？
+                // 因为组件可能被用来创建多个实例，如果把data作为函数，每一个实例的data属性都是独立的，不会相互影响。
+                return {
+                    a: 10,
+                    b: 10,
+                    age: 20
+                }
+            },
+            computed: {},
+            methods: {
+                add() {
+                    console.log('增加');
+                    return this.age + this.a
+                },
+                subtract() {
+                    console.log('减少');
+                    return this.age - this.b
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
